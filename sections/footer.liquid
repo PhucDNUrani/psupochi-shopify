@@ -2,6 +2,7 @@
   assign newsletter_block = section.blocks | where: 'type', 'socials_newsletter' | first
   assign customer_service_block = section.blocks | where: 'type', 'customer_support' | first
   assign menu_block = section.blocks | where: 'type', 'menu' | first
+  assign footer_banner = section.blocks |where: 'type', 'footer_banner' | first
   if menu_block and menu_block.settings.split_menu
     assign split_menu = true
   endif
@@ -9,43 +10,26 @@
     assign button_color = newsletter_block.settings.footer_button_style | split: ' ' | first
     assign button_style = newsletter_block.settings.footer_button_style | split: ' ' | last
   endif
+  if footer_banner
+    assign has_footer_banner = true
+  endif
 -%}
-<nav id="shopify-section-footer" class="palette-{{ section.settings.footer_color }} module-color-palette" style="--main_h_small:var(--main_{{ section.settings.title_size_blocks }});">
+<nav
+  id="shopify-section-footer"
+  class="
+    palette-{{ section.settings.footer_color }} module-color-palette
+    {% if section.settings.full_width %}is-full-width{% endif %}
+  "
+  style="--main_h_small:var(--main_{{ section.settings.title_size_blocks }});"
+>
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
         {% render block %}
       {%- when 'text' %}
         {%- if block.settings.title != empty or block.settings.text != empty -%}
-        <div class="
-          {% if block.settings.title_underline_style != 'none' %}
-            title-underline-none
-            {% if block.settings.title_underline_style contains 'accent' %}
-              title-underline-accent
-            {% elsif block.settings.title_underline_style contains 'gradient' %}
-              title-underline-gradient
-            {% endif %}
-            {% if block.settings.title_underline_style contains 'secondary_font' %}
-              title-underline-secondary-font
-            {% endif %}
-          {% endif %}
-          " {{ block.shopify_attributes }}>
-            <{{ section.settings.title_size_blocks }} class="ff-{{ section.settings.title_font }}">
-            {{ block.settings.title }}
-            </{{ section.settings.title_size_blocks }}>
-            {{ block.settings.text }}
-          </div>
-        {%- endif -%}
-      {%- when 'html' %}
-        {%- if block.settings.html != empty -%}
-          <div class="strong" {{ block.shopify_attributes }}>
-            {{ block.settings.html }}
-          </div>
-        {%- endif -%}
-      {%- when 'customer_support' -%}
-        <div class="m6cn{% unless block.settings.customer_support_img %} mobile-no-img{% endunless %}" {{ block.shopify_attributes }}>
-          {%- if block.settings.title != empty -%}
-            <div class="
+          <div
+            class="
               {% if block.settings.title_underline_style != 'none' %}
                 title-underline-none
                 {% if block.settings.title_underline_style contains 'accent' %}
@@ -57,22 +41,67 @@
                   title-underline-secondary-font
                 {% endif %}
               {% endif %}
-            ">
-              <{{ section.settings.title_size_blocks }} class="ff-{{ section.settings.title_font }}">
+            "
+            {{ block.shopify_attributes }}
+          >
+            <{{ section.settings.title_size_blocks }} class="ff-{{ section.settings.title_font }}">
               {{ block.settings.title }}
+            </{{ section.settings.title_size_blocks }}>
+            {{ block.settings.text }}
+          </div>
+        {%- endif -%}
+      {%- when 'html' %}
+        {%- if block.settings.html != empty -%}
+          <div class="strong" {{ block.shopify_attributes }}>
+            {{ block.settings.html }}
+          </div>
+        {%- endif -%}
+      {%- when 'customer_support' -%}
+        <div
+          class="m6cn{% unless block.settings.customer_support_img %} mobile-no-img{% endunless %}"
+          {{ block.shopify_attributes }}
+        >
+          {%- if block.settings.title != empty -%}
+            <div
+              class="
+                {% if block.settings.title_underline_style != 'none' %}
+                  title-underline-none
+                  {% if block.settings.title_underline_style contains 'accent' %}
+                    title-underline-accent
+                  {% elsif block.settings.title_underline_style contains 'gradient' %}
+                    title-underline-gradient
+                  {% endif %}
+                  {% if block.settings.title_underline_style contains 'secondary_font' %}
+                    title-underline-secondary-font
+                  {% endif %}
+                {% endif %}
+              "
+            >
+              <{{ section.settings.title_size_blocks }} class="ff-{{ section.settings.title_font }}">
+                {{ block.settings.title }}
               </{{ section.settings.title_size_blocks }}>
             </div>
           {%- endif -%}
           {{ block.settings.extra_customer_support }}
           <ul class="l4cn">
             {% if shop.phone != empty and shop.phone != blank and block.settings.show_phone_link %}
-              <li><a href="tel:{{ shop.phone }}"><i aria-hidden="true" class="icon-phone"></i> {{ shop.phone }}</a></li>
+              <li>
+                <a href="tel:{{ shop.phone }}"><i aria-hidden="true" class="icon-phone"></i> {{ shop.phone }}</a>
+              </li>
             {% endif %}
             {% if shop.email != empty and shop.email != blank and block.settings.show_mail_link %}
-              <li><a href="mailto:{{ shop.email }}" class="email"><i aria-hidden="true" class="icon-envelope"></i> {{ shop.email }}</a></li>
+              <li>
+                <a href="mailto:{{ shop.email }}" class="email"
+                  ><i aria-hidden="true" class="icon-envelope"></i> {{ shop.email -}}
+                </a>
+              </li>
             {% endif %}
             {% if settings.whatsapp != empty and settings.whatsapp != 0 and block.settings.show_whatsapp_link %}
-              <li><a href="https://wa.me/{{ settings.whatsapp }}"><i aria-hidden="true" class="icon-whatsapp-overlay"></i> {{ 'footer.whatsapp_html' | t }}</a></li>
+              <li>
+                <a href="https://wa.me/{{ settings.whatsapp }}"
+                  ><i aria-hidden="true" class="icon-whatsapp-overlay"></i> {{ 'footer.whatsapp_html' | t -}}
+                </a>
+              </li>
             {% endif %}
           </ul>
           {%- if block.settings.customer_support_img -%}
@@ -80,18 +109,18 @@
             <figure>
               <picture class="static">
                 <img
-                        src="{{- block.settings.customer_support_img | image_url: width: block.settings.customer_support_img_width -}}"
-                        srcset="{% render 'image-srcset', image: block.settings.customer_support_img %}"
-                        sizes="
+                  src="{{- block.settings.customer_support_img | image_url: width: block.settings.customer_support_img_width -}}"
+                  srcset="{% render 'image-srcset', image: block.settings.customer_support_img %}"
+                  sizes="
                     (min-width: 1100) {{ block.settings.customer_support_img_width }}px
                     (min-width: 760px) 0
                     (min-width: 400px) 200px
                     0
                   "
-                        width="{{ block.settings.customer_support_img_width }}"
-                        height="217"
-                        alt="{{ block.settings.customer_support_img.alt | default: default_alt | escape }}"
-                        loading="lazy"
+                  width="{{ block.settings.customer_support_img_width }}"
+                  height="217"
+                  alt="{{ block.settings.customer_support_img.alt | default: default_alt | escape }}"
+                  loading="lazy"
                 >
               </picture>
             </figure>
@@ -110,22 +139,24 @@
               {%- if settings.social_tumblr -%}tumblr|{{settings.social_tumblr}}|{{ settings.social_tumblr_name }}->{%- endif -%}
               {%- if settings.social_snapchat -%}snapchat|{{settings.social_snapchat}}|{{ settings.social_snapchat_name }}{%- endif -%}
             {%- endcapture -%}
-            {%- assign socials = socials | split: "->" -%}
+            {%- assign socials = socials | split: '->' -%}
             {%- if block.settings.title != empty -%}
-              <div class="
-                {% if block.settings.title_underline_style != 'none' %}
-                  title-underline-none
-                  {% if block.settings.title_underline_style contains 'accent' %}
-                    title-underline-accent
-                  {% elsif block.settings.title_underline_style contains 'gradient' %}
-                    title-underline-gradient
+              <div
+                class="
+                  {% if block.settings.title_underline_style != 'none' %}
+                    title-underline-none
+                    {% if block.settings.title_underline_style contains 'accent' %}
+                      title-underline-accent
+                    {% elsif block.settings.title_underline_style contains 'gradient' %}
+                      title-underline-gradient
+                    {% endif %}
+                    {% if block.settings.title_underline_style contains 'secondary_font' %}
+                      title-underline-secondary-font
+                    {% endif %}
                   {% endif %}
-                  {% if block.settings.title_underline_style contains 'secondary_font' %}
-                    title-underline-secondary-font
-                  {% endif %}
-                {% endif %}
-              ">
-                  <{{ section.settings.title_size_blocks }} class="ff-{{ section.settings.title_font }}">
+                "
+              >
+                <{{ section.settings.title_size_blocks }} class="ff-{{ section.settings.title_font }}">
                   {{ block.settings.title }}
                 </{{ section.settings.title_size_blocks }}>
               </div>
@@ -135,7 +166,16 @@
                 {%- for social in socials -%}
                   {%- assign social_info = social | split: '|' -%}
                   {%- assign social_translation = 'socials.' | append: social_info[0] -%}
-                  <li><a aria-label="{{ social_translation | t }}" href="{{ social_info[1] }}" rel="external noopener" target="external"><i aria-hidden="true" class="icon-{{ social_info[0] }}"></i><span>{{ social_translation | t }}</span></a></li>
+                  <li>
+                    <a
+                      aria-label="{{ social_translation | t }}"
+                      href="{{ social_info[1] }}"
+                      rel="external noopener"
+                      target="external"
+                      ><i aria-hidden="true" class="icon-{{ social_info[0] }}"></i
+                      ><span>{{ social_translation | t }}</span></a
+                    >
+                  </li>
                 {%- endfor -%}
               </ul>
             {%- else -%}
@@ -143,7 +183,16 @@
                 <ul class="l4sc">
                   {%- for social in shop.brand.metafields.social_links -%}
                     {%- assign social_translation = 'socials.' | append: social[0] -%}
-                    <li><a aria-label="{{ social_translation | t }}" href="{{ social[1] }}" rel="external noopener" target="external"><i aria-hidden="true" class="icon-{{ social[0] }}"></i><span>{{ social_translation | t }}</span></a></li>
+                    <li>
+                      <a
+                        aria-label="{{ social_translation | t }}"
+                        href="{{ social[1] }}"
+                        rel="external noopener"
+                        target="external"
+                        ><i aria-hidden="true" class="icon-{{ social[0] }}"></i
+                        ><span>{{ social_translation | t }}</span></a
+                      >
+                    </li>
                   {%- endfor -%}
                 </ul>
               {%- endif -%}
@@ -160,37 +209,73 @@
           {%- if block.settings.show_newsletter -%}
             {%- form 'customer', id: 'newsletter-footer' -%}
               <input type="hidden" name="contact[tags]" value="newsletter">
-            {%- if form.errors -%}
-              <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                  var alertAttributes = { message: "{{ 'newsletter.form.email_placeholder' | t }} {{ form.errors.messages['email'] }}", type: "error", origin: "newsletter" },
-                          showAlertEvent = new CustomEvent("showAlert", {detail: alertAttributes});
-                  window.dispatchEvent(showAlertEvent);
-                });
-              </script>
-            {%- elsif form.posted_successfully? -%}
-              <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                  var alertAttributes = { message: "{{ 'newsletter.form.success' | t }}", type: "success", origin: "newsletter" },
-                          showAlertEvent = new CustomEvent("showAlert", {detail: alertAttributes});
-                  window.dispatchEvent(showAlertEvent);
-                });
-              </script>
-            {%- endif -%}
+              {%- if form.errors -%}
+                <script>
+                  document.addEventListener('DOMContentLoaded', function () {
+                    var alertAttributes = {
+                        message: "{{ 'newsletter.form.email_placeholder' | t }} {{ form.errors.messages['email'] }}",
+                        type: 'error',
+                        origin: 'newsletter',
+                      },
+                      showAlertEvent = new CustomEvent('showAlert', { detail: alertAttributes });
+                    window.dispatchEvent(showAlertEvent);
+                  });
+                </script>
+              {%- elsif form.posted_successfully? -%}
+                <script>
+                  document.addEventListener('DOMContentLoaded', function () {
+                    var alertAttributes = {
+                        message: "{{ 'newsletter.form.success' | t }}",
+                        type: 'success',
+                        origin: 'newsletter',
+                      },
+                      showAlertEvent = new CustomEvent('showAlert', { detail: alertAttributes });
+                    window.dispatchEvent(showAlertEvent);
+                  });
+                </script>
+              {%- endif -%}
               <fieldset>
                 <legend>{{ 'newsletter.title_html' | t }}</legend>
                 <p>
                   <label for="email-{{ section.id }}">{{ 'newsletter.subtitle_html' | t }}</label>
-                  <input type="email" name="contact[email]" id="email-{{ section.id }}" aria-label="{{ 'newsletter.form.email_placeholder' | t }}" placeholder="{{ 'newsletter.form.email_placeholder' | t }}" required>
-                  <button type="submit" class="overlay-{{ button_color }} mobile-only{% if button_style == 'inv' %} inv{% endif %}">{{ 'newsletter.form.submit_button' | t }}&nbsp;<i aria-hidden="true" class="icon-chevron-right"></i></button>
+                  <input
+                    type="email"
+                    name="contact[email]"
+                    id="email-{{ section.id }}"
+                    aria-label="{{ 'newsletter.form.email_placeholder' | t }}"
+                    placeholder="{{ 'newsletter.form.email_placeholder' | t }}"
+                    required
+                  >
+                  <button
+                    type="submit"
+                    class="overlay-{{ button_color }} mobile-only{% if button_style == 'inv' %} inv{% endif %}"
+                  >
+                    {{ 'newsletter.form.submit_button' | t }}&nbsp;<i aria-hidden="true" class="icon-chevron-right"></i>
+                  </button>
                 </p>
-                {%- if block.settings.enable_newsletter_terms_checkbox and block.settings.newsletter_terms_text != empty -%}
+                {%- if block.settings.enable_newsletter_terms_checkbox
+                  and block.settings.newsletter_terms_text != empty
+                -%}
                   <p class="check size-12">
-                    <input type="checkbox" id="newsletter_check-{{ section.id }}" name="newsletter_check-{{ section.id }}" required>
-                    <label for="newsletter_check-{{ section.id }}">{{ block.settings.newsletter_terms_text | remove: '<p>' | remove: '</p>' }}</label>
+                    <input
+                      type="checkbox"
+                      id="newsletter_check-{{ section.id }}"
+                      name="newsletter_check-{{ section.id }}"
+                      required
+                    >
+                    <label for="newsletter_check-{{ section.id }}">
+                      {{- block.settings.newsletter_terms_text | remove: '<p>' | remove: '</p>' -}}
+                    </label>
                   </p>
                 {%- endif -%}
-                <p class="submit mobile-hide"><button type="submit" class="overlay-{{ button_color }} {% if button_style == 'inv' %} inv{% endif %}">{{ 'newsletter.form.submit_button' | t }}&nbsp;<i aria-hidden="true" class="icon-chevron-right"></i></button></p>
+                <p class="submit mobile-hide">
+                  <button
+                    type="submit"
+                    class="overlay-{{ button_color }} {% if button_style == 'inv' %} inv{% endif %}"
+                  >
+                    {{ 'newsletter.form.submit_button' | t }}&nbsp;<i aria-hidden="true" class="icon-chevron-right"></i>
+                  </button>
+                </p>
               </fieldset>
             {%- endform -%}
           {%- endif -%}
@@ -229,15 +314,21 @@
         {%- else -%}
           {%- for link in linklists[block.settings.menu].links -%}
             <div class="" {{ block.shopify_attributes }}>
-              <{{ section.settings.title_size_blocks }} class="ff-{{ section.settings.title_font }}"><a href="{{ link.url }}">{{ link.title }}</a></{{ section.settings.title_size_blocks }}>
+              <{{ section.settings.title_size_blocks }} class="ff-{{ section.settings.title_font }}"
+                ><a href="{{ link.url }}">{{ link.title }}</a></{{ section.settings.title_size_blocks }}
+              >
               {%- if link.links != blank -%}
                 <ul>
                   {%- for sub in link.links -%}
-                    <li><a href="{{ sub.url }}" title="{{ sub.title }}">{{ sub.title }}</a></li>
+                    <li>
+                      <a href="{{ sub.url }}" title="{{ sub.title }}">{{ sub.title }}</a>
+                    </li>
                     {%- if sub.links != blank -%}
                       <ul>
                         {%- for subsub in sub.links -%}
-                          <li><a href="{{ subsub.url }}" title="{{ subsub.title }}">{{ subsub.title }}</a></li>
+                          <li>
+                            <a href="{{ subsub.url }}" title="{{ subsub.title }}">{{ subsub.title }}</a>
+                          </li>
                         {%- endfor -%}
                       </ul>
                     {%- endif -%}
@@ -247,9 +338,80 @@
             </div>
           {%- endfor -%}
         {%- endif -%}
+      {%- when 'footer_images' -%}
+        {%- if block.settings.footer_img != blank -%}
+          <div class="" {{ block.shopify_attributes }}>
+            {%- assign default_alt = 'footer.footer_image_default_alt' | t %}
+            {%- assign image = block.settings.footer_img -%}
+            <figure>
+              <picture class="static">
+                <img
+                  src="{{- image | image_url: width: block.settings.image_width -}}"
+                  srcset="{% render 'image-srcset', image: image %}"
+                  sizes="
+                    (min-width: 1100) {{ block.settings.image_width }}px
+                    (min-width: 760px) 0
+                    (min-width: 400px) 200px
+                    0
+                  "
+                  width="{{ block.settings.image_width }}"
+                  height="36"
+                  alt="{{ image.alt | default: default_alt | escape }}"
+                  loading="lazy"
+                >
+              </picture>
+              {%- if block.settings.title != empty or block.settings.image_desc != empty -%}
+                <figcaption>
+                  {%- if block.settings.title != empty -%}
+                    <strong>{{ block.settings.title }}</strong>
+                  {%- endif -%}
+                  {%- if block.settings.image_desc != empty -%}
+                    <span>{{ block.settings.image_desc }}</span>
+                  {%- endif -%}
+                </figcaption>
+              {%- endif -%}
+            </figure>
+          </div>
+        {%- endif -%}
     {%- endcase -%}
   {%- endfor -%}
 </nav>
+
+{%- if has_footer_banner -%}
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when '@app' -%}
+        {% render block %}
+      {%- when 'footer_banner' -%}
+        {%- assign image = block.settings.banner_img -%}
+        <section class="" style="max-width:{{ block.settings.banner_container_width }}px; width:94%;margin:auto;" {{ block.shopify_attributes }}>
+          <figure>
+            <picture class="static">
+              <img
+                src="{{- image | image_url -}}"
+                srcset="{% render 'image-srcset', image: image %}"
+                sizes="
+                  (min-width: 1100) 100%
+                  (min-width: 760px) 0
+                  (min-width: 400px) 100%
+                  0
+                "
+                width="100%"
+                height="36"
+                alt="{{ image.alt | default: default_alt | escape }}"
+                loading="lazy"
+              >
+            </picture>
+            {%- if block.settings.banner_desc != empty -%}
+              <figcaption>
+                  <strong>{{ block.settings.banner_desc }}</strong>
+              </figcaption>
+            {%- endif -%}
+          </figure>
+        </section>
+    {%- endcase -%}
+  {%- endfor -%}
+{%- endif - %}
 
 {%- if split_menu -%}
   {%- assign menu_block = section.blocks | where: 'type', 'menu' | first -%}
@@ -272,52 +434,58 @@
           assign width_class = 'w16'
       endcase
     -%}
-  <nav class="{{ width_class }}">
-    {{ menu_blocks | replace: 'mobile-hide', 'mobile-only' }}
-    {%- for link in linklists[menu_block.settings.menu].links offset: first_menu_items_limit -%}
-      <div>
-        <{{ section.settings.title_size_blocks }} class="ff-{{ section.settings.title_font }}"><a href="{{ link.url }}">{{ link.title }}</a></{{ section.settings.title_size_blocks }}>
-        {%- if link.links != blank -%}
-          <ul>
-            {%- for sub in link.links -%}
-              <li><a href="{{ sub.url }}" title="{{ sub.title }}">{{ sub.title }}</a></li>
-              {%- if sub.links != blank -%}
-                <ul>
-                  {%- for subsub in sub.links -%}
-                    <li><a href="{{ subsub.url }}" title="{{ subsub.title }}">{{ subsub.title }}</a></li>
-                  {%- endfor -%}
-                </ul>
-              {%- endif -%}
-            {%- endfor -%}
-          </ul>
+    <nav class="{{ width_class }}">
+      {{ menu_blocks | replace: 'mobile-hide', 'mobile-only' }}
+      {%- for link in linklists[menu_block.settings.menu].links offset: first_menu_items_limit -%}
+        <div>
+          <{{ section.settings.title_size_blocks }} class="ff-{{ section.settings.title_font }}"
+            ><a href="{{ link.url }}">{{ link.title }}</a></{{ section.settings.title_size_blocks }}
+          >
+          {%- if link.links != blank -%}
+            <ul>
+              {%- for sub in link.links -%}
+                <li>
+                  <a href="{{ sub.url }}" title="{{ sub.title }}">{{ sub.title }}</a>
+                </li>
+                {%- if sub.links != blank -%}
+                  <ul>
+                    {%- for subsub in sub.links -%}
+                      <li>
+                        <a href="{{ subsub.url }}" title="{{ subsub.title }}">{{ subsub.title }}</a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </div>
+        {%- assign modulo = forloop.index | modulo: 6 -%}
+        {%- if modulo == 0 and forloop.index != number_of_items -%}
+          {%- liquid
+            assign number = number_of_items | minus: forloop.index | at_most: 6
+            case number
+              when 1
+                assign width_class = 'w100'
+              when 2
+                assign width_class = 'w25'
+              when 3
+                assign width_class = 'w33'
+              when 4
+                assign width_class = 'w25'
+              when 5
+                assign width_class = 'w20'
+              when 6
+                assign width_class = 'w16'
+            endcase
+          -%}
+          </nav>
+          <nav class="{{ width_class }}">
         {%- endif -%}
-      </div>
-      {%- assign modulo = forloop.index | modulo: 6 -%}
-      {%- if modulo == 0 and forloop.index != number_of_items -%}
-        {%- liquid
-          assign number = number_of_items | minus: forloop.index | at_most: 6
-          case number
-            when 1
-              assign width_class = 'w100'
-            when 2
-              assign width_class = 'w25'
-            when 3
-              assign width_class = 'w33'
-            when 4
-              assign width_class = 'w25'
-            when 5
-              assign width_class = 'w20'
-            when 6
-              assign width_class = 'w16'
-          endcase
-        -%}
-        </nav><nav class="{{ width_class }}">
-      {%- endif -%}
-    {%- endfor -%}
+      {%- endfor -%}
     </nav>
   {%- endif -%}
 {%- endif -%}
-
 
 <div class="base-font">
   {%- if section.settings.bottom_img -%}
@@ -339,7 +507,9 @@
     </figure>
     {%- if section.settings.bottom_img_link != empty -%}</a>{%- endif -%}
   {%- endif -%}
-  <p>&copy; <span class="date">{{ 'now' | date: "%Y" }}</span> {{ shop.name }}, {{ powered_by_link }}</p>
+  <p>
+    &copy; <span class="date">{{ 'now' | date: '%Y' }}</span> {{ shop.name }}, {{ powered_by_link }}
+  </p>
   <ul class="l4dr">
     {%- liquid
       if section.settings.enable_country_selector and localization.available_countries.size > 1
@@ -423,6 +593,12 @@
   }
   @media only screen and (max-width: 47.5em) {
     #shopify-section-{{ section.id }} { margin-bottom: {{ section.settings.spacing_mobile }}px; }
+  }
+  #shopify-section-footer.is-full-width {
+    width: 100vw;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
   }
 {% endstyle %}
 
@@ -566,6 +742,12 @@
       "step": 5,
       "unit": "px",
       "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Enable full width (100vw)",
+      "default": false
     }
   ],
   "blocks": [
@@ -816,7 +998,7 @@
         },
         {
           "type": "header",
-          "content": "t:static_sections.footer.blocks.socials_newsletter.settings.newsletter.header",
+          "content": "t:static_sections.footer.blocks.socials_newsletter.settings.newsletter.header"
         },
         {
           "type": "checkbox",
@@ -882,6 +1064,114 @@
           "visible_if": "{{ block.settings.show_newsletter and block.settings.enable_newsletter_terms_checkbox }}"
         }
       ]
+    },
+    {
+      "type": "footer_images",
+      "name": "Footer images",
+      "settings": [
+        {
+          "id": "footer_img",
+          "type": "image_picker",
+          "label": "Footer image"
+        },
+        {
+          "id": "image_width",
+          "type": "range",
+          "label": "Image width",
+          "min": 50,
+          "max": 200,
+          "step": 10,
+          "unit": "px",
+          "default": 60
+        },
+        {
+          "type": "header",
+          "content": "t:global.typography.title.label"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "t:global.typography.title.label",
+          "info": "t:global.typography.title.info",
+          "default": "<h2>Image with banners</h2>"
+        },
+        {
+          "id": "image_desc",
+          "type": "text",
+          "label": "Image description"
+        },
+        {
+          "type": "select",
+          "id": "title_font",
+          "label": "t:global.typography.title_font.label",
+          "options": [
+            {
+              "value": "primary",
+              "label": "t:global.typography.title_font.primary.label"
+            },
+            {
+              "value": "secondary",
+              "label": "t:global.typography.title_font.secondary.label"
+            }
+          ],
+          "default": "primary"
+        },
+        {
+          "type": "select",
+          "id": "title_size_blocks",
+          "label": "t:global.typography.title_size.label",
+          "options": [
+            {
+              "value": "h1",
+              "label": "t:global.typography.title_size.h1.label"
+            },
+            {
+              "value": "h2",
+              "label": "t:global.typography.title_size.h2.label"
+            },
+            {
+              "value": "h3",
+              "label": "t:global.typography.title_size.h3.label"
+            },
+            {
+              "value": "h4",
+              "label": "t:global.typography.title_size.h4.label"
+            },
+            {
+              "value": "h5",
+              "label": "t:global.typography.title_size.h5.label"
+            }
+          ],
+          "default": "h4"
+        }
+      ]
+    },
+    {
+      "type": "footer_banner",
+      "name": "Footer banner",
+      "settings": [
+        {
+          "id": "banner_img",
+          "type": "image_picker",
+          "label": "Banner image"
+        },
+        {
+          "id": "banner_container_width",
+          "type": "range",
+          "label": "Image width",
+          "min": 500,
+          "max": 1000,
+          "step": 10,
+          "unit": "px",
+          "default": 600
+        },
+        {
+          "id": "banner_desc",
+          "type": "richtext",
+          "label": "Banner description"
+        }
+      ],
+      "limit": 1
     }
   ]
 }

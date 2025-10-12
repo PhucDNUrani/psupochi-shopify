@@ -11,53 +11,9 @@
   "sections": {
     "breadcrumbs": {
       "type": "breadcrumbs",
+      "disabled": true,
       "settings": {
         "hide_mobile": false
-      }
-    },
-    "1653481755602a92ab": {
-      "type": "section-slideshow",
-      "blocks": {
-        "16534817559e4372f4-0": {
-          "type": "slide",
-          "settings": {
-            "layout": "background",
-            "overlay_opacity": 10,
-            "color_palette": "scheme-2",
-            "text_position": "text-start",
-            "title": "<h1>Frequently asked questions</h1>",
-            "title_underline_style": "none",
-            "text": "<p>Can't find what you are looking for? Please contact us.</p>",
-            "show_first_link": false,
-            "first_link_text": "Button",
-            "first_link_url": "/",
-            "first_button_style": "primary plain",
-            "show_second_link": false,
-            "second_link_text": "Button",
-            "second_link_url": "",
-            "second_button_style": "secondary plain"
-          }
-        }
-      },
-      "block_order": [
-        "16534817559e4372f4-0"
-      ],
-      "settings": {
-        "height": "32/9",
-        "width": "boxed",
-        "autoplay": false,
-        "autoplay_seconds": 3,
-        "enable_controls": false,
-        "height_mobile": "4/5",
-        "spacing_desktop": 50,
-        "spacing_mobile": 30
-      }
-    },
-    "16534836035233544d": {
-      "type": "section-spacer",
-      "settings": {
-        "height": 50,
-        "height_mobile": 20
       }
     },
     "main-page": {
@@ -84,87 +40,15 @@
         "content_alignment": "start",
         "text_alignment": "start",
         "spacing_desktop": 50,
-        "spacing_mobile": 30
+        "spacing_mobile": 30,
+        "fix_zindex": 0
       }
     },
-    "1653482236cd744a0f": {
-      "type": "section-icon-text-blocks",
-      "blocks": {
-        "165348223644882a56-0": {
-          "type": "text",
-          "settings": {
-            "icon": "email",
-            "image_height": 55,
-            "title": "You can email us anytime",
-            "text": "<p>Give your We try to respond within 24 hours more details</p>",
-            "show_link": false,
-            "link_text": "",
-            "link_url": "",
-            "button_style": "primary plain"
-          }
-        },
-        "165348223644882a56-1": {
-          "type": "text",
-          "settings": {
-            "icon": "24_7_call",
-            "image_height": 55,
-            "title": "Do you need help?",
-            "text": "<p>You can call us at: 123 456 789</p>",
-            "show_link": false,
-            "link_text": "",
-            "link_url": "",
-            "button_style": "primary plain"
-          }
-        },
-        "165348223644882a56-2": {
-          "type": "text",
-          "settings": {
-            "icon": "truck",
-            "image_height": 55,
-            "title": "Free shipping on all orders",
-            "text": "<p>Worldwide shipping</p>",
-            "show_link": false,
-            "link_text": "",
-            "link_url": "",
-            "button_style": "primary plain"
-          }
-        },
-        "165348223644882a56-3": {
-          "type": "text",
-          "settings": {
-            "icon": "delivery_box_2",
-            "image_height": 55,
-            "title": "Next day delivery",
-            "text": "<p><a href=\"/policies/shipping-policy\" title=\"Shipping Policy\">Read more</a> about shipping</p>",
-            "show_link": false,
-            "link_text": "",
-            "link_url": "",
-            "button_style": "primary plain"
-          }
-        }
-      },
-      "block_order": [
-        "165348223644882a56-0",
-        "165348223644882a56-1",
-        "165348223644882a56-2",
-        "165348223644882a56-3"
-      ],
+    "section_page_title_magA7Q": {
+      "type": "section-page-title",
+      "name": "Page Title",
       "settings": {
-        "items_width": 4,
-        "text_alignment": "center",
-        "title": "",
-        "title_underline_style": "none",
-        "text": "",
-        "font_size": "16px",
-        "show_link": false,
-        "link_text": "",
-        "link_url": "",
-        "button_style": "primary plain",
-        "blocks_text_alignment": "center",
-        "blocks_title_font": "primary",
-        "blocks_title_size": "h3",
-        "spacing_desktop": 50,
-        "spacing_mobile": 30
+        "title": "よくある質問"
       }
     },
     "16534818921d9da639": {
@@ -173,10 +57,11 @@
         "1653481892aca601d3-0": {
           "type": "text",
           "settings": {
-            "faq_question": "When will my order be delivered?",
+            "faq_question": "請求書や領収書は発行してくれますか？",
             "icon": "none",
+            "header_image_svg": "",
             "header_image_width": 25,
-            "faq_answer": "<p>We ship worldwide. Your order will be packaged really carefully and delivered wherever you want. Delivery takes between 2-4 business days. You will receive an e-mail after ordering with more information about the delivery.</p>",
+            "faq_answer": "<p>はい、マイページから適格請求書・領収書のダウンロードが可能です。<br/>ダウンロード可能なタイミングは、商品発送後に反映されます。<br/>※弊社は、適格請求書発行事業者の登録業者のため、インボイスに対応しております。<br/>適格請求書発行事業者登録番号：T1030001126360</p>",
             "page": "",
             "image_width": 465,
             "liquid": "",
@@ -187,10 +72,11 @@
         "1653481892aca601d3-1": {
           "type": "text",
           "settings": {
-            "faq_question": "Can I Return my product?",
+            "faq_question": "運送会社を指定/変更できますか？",
             "icon": "none",
+            "header_image_svg": "",
             "header_image_width": 25,
-            "faq_answer": "<p>Orders can be returned or exchanged within 30 days of receiving the parcel, providing they are in original resalable condition.</p>",
+            "faq_answer": "<p>誠に申し訳ございませんが、運送会社の指定は承っておりません。<br/>通常、ヤマト運輸にて発送させていただいております。</p>",
             "page": "",
             "image_width": 465,
             "liquid": "",
@@ -201,10 +87,11 @@
         "1653481892aca601d3-2": {
           "type": "text",
           "settings": {
-            "faq_question": "I would like to speak with the customer service. How can I get in touch?",
+            "faq_question": "施行を依頼したい場合の相談窓口は？",
             "icon": "none",
+            "header_image_svg": "",
             "header_image_width": 25,
-            "faq_answer": "<p>You can email and call us. We are there for you 24/7, every day. You can visit us in the Netherlands:123 example Eindhoven, NL</p>",
+            "faq_answer": "<p>誠に申し訳ございませんが、運送会社の指定は承っておりません。<br/>通常、ヤマト運輸にて発送させていただいております。</p>",
             "page": "",
             "image_width": 465,
             "liquid": "",
@@ -215,24 +102,11 @@
         "19bffed1-f52f-4d9c-877f-5374d9a41f2b": {
           "type": "text",
           "settings": {
-            "faq_question": "What can I do if my item (or part of it) is damaged?",
+            "faq_question": "商品・発送に関するトラブルの窓口は？",
             "icon": "none",
+            "header_image_svg": "",
             "header_image_width": 25,
-            "faq_answer": "<p>We work hard to deliver your items without damage. Orders can be returned or exchanged within 30 days of receiving the parcel, providing they are in original resalable condition.</p>",
-            "page": "",
-            "image_width": 465,
-            "liquid": "",
-            "html": "",
-            "show_contact_form": false
-          }
-        },
-        "432c0efd-c93e-48f4-b507-204ff1d1ee9f": {
-          "type": "text",
-          "settings": {
-            "faq_question": "What if I paid too much?",
-            "icon": "none",
-            "header_image_width": 25,
-            "faq_answer": "<p>We work hard to deliver your items without damage. Orders can be returned or exchanged within 30 days of receiving the parcel, providing they are in original resalable condition.</p>",
+            "faq_answer": "<p>誠に申し訳ございませんが、運送会社の指定は承っておりません。<br/>通常、ヤマト運輸にて発送させていただいております。</p>",
             "page": "",
             "image_width": 465,
             "liquid": "",
@@ -245,8 +119,7 @@
         "1653481892aca601d3-0",
         "1653481892aca601d3-1",
         "1653481892aca601d3-2",
-        "19bffed1-f52f-4d9c-877f-5374d9a41f2b",
-        "432c0efd-c93e-48f4-b507-204ff1d1ee9f"
+        "19bffed1-f52f-4d9c-877f-5374d9a41f2b"
       ],
       "settings": {
         "alignment": "left",
@@ -254,16 +127,16 @@
         "title": "",
         "title_underline_style": "none",
         "spacing_desktop": 50,
-        "spacing_mobile": 30
+        "spacing_mobile": 30,
+        "fix_zindex": 0,
+        "custom-faq": true
       }
     }
   },
   "order": [
     "breadcrumbs",
-    "1653481755602a92ab",
-    "16534836035233544d",
     "main-page",
-    "1653482236cd744a0f",
+    "section_page_title_magA7Q",
     "16534818921d9da639"
   ]
 }

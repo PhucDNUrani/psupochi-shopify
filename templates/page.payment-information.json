@@ -1,0 +1,237 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "hide_mobile": false
+      }
+    },
+    "main-page": {
+      "type": "main-page",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "h1"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "content"
+      ],
+      "disabled": true,
+      "settings": {
+        "max_width": 980,
+        "content_alignment": "start",
+        "text_alignment": "start",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "section_text_block_qjRR3q": {
+      "type": "section-text-block",
+      "blocks": {
+        "payment_method_7p8RKg": {
+          "type": "payment_method",
+          "settings": {
+            "number": "",
+            "subtitle": "ショッピングカート",
+            "image_position": "before",
+            "image_width": "fit",
+            "description": "<p>ご希望商品の価格についているショッピングカート（購入ページへ）ボタンをクリックすることによって商品を購入して頂くことができます。</p>",
+            "text_align": "left",
+            "bg_color": "rgba(0,0,0,0)",
+            "bold_text": false
+          }
+        },
+        "company_info_Yqqmx7": {
+          "type": "company_info",
+          "settings": {
+            "content": "<p>ご注文の受け付けは24時間毎日受け付けております。<br/>ただし、営業時間外（17:00以降翌日9:00まで）および休業日（土・日・祝および年末年始）は<br/>メールの返信・商品の出荷業務等を行っておりませんのでご了承ください。<br/>※弊社の別事業部は、土・日・祝日も稼働しておりますが、本ECショップ（ペスぽち）に関するお問い合わせの受付及び対応はいたしかねますので、本件に関するご連絡は必ずこちらにご連絡ください。</p>",
+            "bg_color": "#f0f0f0",
+            "text_align": "center"
+          }
+        }
+      },
+      "block_order": [
+        "payment_method_7p8RKg",
+        "company_info_Yqqmx7"
+      ],
+      "name": "Payment Methods",
+      "settings": {
+        "title": "ご購入方法"
+      }
+    },
+    "section_text_block_RPPTAY": {
+      "type": "section-text-block",
+      "blocks": {
+        "payment_method_dMr8zf": {
+          "type": "payment_method",
+          "settings": {
+            "number": "1.",
+            "subtitle": "クレジットカード",
+            "image": "shopify://shop_images/pay.png",
+            "image_position": "after",
+            "image_width": "fit",
+            "description": "<p>以下のクレジットカードがご利用いただけます。</p>",
+            "text_align": "left",
+            "bg_color": "rgba(0,0,0,0)",
+            "bold_text": false
+          }
+        },
+        "note_bYynXg": {
+          "type": "note",
+          "settings": {
+            "content": "<p>※お支払いは1回払いとなります。カード手数料は弊社負担</p>",
+            "text_align": "left"
+          }
+        },
+        "payment_method_KeQMBX": {
+          "type": "payment_method",
+          "settings": {
+            "number": "2.",
+            "subtitle": "銀行振込(前払い)",
+            "image_position": "before",
+            "image_width": "fit",
+            "description": "<p>ご利用の際は弊社指定の銀行口座（下記）へお振込みいただくようお願いいたします。<br/>また、お振込みの際にはご注文者様の名前でお振込みいただくようお願いいたします。（ご注文者様と異なる際は、その旨をご連絡頂くと助かります。）<br/>※お振込み手数料はお客様ご負担とさせていただきます。<br/>※ご入金確認後の出荷となります。(前払い)</p>",
+            "text_align": "left",
+            "bg_color": "rgba(0,0,0,0)",
+            "bold_text": false
+          }
+        },
+        "company_info_MT9qJ8": {
+          "type": "company_info",
+          "settings": {
+            "content": "<p>銀行名・金融機関番号 GMOあおぞらネット銀行　0310<br/>支店番号・支店名 102　　法人第二営業部<br/>口座番号 普通口座　2108230<br/>振込先名 カ）ハウステクト<br/>※なお、振込手数料に付きましては、お客様にてご負担願います。</p>",
+            "bg_color": "#f0f0f0",
+            "text_align": "center"
+          }
+        },
+        "payment_method_XPVyzM": {
+          "type": "payment_method",
+          "settings": {
+            "number": "3.",
+            "subtitle": "ベリトランス後払い決済（コンビニ・郵便局・スマホ決済アプリ）",
+            "image": "shopify://shop_images/pay3.png",
+            "image_position": "before",
+            "image_width": "fit",
+            "description": "",
+            "text_align": "left",
+            "bg_color": "rgba(0,0,0,0)",
+            "bold_text": false
+          }
+        },
+        "note_B3PBTB": {
+          "type": "note",
+          "settings": {
+            "content": "<p>● 後払い手数料：280円（税込）<br/>● 利用限度額：55,000円（税込）<br/>● 払込票は商品とは別に株式会社SCOREより郵送されます。発行から14日以内にコンビニでお支払いください。 <br/>● 代金債権とそれに付帯する個人情報は、包括的な決済サービスを提供する株式会社DGフィナンシャルテクノロジーに譲渡・ 提供 されたうえで、さらに同社から後払い決済サービスを提供する 株式会社SCOREに対し、再譲渡・提供されますので、当該第三者への譲渡・提供に同意の上、お申込みください。<br/>【提供先の個人情報の利用目的】<br/>以下URL（個人情報の取扱いについて）よりご確認ください。<br/>株式会社DGフィナンシャルテクノロジー<br/><a href=\"https://www.veritrans.co.jp/privacy/operation.html\">https://www.veritrans.co.jp/privacy/operation.html</a><br/>株式会社SCORE<br/><a href=\"https://corp.scoring.jp/privacypolicy/\">https://corp.scoring.jp/privacypolicy/<br/></a>【提供する個人情報】<br/>氏名、電話番号、住所、Eメールアドレス<br/>※個人情報には該当しない、購入商品や取引金額等の決済データも専用システムにて提供されます。<br/>● 株式会社SCOREが行う与信審査の結果により、後払い決済をご利用いただけない場合がございます。<br/>● 株式会社DGフィナンシャルテクノロジー、株式会社SCOREの詳細は以下よりご確認ください。<br/>　・株式会社DGフィナンシャルテクノロジーについて<br/><a href=\"https://www.veritrans.co.jp/\">https://www.veritrans.co.jp/</a><br/>・株式会社SCOREについて <a href=\"https://www.scoring.jp/consumer/\">https://www.scoring.jp/consumer/<br/></a>●以下の場合、後払い決済をご利用いただけません。予めご了承ください。<br/>　・郵便局留め・運送会社営業所留め（郵便局または営業所での引き取り）を指定して行う発送<br/>　・商品の転送を指定して行う発送<br/>　・郵送先住所が「病院」「ホテル」「学校」である場合に、郵送先の名義が当該病院等の職員以外となっている状態で行う発送<br/>　・鉄道の駅前など、公共の場所に設置された宅配・集荷ボックスを郵送先として行う発送<br/>　 (マンション等の集合住宅または一軒家に、当該住居の住居者のために設けられた宅配ボックスは除きます）<br/>　 ・コンビニエンスストア店頭での受け渡しを指定して行う発送<br/>●個人情報の提供に関する問合せ先：050-1721-9537<br/>●ご利用者が未成年の場合は、法定代理人の利用同意を得てご利用ください。<br/>●下記スマートフォンアプリからお支払い可能です。<br/>　・楽天銀行コンビニ支払サービス（アプリで払込票支払）<br/>　・ｄ払い請求書払い ・ファミペイ請求書支払い ・楽天ペイ</p>",
+            "text_align": "left"
+          }
+        }
+      },
+      "block_order": [
+        "payment_method_dMr8zf",
+        "note_bYynXg",
+        "payment_method_KeQMBX",
+        "company_info_MT9qJ8",
+        "payment_method_XPVyzM",
+        "note_B3PBTB"
+      ],
+      "name": "Payment Methods",
+      "settings": {
+        "title": "お支払い方法について"
+      }
+    },
+    "section_text_block_dJ9rNp": {
+      "type": "section-text-block",
+      "blocks": {
+        "payment_method_JwfQJY": {
+          "type": "payment_method",
+          "settings": {
+            "number": "",
+            "subtitle": "運送について",
+            "image_position": "before",
+            "image_width": "fit",
+            "description": "<p>基本的に在庫を保管している保管倉庫(出荷元)の発送になりますが、都合により仕入先(メーカー等)から直送する場合がございます。<br/>予めご了承ください。</p>",
+            "text_align": "left",
+            "bg_color": "rgba(0,0,0,0)",
+            "bold_text": false
+          }
+        },
+        "payment_method_c78FTw": {
+          "type": "payment_method",
+          "settings": {
+            "number": "",
+            "subtitle": "出荷業務について",
+            "image_position": "before",
+            "image_width": "fit",
+            "description": "<p>営業日当日23:59までのご注文：翌日出荷<br/>（銀行振込の場合は、ご入金を確認できた翌日）<br/>※できる限り『営業日翌日の出荷』を 心がけておりますが、在庫状況により出荷が遅れることがございます。あらかじめ ご了承ください。<br/>通常の到着予定：注文（決済）から2日～7日</p>",
+            "text_align": "left",
+            "bg_color": "rgba(0,0,0,0)",
+            "bold_text": false
+          }
+        },
+        "payment_method_JEMVyG": {
+          "type": "payment_method",
+          "settings": {
+            "number": "",
+            "subtitle": "送料について",
+            "image_position": "before",
+            "image_width": "fit",
+            "description": "<p>・送料はお届けの地域によって異なります。<br/>各地域ごとの送料は、下記の送料一覧表をご参照ください。<br/><br/>・お買い上げ金額が、5,500円（税込）以上で送料が無料になります。<br/>※沖縄・離島につきましては送料無料地域の対象外となります。</p>",
+            "text_align": "left",
+            "bg_color": "rgba(0,0,0,0)",
+            "bold_text": false
+          }
+        },
+        "payment_method_ekUB6a": {
+          "type": "payment_method",
+          "settings": {
+            "number": "",
+            "subtitle": "送料一覧",
+            "image": "shopify://shop_images/postage.png",
+            "image_position": "before",
+            "image_width": "full",
+            "description": "",
+            "text_align": "left",
+            "bg_color": "rgba(0,0,0,0)",
+            "bold_text": false
+          }
+        }
+      },
+      "block_order": [
+        "payment_method_JwfQJY",
+        "payment_method_c78FTw",
+        "payment_method_JEMVyG",
+        "payment_method_ekUB6a"
+      ],
+      "name": "Payment Methods",
+      "settings": {
+        "title": "配送・送料について"
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-page",
+    "section_text_block_qjRR3q",
+    "section_text_block_RPPTAY",
+    "section_text_block_dJ9rNp"
+  ]
+}

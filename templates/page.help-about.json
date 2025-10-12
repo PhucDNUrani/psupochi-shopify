@@ -1,0 +1,136 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "hide_mobile": false
+      }
+    },
+    "main-page": {
+      "type": "main-page",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "h1"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "content"
+      ],
+      "disabled": true,
+      "settings": {
+        "max_width": 980,
+        "content_alignment": "start",
+        "text_alignment": "start",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "section_trade_law_WH8JNG": {
+      "type": "section-trade-law",
+      "blocks": {
+        "row_XwWUYJ": {
+          "type": "row",
+          "settings": {
+            "left_text": "店名",
+            "right_text": "<p>ペスぽち～害虫駆除プログッズ</p>",
+            "right_image": "shopify://shop_images/rogo1.gif"
+          }
+        },
+        "row_fHxmcJ": {
+          "type": "row",
+          "settings": {
+            "left_text": "会社名",
+            "right_text": "<p>株式会社ハウステクト</p>",
+            "right_image": "shopify://shop_images/rogo2.gif"
+          }
+        },
+        "row_XUczHe": {
+          "type": "row",
+          "settings": {
+            "left_text": "住所",
+            "right_text": "<p>【本社】<br/>〒230-0072 神奈川県横浜市鶴見区梶山1-6-9 パークサイドビル3F<br/>【東京支店】<br/>〒152-0004 東京都目黒区鷹番３丁目８-４ GGビル2F</p>"
+          }
+        },
+        "row_PLtpb8": {
+          "type": "row",
+          "settings": {
+            "left_text": "資格",
+            "right_text": "<p>わな猟狩猟免状　第0300438<br/>建築物防除作業監督者　防第15987号<br/>シロアリ　防蟻・防腐認定技術者　第127号<br/>ペストコントロール1級技術者(技第6413)</p>"
+          }
+        },
+        "row_4UL8md": {
+          "type": "row",
+          "settings": {
+            "left_text": "適格請求書発行事業者登録番号",
+            "right_text": "<p>T1030001126360</p>"
+          }
+        },
+        "row_VeBaxx": {
+          "type": "row",
+          "settings": {
+            "left_text": "連絡先",
+            "right_text": "<p><a href=\"tel:05017219537\" title=\"tel:05017219537\"><span style=\"text-decoration:underline\">TEL:050-1721-9537</span></a></p>"
+          }
+        },
+        "row_WtLxG6": {
+          "type": "row",
+          "settings": {
+            "left_text": "代表者",
+            "right_text": "<p>武田海史</p>"
+          }
+        },
+        "row_CwWWLY": {
+          "type": "row",
+          "settings": {
+            "left_text": "事業内容",
+            "right_text": "<p>■EC事業(ペスぽちの運営)<br/>業務用害虫駆除用品の販売・プロ施工動画のコンテンツ販売・お掃除用品の販売<br/>■害虫、害獣駆除事業（害虫獣SOSの運営）<br/><a href=\"https://gaichujusos-kujo.com/\" target=\"_blank\">害虫獣SOSの公式サイトはクリック👆️</a>・害虫駆除出張サービス（施工エリア：関東・関西全域）<br/>ゴキブリ・トコジラミ・シロアリ・クロアリ・ムカデ・ゲジ・ヤスデ・ダニ・ノミ・クモ・ハチ・チャタテムシ・トビムシ・飛翔性害虫・その他害虫<br/>・害獣駆除出張サービス（施工エリア：関東全域）<br/>ネズミ・ハクビシン・タヌキ・アライグマ・イタチ・コウモリ・その他害獣<br/>■その他　害虫・害獣事業に付随する工事<br/>消毒工事・床下換気工事・内装工事・外壁工事・屋根工事・基礎コンクリート補修工事<br/>■クリーニング事業（施工エリア：関東全域）<br/>洗濯機の分解クリーニング・洗濯機の修理・風呂釜洗浄・エアコンクリーニング</p>"
+          }
+        },
+        "row_Ddqyb3": {
+          "type": "row",
+          "settings": {
+            "left_text": "顧問弁護士",
+            "right_text": "<p>西本俊介（新生綜合法律事務所）</p>"
+          }
+        }
+      },
+      "block_order": [
+        "row_XwWUYJ",
+        "row_fHxmcJ",
+        "row_XUczHe",
+        "row_PLtpb8",
+        "row_4UL8md",
+        "row_VeBaxx",
+        "row_WtLxG6",
+        "row_CwWWLY",
+        "row_Ddqyb3"
+      ],
+      "name": "Trade Law",
+      "settings": {}
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-page",
+    "section_trade_law_WH8JNG"
+  ]
+}

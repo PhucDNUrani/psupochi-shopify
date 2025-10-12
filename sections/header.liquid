@@ -86,6 +86,10 @@
       assign search_right = true
       assign button_hidden = true
       assign elements_order = 'button,menu,logo,searchbar' | split: ','
+    when 'layout_9'
+      assign has_menu_bar = false
+      assign button_hidden = true
+      assign elements_order = 'menu' | split: ','
   endcase
   if button_hidden
     assign button_menu = false
@@ -1294,6 +1298,11 @@
           "value": "layout_8",
           "label": "t:static_sections.header.settings.layout.options__8.label",
           "group": "t:static_sections.header.settings.layout.options__8.group"
+        },
+        {
+          "value": "layout_9",
+          "label": "t:static_sections.header.settings.layout.options__9.label",
+          "group": "t:static_sections.header.settings.layout.options__9.group"
         }
       ],
       "default": "layout_3"
@@ -1305,7 +1314,7 @@
       "info": "t:static_sections.header.settings.width.info",
       "min": 1000,
       "max": 2000,
-      "step": 20,
+      "step": 10,
       "unit": "px",
       "default": 1280
     },
@@ -2428,6 +2437,44 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "type": "image",
+      "name": "t:sections.gallery.blocks.image.name",
+      "settings": [
+        {
+          "id": "image",
+          "type": "image_picker",
+          "label": "t:sections.gallery.blocks.image.settings.image.label",
+        },
+        {
+          "type": "color_scheme",
+          "id": "color_palette",
+          "label": "t:global.color_palette.label",
+          "default": "scheme-1"
+        },
+        {
+          "id": "show_link",
+          "type": "checkbox",
+          "label": "t:global.button.show_link.label",
+          "default": true
+        },
+        {
+          "id": "link_url",
+          "type": "url",
+          "label": "t:global.button.link_url.label",
+          "visible_if": "{{ block.settings.show_link }}"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.gallery.blocks.image.settings.mobile.header"
+        },
+        {
+          "id": "image_mobile",
+          "type": "image_picker",
+          "label": "t:sections.gallery.blocks.image.settings.mobile.image_mobile.label"
+        }
+      ]
     },
     {
       "type": "liquid",

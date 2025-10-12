@@ -268,6 +268,9 @@
                   {% if block.settings.image_mobile %}
                     class="mobile-hide"
                   {% endif %}
+                  {% if section.settings.custom_object_fit %}
+                    class="object-fit-cover"
+                  {% endif %}
                   loading="{% if lazyload %}lazy{% else %}eager{% endif %}"
                 >
               </picture>
@@ -317,6 +320,10 @@
     flex-wrap: nowrap !important;
     align-items: var(--align_text) !important;
     justify-content: var(--justify_text) !important;
+  }
+
+  #root #shopify-section-{{ section.id }} .l4ft figure picture img.object-fit-cover {
+    object-fit: contain;
   }
 </style>
 
@@ -540,6 +547,12 @@
       "max": 25,
       "step": 1,
       "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_object_fit",
+      "default": false,
+      "label": "Image object-fit"
     }
   ],
   "blocks": [

@@ -39,7 +39,7 @@
         {{ section.settings.title }}
       </div>
     {%- endif -%}
-    <div class="accordion-a">
+    <div class="accordion-a {% if section.settings.custom-faq %}custom-faq{% endif %}">
       {%- for block in section.blocks -%}
         {%- liquid
           assign show = false
@@ -74,10 +74,11 @@
                   #shopify-section-{{ section.id }} .block-{{ block.id }} svg { --secondary_bg: var(--primary_text); height: auto!important; width: {{ image_width }}px!important; }
                 </style>
               {%- endif -%}
+              <span class="faq-icon">Q</span>
               <span>{{ block.settings.faq_question }}</span>
             </summary>
             <div>
-              {%- if block.settings.faq_answer != empty -%}{{ block.settings.faq_answer }}{%- endif -%}
+              {%- if block.settings.faq_answer != empty -%}<span class="faq-icon">A</span>{{ block.settings.faq_answer | replace: '</p><span>', '<br>' | remove: '<p>' | remove: '</p>' }}{%- endif -%}
               {%- if block.settings.page -%}{{ block.settings.page.content }}{%- endif %}
               {%- if block.settings.image != blank -%}
                 <div class="m20">
@@ -202,9 +203,48 @@
   <style>
     #shopify-section-{{ section.id }} { position: relative; z-index: {{ section.settings.fix_zindex }}!important; }
     #shopify-section-{{ section.id }} .accordion-a { margin-bottom: {{ section.settings.spacing_desktop }}px; }
+    #shopify-section-{{ section.id }} {
+      margin-top: 1rem;
+      width: 83.3333%;
+      margin-right: auto;
+      margin-left: auto;
+    }
     @media only screen and (max-width: 47.5em) {
       #shopify-section-{{ section.id }} .accordion-a { margin-bottom: {{ section.settings.spacing_mobile }}px; }
     }
+    #shopify-section-{{ section.id }} .accordion-a .faq-icon {
+      font-size: 160%;
+      padding-right: 0.6rem;
+      color: #c30a01;
+      line-height: 0;
+      font-weight: bold;
+    }
+    #shopify-section-{{ section.id }} .accordion-a.custom-faq details:before {
+      border: none;
+    }
+    .accordion-a.custom-faq details {
+      margin-bottom: 1.6rem;
+    }
+    .accordion-a.custom-faq details summary {
+      padding: 1.6rem 3.52rem 1.6rem 1.6rem;
+      border: 1px solid #999
+    }
+    .accordion-a.custom-faq details summary span:not(.faq-icon) {
+      font-weight: normal;
+    }
+    .accordion-a.custom-faq details > div {
+      top: 10px;
+      padding: 1.6rem 0 3.2rem;
+      margin-left: -8px;
+    }
+    .accordion-a.custom-faq details[open] summary {
+      color: #333;
+    }
+    .accordion-a.custom-faq:not(.compact) details[open]:before,
+    .accordion-a.custom-faq:not(.compact) details[open] {
+      background: none;
+    }
+
   </style>
 {% endif %}
 
@@ -317,6 +357,11 @@
       "max": 25,
       "step": 1,
       "default": 0
+    },
+    { "id": "custom-faq",
+      "type": "checkbox",
+      "label": "Enable custom FAQ",
+      "default": false
     }
   ],
   "blocks": [

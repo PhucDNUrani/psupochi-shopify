@@ -1,0 +1,35 @@
+{% if section.settings.title != blank %}
+  <h1 class="main-title">{{ section.settings.title }}</h1>
+{% endif %}
+
+<style>
+#shopify-section-{{ section.id }} {
+    margin-bottom: 48px;
+}
+.main-title {
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin: 0
+}
+</style>
+
+{% schema %}
+{
+  "name": "Page Title",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Main Title",
+      "default": "お支払い方法について"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page Title",
+      "category": "t:categories.layout"
+    }
+  ]
+}
+{% endschema %}

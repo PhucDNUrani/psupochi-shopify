@@ -116,6 +116,70 @@
         "
         {{ block.shopify_attributes }}
       >
+        {% if section.settings.title_position == 'before_image' %}
+          <div
+            class="
+              palette-{{ block.settings.color_palette }}
+              module-color-palette
+              content box
+              {% if section.settings.title_spacing %}reduced-spacing{% endif %}
+              {% unless block.settings.video or block.settings.image %}no-img{% endunless %}
+              {% if block.settings.title_underline_style != 'none' %}
+                title-underline-none
+                {% if block.settings.title_underline_style contains 'accent' %}
+                  title-underline-accent
+                {% elsif block.settings.title_underline_style contains 'gradient' %}
+                  title-underline-gradient
+                {% endif %}
+                {% if block.settings.title_underline_style contains 'secondary_font' %}
+                  title-underline-secondary-font
+                {% endif %}
+              {% endif %}
+            "
+          >
+            {%- if block.settings.title != blank -%}
+              <{{ section.settings.title_size_blocks }}>
+                {{ block.settings.title }}
+              </{{ section.settings.title_size_blocks }}>
+            {%- endif -%}
+
+            {% if block.settings.text_and_btn_position == 'after_title' %}
+              {%- if block.settings.text -%}{{ block.settings.text }}{%- endif -%}
+              {%- if block.settings.show_link
+                and block.settings.link_text != empty
+                and block.settings.link_url != blank
+              -%}
+                {%- liquid
+                  assign button_color = block.settings.button_style | split: ' ' | first
+                  assign button_style = block.settings.button_style | split: ' ' | last
+                  assign is_link = false
+                  if button_style == 'link'
+                    assign is_link = true
+                  endif
+                -%}
+                <p class="link-btn">
+                  <a
+                    href="{{ block.settings.link_url }}"
+                    class="overlay-{{ button_color }} {% if is_link %}inline strong{% elsif button_style == 'inv' %}inv{% endif %}"
+                  >
+                    {% if is_link %}<span>{% endif -%}
+                    {{- block.settings.link_text -}}
+                    {%- if is_link %}</span>&nbsp;<i aria-hidden="true" class="icon-chevron-right"></i>{% endif %}
+                  </a>
+                </p>
+              {%- endif %}
+            {% endif %}
+            {%- unless block.settings.video -%}
+              {%- if block.settings.show_overlay_link and block.settings.overlay_url != blank -%}
+                <a
+                  class="link-overlay"
+                  href="{{ block.settings.overlay_url }}"
+                  aria-label="{{ block.settings.title | escape | default: block.settings.image.alt | default: "Promo banner" }}"
+                ></a>
+              {%- endif -%}
+            {%- endunless -%}
+          </div>
+        {% endif %}
         {%- if block.settings.video or block.settings.image -%}
           <div
             class="
@@ -194,61 +258,128 @@
             {%- endunless -%}
           </div>
         {%- endif -%}
-        <div
-          class="
-            palette-{{ block.settings.color_palette }}
-            module-color-palette
-            content box
-            {% unless block.settings.video or block.settings.image %}no-img{% endunless %}
-            {% if block.settings.title_underline_style != 'none' %}
-              title-underline-none
-              {% if block.settings.title_underline_style contains 'accent' %}
-                title-underline-accent
-              {% elsif block.settings.title_underline_style contains 'gradient' %}
-                title-underline-gradient
+
+        {% comment %} Text after image {% endcomment %}
+        {% if block.settings.text_and_btn_position == 'after_image' %}
+          <div
+            class="
+              palette-{{ block.settings.color_palette }}
+              module-color-palette
+              content box
+              text-after-image
+              {% unless block.settings.video or block.settings.image %}no-img{% endunless %}
+              {% if block.settings.title_underline_style != 'none' %}
+                title-underline-none
+                {% if block.settings.title_underline_style contains 'accent' %}
+                  title-underline-accent
+                {% elsif block.settings.title_underline_style contains 'gradient' %}
+                  title-underline-gradient
+                {% endif %}
+                {% if block.settings.title_underline_style contains 'secondary_font' %}
+                  title-underline-secondary-font
+                {% endif %}
               {% endif %}
-              {% if block.settings.title_underline_style contains 'secondary_font' %}
-                title-underline-secondary-font
-              {% endif %}
-            {% endif %}
-          "
-        >
-          {%- if block.settings.title != blank -%}
-            <{{ section.settings.title_size_blocks }}>
-              {{ block.settings.title }}
-            </{{ section.settings.title_size_blocks }}>
-          {%- endif -%}
-          {%- if block.settings.text -%}{{ block.settings.text }}{%- endif -%}
-          {%- if block.settings.show_link and block.settings.link_text != empty and block.settings.link_url != blank -%}
-            {%- liquid
-              assign button_color = block.settings.button_style | split: ' ' | first
-              assign button_style = block.settings.button_style | split: ' ' | last
-              assign is_link = false
-              if button_style == 'link'
-                assign is_link = true
-              endif
+            "
+          >
+            {%- if block.settings.text -%}{{ block.settings.text }}{%- endif -%}
+            {%- if block.settings.show_link
+              and block.settings.link_text != empty
+              and block.settings.link_url != blank
             -%}
-            <p class="link-btn">
-              <a
-                href="{{ block.settings.link_url }}"
-                class="overlay-{{ button_color }} {% if is_link %}inline strong{% elsif button_style == 'inv' %}inv{% endif %}"
-              >
-                {% if is_link %}<span>{% endif -%}
-                {{- block.settings.link_text -}}
-                {%- if is_link %}</span>&nbsp;<i aria-hidden="true" class="icon-chevron-right"></i>{% endif %}
-              </a>
-            </p>
-          {%- endif %}
-          {%- unless block.settings.video -%}
-            {%- if block.settings.show_overlay_link and block.settings.overlay_url != blank -%}
-              <a
-                class="link-overlay"
-                href="{{ block.settings.overlay_url }}"
-                aria-label="{{ block.settings.title | escape | default: block.settings.image.alt | default: "Promo banner" }}"
-              ></a>
+              {%- liquid
+                assign button_color = block.settings.button_style | split: ' ' | first
+                assign button_style = block.settings.button_style | split: ' ' | last
+                assign is_link = false
+                if button_style == 'link'
+                  assign is_link = true
+                endif
+              -%}
+              <div class="btn-wrapper">
+                <p class="link-btn">
+                  <a
+                    href="{{ block.settings.link_url }}"
+                    class="overlay-{{ button_color }} {% if is_link %}inline strong{% elsif button_style == 'inv' %}inv{% endif %}"
+                  >
+                    {% if is_link %}<span>{% endif -%}
+                    {{- block.settings.link_text -}}
+                    {%- if is_link %}</span>&nbsp;<i aria-hidden="true" class="icon-chevron-right"></i>{% endif %}
+                  </a>
+                </p>
+                <p class="link-btn">
+                  <a
+                    href="{{ block.settings.link_url_2 }}"
+                    class="overlay-{{ button_color }} {% if is_link %}inline strong{% elsif button_style == 'inv' %}inv{% endif %}"
+                  >
+                    {% if is_link %}<span>{% endif -%}
+                    {{- block.settings.link_text_2 -}}
+                    {%- if is_link %}</span>&nbsp;<i aria-hidden="true" class="icon-chevron-right"></i>{% endif %}
+                  </a>
+                </p>
+              </div>
+            {%- endif %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.title_position == 'after_image' %}
+          <div
+            class="
+              palette-{{ block.settings.color_palette }}
+              module-color-palette
+              content box
+              {% unless block.settings.video or block.settings.image %}no-img{% endunless %}
+              {% if block.settings.title_underline_style != 'none' %}
+                title-underline-none
+                {% if block.settings.title_underline_style contains 'accent' %}
+                  title-underline-accent
+                {% elsif block.settings.title_underline_style contains 'gradient' %}
+                  title-underline-gradient
+                {% endif %}
+                {% if block.settings.title_underline_style contains 'secondary_font' %}
+                  title-underline-secondary-font
+                {% endif %}
+              {% endif %}
+            "
+          >
+            {%- if block.settings.title != blank -%}
+              <{{ section.settings.title_size_blocks }}>
+                {{ block.settings.title }}
+              </{{ section.settings.title_size_blocks }}>
             {%- endif -%}
-          {%- endunless -%}
-        </div>
+            {%- if block.settings.text -%}{{ block.settings.text }}{%- endif -%}
+            {%- if block.settings.show_link
+              and block.settings.link_text != empty
+              and block.settings.link_url != blank
+            -%}
+              {%- liquid
+                assign button_color = block.settings.button_style | split: ' ' | first
+                assign button_style = block.settings.button_style | split: ' ' | last
+                assign is_link = false
+                if button_style == 'link'
+                  assign is_link = true
+                endif
+              -%}
+              <p class="link-btn">
+                <a
+                  href="{{ block.settings.link_url }}"
+                  class="overlay-{{ button_color }} {% if is_link %}inline strong{% elsif button_style == 'inv' %}inv{% endif %}"
+                >
+                  {% if is_link %}<span>{% endif -%}
+                  {{- block.settings.link_text -}}
+                  {%- if is_link %}</span>&nbsp;<i aria-hidden="true" class="icon-chevron-right"></i>{% endif %}
+                </a>
+              </p>
+            {%- endif %}
+            {%- unless block.settings.video -%}
+              {%- if block.settings.show_overlay_link and block.settings.overlay_url != blank -%}
+                <a
+                  class="link-overlay"
+                  href="{{ block.settings.overlay_url }}"
+                  aria-label="{{ block.settings.title | escape | default: block.settings.image.alt | default: "Promo banner" }}"
+                ></a>
+              {%- endif -%}
+            {%- endunless -%}
+          </div>
+        {% endif %}
       </li>
       {% liquid
         assign row_width = row_width | plus: img_width
@@ -261,29 +392,71 @@
 </article>
 
 <style>
-  #shopify-section-{{ section.id }} { position: relative; z-index: {{ section.settings.fix_zindex }}!important; }
-  {%- for block in section.blocks -%}
-  #shopify-section-{{ section.id }} li.item-{{ forloop.index }} .module-color-palette.box:before { opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }}; }
-  {%- endfor -%}
-  #shopify-section-{{ section.id }} li div.main > figure { will-change: transform; }
-  {% if section.settings.shadow %}
-  #shopify-section-{{ section.id }} li .box { box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08); }
-  {% endif %}
-  @media only screen and (min-width: 47.5em) {
-    #shopify-section-{{ section.id }} .l4ft { margin-bottom: {{ section.settings.spacing_desktop | minus: 16 }}px; }
-  {% if section.settings.spacing_desktop < 0 %}
-    #shopify-section-{{ section.id }} + *.has-kinetic-text { pointer-events: none; }
-  {% endif %}
+    #shopify-section-{{ section.id }} { position: relative; z-index: {{ section.settings.fix_zindex }}!important; }
+    {%- for block in section.blocks -%}
+    #shopify-section-{{ section.id }} li.item-{{ forloop.index }} .module-color-palette.box:before { opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }}; }
+    {%- endfor -%}
+    #shopify-section-{{ section.id }} li div.main > figure { will-change: transform; }
+    {% if section.settings.shadow %}
+    #shopify-section-{{ section.id }} li .box { box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08); }
+    {% endif %}
+    @media only screen and (min-width: 47.5em) {
+      #shopify-section-{{ section.id }} .l4ft { margin-bottom: {{ section.settings.spacing_desktop | minus: 16 }}px; }
+    {% if section.settings.spacing_desktop < 0 %}
+      #shopify-section-{{ section.id }} + *.has-kinetic-text { pointer-events: none; }
+    {% endif %}
+    }
+    @media only screen and (max-width: 47.5em) {
+    {% if section.settings.layout_mobile == 'rows' %}
+      #shopify-section-{{ section.id }} .l4ft { margin-bottom: {{ section.settings.spacing_mobile }}px; }
+    {% else %}
+      #shopify-section-{{ section.id }} .l4ft { margin-bottom: {{ section.settings.spacing_mobile | minus: 16 }}px; }
+    {% endif %}
+    {% if section.settings.spacing_mobile < 0 %}
+      #shopify-section-{{ section.id }} + *.has-kinetic-text { pointer-events: none; }
+    {% endif %}
+    }
+  .l4ft li > .content.box.reduced-spacing {
+    padding: 0 0 16px 0;
   }
-  @media only screen and (max-width: 47.5em) {
-  {% if section.settings.layout_mobile == 'rows' %}
-    #shopify-section-{{ section.id }} .l4ft { margin-bottom: {{ section.settings.spacing_mobile }}px; }
-  {% else %}
-    #shopify-section-{{ section.id }} .l4ft { margin-bottom: {{ section.settings.spacing_mobile | minus: 16 }}px; }
-  {% endif %}
-  {% if section.settings.spacing_mobile < 0 %}
-    #shopify-section-{{ section.id }} + *.has-kinetic-text { pointer-events: none; }
-  {% endif %}
+  .l4ft li > .content.box.reduced-spacing h2 {
+    margin-bottom: 0;
+  }
+  .btn-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+  }
+  .btn-wrapper .link-btn {
+    flex: 0 0 auto;
+    width: auto;
+    margin: 0;
+  }
+  .btn-wrapper .link-btn a {
+    --btn_pv: 14.8px;
+    --secondary_bg_btn: #020001;
+    color: #fff;
+    float: none !important;
+    display: inline-block !important;
+    width: auto;
+    font-size: 19.2px;
+  }
+  .btn-wrapper .link-btn a::before {
+    border: 3px solid #020001 !important;
+  }
+  .btn-wrapper .link-btn a:hover {
+    --secondary_bg_btn_dark: transparent;
+    opacity: 0.5;
+    color: #020001;
+  }
+  .l4ft li > .content.box.text-after-image h3 {
+    --headings_text: #333;
+    font-weight: 500;
+    font-size: 24.5px;
+    margin-bottom: 5px;
   }
 </style>
 
@@ -397,6 +570,28 @@
         }
       ],
       "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "title_position",
+      "label": "Title position",
+      "options": [
+        {
+          "value": "after_image",
+          "label": "After image"
+        },
+        {
+          "value": "before_image",
+          "label": "Before image"
+        }
+      ],
+      "default": "after_image"
+    },
+    {
+      "type": "checkbox",
+      "id": "title_spacing",
+      "label": "Reduce title spacing",
+      "default": false
     },
     {
       "type": "header",
@@ -600,6 +795,22 @@
           "default": "<p>Describe a product or make an announcement</p>"
         },
         {
+          "id": "text_and_btn_position",
+          "type": "select",
+          "label": "Text and button position",
+          "options": [
+            {
+              "value": "after_title",
+              "label": "After title"
+            },
+            {
+              "value": "after_image",
+              "label": "After image"
+            }
+          ],
+          "default": "after_title"
+        },
+        {
           "type": "header",
           "content": "t:global.button.header"
         },
@@ -618,6 +829,19 @@
         },
         {
           "id": "link_url",
+          "type": "url",
+          "label": "t:global.button.link_url.label",
+          "visible_if": "{{ block.settings.show_link }}"
+        },
+        {
+          "id": "link_text_2",
+          "type": "text",
+          "label": "t:global.button.link_text.label",
+          "default": "Button",
+          "visible_if": "{{ block.settings.show_link }}"
+        },
+        {
+          "id": "link_url_2",
           "type": "url",
           "label": "t:global.button.link_url.label",
           "visible_if": "{{ block.settings.show_link }}"

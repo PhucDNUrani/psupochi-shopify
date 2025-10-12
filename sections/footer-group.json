@@ -14,45 +14,89 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "ee8cf9cf-0a8b-4986-b76c-1016a9510c5b": {
-          "type": "customer_support",
+        "footer_images_MJM8QH": {
+          "type": "footer_images",
           "settings": {
-            "title": "Customer support",
-            "title_underline_style": "none",
-            "customer_support_img_width": 220,
-            "customer_support_offset_right": 25,
-            "customer_support_offset_bottom": 0,
-            "extra_customer_support": "<p>Available between 8AM to 8PM. Ready to answer your questions.</p>",
-            "show_phone_link": true,
-            "show_mail_link": true,
-            "show_whatsapp_link": true,
-            "customer_support_offset_right_mobile": 0,
-            "customer_support_offset_bottom_mobile": 0
+            "footer_img": "shopify://shop_images/footer_img01.png",
+            "image_width": 60,
+            "title": "<h3>ご注文完了</h3>",
+            "image_desc": "ご注文は24時間受付ております。",
+            "title_font": "primary",
+            "title_size_blocks": "h4"
           }
         },
-        "c9a8027f-3a8d-4084-adbf-29db94608977": {
-          "type": "menu",
+        "footer_images_UCUVzg": {
+          "type": "footer_images",
           "settings": {
-            "split_menu": false
+            "footer_img": "shopify://shop_images/footer_img02.png",
+            "image_width": 60,
+            "title": "<h3>確認メール</h3>",
+            "image_desc": "ご注文後に自動返信メールと、通常営業日翌日までに注文確認メールが届きます。※ メールアドレスが間違っていると確認メールが届きませんのでご注意ください。",
+            "title_font": "primary",
+            "title_size_blocks": "h4"
           }
         },
-        "4300adc0-a530-4961-bb5a-0ef06c6e64fb": {
-          "type": "socials_newsletter",
+        "footer_images_9zDCkR": {
+          "type": "footer_images",
           "settings": {
-            "title": "Follow us",
-            "show_socials": true,
-            "enable_follow_on_shop": false,
-            "show_newsletter": true,
-            "footer_button_style": "primary plain",
-            "enable_newsletter_terms_checkbox": false,
-            "newsletter_terms_text": ""
+            "footer_img": "shopify://shop_images/footer_img03.png",
+            "image_width": 60,
+            "title": "<h3>ご入金</h3>",
+            "image_desc": "お支払い方法が、振込みの場合は、入金確認後の出荷となります。",
+            "title_font": "primary",
+            "title_size_blocks": "h4"
+          }
+        },
+        "footer_images_nMMHME": {
+          "type": "footer_images",
+          "settings": {
+            "footer_img": "shopify://shop_images/footer_img04.png",
+            "image_width": 60,
+            "title": "<h3>出荷準備</h3>",
+            "image_desc": "在庫がない場合はお取り寄せとなります。",
+            "title_font": "primary",
+            "title_size_blocks": "h4"
+          }
+        },
+        "footer_images_wd7RbW": {
+          "type": "footer_images",
+          "settings": {
+            "footer_img": "shopify://shop_images/footer_img05.png",
+            "image_width": 60,
+            "title": "<h3>発送メール</h3>",
+            "image_desc": "商品発送が完了次第、発送通知書がお送り致します。",
+            "title_font": "primary",
+            "title_size_blocks": "h4"
+          }
+        },
+        "footer_images_DGhHiM": {
+          "type": "footer_images",
+          "settings": {
+            "footer_img": "shopify://shop_images/footer_img06.png",
+            "image_width": 60,
+            "title": "<h3>商品お届け</h3>",
+            "image_desc": "ヤマト運輸にて出荷いたします。",
+            "title_font": "primary",
+            "title_size_blocks": "h4"
+          }
+        },
+        "footer_banner_M9rQp4": {
+          "type": "footer_banner",
+          "settings": {
+            "banner_img": "shopify://shop_images/footer_img07.png",
+            "banner_container_width": 920,
+            "banner_desc": "<p><strong>一般個人さま・法人さま・店舗、施設さま問わず、誰でもプロ並みの施工ができるセルフ害虫駆除ショップをコンセプトにプロのペストコントロール技術者が経験に基づき厳選した商品（駆除・対策アイテム）・施工の解説動画コンテンツを販売中！ゴキブリ（チャバネゴキブリ含む）・トコジラミ・ムカデ・ヤスデ・クロアリ・ハエ・コバエ・ダニ・ノミ・カメムシ・チャタテムシ・トビムシの駆除・対策は、知識と商品があれば自分で解決できる！</strong></p>"
           }
         }
       },
       "block_order": [
-        "ee8cf9cf-0a8b-4986-b76c-1016a9510c5b",
-        "c9a8027f-3a8d-4084-adbf-29db94608977",
-        "4300adc0-a530-4961-bb5a-0ef06c6e64fb"
+        "footer_images_MJM8QH",
+        "footer_images_UCUVzg",
+        "footer_images_9zDCkR",
+        "footer_images_nMMHME",
+        "footer_images_wd7RbW",
+        "footer_images_DGhHiM",
+        "footer_banner_M9rQp4"
       ],
       "settings": {
         "footer_color": "white",
@@ -61,12 +105,13 @@
         "bottom_color": "scheme-6",
         "bottom_img_width": 50,
         "bottom_img_link": "",
-        "enable_country_selector": true,
-        "enable_language_selector": true,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
         "enable_follow_on_shop": false,
-        "show_payment_methods": true,
+        "show_payment_methods": false,
         "spacing_desktop": 0,
-        "spacing_mobile": 0
+        "spacing_mobile": 0,
+        "full_width": true
       }
     }
   },

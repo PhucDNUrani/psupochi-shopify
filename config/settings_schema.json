@@ -94,7 +94,7 @@
         "info": "t:settings_schema.layout.settings.width.info",
         "min": 1000,
         "max": 2000,
-        "step": 20,
+        "step": 10,
         "unit": "px",
         "default": 1280
       }

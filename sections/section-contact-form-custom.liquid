@@ -1,0 +1,939 @@
+{%- liquid
+  if section.settings.compact == false
+    assign contactform_classes = 'f8cm f8vl m30 wide'
+  else
+    if section.settings.alignment == 'center'
+      assign contactform_classes = 'f8cm f8vl m30 w940 align-center'
+      assign center = true
+    else
+      assign contactform_classes = 'f8cm f8vl m30 w940'
+    endif
+  endif
+
+  capture title_classes
+    echo 'w720 '
+    if section.settings.alignment == 'center' and section.settings.title_align == 'center'
+      echo ' text-center align-center'
+    else
+      echo 'text-left align-left'
+    endif
+  endcapture
+
+  assign has_message = false
+-%}
+
+{%- form 'contact', id: page.id, class: contactform_classes -%}
+  {%- if form.errors -%}
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var alertAttributes = {
+            message: "{{ 'service.contact_form.email' | t }} {{ form.errors.messages['email'] }}",
+            type: 'error',
+            origin: 'contact',
+          },
+          showAlertEvent = new CustomEvent('showAlert', { detail: alertAttributes });
+        window.dispatchEvent(showAlertEvent);
+      });
+    </script>
+  {%- elsif form.posted_successfully? -%}
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var alertAttributes = {
+            message: "{{ 'service.contact_form.posted_successfully' | t }}",
+            type: 'success',
+            origin: 'contact',
+          },
+          showAlertEvent = new CustomEvent('showAlert', { detail: alertAttributes });
+        window.dispatchEvent(showAlertEvent);
+      });
+    </script>
+  {%- endif -%}
+  <fieldset>
+    <legend>{{ 'service.contact_form.title' | t }}</legend>
+    {%- if section.settings.title != empty -%}
+      <header
+        class="
+          {{ title_classes }} title-styling
+          {% if section.settings.title_underline_style != 'none' %}
+            title-underline-none
+            {% if section.settings.title_underline_style contains 'accent' %}
+              title-underline-accent
+            {% elsif section.settings.title_underline_style contains 'gradient' %}
+              title-underline-gradient
+            {% endif %}
+            {% if section.settings.title_underline_style contains 'secondary_font' %}
+              title-underline-secondary-font
+            {% endif %}
+          {% endif %}
+        "
+      >
+        {{ section.settings.title }}
+      </header>
+    {%- endif -%}
+    {%- if section.blocks.size > 0 -%}
+      <div class="cols">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.title != empty or block.type == 'checkbox' or block.type == 'radio' -%}
+            {%- assign modulo = forloop.index | modulo: 2 -%}
+            {%- if modulo != 0 -%}
+              </div>
+              <div class="cols">
+            {%- endif -%}
+            {%- if block.type == 'text' or block.type == 'email' or block.type == 'tel' -%}
+              <p class="w100 form-row" {{ block.shopify_attributes }}>
+                <label for="{{ block.settings.title | handleize }}">
+                  {{- block.settings.title }}
+                  {%- if block.settings.required or block.type == 'email' -%}
+                    <span class="overlay-theme">必須</span>
+                  {%- endif -%}
+                </label>
+                <input
+                  type="{{ block.type }}"
+                  id="{{ block.settings.title | handleize }}"
+                  class="{% if block.type == 'tel' %}half-input tel-input{% else %}full-input{% endif %}"
+                  name="contact[{% if block.type == 'email' %}email{% else %}{{ block.settings.title | strip_html | escape }}{% endif %}]"
+                  {% if section.settings.show_placeholder %}
+                    placeholder="{%- if block.settings.placeholder != empty -%}{{ block.settings.placeholder }}{%- else -%}{%- endif -%}"
+                  {% endif %}
+                  {% if block.settings.required or block.type == 'email' %}
+                    required
+                  {% endif %}
+                >
+              </p>
+            {%- elsif block.type == 'textarea' -%}
+              <p class="w100 m20 form-row" {{ block.shopify_attributes }}>
+                <label for="{{ block.settings.title | handleize }}">
+                  {{- block.settings.title }}
+                  {%- if block.settings.required -%}
+                    <span class="overlay-theme">必須</span>
+                  {%- endif -%}
+                </label>
+                <textarea
+                  id="{{ block.settings.title | handleize }}"
+                  name="contact[{% if has_message %}{{ block.settings.title | strip_html | escape }}{% else %}body{% endif %}]"
+                  {% if section.settings.show_placeholder %}
+                    placeholder="{%- if block.settings.placeholder != empty -%}{{ block.settings.placeholder }}{%- endif -%}"
+                  {% endif %}
+                  {% if block.settings.required %}
+                    required
+                  {% endif %}
+                ></textarea>
+              </p>
+              {%- assign has_message = true -%}
+            {%- elsif block.type == 'checkbox' or block.type == 'radio' %}
+              <div
+                class="w100 {% if block.type == 'checkbox' and block.settings.required %} checkbox-required{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                {%- if block.settings.title != empty -%}
+                  <label for="{{ block.settings.title | handleize }}">
+                    {{- block.settings.title }}
+                    {%- if block.settings.required -%}
+                      <span class="overlay-theme">*</span>
+                    {%- endif -%}
+                  </label>
+                {%- endif -%}
+                <ul class="check inline">
+                  {%- for i in (1..6) -%}
+                    {%- assign handle = 'option_x' | replace: 'x', forloop.index -%}
+                    {%- if block.settings[handle] != empty -%}
+                      <li>
+                        <input
+                          type="{{ block.type }}"
+                          id="{% if block.settings.title != empty %}{{ block.settings.title | handleize }}-{% endif %}{{ block.settings[handle] | handleize }}"
+                          name="contact[{% if block.type == 'radio' %}{{ block.settings.title | strip_html | escape }}{% else %}{% if block.settings.title != empty %}{{ block.settings.title | strip_html | append: ' - ' | append: block.settings[handle] | strip_html | escape }}{% else %}{{ block.settings[handle] | escape }}{% endif %}{% endif %}]"
+                          value="{{ block.settings[handle] | strip_html | escape }}"
+                          {% if block.settings.required and forloop.first %}
+                            required
+                          {% endif %}
+                        >
+                        <label for="{% if block.settings.title != empty %}{{ block.settings.title | handleize }}-{% endif %}{{ block.settings[handle] | handleize }}">
+                          {{- block.settings[handle] -}}
+                        </label>
+                      </li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- elsif block.type == 'select' %}
+              <p class="w100" {{ block.shopify_attributes }}>
+                <label for="{{ block.settings.title | handleize }}">
+                  {{- block.settings.title }}
+                  {%- if block.settings.required -%}
+                    <span class="overlay-theme">*</span>
+                  {%- endif -%}
+                </label>
+                <select
+                  id="{{ block.settings.title | handleize }}"
+                  name="contact[{{ block.settings.title | strip_html | escape }}]"
+                  {% if block.settings.required %}
+                    required
+                  {% endif %}
+                >
+                  <option value="" selected disabled>{{ 'general.choose_option' | t }}</option>
+                  {%- for i in (1..6) -%}
+                    {%- assign handle = 'option_x' | replace: 'x', forloop.index -%}
+                    {%- if block.settings[handle] != empty -%}
+                      <option value="{{ block.settings[handle] | strip_html | escape }}">
+                        {{ block.settings[handle] }}
+                      </option>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </select>
+              </p>
+            {%- elsif block.type == 'jp_name' -%}
+              <p class="w100 form-row" {{ block.shopify_attributes }}>
+                <label for="{{ block.settings.title | handleize }}01">
+                  {{- block.settings.title }}
+                  {%- if block.settings.required -%}
+                    <span class="overlay-theme">必須</span>
+                  {%- endif -%}
+                </label>
+                <span>
+                  <input
+                    type="{{ block.type }}"
+                    id="{{ block.settings.title | handleize }}01"
+                    class="half-input"
+                    name="contact[{{ block.settings.title | handleize }}01]"
+                    {% if section.settings.show_placeholder %}
+                      placeholder="{%- if block.settings.placeholder_1 != empty -%}{{ block.settings.placeholder_1 }}{%- else -%}{{ block.settings.title }}{%- endif -%}"
+                    {% endif %}
+                    {% if block.settings.required %}
+                      required
+                    {% endif %}
+                  >
+                  <input
+                    type="{{ block.type }}"
+                    id="{{ block.settings.title | handleize }}02"
+                    class="half-input"
+                    name="contact[{{ block.settings.title | handleize }}02]"
+                    {% if section.settings.show_placeholder %}
+                      placeholder="{%- if block.settings.placeholder_2 != empty -%}{{ block.settings.placeholder_2 }}{%- else -%}{{ block.settings.title }}{%- endif -%}"
+                    {% endif %}
+                    {% if block.settings.required %}
+                      required
+                    {% endif %}
+                  >
+                </span>
+              </p>
+            {%- elsif block.type == 'jp_address' -%}
+              <p class="w100 form-row" {{ block.shopify_attributes }}>
+                <label for="contact_postal_code">
+                  {{- block.settings.title }}
+                  {%- if block.settings.required -%}
+                    <span class="overlay-theme">必須</span>
+                  {%- endif -%}
+                </label>
+                <span class="postcode-input">
+                  <span class="postcode-group">
+                    <span class="postcode-sign">〒</span>
+                    <input
+                      type="{{ block.type }}"
+                      id="contact_postal_code"
+                      class="half-input"
+                      name="contact[postal_code]"
+                      {% if section.settings.show_placeholder %}
+                        placeholder="{%- if block.settings.placeholder_postcode != empty -%}{{ block.settings.placeholder_postcode }}{%- else -%}{{ block.settings.title }}{%- endif -%}"
+                      {% endif %}
+                      {% if block.settings.required %}
+                        required
+                      {% endif %}
+                    >
+                    <span class="postcode-help">
+                      <span class="help-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360">
+                          <title>question-white</title>
+                          <style>.icon{fill:#FFFFFF;fill-rule:evenodd;}</style>
+                          <path class="icon" d="M303,116.1c0,9.563-1.377,18.506-4.126,26.828c-2.755,8.325-5.856,15.1-9.317,20.32   c-3.462,5.225-8.345,10.493-14.643,15.804c-6.301,5.313-11.404,9.163-15.306,11.555c-3.906,2.392-9.317,5.537-16.238,9.431   c-7.279,4.075-13.355,9.828-18.235,17.266c-4.883,7.438-7.32,13.373-7.32,17.798c0,3.013-1.065,5.889-3.195,8.632   c-2.13,2.748-4.616,4.116-7.453,4.116h-63.889c-2.663,0-4.925-1.636-6.788-4.913c-1.864-3.274-2.795-6.595-2.795-9.961v-11.953   c0-14.697,5.765-28.556,17.302-41.571c11.535-13.015,24.225-22.621,38.068-28.82c10.47-4.781,17.923-9.737,22.361-14.875   c4.435-5.134,6.654-11.862,6.654-20.188c0-7.438-4.125-13.987-12.378-19.656c-8.252-5.666-17.793-8.5-28.617-8.5   c-11.538,0-21.121,2.569-28.75,7.703c-6.214,4.428-15.707,14.609-28.484,30.547c-2.309,2.834-5.057,4.25-8.251,4.25   c-2.131,0-4.352-0.706-6.656-2.125L61.286,94.584c-2.309-1.769-3.686-3.984-4.127-6.641c-0.444-2.656,0.042-5.134,1.465-7.438   C87.016,33.403,128.191,9.85,182.143,9.85c14.196,0,28.482,2.748,42.859,8.234c14.375,5.491,27.327,12.841,38.865,22.047   c11.534,9.209,20.939,20.499,28.218,33.867C299.361,87.37,303,101.403,303,116.1z M218.879,275.475v63.751   c0,2.833-1.064,5.311-3.194,7.438c-2.13,2.124-4.618,3.187-7.454,3.187h-63.889c-2.841,0-5.324-1.063-7.454-3.187   c-2.13-2.127-3.194-4.604-3.194-7.438v-63.751c0-2.832,1.064-5.313,3.194-7.438c2.13-2.126,4.613-3.187,7.454-3.187h63.889   c2.836,0,5.324,1.061,7.454,3.187C217.815,270.162,218.879,272.643,218.879,275.475z"/>
+                        </svg>
+                      </span>
+                      <a href="https://www.post.japanpost.jp/zipcode/" target="_blank">郵便番号検索</a>
+                    </span>
+                  </span>
+                  {% render 'address-jp' %}
+                  <input
+                    type="{{ block.type }}"
+                    id="contact_address_addr01"
+                    class="full-input"
+                    name="contact[addr01]]"
+                    {% if section.settings.show_placeholder %}
+                      placeholder="{%- if block.settings.placeholder_addr01 != empty -%}{{ block.settings.placeholder_addr01 }}{%- else -%}{{ block.settings.title }}{%- endif -%}"
+                    {% endif %}
+                    {% if block.settings.required %}
+                      required
+                    {% endif %}
+                  >
+                  <input
+                    type="{{ block.type }}"
+                    id="contact_address_addr02"
+                    class="full-input"
+                    name="contact[addr02]"
+                    {% if section.settings.show_placeholder %}
+                      placeholder="{%- if block.settings.placeholder_addr02 != empty -%}{{ block.settings.placeholder_addr02 }}{%- else -%}{{ block.settings.title }}{%- endif -%}"
+                    {% endif %}
+                    {% if block.settings.required %}
+                      required
+                    {% endif %}
+                  >
+                </span>
+              </p>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      {%- liquid
+        assign button_color = section.settings.button_style | split: ' ' | first
+        assign button_style = section.settings.button_style | split: ' ' | last
+      -%}
+      <p class="submit m0 {% if center %}text-center{% else %}text-end{% endif %}">
+        <button type="submit" class="overlay-{{ button_color }}{% if button_style == 'inv' %} inv{% endif %}{% if section.settings.custom_button %} custom-button{% endif %}">
+          確認ページへ
+        </button>
+      </p>
+    {%- endif -%}
+  </fieldset>
+{%- endform -%}
+
+<style>
+  #shopify-section-{{ section.id }} { position: relative; z-index: {{ section.settings.fix_zindex }}!important; }
+  #shopify-section-{{ section.id }} .f8cm { margin-bottom: {{ section.settings.spacing_desktop }}px; }
+  @media only screen and (max-width: 47.5em) {
+    #shopify-section-{{ section.id }} .f8cm { margin-bottom: {{ section.settings.spacing_mobile }}px; }
+  }
+  .cols {
+    flex-direction: column;
+  }
+  .form-row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    border-top: 1px dotted #ccc;
+    padding: 15px 0 4px;
+  }
+  form fieldset > .submit {
+    border-top: 1px dotted #ccc;
+    padding-top: 15px;
+  }
+  .submit > .custom-button {
+    --secondary_bg_btn: #DE5D50;
+    user-select: none;
+    padding: 10px 16px;
+    color: #fff;
+    font-size: 16px;
+    width: 33.3333%;
+    height: 56px;
+    line-height: 56px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-weight: bold;
+  }
+  .submit > .custom-button:hover {
+    --secondary_bg_btn_dark: #bd4f44;
+  }
+  .submit > .custom-button::before {
+    border-radius: 0;
+  }
+  .form-row label {
+    width: 30%;
+    padding-top: 14px;
+  }
+  .form-row > span,
+  .form-row > textarea,
+  .form-row > input {
+    width: 70%;
+  }
+  .form-row > textarea {
+    height: 15px;
+    min-height: 100px;
+  }
+  .form-row input.half-input {
+    display: inline-block;
+    width: 45%;
+  }
+  .form-row input.tel-input {
+    width: 168px;
+  }
+  .postcode-input input.full-input {
+    margin-top: 1.6rem;
+  }
+  .postcode-input select {
+    width: 30%;
+  }
+  .postcode-group {
+    display: inline-block;
+    margin-bottom: 1.6rem;
+  }
+  .postcode-group .postcode-sign {
+    display: inline-block;
+    padding: 0 5px 0 3px;
+    margin-left: 5px;
+  }
+  .postcode-help {
+    display: inline-block;
+    margin-left: 10px;
+    /* margin-bottom: 16px; */
+    vertical-align: baseline;
+    /* line-height: 0; */
+  }
+
+  span.help-icon {
+    cursor: help;
+    display: inline-block;
+    margin-top: -10px;
+    width: 20px;
+    height: 20px;
+    background: #525263;
+    border-radius: 50%;
+    font-size: 13px;
+    position: relative;
+    top: 2px;
+  }
+  .help-icon svg {
+    width: 1em;
+    height: 1em;
+    position: relative;
+    left: 3px;
+    top: -4px;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Contact Form",
+  "class": "shopify-section-contact-form",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.contact_form.settings.paragraph"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "t:sections.contact_form.settings.alignment.label",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.contact_form.settings.alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.contact_form.settings.alignment.options__2.label"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "t:global.typography.title.label"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "t:global.typography.title.label",
+      "info": "t:global.typography.title.info",
+      "default": "<h2>Contact form</h2>"
+    },
+    {
+      "type": "select",
+      "id": "title_underline_style",
+      "label": "t:global.typography.title_underline_style.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:global.typography.title_underline_style.none.label"
+        },
+        {
+          "value": "secondary_font",
+          "label": "t:global.typography.title_underline_style.secondary_font.label",
+          "group": "t:global.typography.title_underline_style.group.fonts"
+        },
+        {
+          "value": "secondary_font_accent",
+          "label": "t:global.typography.title_underline_style.secondary_font_accent.label",
+          "group": "t:global.typography.title_underline_style.group.fonts"
+        },
+        {
+          "value": "secondary_font_gradient",
+          "label": "t:global.typography.title_underline_style.secondary_font_gradient.label",
+          "group": "t:global.typography.title_underline_style.group.fonts"
+        },
+        {
+          "value": "accent",
+          "label": "t:global.typography.title_underline_style.accent.label",
+          "group": "t:global.typography.title_underline_style.group.colors"
+        },
+        {
+          "value": "gradient",
+          "label": "t:global.typography.title_underline_style.gradient.label",
+          "group": "t:global.typography.title_underline_style.group.colors"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "title_align",
+      "label": "Title alignment",
+      "options": [
+        {
+          "value": "center",
+          "label": "t:sections.contact_form.settings.alignment.options__2.label"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "t:sections.contact_form.settings.button_style.label",
+      "options": [
+        {
+          "value": "primary plain",
+          "label": "t:global.button.button_style.primary.label",
+          "group": "t:global.button.button_style.group.plain"
+        },
+        {
+          "value": "secondary plain",
+          "label": "t:global.button.button_style.secondary.label",
+          "group": "t:global.button.button_style.group.plain"
+        },
+        {
+          "value": "tertiary plain",
+          "label": "t:global.button.button_style.tertiary.label",
+          "group": "t:global.button.button_style.group.plain"
+        },
+        {
+          "value": "primary inv",
+          "label": "t:global.button.button_style.primary.label",
+          "group": "t:global.button.button_style.group.inv"
+        },
+        {
+          "value": "secondary inv",
+          "label": "t:global.button.button_style.secondary.label",
+          "group": "t:global.button.button_style.group.inv"
+        },
+        {
+          "value": "tertiary inv",
+          "label": "t:global.button.button_style.tertiary.label",
+          "group": "t:global.button.button_style.group.inv"
+        }
+      ],
+      "default": "primary plain"
+    },
+    {
+      "type": "select",
+      "id": "custom_button",
+      "label": "Enable custom button",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ],
+      "default": "no"
+    },
+    {
+      "id": "show_placeholder",
+      "type": "checkbox",
+      "label": "t:sections.contact_form.settings.show_placeholder.label",
+      "default": true
+    },
+    {
+      "id": "compact",
+      "type": "checkbox",
+      "label": "t:sections.contact_form.settings.compact.label",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:global.spacing.header"
+    },
+    {
+      "id": "spacing_desktop",
+      "type": "range",
+      "label": "t:global.spacing.spacing_desktop.label",
+      "min": -250,
+      "max": 250,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "id": "spacing_mobile",
+      "type": "range",
+      "label": "t:global.spacing.spacing_mobile.label",
+      "min": -250,
+      "max": 250,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "id": "fix_zindex",
+      "type": "range",
+      "label": "t:global.fix_zindex.label",
+      "info": "t:global.fix_zindex.info",
+      "min": 0,
+      "max": 25,
+      "step": 1,
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "t:sections.contact_form.blocks.text.name",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.text.settings.title.label",
+          "default": "Text"
+        },
+        {
+          "id": "placeholder",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.text.settings.placeholder.label",
+          "default": "Text"
+        },
+        {
+          "id": "required",
+          "type": "checkbox",
+          "label": "t:sections.contact_form.blocks.text.settings.required.label"
+        }
+      ]
+    },
+    {
+      "type": "jp_name",
+      "name": "Name in JP",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.text.settings.title.label",
+          "default": "Text"
+        },
+        {
+          "id": "placeholder_1",
+          "type": "text",
+          "label": "Text placeholder 1",
+          "default": "Text"
+        },
+        {
+          "id": "placeholder_2",
+          "type": "text",
+          "label": "Text placeholder 2",
+          "default": "Text"
+        },
+        {
+          "id": "required",
+          "type": "checkbox",
+          "label": "t:sections.contact_form.blocks.text.settings.required.label"
+        }
+      ]
+    },
+    {
+      "type": "jp_address",
+      "name": "Address in JP",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Address label",
+          "default": "Post code"
+        },
+        {
+          "id": "placeholder_postcode",
+          "type": "text",
+          "label": "Post code placeholder",
+          "default": "例：5300001"
+        },
+        {
+          "id": "placeholder_addr01",
+          "type": "text",
+          "label": "Address 01 placeholder",
+          "default": "市区町村名(例：大阪市北区)"
+        },
+        {
+          "id": "placeholder_addr02",
+          "type": "text",
+          "label": "Address 02 placeholder",
+          "default": "番地・ビル名(例：西梅田1丁目6-8)"
+        },
+        {
+          "id": "required",
+          "type": "checkbox",
+          "label": "t:sections.contact_form.blocks.tel.settings.required.label"
+        }
+      ]
+    },
+    {
+      "type": "textarea",
+      "name": "t:sections.contact_form.blocks.textarea.name",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.textarea.settings.title.label",
+          "default": "Message"
+        },
+        {
+          "id": "placeholder",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.textarea.settings.placeholder.label"
+        },
+        {
+          "id": "required",
+          "type": "checkbox",
+          "label": "t:sections.contact_form.blocks.textarea.settings.required.label"
+        }
+      ]
+    },
+    {
+      "type": "email",
+      "name": "t:sections.contact_form.blocks.email.name",
+      "limit": 1,
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.email.settings.title.label",
+          "default": "Email"
+        },
+        {
+          "id": "placeholder",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.email.settings.placeholder.label"
+        }
+      ]
+    },
+    {
+      "type": "tel",
+      "name": "t:sections.contact_form.blocks.tel.name",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.tel.settings.title.label",
+          "default": "Phone number"
+        },
+        {
+          "id": "placeholder",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.tel.settings.placeholder.label",
+          "default": "Phone number"
+        },
+        {
+          "id": "required",
+          "type": "checkbox",
+          "label": "t:sections.contact_form.blocks.tel.settings.required.label"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "name": "t:sections.contact_form.blocks.checkbox.name",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.checkbox.settings.title.label",
+          "default": "Checkbox"
+        },
+        {
+          "id": "option_1",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.checkbox.settings.options__1.label",
+          "default": "Option 1"
+        },
+        {
+          "id": "option_2",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.checkbox.settings.options__2.label"
+        },
+        {
+          "id": "option_3",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.checkbox.settings.options__3.label"
+        },
+        {
+          "id": "option_4",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.checkbox.settings.options__4.label"
+        },
+        {
+          "id": "option_5",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.checkbox.settings.options__5.label"
+        },
+        {
+          "id": "option_6",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.checkbox.settings.options__6.label"
+        },
+        {
+          "id": "required",
+          "type": "checkbox",
+          "label": "t:sections.contact_form.blocks.checkbox.settings.required.label"
+        }
+      ]
+    },
+    {
+      "type": "radio",
+      "name": "t:sections.contact_form.blocks.radio.name",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.radio.settings.title.label",
+          "default": "Radio buttons"
+        },
+        {
+          "id": "option_1",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.radio.settings.options__1.label",
+          "default": "Option 1"
+        },
+        {
+          "id": "option_2",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.radio.settings.options__2.label",
+          "default": "Option 2"
+        },
+        {
+          "id": "option_3",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.radio.settings.options__3.label"
+        },
+        {
+          "id": "option_4",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.radio.settings.options__4.label"
+        },
+        {
+          "id": "option_5",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.radio.settings.options__5.label"
+        },
+        {
+          "id": "option_6",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.radio.settings.options__6.label"
+        },
+        {
+          "id": "required",
+          "type": "checkbox",
+          "label": "t:sections.contact_form.blocks.radio.settings.required.label"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "name": "t:sections.contact_form.blocks.select.name",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.select.settings.title.label",
+          "default": "Select"
+        },
+        {
+          "id": "option_1",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.select.settings.options__1.label",
+          "default": "Option 1"
+        },
+        {
+          "id": "option_2",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.select.settings.options__2.label",
+          "default": "Option 2"
+        },
+        {
+          "id": "option_3",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.select.settings.options__3.label",
+          "default": "Option 3"
+        },
+        {
+          "id": "option_4",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.select.settings.options__4.label"
+        },
+        {
+          "id": "option_5",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.select.settings.options__5.label"
+        },
+        {
+          "id": "option_6",
+          "type": "text",
+          "label": "t:sections.contact_form.blocks.select.settings.options__6.label"
+        },
+        {
+          "id": "required",
+          "type": "checkbox",
+          "label": "t:sections.contact_form.blocks.select.settings.required.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Contact Form",
+      "category": "t:categories.forms",
+      "blocks": [
+        {
+          "type": "text",
+          "settings": {
+            "title": "Name",
+            "placeholder": "Name",
+            "required": true
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "title": "Company name"
+          }
+        },
+        {
+          "type": "email",
+          "settings": {
+            "title": " Email"
+          }
+        },
+        {
+          "type": "tel",
+          "settings": {
+            "title": "Phone number"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "title": "Subject"
+          }
+        },
+        {
+          "type": "textarea",
+          "settings": {
+            "title": "Message",
+            "required": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

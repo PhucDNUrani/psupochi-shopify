@@ -1,0 +1,270 @@
+{% comment %} Custom section for payment methods with title, styled content, and images {% endcomment %}
+
+<div class="payment-methods-section">
+  {% if section.settings.title != blank %}
+    <h1 class="main-title">{{ section.settings.title }}</h1>
+  {% endif %}
+
+  {% for block in section.blocks %}
+    <div class="content-section" {{ block.shopify_attributes }}>
+      {% case block.type %}
+        {% when 'payment_method' %}
+          <div
+            class="payment-method-block"
+            style="text-align: {{ block.settings.text_align }}; background-color: {{ block.settings.bg_color }}; font-weight: {% if block.settings.bold_text %}bold{% else %}normal{% endif %};"
+          >
+            <div class="payment-method-header">
+              {% if block.settings.number != blank %}
+                <span class="number">{{ block.settings.number }}</span>
+              {% endif %}
+              {% if block.settings.subtitle != blank %}
+                <h3>{{ block.settings.subtitle }}</h3>
+              {% endif %}
+            </div>
+
+            {% if block.settings.image_position == 'before' and block.settings.image != blank %}
+              {% assign img = block.settings.image %}
+              {% assign src = img | image_url: width: 2048 %}
+              <img
+                src="{{ src }}"
+                sizes="(max-width: 600px) 100vw"
+                width="{% if block.settings.image_width == 'fit' %}600{% else %}{{ img.width }}{% endif %}"
+                height="{{ img.height }}"
+                loading="lazy"
+                alt="{{ block.settings.subtitle | escape }}"
+                class=""
+              >
+            {% endif %}
+
+            {{ block.settings.description }}
+            {% comment %} image_width {% endcomment %}
+            {% if block.settings.image_position == 'after' and block.settings.image != blank %}
+              {% assign img = block.settings.image %}
+              {% assign src = img | image_url: width: 2048 %}
+              <img
+                src="{{ src }}"
+                sizes="(max-width: 600px) 100vw"
+                width="{% if block.settings.image_width == 'fit' %}600{% else %}{{ img.width }}{% endif %}"
+                height="{{ img.height }}"
+                loading="lazy"
+                alt="{{ block.settings.subtitle | escape }}"
+                class=""
+              >
+            {% endif %}
+          </div>
+
+        {% when 'company_info' %}
+          <div
+            class="company-info-block"
+            style="background-color: {{ block.settings.bg_color }};text-align: {{ block.settings.text_align }};"
+          >
+            {{ block.settings.content }}
+          </div>
+
+        {% when 'note' %}
+          <div class="note-block" style="text-align: {{ block.settings.text_align }};">
+            {{ block.settings.content }}
+          </div>
+      {% endcase %}
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+  /* Basic styling to match the image's layout */
+  .payment-methods-section {
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .payment-methods-section p {
+    margin: 0;
+  }
+  .main-title {
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+  }
+  .content-section {
+    width: 83.3333%;
+    margin: auto;
+  }
+  .payment-method-block {
+    /* margin-bottom: 20px; */
+    /* padding: 10px; */
+  }
+  .payment-method-header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding-top: 14px;
+    margin-bottom: 5px;
+  }
+  .payment-method-block h3 {
+    margin: 0;
+  }
+  .payment-method-block .number {
+    /* font-size: 1.2em; */
+    font-weight: bold;
+  }
+  .payment-method-block img {
+    max-width: 100%;
+    /* width: 100%; */
+    height: auto;
+  }
+  .company-info-block {
+    padding: 15px;
+    /* margin: 20px 0; */
+    border-radius: 5px;
+  }
+  .note-block {
+    /* margin-top: 10px; */
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Payment Methods",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Main Title",
+      "default": "お支払い方法について"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "payment_method",
+      "name": "Payment Method",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number (e.g., 1.)",
+          "default": "1."
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "クレジットカード"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image (e.g., Logos)"
+        },
+        {
+          "type": "select",
+          "id": "image_position",
+          "label": "Image Position",
+          "options": [
+            { "value": "before", "label": "Before Text" },
+            { "value": "after", "label": "After Text" }
+          ],
+          "default": "before"
+        },
+        {
+          "type": "select",
+          "id": "image_width",
+          "label": "Image Width",
+          "options": [
+            { "value": "fit", "label": "Fit" },
+            { "value": "full", "label": "Full" }
+          ],
+          "default": "fit"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>以下のクレジットカードがご利用いただけます。</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text Alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "transparent"
+        },
+        {
+          "type": "checkbox",
+          "id": "bold_text",
+          "label": "Bold Text",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "company_info",
+      "name": "Company Info Box",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>運営者: 株式会社...</p>"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "#f0f0f0"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text Alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        }
+      ]
+    },
+    {
+      "type": "note",
+      "name": "Note",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Note Text",
+          "default": "<p>* 注意事項...</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text Alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Payment Methods",
+      "category": "t:categories.layout",
+      "blocks": [{ "type": "payment_method" }]
+    }
+  ]
+}
+{% endschema %}

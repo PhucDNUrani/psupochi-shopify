@@ -1,0 +1,176 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "hide_mobile": false
+      }
+    },
+    "main-page": {
+      "type": "main-page",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "h1"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "content"
+      ],
+      "disabled": true,
+      "settings": {
+        "max_width": 980,
+        "content_alignment": "start",
+        "text_alignment": "start",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "section_text_block_QyGfED": {
+      "type": "section-text-block",
+      "blocks": {
+        "payment_method_G3P4rK": {
+          "type": "payment_method",
+          "settings": {
+            "number": "1",
+            "subtitle": "事業者の名称",
+            "image_position": "before",
+            "image_width": "fit",
+            "description": "<p>株式会社ハウステクト</p>",
+            "text_align": "left",
+            "bg_color": "transparent",
+            "bold_text": false
+          }
+        },
+        "payment_method_tGLYtj": {
+          "type": "payment_method",
+          "settings": {
+            "number": "2",
+            "subtitle": "個人情報保護管理者（もしくはその代理人）の氏名または職名、所属および連絡先",
+            "image_position": "before",
+            "image_width": "fit",
+            "description": "<p>株式会社ハウステクト　石井　健伍<br/>〒230-0072 神奈川県横浜市鶴見区梶山1-6-9<br/>パークサイドビル3F<br/>電話：050-1721-9537 FAX：045-633-7196<br/>メールでのお問合せ： pespochi-customer@gaichujusos-kujo.com</p>",
+            "text_align": "left",
+            "bg_color": "rgba(0,0,0,0)",
+            "bold_text": false
+          }
+        },
+        "payment_method_DVhbjb": {
+          "type": "payment_method",
+          "settings": {
+            "number": "3",
+            "subtitle": "個人情報の利用目的",
+            "image_position": "before",
+            "image_width": "fit",
+            "description": "<p>お客様の個人情報は、以下の目的で利用いたします。<br/>お客様ご本人の確認や特定を行うため<br/>会員情報の登録内容の把握やお客様へのご連絡・お知らせのため<br/>お客様からの注文をいただき商品をお届けするため<br/>お客様からのお問い合わせ対応のため</p>",
+            "text_align": "left",
+            "bg_color": "rgba(0,0,0,0)",
+            "bold_text": false
+          }
+        },
+        "payment_method_fyLNa9": {
+          "type": "payment_method",
+          "settings": {
+            "number": "4",
+            "subtitle": "個人情報の提供について",
+            "image_position": "before",
+            "image_width": "fit",
+            "description": "<p>当社は、お客様より収集させていただいた個人情報を適切に管理し、 次のいずれかに該当する場合を除き、如何なる第三者にも開示・提供いたしません。<br/>⑴ お客様の同意がある場合<br/>⑵ お客様が希望されるサービスを行うために当社が業務委託先に必要な範囲で開示・提供する場合<br/>⑶ 法令などにもとづき要請された場合</p>",
+            "text_align": "left",
+            "bg_color": "rgba(0,0,0,0)",
+            "bold_text": false
+          }
+        },
+        "payment_method_hbpXg4": {
+          "type": "payment_method",
+          "settings": {
+            "number": "5",
+            "subtitle": "個人情報取り扱いの委託",
+            "image_position": "before",
+            "image_width": "fit",
+            "description": "<p>お客様の個人番号は、ご注文いただきました商品の配送およびお客様からのお問い合わせ対応に利用させていただきます。</p>",
+            "text_align": "left",
+            "bg_color": "rgba(0,0,0,0)",
+            "bold_text": false
+          }
+        },
+        "payment_method_X3iwWm": {
+          "type": "payment_method",
+          "settings": {
+            "number": "6",
+            "subtitle": "個人情報等の開示等の手続について",
+            "image_position": "before",
+            "image_width": "fit",
+            "description": "<p>お客様は、当社に対してご自身の個人情報の開示等(利用目的の通知、開示、内容の訂正・追加・削除、 利用の停止または消去、第三者への提供の停止)に関して、当社問合わせ窓口に申し出ることができます。<br/>その際、当社はお客様ご本人を確認させていただいた上で、合理的な期間内に対応いたします。開示等の申し出の 詳細につきましては、当社ホームページ掲載の｢個人情報保護方針 個人情報の開示について｣をご覧ください。</p>",
+            "text_align": "left",
+            "bg_color": "rgba(0,0,0,0)",
+            "bold_text": false
+          }
+        },
+        "payment_method_fmf3pL": {
+          "type": "payment_method",
+          "settings": {
+            "number": "7",
+            "subtitle": "個人情報を提供されることの任意性について",
+            "image_position": "before",
+            "image_width": "fit",
+            "description": "<p>お客様が当社に個人情報を提供されるかどうかは、お客様の任意によるものです。 ただし、必要な項目をいただけない場合、各サービス等が適切な状態で提供できない場合があります。</p>",
+            "text_align": "left",
+            "bg_color": "rgba(0,0,0,0)",
+            "bold_text": false
+          }
+        },
+        "payment_method_jn3emY": {
+          "type": "payment_method",
+          "settings": {
+            "number": "8",
+            "subtitle": "当社サイトが使用しているアクセス解析ツールについて",
+            "image_position": "before",
+            "image_width": "fit",
+            "description": "<p>当サイトでは、Googleによるアクセス解析ツールGoogle Analyticsを利用しています。<br/>このGoogle Analyticsはトラフィックデータの収集のために「Cookie」を使用しています。<br/>このトラフィックデータは匿名で収集されており、個人を特定するものではありません。<br/>詳しくはGoogle アナリティクス サービス利用規約をご確認下さい。<br/>また、当サイトでは「Google アナリティクスの広告向けの機能」である「Google アナリティクスのユーザーの分布とインタレスト カテゴリに関するレポート」を使用しております。<br/>広告向けの機能を使用するに当たり、Google Inc.を含む第三者配信事業者は「Google広告Cookie」や「匿名ID」の他、ウェブサイトにアクセスした記録や、推定されるユーザーの属性･興味･関心や所在地などに基づいて、ユーザーに最適な広告を提供します。 これらについても、トラフィックデータ収集のために使用する「Cookie」と同様に個人を特定するものではありません。<br/>当サイトと Google Inc.を含む第三者配信事業者は、ファーストパーティ Cookie（Google アナリティクスの Cookie など）または他のファーストパーティ ID とサードパーティCookie（DoubleClick Cookie など）または他のサードパーティ ID を組み合わせ、 当サイトを訪れたユーザーの属性･興味･関心の分析に利用しております。<br/>これとは別に当サイトでは、アクセス解析に関する記事に載せるデータとしてや、当サイトのサービスを向上させる目的に使用します。<br/>これらの機能はお使いのブラウザの設定からCookieを無効にするか、Google アナリティクス オプトアウト アドオンを利用することで無効にすることが出来ます。</p>",
+            "text_align": "left",
+            "bg_color": "rgba(0,0,0,0)",
+            "bold_text": false
+          }
+        }
+      },
+      "block_order": [
+        "payment_method_G3P4rK",
+        "payment_method_tGLYtj",
+        "payment_method_DVhbjb",
+        "payment_method_fyLNa9",
+        "payment_method_hbpXg4",
+        "payment_method_X3iwWm",
+        "payment_method_fmf3pL",
+        "payment_method_jn3emY"
+      ],
+      "name": "Payment Methods",
+      "settings": {
+        "title": "個人情報の取り扱いについて"
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-page",
+    "section_text_block_QyGfED"
+  ]
+}

@@ -1,0 +1,139 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "hide_mobile": false
+      }
+    },
+    "main-page": {
+      "type": "main-page",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "h1"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "content"
+      ],
+      "disabled": true,
+      "settings": {
+        "max_width": 980,
+        "content_alignment": "start",
+        "text_alignment": "start",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "section_page_title_UCjQHa": {
+      "type": "section-page-title",
+      "name": "Page Title",
+      "settings": {
+        "title": "お問い合わせ"
+      }
+    },
+    "section_contact_form_custom_GUdxJr": {
+      "type": "section-contact-form-custom",
+      "blocks": {
+        "jp_name_fwD4X8": {
+          "type": "jp_name",
+          "settings": {
+            "title": "お名前",
+            "placeholder_1": "姓",
+            "placeholder_2": "名",
+            "required": true
+          }
+        },
+        "jp_name_NwmTT9": {
+          "type": "jp_name",
+          "settings": {
+            "title": "お名前(カナ)",
+            "placeholder_1": "セイ",
+            "placeholder_2": "メイ",
+            "required": false
+          }
+        },
+        "jp_address_rVmfmC": {
+          "type": "jp_address",
+          "settings": {
+            "title": "住所",
+            "placeholder_postcode": "例：5300001",
+            "placeholder_addr01": "市区町村名(例：大阪市北区)",
+            "placeholder_addr02": "番地・ビル名(例：西梅田1丁目6-8)",
+            "required": false
+          }
+        },
+        "tel_NK87N6": {
+          "type": "tel",
+          "settings": {
+            "title": "電話番号",
+            "placeholder": "例：11122223333",
+            "required": false
+          }
+        },
+        "email_eKhkLn": {
+          "type": "email",
+          "settings": {
+            "title": "メールアドレス",
+            "placeholder": ""
+          }
+        },
+        "textarea_na6RK8": {
+          "type": "textarea",
+          "settings": {
+            "title": "お問い合わせ内容",
+            "placeholder": "",
+            "required": true
+          }
+        }
+      },
+      "block_order": [
+        "jp_name_fwD4X8",
+        "jp_name_NwmTT9",
+        "jp_address_rVmfmC",
+        "tel_NK87N6",
+        "email_eKhkLn",
+        "textarea_na6RK8"
+      ],
+      "name": "Custom Contact Form",
+      "settings": {
+        "alignment": "center",
+        "title": "<p>内容によっては回答をさしあげるのにお時間をいただくこともございます。<br/>また、休業日は翌営業日以降の対応となりますのでご了承ください。</p>",
+        "title_underline_style": "none",
+        "title_align": "left",
+        "button_style": "primary plain",
+        "custom_button": "yes",
+        "show_placeholder": true,
+        "compact": true,
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-page",
+    "section_page_title_UCjQHa",
+    "section_contact_form_custom_GUdxJr"
+  ]
+}

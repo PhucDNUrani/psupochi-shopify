@@ -1,0 +1,92 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "hide_mobile": false
+      }
+    },
+    "main-page": {
+      "type": "main-page",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "h1"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "content"
+      ],
+      "disabled": true,
+      "settings": {
+        "max_width": 980,
+        "content_alignment": "start",
+        "text_alignment": "start",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "section_text_block_WLBiRe": {
+      "type": "section-text-block",
+      "blocks": {
+        "payment_method_j4eQRh": {
+          "type": "payment_method",
+          "settings": {
+            "number": "",
+            "subtitle": "基本理念",
+            "image_position": "before",
+            "image_width": "fit",
+            "description": "<p>株式会社ハウステクト（以下「当社」といいます）は、防虫コンサルティング企業として、お客様情報、従業員情報をはじめとする個人情報を適切に取扱い、保護するという重要な社会的義務、企業責任があります。<br/>当社では、この責任を果たすために、次の通り「個人情報保護方針」を制定し、当社役員、従業員それぞれが、この方針のもと、個人情報を保護するための体制及び仕組みを持ち、継続的に改善してまいります。<br/></p>",
+            "text_align": "left",
+            "bg_color": "transparent",
+            "bold_text": false
+          }
+        },
+        "payment_method_xN7gGV": {
+          "type": "payment_method",
+          "settings": {
+            "number": "",
+            "subtitle": "個人情報保護方針",
+            "image_position": "before",
+            "image_width": "fit",
+            "description": "<p>⑴ 特定の個人を識別することができる情報(以下「個人情報」といいます)の取り扱いについて規定を定め、また、組織体制を整備し、個人情報の適切な保護に努めております。<br/><br/>⑵ ご本人から個人情報を取得する場合は、利用目的、ご本人に対する当社の窓口をお知らせした上でご本人の同意を得て、必要な範囲で個人情報を取得いたします。<br/><br/>⑶ 個人情報を利用目的の範囲内で利用するとともに、適切な方法で管理し、法令で認められた場合を除き、ご本人の承諾なく第三者に開示・提供することはありません。また、利用目的外での利用や提供を防止するための規定や管理体制を整備します。<br/><br/>⑷ 個人情報を正確かつ最新の状態に保ち、個人情報への不正アクセス、紛失、破壊、改ざん及び漏えい等を防止並びに是正するための措置を講じております。<br/><br/>⑸ 当社が、個人情報の処理を外部へ委託する場合には、漏えいや再提供を行わないよう契約により義務づけ、適切な管理を実施させていただきます。<br/><br/>⑹ 委託元よりお預かりした個人情報は、厳正なる管理を行い契約の範囲内で利用します。<br/><br/>⑺ 個人情報の確認、訂正等、もしくは、本方針、当社における個人情報保護の取り組み等に対する苦情、相談を希望される場合は、下記当社窓口までご連絡いただければ、すみやかに対応いたします。<br/><br/>⑻ 当社が保有する個人情報に関して適用される法令、国が定める指針その他の規範を遵守いたします。<br/><br/>⑼ 上記各項における取り組み及び保護活動を、個人情報保護マネジメントシステムとして構築し、維持、改善してまいります。<br/><br/>制定日：令和7年2月20日<br/>代表取締役　武田海史</p>",
+            "text_align": "left",
+            "bg_color": "rgba(0,0,0,0)",
+            "bold_text": false
+          }
+        }
+      },
+      "block_order": [
+        "payment_method_j4eQRh",
+        "payment_method_xN7gGV"
+      ],
+      "name": "Payment Methods",
+      "settings": {
+        "title": "個人情報保護方針"
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-page",
+    "section_text_block_WLBiRe"
+  ]
+}

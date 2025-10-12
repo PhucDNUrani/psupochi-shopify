@@ -1,0 +1,96 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "hide_mobile": false
+      }
+    },
+    "main-page": {
+      "type": "main-page",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "h1"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "content"
+      ],
+      "disabled": true,
+      "settings": {
+        "max_width": 980,
+        "content_alignment": "start",
+        "text_alignment": "start",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "section_trade_law_WH8JNG": {
+      "type": "section-trade-law",
+      "blocks": {
+        "row_XUczHe": {
+          "type": "row",
+          "settings": {
+            "left_text": "・商品の遅延に関するお問い合わせ",
+            "right_text": "<p>注文した商品が届かない場合は<a href=\"https://media.ivry.jp/pesupochi-construction/inquiry/3/new/\" target=\"_blank\" title=\"https://media.ivry.jp/pesupochi-construction/inquiry/3/new/\">こちら</a></p>"
+          }
+        },
+        "row_FTFMRp": {
+          "type": "row",
+          "settings": {
+            "left_text": "・別商品到着のお問い合わせ",
+            "right_text": "<p>別の商品が届いてしまった場合<a href=\"https://media.ivry.jp/pesupochi-construction/inquiry/2/new/\" title=\"https://media.ivry.jp/pesupochi-construction/inquiry/2/new/\">こちら</a> </p>"
+          }
+        },
+        "row_w9khDh": {
+          "type": "row",
+          "settings": {
+            "left_text": "・返品に関するお問い合わせ",
+            "right_text": "<p>不用品の商品トラブルは<a href=\"https://media.ivry.jp/pesupochi-construction/inquiry/1/new/\" title=\"https://media.ivry.jp/pesupochi-construction/inquiry/1/new/\">こちら</a></p>"
+          }
+        },
+        "row_437dVr": {
+          "type": "row",
+          "settings": {
+            "left_text": "・その他お問い合わせ",
+            "right_text": "<p>その他のお問い合わせは<a href=\"/pages/contact\" title=\"お問い合わせ\">こちら</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "row_XUczHe",
+        "row_FTFMRp",
+        "row_w9khDh",
+        "row_437dVr"
+      ],
+      "name": "Trade Law",
+      "settings": {
+        "check_page": "custom"
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-page",
+    "section_trade_law_WH8JNG"
+  ]
+}

@@ -1,0 +1,176 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "hide_mobile": false
+      }
+    },
+    "main-page": {
+      "type": "main-page",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "h1"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "content"
+      ],
+      "disabled": true,
+      "settings": {
+        "max_width": 980,
+        "content_alignment": "start",
+        "text_alignment": "start",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "section_trade_law_WH8JNG": {
+      "type": "section-trade-law",
+      "blocks": {
+        "row_XwWUYJ": {
+          "type": "row",
+          "settings": {
+            "left_text": "販売業者",
+            "right_text": "<p>株式会社ハウステクト</p>",
+            "right_image": "shopify://shop_images/rogo2.gif"
+          }
+        },
+        "row_fHxmcJ": {
+          "type": "row",
+          "settings": {
+            "left_text": "ショップ名",
+            "right_text": "<p>ペスぽち～害虫駆除プログッズ×施工動画コンテンツ</p>",
+            "right_image": "shopify://shop_images/rogo1.gif"
+          }
+        },
+        "row_XUczHe": {
+          "type": "row",
+          "settings": {
+            "left_text": "代表者",
+            "right_text": "<p>代表取締役　武田　海史</p>"
+          }
+        },
+        "row_PLtpb8": {
+          "type": "row",
+          "settings": {
+            "left_text": "所在地",
+            "right_text": "<p>〒230-0072<br/>神奈川県横浜市鶴見区梶山1-6-9　パークサイドビル3F</p>"
+          }
+        },
+        "row_4UL8md": {
+          "type": "row",
+          "settings": {
+            "left_text": "電話番号・メールアドレス",
+            "right_text": "<p>050-1721-9537 受付時間 9:00-17:00（土日祝を除く）<br/>pespochi-customer@gaichujusos-kujo.com</p>"
+          }
+        },
+        "row_VeBaxx": {
+          "type": "row",
+          "settings": {
+            "left_text": "販売価格",
+            "right_text": "<p>各商品ページをご参照ください。<br/><a href=\"/collections/all\" title=\"All products\">詳しくはこちらをクリック</a></p>"
+          }
+        },
+        "row_WtLxG6": {
+          "type": "row",
+          "settings": {
+            "left_text": "商品代金以外に必要な料金",
+            "right_text": "<p>・配送料（宅急便：858円　※北海道：1,160円・沖縄、離島：1,680円）<br/>・手数料（ベリトランス後払い（コンビニ後払い決済）：280円（税込））<br/>詳しくはこちらをクリック</p>"
+          }
+        },
+        "row_CwWWLY": {
+          "type": "row",
+          "settings": {
+            "left_text": "支払方法",
+            "right_text": "<p>銀行振込・クレジットカード・PayPay・楽天ペイ・ベリトランス後払い（コンビニ後払い）※1</p>"
+          }
+        },
+        "row_Ddqyb3": {
+          "type": "row",
+          "settings": {
+            "left_text": "支払時期",
+            "right_text": "<p>・クレジットカードでのお支払いは、ご利用のクレジット会社が定める条件に従います。<br/>・各種電子マネーの場合は、価格分が即時に決済されます。<br/>・銀行振込の場合は、ご注文後1週間以内にお支払いお願いいたします。なお、1週間が経過してもご入金が確認されない場合は自動的にご注文を キャンセルさせていただきます。<br/>・ベリトランス後払い（コンビニ後払い）でのお支払いは、払込票発行から14日以内にお支払いください。</p>"
+          }
+        },
+        "row_7DENmx": {
+          "type": "row",
+          "settings": {
+            "left_text": "商品の引渡時期",
+            "right_text": "<p>ご注文および商品代金決済完了後から、1～5営業日以内に発送します。</p>"
+          }
+        },
+        "row_pYcL3X": {
+          "type": "row",
+          "settings": {
+            "left_text": "返品・交換の期限",
+            "right_text": "<p>商品到着後7日以内に限り返品・交換が可能です。</p>"
+          }
+        },
+        "row_fHbVxE": {
+          "type": "row",
+          "settings": {
+            "left_text": "返品送料",
+            "right_text": "<p>不良品による返品の場合を除き、お客様のご負担となります。</p>"
+          }
+        },
+        "row_AtKKyQ": {
+          "type": "row",
+          "settings": {
+            "left_text": "不良品",
+            "right_text": "<p>お客様が商品を受け取られてから7日以内に、 お問い合わせフォームにて不良の内容をご連絡いただくようお願いいたします。<br/>弊社にて不良の可能性があると判断できる場合、 返品・交換を受け付けさせていただきます。<br/>なお、不良品の返品・交換につきましては、先にお客様の商品を返送（着払い） していただいてから新しい商品と取り替えさせていただきます。不良品の返品に関するお問い合わせフォームは、<br/><a href=\"https://media.ivry.jp/pesupochi-construction/inquiry/2/new\">こちらをクリック</a></p>"
+          }
+        },
+        "row_dCNf6n": {
+          "type": "row",
+          "settings": {
+            "left_text": "※1 ベリトランス後払い（コンビニ後払い）について",
+            "right_text": "<p>● 後払い手数料：280円（税込）<br/>● 利用限度額：55,000円（税込）<br/>● 払込票は商品とは別に株式会社SCOREより郵送されます。発行から14日以内にコンビニでお支払いください。<br/>● 代金債権とそれに付帯する個人情報は、包括的な決済サービスを提供する株式会社DGフィナンシャルテクノロジーに譲渡・ 提供されたうえで、さらに同社から後払い決済サービスを提供する 株式会社SCOREに対し、再譲渡・提供されますので、当該第三者への譲渡・提供に同意の上、お申込みください。<br/>【提供先の個人情報の利用目的】<br/>以下URL（個人情報の取扱いについて）よりご確認ください。<br/>株式会社DGフィナンシャルテクノロジー<br/>https://www.veritrans.co.jp/privacy/operation.html<br/>株式会社SCORE<br/>https://corp.scoring.jp/privacypolicy/<br/>【提供する個人情報】<br/>氏名、電話番号、住所、Eメールアドレス<br/>※個人情報には該当しない、購入商品や取引金額等の決済データも専用システムにて提供されます。<br/>● 株式会社SCOREが行う与信審査の結果により、後払い決済をご利用いただけない場合がございます。<br/>● 株式会社DGフィナンシャルテクノロジー、株式会社SCOREの詳細は以下よりご確認ください。<br/>・株式会社DGフィナンシャルテクノロジーについて<br/>https://www.veritrans.co.jp/<br/>・株式会社SCOREについて　https://www.scoring.jp/consumer/<br/>●以下の場合、後払い決済をご利用いただけません。予めご了承ください。<br/>・郵便局留め・運送会社営業所留め（郵便局または営業所での引き取り）を指定して行う発送<br/>・商品の転送を指定して行う発送<br/>・郵送先住所が「病院」「ホテル」「学校」である場合に、郵送先の名義が当該病院等の職員以外となっている状態で行う発送<br/>・鉄道の駅前など、公共の場所に設置された宅配・集荷ボックスを郵送先として行う発送<br/>(マンション等の集合住宅または一軒家に、当該住居の住居者のために設けられた宅配ボックスは除きます）<br/>・コンビニエンスストア店頭での受け渡しを指定して行う発送<br/>●個人情報の提供に関する問合せ先：050-1721-9537<br/>●ご利用者が未成年の場合は、法定代理人の利用同意を得てご利用ください。<br/>●下記スマートフォンアプリからお支払い可能です。<br/>・楽天銀行コンビニ支払サービス（アプリで払込票支払）<br/>・ｄ払い請求書払い ・ファミペイ請求書支払い ・楽天ペイ</p>"
+          }
+        }
+      },
+      "block_order": [
+        "row_XwWUYJ",
+        "row_fHxmcJ",
+        "row_XUczHe",
+        "row_PLtpb8",
+        "row_4UL8md",
+        "row_VeBaxx",
+        "row_WtLxG6",
+        "row_CwWWLY",
+        "row_Ddqyb3",
+        "row_7DENmx",
+        "row_pYcL3X",
+        "row_fHbVxE",
+        "row_AtKKyQ",
+        "row_dCNf6n"
+      ],
+      "name": "Trade Law",
+      "settings": {}
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-page",
+    "section_trade_law_WH8JNG"
+  ]
+}

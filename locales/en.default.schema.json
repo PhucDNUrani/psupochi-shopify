@@ -4278,6 +4278,10 @@
           "options__8": {
             "label": "Logo center, in-header navigation, compact search",
             "group": "Logo center"
+          },
+          "options__9": {
+            "label": "Custom header with 3 imags",
+            "group": "Header with 3 images"
           }
         },
         "width": {

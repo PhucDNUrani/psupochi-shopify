@@ -18,18 +18,18 @@
           "type": "footer_images",
           "settings": {
             "footer_img": "shopify://shop_images/footer_img01.png",
-            "image_width": 60,
+            "image_width": 90,
             "title": "<h3>ご注文完了</h3>",
             "image_desc": "ご注文は24時間受付ております。",
             "title_font": "primary",
-            "title_size_blocks": "h4"
+            "title_size_blocks": "h2"
           }
         },
         "footer_images_UCUVzg": {
           "type": "footer_images",
           "settings": {
             "footer_img": "shopify://shop_images/footer_img02.png",
-            "image_width": 60,
+            "image_width": 90,
             "title": "<h3>確認メール</h3>",
             "image_desc": "ご注文後に自動返信メールと、通常営業日翌日までに注文確認メールが届きます。※ メールアドレスが間違っていると確認メールが届きませんのでご注意ください。",
             "title_font": "primary",
@@ -40,7 +40,7 @@
           "type": "footer_images",
           "settings": {
             "footer_img": "shopify://shop_images/footer_img03.png",
-            "image_width": 60,
+            "image_width": 90,
             "title": "<h3>ご入金</h3>",
             "image_desc": "お支払い方法が、振込みの場合は、入金確認後の出荷となります。",
             "title_font": "primary",
@@ -51,7 +51,7 @@
           "type": "footer_images",
           "settings": {
             "footer_img": "shopify://shop_images/footer_img04.png",
-            "image_width": 60,
+            "image_width": 90,
             "title": "<h3>出荷準備</h3>",
             "image_desc": "在庫がない場合はお取り寄せとなります。",
             "title_font": "primary",
@@ -62,7 +62,7 @@
           "type": "footer_images",
           "settings": {
             "footer_img": "shopify://shop_images/footer_img05.png",
-            "image_width": 60,
+            "image_width": 90,
             "title": "<h3>発送メール</h3>",
             "image_desc": "商品発送が完了次第、発送通知書がお送り致します。",
             "title_font": "primary",
@@ -73,11 +73,18 @@
           "type": "footer_images",
           "settings": {
             "footer_img": "shopify://shop_images/footer_img06.png",
-            "image_width": 60,
+            "image_width": 90,
             "title": "<h3>商品お届け</h3>",
             "image_desc": "ヤマト運輸にて出荷いたします。",
             "title_font": "primary",
             "title_size_blocks": "h4"
+          }
+        },
+        "footer_menu_Lkz7tb": {
+          "type": "footer_menu",
+          "settings": {
+            "footer_menu_1": "footer-menu-1",
+            "footer_menu_2": "footer-menu-2"
           }
         },
         "footer_banner_M9rQp4": {
@@ -85,7 +92,8 @@
           "settings": {
             "banner_img": "shopify://shop_images/footer_img07.png",
             "banner_container_width": 920,
-            "banner_desc": "<p><strong>一般個人さま・法人さま・店舗、施設さま問わず、誰でもプロ並みの施工ができるセルフ害虫駆除ショップをコンセプトにプロのペストコントロール技術者が経験に基づき厳選した商品（駆除・対策アイテム）・施工の解説動画コンテンツを販売中！ゴキブリ（チャバネゴキブリ含む）・トコジラミ・ムカデ・ヤスデ・クロアリ・ハエ・コバエ・ダニ・ノミ・カメムシ・チャタテムシ・トビムシの駆除・対策は、知識と商品があれば自分で解決できる！</strong></p>"
+            "banner_desc": "<p><strong>一般個人さま・法人さま・店舗、施設さま問わず、誰でもプロ並みの施工ができるセルフ害虫駆除ショップをコンセプトにプロのペストコントロール技術者が経験に基づき厳選した商品（駆除・対策アイテム）・施工の解説動画コンテンツを販売中！ゴキブリ（チャバネゴキブリ含む）・トコジラミ・ムカデ・ヤスデ・クロアリ・ハエ・コバエ・ダニ・ノミ・カメムシ・チャタテムシ・トビムシの駆除・対策は、知識と商品があれば自分で解決できる！</strong></p>",
+            "custom_footer_bot": true
           }
         }
       },
@@ -96,9 +104,11 @@
         "footer_images_nMMHME",
         "footer_images_wd7RbW",
         "footer_images_DGhHiM",
+        "footer_menu_Lkz7tb",
         "footer_banner_M9rQp4"
       ],
       "settings": {
+        "footer_title": "<h2>ご注文までの流れ</h2>",
         "footer_color": "white",
         "title_font": "primary",
         "title_size_blocks": "h5",

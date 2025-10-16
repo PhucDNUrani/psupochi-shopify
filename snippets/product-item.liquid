@@ -11,6 +11,7 @@
   assign enable_quick_buy_desktop = enable_quick_buy_desktop | default: false
   assign enable_quick_buy_mobile = enable_quick_buy_mobile | default: false
   assign enable_quick_buy_qty_selector = enable_quick_buy_qty_selector | default: false
+  assign enable_custom = enable_custom | default: false
   assign enable_variant_picker = enable_variant_picker | default: false
   assign enable_color_picker = enable_color_picker | default: false
   assign bulk = bulk | default: false
@@ -113,6 +114,9 @@
 {%- if enable_quick_buy_desktop or enable_quick_buy_mobile -%}
   {%- liquid
     assign product_form_class = 'f8pr form-card'
+    if enable_custom
+      assign product_form_class = 'custom-form ' | append: 'f8pr form-card'
+    endif
     unless enable_quick_buy_mobile
       assign product_form_class = product_form_class | append: ' mobile-hide'
     endunless
@@ -151,7 +155,7 @@
         {%- endif -%}
         <p class="submit"><button type="submit" class="{% if preorder %}overlay-preorder {% elsif current_variant.available %}overlay-buy_button{% else %}overlay-unavailable-buy-button{% endif %}{% if settings.button_style == 'inv' %} inv{% endif %}" aria-label="{% if preorder and settings.preorder_button_text != '' %}{{ settings.preorder_button_text }}{% else %}{{ 'product.form.add_to_cart' | t }}{% endif %}"><i aria-hidden="true" class="icon-cart"></i> {% if preorder and settings.preorder_button_text != '' %}{{ settings.preorder_button_text }}{% else %}{{ 'product.form.add_to_cart' | t }}{% endif %}</button></p>
       {%- endform -%}
-    {%- elsif product.variants.size == 1 and current_variant.available and enable_quick_buy_drawer == false -%}
+    {%- elsif product.variants.size == 1 and current_variant.available and enable_quick_buy_drawer == false and enable_custom == false -%}
       {%- form 'product', product, id: product_form_id, class: product_form_class, novalidate: 'novalidate' -%}
         <fieldset>
           <input type="hidden" name="id" value="{{ current_variant.id }}">
@@ -177,11 +181,50 @@
           </p>
         </fieldset>
       {%- endform -%}
+    {%- elsif product.variants.size >= 1 and current_variant.available and enable_quick_buy_drawer == false and enable_custom == true -%}
+      {%- form 'product', product, id: product_form_id, class: product_form_class, novalidate: 'novalidate' -%}
+        <fieldset>
+          <input type="hidden" name="id" value="{{ current_variant.id }}">
+          <p class="submit{% if layout == 'hotspot' %} wide{% endif %}">
+            <select name="id" id="{{ product_form_id }}-id">
+              {%- for variant in product.variants -%}
+                {%- unless variant.available -%}{% continue %}{%- endunless -%}
+                <option
+                  value="{{ variant.id }}"
+                  data-variantinfo='{ {% if product_image %}"image":"{%- if settings.fill_product_images -%}{{ product_image | image_url: width: image_width_2, height: image_height_2, crop: 'center' }}{%- else -%}{{ product_image | image_url: width: image_width_2 }}{%- endif -%}",{% endif %}"price_old":"{%- if variant.compare_at_price > variant.price -%}{{ variant.compare_at_price | money }}{%- endif -%}","price":"{{ variant.price | money }}"}'
+                  {% unless variant.available %}disabled data-class="disabled"{% endunless %}
+                  {% if variant == current_variant %}selected{% endif %}
+                >{{ variant.title }}</option>
+              {%- endfor -%}
+            </select>
+            {%- if enable_quick_buy_qty_selector -%}
+              <span class="input-amount">
+              <label for="quantity-{{ product_form_id }}" class="hidden">{{ 'product.form.quantity' | t }}</label>
+              <input type="number" id="quantity-{{ product_form_id }}" name="quantity" value="{{ current_variant.quantity_rule.min }}"
+                  min="{{ current_variant.quantity_rule.min }}"
+                {% if current_variant.inventory_management == 'shopify' and current_variant.inventory_policy == 'deny' -%}
+                  max="{{ current_variant.inventory_quantity }}"
+                {% elsif current_variant.quantity_rule.max %}
+                  max="{{ current_variant.quantity_rule.max }}"
+                {% endif %}
+                {% if current_variant.quantity_rule.increment %}step="{{ current_variant.quantity_rule.increment }}"{% endif %}
+                required>
+            </span>
+            {%- endif -%}
+            <button type="submit" class="{% if preorder %}overlay-preorder{% elsif current_variant.available %}overlay-buy_button{% else %}overlay-unavailable-buy-button{% endif %}{% if settings.button_style == 'inv' %} inv{% endif %}{% if quick_buy_compact %} compact{% if layout == 'list' %} w160{% endif %}{% endif %}" aria-label="{% if preorder and settings.preorder_button_text != '' %}{{ settings.preorder_button_text }}{% else %}{{ 'product.form.add_to_cart' | t }}{% endif %}">
+              {%- unless quick_buy_compact -%}<span class="mobile-hide">{% if preorder and settings.preorder_button_text != '' %}{{ settings.preorder_button_text }}{% else %}{{ 'product.form.add_to_cart' | t }}{% endif %}</span>{%- endunless -%}
+              <i aria-hidden="true" class="icon-cart{% unless quick_buy_compact %} mobile-only{% endunless %}"></i>
+            </button>
+          </p>
+        </fieldset>
+      {%- endform -%}
     {%- else -%}
       <p class="link-btn wide {% unless enable_quick_buy_mobile %}mobile-hide{% endunless %} {% unless enable_quick_buy_desktop %}mobile-only{% endunless %} {% if quick_buy_compact and layout == 'list' %} w160{% endif %}">
         <a class="overlay-buy_button{% if settings.button_style == 'inv' %} inv{% endif %}" href="{{ product.url }}"{% if enable_quick_buy_drawer and product != blank %} data-quickshop{% endif %}>
           {%- if quick_buy_compact -%}
             {{ 'product.form.view' | t }}
+          {%- elsif product.available == false -%}
+              ただいま品切れ中です
           {%- else -%}
             {{ 'product.form.view_options' | t }}
           {%- endif -%}
@@ -287,7 +330,7 @@
         {%- endif -%}
       {% unless layout == 'list-compact' %}</a>{% endunless %}
       <button class="wishlist-productcard hidden" title="Wishlist" data-product-id="{{ product.id }}" data-variant-id="{{ current_variant.id }}"><i class="icon-heart-outline"></i></button>
-      {%- if quick_buy and enable_quick_buy_desktop and layout != 'list-compact' -%}
+      {%- if quick_buy and enable_quick_buy_desktop and layout != 'list-compact' and enable_custom == false -%}
         {{ quick_buy | replace: '-quick-add-form_x', '1' }}
       {%- endif -%}
     </figure>
@@ -354,7 +397,7 @@
         </a>
       </p>
     {%- endif -%}
-    {%- if show_stock -%}
+    {%- if show_stock and enable_custom == false -%}
       {%- render 'product-deliverytime',
               product: product,
               show_stock: false,
@@ -381,8 +424,8 @@
         </div>
       {%- endif -%}
     {%- endif -%}
-    {% if layout == 'list-compact' %}<section>{% elsif bulk == false %}</div><div class="static">{% endif %}
-    {%- if type == 'both' and show_stock %}
+    {% if layout == 'list-compact' %}<section>{% elsif bulk == false %}</div><div class="static {% if enable_custom == true %}custom-static{% endif %}">{% endif %}
+    {%- if type == 'both' and show_stock and enable_custom == false %}
       {%- render 'product-deliverytime',
               product: product,
               show_stock: false,
@@ -411,6 +454,9 @@
         {%- endif -%}
       </p>
     {%- endif -%}
+    {% comment %} {%- if quick_buy and enable_quick_buy_desktop and layout != 'list-compact' and enable_custom == true -%}
+      {{ quick_buy | replace: '-quick-add-form_x', '1' }}
+    {%- endif -%} {% endcomment %}
     {%- if enable_color_picker -%}
       {%- liquid
         assign triggers = settings.color_swatch_name | newline_to_br | strip_newlines | replace: '<br />', '|' | split: '|'
@@ -472,9 +518,56 @@
     {% endif %}
     {%- if quick_buy -%}
       {% if layout == 'list-compact' %}<footer>{% endif %}
-      {{ quick_buy | replace: '-quick-add-form_x', '2' }}
+        {%if enable_custom == true%}
+          {{ quick_buy | replace: '-quick-add-form_x', '2' }}
+        {% endif %}
       {% if layout == 'list-compact' %}</footer>{% endif %}
     {%- endif -%}
   {% if layout == 'list-compact' %}</section>{% else %}</div>{% endif %}
   {% if extra_style contains '--vertical' %}</div>{% endif %}
 </{{ container }}>
+
+<style>
+  @media only screen and (min-width: 761px) {
+    #root .l4cl:not(.list, .hr) .static.custom-static .link-btn,
+    #root .l4cl:not(.list, .hr) .static form.custom-form {
+      display: block;
+    }
+
+    #root .l4cl:not(.list, .hr) .static.custom-static .link-btn,
+    #root .l4cl:not(.list, .hr) .static.custom-static .link-btn a {
+      width: 100%
+    }
+  }
+  .l4cl:not(.list, .hr) figure:not(.overlay-static) form.custom-form:not(.visible) {
+    position: relative;
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 15px;
+  }
+  #root .l4cl form.custom-form .submit {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  #root .l4cl form.custom-form .submit .select-wrapper {
+    z-index: 10;
+    /* display: inline-block; */
+    width: auto;
+    min-width: 158px;
+    max-width: 100%;
+  }
+  #root .l4cl form.custom-form .submit button[type='submit'] {
+    width: 100%;
+  }
+  #root .l4cl form.custom-form .submit .bv_atual {
+    /* --input_h: 30px; */
+    line-height: 30px;
+    display: flex;
+  }
+</style>

@@ -1,0 +1,674 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "hide_mobile": false
+      }
+    },
+    "main-page": {
+      "type": "main-page",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "h1"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "content"
+      ],
+      "disabled": true,
+      "settings": {
+        "max_width": 980,
+        "content_alignment": "start",
+        "text_alignment": "start",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "section_gallery_ihkwzw": {
+      "type": "section-gallery",
+      "blocks": {
+        "image_y8ADUb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/general_img01.png",
+            "overlay_opacity": 0,
+            "color_palette": "",
+            "text_position": "center",
+            "title": "",
+            "title_underline_style": "none",
+            "text": "",
+            "show_link": true,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain",
+            "show_overlay_link": true,
+            "overlay_url": ""
+          }
+        },
+        "image_rdyh9b": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/general_img02.png",
+            "overlay_opacity": 0,
+            "color_palette": "",
+            "text_position": "center",
+            "title": "",
+            "title_underline_style": "none",
+            "text": "",
+            "show_link": true,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain",
+            "show_overlay_link": true,
+            "overlay_url": ""
+          }
+        },
+        "image_X8aLq6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/general_img03.png",
+            "overlay_opacity": 0,
+            "color_palette": "",
+            "text_position": "center",
+            "title": "",
+            "title_underline_style": "none",
+            "text": "",
+            "show_link": true,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain",
+            "show_overlay_link": true,
+            "overlay_url": ""
+          }
+        },
+        "image_BhTzPN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/general_img04.png",
+            "overlay_opacity": 0,
+            "color_palette": "scheme-1",
+            "text_position": "center",
+            "title": "",
+            "title_underline_style": "none",
+            "text": "",
+            "show_link": true,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain",
+            "show_overlay_link": true,
+            "overlay_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_y8ADUb",
+        "image_rdyh9b",
+        "image_X8aLq6",
+        "image_BhTzPN"
+      ],
+      "name": "t:sections.gallery.presets.name",
+      "settings": {
+        "items_layout": "static-grid",
+        "items_width": 1,
+        "height": "adapt",
+        "enable_custom_height": false,
+        "custom_height": 300,
+        "width": "boxed",
+        "space_between": 16,
+        "image_zoom": false,
+        "image_move": false,
+        "show_content_on_hover": false,
+        "show_content_below": false,
+        "content_on_hover_color_palette": "",
+        "layout_mobile": "rows",
+        "mobile_height": "16/9",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0,
+        "custom_object_fit": false,
+        "custom_section-width": true,
+        "section_width": 920
+      }
+    },
+    "section_rich_text_NG4aLr": {
+      "type": "section-rich-text",
+      "blocks": {
+        "image01_JtLYAp": {
+          "type": "image01",
+          "settings": {
+            "first_image": "shopify://shop_images/general_img10.png",
+            "image_url": "https://lin.ee/v2NDCqP"
+          }
+        },
+        "title_MRj9Pa": {
+          "type": "title",
+          "settings": {
+            "title": "<h3>1本売りの個人さま向け販売～ロット売りの法人・事業主さま迄<br/>1度の注文個数に応じて割引価格に！！</h3>",
+            "title_underline_style": "none"
+          }
+        },
+        "image02_QpLXNb": {
+          "type": "image02",
+          "settings": {
+            "second_image": "shopify://shop_images/general_img11.png",
+            "image_url": "https://pesupochi.shop.gaichujusos-kujo.com/products/detail/3"
+          }
+        }
+      },
+      "block_order": [
+        "image01_JtLYAp",
+        "title_MRj9Pa",
+        "image02_QpLXNb"
+      ],
+      "name": "t:sections.rich_text.presets.name",
+      "settings": {
+        "color_palette": "scheme-7",
+        "overlay_opacity": 100,
+        "text_alignment": "center",
+        "content_width": 1280,
+        "height": "size-s",
+        "width": "wide",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0,
+        "custom_section": true
+      }
+    },
+    "section_text_usage_NkKnwA": {
+      "type": "section-text-usage",
+      "blocks": {
+        "usage_info_MUcDQq": {
+          "type": "usage_info",
+          "settings": {
+            "header_usage": "<h3>店舗(飲食店・接待飲食店・テイクアウト店・横丁など)の場合</h3>",
+            "image_usage": "shopify://shop_images/general_img07.png",
+            "title_use_for": "<h4>ゴキブリ・チャバネゴキブリ</h4>",
+            "desc01": "<p><strong>・市販品で対策しているが被害が出続けている<br/>・業者の費用が高く、年間の駆除費用を抑えたい<br/>・お客様の目につく前に全て駆除し安心したい<br/>・地方でプロ業者が少なく自分達で対策したい<br/>・客席まで被害は出てないがスタッフが嫌がる<br/>・食材保管エリアでの発生をどうにかしたい</strong></p>",
+            "desc02": "<p><strong>・定期でプロ業者依頼してるが一向に解決しない<br/>・プロ依頼中だが自分達で追加策を講じたい<br/>・厨房にしか出なかった個体がフロアにも出る<br/>・商品の個体混入リスクを事前に予防したい<br/>・オープンキッチンで客席に出るのを予防したい<br/>・ゴミ置き場付近の発生をどうにかしたい</strong></p>"
+          }
+        },
+        "usage_info_bxFaAL": {
+          "type": "usage_info",
+          "settings": {
+            "header_usage": "<h3>施設(保育園・宿泊施設・介護施設・民泊・銭湯など)の場合</h3>",
+            "image_usage": "shopify://shop_images/general_img08.png",
+            "title_use_for": "<h4>トコジラミ</h4>",
+            "desc01": "<p><strong>・トコジラミが出ないように予防したい<br/>・トコジラミ駆除を業者に依頼したいが費用が高い<br/>・トコジラミが発生し、市販品を試しても解決不可<br/>・以前にトコジラミが発生し、再発を繰り返してる<br/>・トコジラミ業者に依頼したが、再発を繰り返す</strong></p>",
+            "desc02": "<p><strong>・観光客増加に伴うトコジラミが持ち込みリスク<br/>・介護施設の利用者によるトコジラミのリスク<br/>・ヘルパー先にトコジラミが発生<br/>・送迎車にトコジラミを発見した<br/>・ロッカーでトコジラミを発見した</strong></p>",
+            "img_product": "shopify://shop_images/general_img09.png"
+          }
+        }
+      },
+      "block_order": [
+        "usage_info_MUcDQq",
+        "usage_info_bxFaAL"
+      ],
+      "name": "Usage content",
+      "settings": {
+        "countdown_text_color": "#ffffff",
+        "color_palette": "",
+        "text_position": "center",
+        "title": "<h3>一般住宅の方はこちらをクリック👆️<br/>戸建て・マンション・アパートなど</h3>",
+        "title_underline_style": "none",
+        "sub_title": "<h3>こんなゴキブリ・トコジラミ被害を簡単に解決!!</h3>",
+        "custom_section_width": true,
+        "section_width": 920
+      }
+    },
+    "section_rich_text_ggpUFy": {
+      "type": "section-rich-text",
+      "blocks": {
+        "image01_wKiBRN": {
+          "type": "image01",
+          "settings": {
+            "first_image": "shopify://shop_images/general_img10.png",
+            "image_url": "https://lin.ee/v2NDCqP"
+          }
+        },
+        "title_wcfc3N": {
+          "type": "title",
+          "settings": {
+            "title": "<h3>1本売りの個人さま向け販売～ロット売りの法人・事業主さま迄<br/>1度の注文個数に応じて割引価格に！！</h3>",
+            "title_underline_style": "none"
+          }
+        },
+        "image02_7GVPm9": {
+          "type": "image02",
+          "settings": {
+            "second_image": "shopify://shop_images/general_img11.png",
+            "image_url": "https://pesupochi.shop.gaichujusos-kujo.com/products/detail/3"
+          }
+        }
+      },
+      "block_order": [
+        "image01_wKiBRN",
+        "title_wcfc3N",
+        "image02_7GVPm9"
+      ],
+      "name": "t:sections.rich_text.presets.name",
+      "settings": {
+        "color_palette": "scheme-7",
+        "overlay_opacity": 100,
+        "text_alignment": "center",
+        "content_width": 1280,
+        "height": "size-s",
+        "width": "wide",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0,
+        "custom_section": true
+      }
+    },
+    "section_text_split_image_An8XKN": {
+      "type": "section-text-split-image",
+      "blocks": {
+        "left_info_9wNPbf": {
+          "type": "left_info",
+          "settings": {
+            "left_info_title": "使用用途",
+            "left_info_desc": "<p><strong>既存の個体駆除・予防</strong></p>"
+          }
+        },
+        "left_info_7GFEgV": {
+          "type": "left_info",
+          "settings": {
+            "left_info_title": "広さ・使用本数",
+            "left_info_desc": "<p><strong>20坪・2本</strong></p>"
+          }
+        },
+        "left_info_9eUtwT": {
+          "type": "left_info",
+          "settings": {
+            "left_info_title": "発生状況",
+            "left_info_desc": "<p><strong>危険水域（大量発生）の状況で別業者に依頼 も一旦は多少落ち着いたがその後増える一方 で少々フロアに出るまで被害が拡大。</strong></p>"
+          }
+        },
+        "left_info_kGaTXD": {
+          "type": "left_info",
+          "settings": {
+            "left_info_title": "散布箇所",
+            "left_info_desc": "<p><strong>発生源の厨房を多めに散布（1本）し、電化 製品付近や隙間・フロア全体に空間散布 （1本）</strong></p>"
+          }
+        },
+        "left_info_Bn3KKH": {
+          "type": "left_info",
+          "settings": {
+            "left_info_title": "施工後の改善",
+            "left_info_desc": "<p><strong>施行から1周間が程で死骸をよく見かけるよ うになり、2周間目には、以前により断然減 っていると実感。3週間目には、ほとんど見 なくなり、たまに弱った個体を見かける程度 。1ヶ月を立つ頃には、個体を見なくなった。</strong></p>"
+          }
+        },
+        "left_info_QJ3UGk": {
+          "type": "left_info",
+          "settings": {
+            "left_info_title": "今後の予防と維持",
+            "left_info_desc": "<p><strong>飲食店さまは、日頃の食材搬入時の持ち込み や同じビルの別テナントさまからの被害を受 けやすいので、3ヶ月に一度、駆除時に使っ た半分の量（1本程度）を全体的に散布する ことで新たにチャバネゴキブリを持ち込んで も駆除・予防が行える。</strong></p>"
+          }
+        },
+        "left_info_fJtAjC": {
+          "type": "left_info",
+          "settings": {
+            "left_info_title": "今後の予防をしたい場合の推奨本数",
+            "left_info_desc": "<p><strong>約3ヶ月毎に0.66本　1年（4回）で2.64本 推定コスト　月/1,144円～　年間/13,728 円～※発生状況や環境に応じて推奨本数より多く 使用するケースもございます。</strong></p>"
+          }
+        },
+        "left_info_fL74F6": {
+          "type": "left_info",
+          "settings": {
+            "left_info_title": "業者に依頼との費用比較",
+            "left_info_desc": "<p><strong>同一成分のプロ用薬剤（ベクトロンFL）を使 用した施行相場は、20坪で約5万円で3ヶ月 に一度で年4回。5万円×4回＝約20万円 （月々16,600円）ベクトロンSPセルフ施行 に切り替えた場合、初回の駆除時に多く使用 するため、初年度年間5本の使用と考え1本単 価5,200円～　合計26,000円～ （月々2,166円～）とコストが年間約1/7（8 5.7％削減）に。</strong></p>"
+          }
+        },
+        "right_info_7pAbk4": {
+          "type": "right_info",
+          "settings": {
+            "right_info_title": "使用用途",
+            "right_info_desc": "<p><strong>既存の個体駆除・予防</strong></p>"
+          }
+        },
+        "right_info_JAtXH7": {
+          "type": "right_info",
+          "settings": {
+            "right_info_title": "広さ・使用本数",
+            "right_info_desc": "<p><strong>10坪・2本（定期予防も含め）</strong></p>"
+          }
+        },
+        "right_info_fnyULy": {
+          "type": "right_info",
+          "settings": {
+            "right_info_title": "発生状況",
+            "right_info_desc": "<p><strong>横丁タイプの飲食店で、フロアが吹き抜けで 他店舗とつながっているので、定期的にずっ と業者を入れて、維持している状況。</strong></p>"
+          }
+        },
+        "right_info_H3mAAX": {
+          "type": "right_info",
+          "settings": {
+            "right_info_title": "散布箇所",
+            "right_info_desc": "<p><strong>発生源の厨房を多めに散布（1本）し、電化 製品付近や隙間・フロア全体・他店舗との仕 切りに空間散布を定期的に実地。</strong></p>"
+          }
+        },
+        "right_info_N9dFJ7": {
+          "type": "right_info",
+          "settings": {
+            "right_info_title": "施工後の改善",
+            "right_info_desc": "<p><strong>施行から1周間が程で死骸をよく見かけるよ うになり、2周間目には、以前により断然減 っていると実感。3週間目に入ってもたまに 元気な個体を見かけるが、おそらく近隣店舗 からの入ってきた影響だったが、継続的にフ ロアへの空間噴霧を行い、1ヶ月後には個体 を見なくなった。</strong></p>"
+          }
+        },
+        "right_info_HXBbt3": {
+          "type": "right_info",
+          "settings": {
+            "right_info_title": "今後の予防と維持",
+            "right_info_desc": "<p><strong>施行から1周間が程で死骸をよく見かけるよ うになり、2周間目には、以前により断然減 っていると実感。3週間目に入ってもたまに 元気な個体を見かけるが、おそらく近隣店舗 からの入ってきた影響だったが、継続的にフ ロアへの空間噴霧を行い、1ヶ月後には個体 を見なくなった。</strong></p>"
+          }
+        },
+        "right_info_bjYbwW": {
+          "type": "right_info",
+          "settings": {
+            "right_info_title": "今後の予防をしたい場合の推奨本数",
+            "right_info_desc": "<p><strong>約3ヶ月毎に0.33本　1年（4回）で1.32本 推定コスト　月/572円～　年間/6,864円～ ※発生状況や環境に応じて推奨本数より多く 使用するケースもございます。</strong></p>"
+          }
+        },
+        "right_info_rBVm3p": {
+          "type": "right_info",
+          "settings": {
+            "right_info_title": "業者に依頼との費用比較",
+            "right_info_desc": "<p><strong>同一成分のプロ用薬剤（ベクトロンFL）を使 用した施行相場は、10坪で約4万円で3ヶ月 に一度で年4回。4万円×4回＝約16万円（ 月々13,333円）ベクトロンSPセルフ施行に 切り替えた場合、初回の駆除時に多く使用す るため、初年度年間3本の使用と考え1本単 価5,200円～　合計15,600円～（月々1,3 00円～）とコストが年間約1/10（90.25％ 削減）に。</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_info_9wNPbf",
+        "left_info_7GFEgV",
+        "left_info_9eUtwT",
+        "left_info_kGaTXD",
+        "left_info_Bn3KKH",
+        "left_info_QJ3UGk",
+        "left_info_fJtAjC",
+        "left_info_fL74F6",
+        "right_info_7pAbk4",
+        "right_info_JAtXH7",
+        "right_info_fnyULy",
+        "right_info_H3mAAX",
+        "right_info_N9dFJ7",
+        "right_info_HXBbt3",
+        "right_info_bjYbwW",
+        "right_info_rBVm3p"
+      ],
+      "name": "Text split with image",
+      "settings": {
+        "text_position": "center",
+        "heading": "<h2>実際にベクトロンSPを使った抜群効果と施行例ゴキブリ（チャバネゴキブリ含む）・トコジラミ</h2>",
+        "title_underline_style": "none",
+        "small_title": "<h4>※実際に弊社がベクトロンSPのみで施工した事例です。</h4>",
+        "main_title": "<h3>チャバネゴキブリ駆除・対策の2つの事例</h3>",
+        "left_heading": "<h4>飲食店さま（20坪）<br/>チャバネゴキブリ駆除、対策<br/>施工前の状況：毎日見かける大量発生</h4>",
+        "left_image": "shopify://shop_images/general_img12_c86f1ea4-f220-44f1-aa78-06ffec707450.png",
+        "left_figure_cap": "詳細を見る👆️",
+        "right_heading": "<h4>横丁テナントさま<br/>チャバネゴキブリ駆除、対策<br/>施工前の状況：毎日見かけるがテナントの 仕切りが無いため、定期的に隣からも入っ て来る状況</h4>",
+        "right_image": "shopify://shop_images/general_img13.png",
+        "right_figure_cap": "詳細を見る👆️",
+        "custom_section_width": true,
+        "section_width": 920
+      }
+    },
+    "section_image_with_text_vertical_JNRwaY": {
+      "type": "section-image-with-text-vertical",
+      "name": "Image with text vertical",
+      "settings": {
+        "image": "shopify://shop_images/general_img066.png",
+        "text_position": "text-start",
+        "title": "<h2>チャバネゴキブリの主なローチスポット（厨房）と施行方法</h2>",
+        "sub_title": "",
+        "first_para": "",
+        "desc": "<p>チャバネゴキブリは、冷蔵庫や食洗機などの暖かい電化製品周り・水分が摂取できる水回り に住み着くことが多いが大量繁殖すると壁や床全体に移動する為、ベクトロンSPを使った施 行では、隙間を含む壁・床・電化製品周辺など全体に散布すると、1周間～2周間ほどで効果 を実感します。<br/></p>",
+        "note": "※ベクトロンSP散布後は、殺虫剤の使用をお控えください。殺虫剤の忌避効果の影響で連鎖駆除のパフォーマンスが大幅に低下します。",
+        "enable_border": false,
+        "custom_section_width": true,
+        "section_width": 920
+      }
+    },
+    "section_image_with_text_vertical_hjHQXH": {
+      "type": "section-image-with-text-vertical",
+      "name": "Image with text vertical",
+      "settings": {
+        "image": "shopify://shop_images/general_img20.png",
+        "text_position": "text-start",
+        "title": "<h2>ゴキブリ（チャバネゴキブリ含む）駆除・予防広さ別の早見表</h2>",
+        "sub_title": "<h3>ベクトロンSP　使用本数　早見表<br/>（1本100プッシュ）</h3>",
+        "first_para": "<p><strong>3ヶ月毎に散布<br/>予防の場合㎡／0.5〜1プッシュ<br/>駆除の場合、㎡／2プッシュ〜<br/>（大量発生時は多めに）<br/><br/>チャバネゴキブリの場合、よく見かける厨房周りは駆除量を散布し、フロア全体には予防量を散布してもいい<br/><br/>※屋外の使用は、赤外線・雨天の影響で効果時間が推定1ヶ月〜1.5ヶ月に下がります。</strong></p>",
+        "desc": "",
+        "note": "",
+        "enable_border": true,
+        "custom_section_width": true,
+        "section_width": 920
+      }
+    },
+    "section_rich_text_WjegWV": {
+      "type": "section-rich-text",
+      "blocks": {
+        "image01_ChpUVV": {
+          "type": "image01",
+          "settings": {
+            "first_image": "shopify://shop_images/general_img10.png",
+            "image_url": "https://lin.ee/v2NDCqP"
+          }
+        },
+        "title_YCfekK": {
+          "type": "title",
+          "settings": {
+            "title": "<h3>1本売りの個人さま向け販売～ロット売りの法人・事業主さま迄<br/>1度の注文個数に応じて割引価格に！！</h3>",
+            "title_underline_style": "none"
+          }
+        },
+        "image02_Tt37dD": {
+          "type": "image02",
+          "settings": {
+            "second_image": "shopify://shop_images/general_img11.png",
+            "image_url": "https://pesupochi.shop.gaichujusos-kujo.com/products/detail/3"
+          }
+        }
+      },
+      "block_order": [
+        "image01_ChpUVV",
+        "title_YCfekK",
+        "image02_Tt37dD"
+      ],
+      "name": "t:sections.rich_text.presets.name",
+      "settings": {
+        "color_palette": "scheme-7",
+        "overlay_opacity": 100,
+        "text_alignment": "center",
+        "content_width": 1280,
+        "height": "size-s",
+        "width": "wide",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0,
+        "custom_section": true
+      }
+    },
+    "section_text_split_image_qcjzxq": {
+      "type": "section-text-split-image",
+      "blocks": {
+        "left_info_H7nfth": {
+          "type": "left_info",
+          "settings": {
+            "left_info_title": "使用用途",
+            "left_info_desc": "<p>既存の個体駆除・予防</p>"
+          }
+        },
+        "left_info_LHkUad": {
+          "type": "left_info",
+          "settings": {
+            "left_info_title": "広さ・使用本数",
+            "left_info_desc": "<p><strong>60坪・8本使用</strong></p>"
+          }
+        },
+        "left_info_MzjMEU": {
+          "type": "left_info",
+          "settings": {
+            "left_info_title": "発生状況",
+            "left_info_desc": "<p>4ヶ月ほど前ぐらいから、トコジラミによる 虫刺されの症状が利用者に現れ、業者に頼も うとしたが、建物全体の駆除費用が40万円 ～50万円と高額で頼めず、市販薬を試した が、改善が見られない状況。特に1部屋のみ 和室があり、個体を見かけるほど繁殖。送迎 車にも個体の抜け殻を発見。</p>"
+          }
+        },
+        "left_info_T39bfM": {
+          "type": "left_info",
+          "settings": {
+            "left_info_title": "散布箇所",
+            "left_info_desc": "<p><strong>建物全体に噴霧。各部屋（和室の畳下含む） ・脱衣所・トイレ・廊下など。集中的に家具 周り・衣類にも散布。（ベット・ソファー・ カーテン・衣類・布団）送迎車にも全体的に 噴霧。<br/>※ゴキブリへの使用時より散布量は多めに</strong></p>"
+          }
+        },
+        "left_info_LrCQjW": {
+          "type": "left_info",
+          "settings": {
+            "left_info_title": "施工後の改善",
+            "left_info_desc": "<p><strong>施工後2周間ほどは特に変化を感じられず、 3週間が経過する頃に死骸の発見や刺される 頻度が低下。4週間が経過する頃には虫ささ れの被害がほぼゼロになったが以前より小さ い個体を発見するようになった。6週間目以 降は、解決といっていいほど個体の発見や刺 されの被害がなくなった。</strong></p>"
+          }
+        },
+        "left_info_Etrmkg": {
+          "type": "left_info",
+          "settings": {
+            "left_info_title": "今後の予防と維持",
+            "left_info_desc": "<p><strong>飲食店さまは、日頃の食材搬入時の持ち込み や同じビルの別テナントさまからの被害を受 けやすいので、3ヶ月に一度、駆除時に使っ た半分の量（1本程度）を全体的に散布する ことで新たにチャバネゴキブリを持ち込んで も駆除・予防が行える。</strong></p>"
+          }
+        },
+        "left_info_Rx9RzV": {
+          "type": "left_info",
+          "settings": {
+            "left_info_title": "今後の予防をしたい場合の推奨本数",
+            "left_info_desc": "<p><strong>約3ヶ月毎に2本　1年（4回）で8本推定コスト　月/3,466円～年間/41,600円～</strong></p>"
+          }
+        },
+        "left_info_TJ6XyJ": {
+          "type": "left_info",
+          "settings": {
+            "left_info_title": "業者に依頼との費用比較",
+            "left_info_desc": "<p><strong>業者や使用する薬剤によって、異なりますが 仮にプロが使う同一成分のベクトロンFLで施 行を依頼した場合は、60坪で1回の施行で3 0万～40万円が相場となります。こちらで計 算すると約1/7～1/10の費用でほとんど同等 の施行ができております。1回の施行のみで 約86％～89％削減されます。</strong></p>"
+          }
+        },
+        "right_info_g6yAfj": {
+          "type": "right_info",
+          "settings": {
+            "right_info_title": "使用用途",
+            "right_info_desc": "<p><strong>既存の個体駆除・予防</strong></p>"
+          }
+        },
+        "right_info_M3MrCJ": {
+          "type": "right_info",
+          "settings": {
+            "right_info_title": "広さ・使用本数",
+            "right_info_desc": "<p><strong>1部屋（22㎡）、8階廊下（60㎡）、 厨房（15坪）トコジラミ3本・厨房1本の計 3本使用</strong></p>"
+          }
+        },
+        "right_info_UA3KTD": {
+          "type": "right_info",
+          "settings": {
+            "right_info_title": "発生状況",
+            "right_info_desc": "<p><strong>1つの客室から血粉と1匹の個体を確認し、繁 殖する前にトコジラミ防除を行うことに。業 者の見積りは、1室全体と8階の廊下1フロア を提案され、費用は20万円と高額だったの で、ベクトロンSPの施行に切り替えることに 。ついでに厨房でチャバネゴキブリの発生があ ったのでそちらも同時に施行。</strong></p>"
+          }
+        },
+        "right_info_eQBLVh": {
+          "type": "right_info",
+          "settings": {
+            "right_info_title": "散布箇所",
+            "right_info_desc": "<p>1部屋全体に噴霧。集中的に家具周り・衣類 にも散布。（ベット・ソファー・カーテン・ 布団・フロアマット）8階の廊下にも全体噴 霧（壁・床含む）発生源の厨房を多めに噴霧） し、電化製品付近や隙間にも噴霧。</p>"
+          }
+        },
+        "right_info_xmiDcA": {
+          "type": "right_info",
+          "settings": {
+            "right_info_title": "施工後の改善",
+            "right_info_desc": "<p>トコジラミに関しては、施工前に血粉は見ら れたが、個体確認は1匹のみで発生から比較 的早く施行したことで施工後は個体の確認が 見られず1ヶ月後にトラップシートにドライ アイスを乗せて捕獲するテストを行い、個体 の確認は0で解決。<br/>チャバネゴキブリに関しては、施行から1ヶ 月後には個体の確認がなくなり解決した。</p>"
+          }
+        },
+        "right_info_BC3xfh": {
+          "type": "right_info",
+          "settings": {
+            "right_info_title": "今後の予防と維持",
+            "right_info_desc": "<p><strong>ホテルなどの宿泊施設は、宿泊利用者からの 定期的な持ち込みリスクがあるため、ベット メイキング時の血粉・個体の確認はしっかり 行い、予算的に可能なら3ヶ月に1度に少量 を空間噴霧やベットに散布することで、発 生を事前に予防することが可能。また、厨房 のチャバネゴキブリに関しても、飲食物の搬 入時に混入することがほとんどなので、3ヶ 月に1度は、予防の散布量で施行を行うと維 持されます。</strong></p>"
+          }
+        },
+        "right_info_3n4XXw": {
+          "type": "right_info",
+          "settings": {
+            "right_info_title": "今後の予防をしたい場合の推奨本数",
+            "right_info_desc": "<p><strong>●厨房のチャバネゴキブリの場合 約3ヶ月毎に0.6本　1年（4回）で2.4本 推定コスト　月/1,040円～　年間/12,480 円～<br/>●トコジラミの場合（1部屋22㎡辺り） 約3ヶ月毎に0.1本　1年（4回）で0.4本 推定コスト　月/173円～　年間/2,080円～</strong></p>"
+          }
+        },
+        "right_info_LXGBfW": {
+          "type": "right_info",
+          "settings": {
+            "right_info_title": "業者に依頼との費用比較",
+            "right_info_desc": "<p><strong>このケースは、業者お見積りが20万円でし たのでこちらと比較しますと、トコジラミ （3本使用）だけで約1/12（92％削減）の 費用でほとんど同等の施行ができております 。厨房のチャバネゴキブリ駆除は、同一成分の ベクトロンFLで施行を依頼した場合は、15坪 ／1回の施行で相場が約45,000円なので、1 本の使用と比較すると、1/8（88％削減）に 削減されます。</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_info_H7nfth",
+        "left_info_LHkUad",
+        "left_info_MzjMEU",
+        "left_info_T39bfM",
+        "left_info_LrCQjW",
+        "left_info_Etrmkg",
+        "left_info_Rx9RzV",
+        "left_info_TJ6XyJ",
+        "right_info_g6yAfj",
+        "right_info_M3MrCJ",
+        "right_info_UA3KTD",
+        "right_info_eQBLVh",
+        "right_info_xmiDcA",
+        "right_info_BC3xfh",
+        "right_info_3n4XXw",
+        "right_info_LXGBfW"
+      ],
+      "name": "Text split with image",
+      "settings": {
+        "text_position": "center",
+        "heading": "",
+        "title_underline_style": "none",
+        "small_title": "",
+        "main_title": "<h3>トコジラミ駆除・対策の2つの事例</h3>",
+        "left_heading": "<h4>介護施設さま（2階建て）<br/>トコジラミ駆除、対策<br/>施工前の状況：職員・利用者がトコジラミ<br/>刺されがあるほどの大量繁殖</h4>",
+        "left_image": "shopify://shop_images/general_img23.png",
+        "left_figure_cap": "詳細を見る👆️",
+        "right_heading": "<h4>ホテルさま（9階建て）<br/>トコジラミ・チャバネゴキブリ駆除、対策 施工前の状況：厨房にチャバネゴキブリの 発生と8階の客室（1部屋）にトコジラミの 個体を確認</h4>",
+        "right_image": "shopify://shop_images/general_img24.png",
+        "right_figure_cap": "詳細を見る👆️",
+        "custom_section_width": false,
+        "section_width": 1000
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-page",
+    "section_gallery_ihkwzw",
+    "section_rich_text_NG4aLr",
+    "section_text_usage_NkKnwA",
+    "section_rich_text_ggpUFy",
+    "section_text_split_image_An8XKN",
+    "section_image_with_text_vertical_JNRwaY",
+    "section_image_with_text_vertical_hjHQXH",
+    "section_rich_text_WjegWV",
+    "section_text_split_image_qcjzxq"
+  ]
+}

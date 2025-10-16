@@ -8,6 +8,9 @@
     when 'square'
       assign image_width = '240'
       assign image_height = '240'
+    when 'origin'
+      assign image_width = '100'
+      assign image_height = '100'
     else
       assign image_width = '300'
       assign image_height = '240'
@@ -106,7 +109,16 @@
     {%- endif -%}
   </header>
 {%- endif -%}
-<ul class="l4cl {% if settings.enable_quick_buy %}with-quick-buy{% endif %} category orientation-{{ image_ratio }} {{ width_class }} {% if slider %}slider{% else %}mobile-compact{% endif %}{% if section.settings.mobile_layout == 'grid' %} mobile-scroll w50-mobile{% endif %}">
+<ul
+  id="collection-list"
+  class="
+    l4cl{% if settings.enable_quick_buy %}with-quick-buy{% endif %}
+    category orientation-{{ image_ratio }} {{ width_class }}
+    {% if slider %}slider{% else %}mobile-compact{% endif %}
+    {% if section.settings.mobile_layout == 'grid' %} mobile-scroll w50-mobile{% endif %}
+    {% if section.settings.enable_custom == 'enable' %}custom-collection{% endif %}
+  "
+>
   {%- if section.settings.collections == blank %}
     {%- for i in (1..section.settings.number_of_items) %}
       {%- liquid
@@ -138,25 +150,55 @@
         endcapture
       -%}
       <li>
-        <figure class="{% if settings.multiply_collection_images == 'multiply' %}img-multiply{% elsif settings.multiply_collection_images == 'multiply-bg' %}img-multiply-bg{% endif %}">
-          <picture>
-            {% if collection.featured_image %}
-              <img
-                src="{{ collection.featured_image | image_url: width: image_width, height: image_height }}"
-                srcset="
+        {% if section.settings.enable_custom == 'disable' %}
+          <figure class="{% if settings.multiply_collection_images == 'multiply' %}img-multiply{% elsif settings.multiply_collection_images == 'multiply-bg' %}img-multiply-bg{% endif %}">
+            <picture>
+              {% if collection.featured_image %}
+                <img
+                  src="{{ collection.featured_image | image_url: width: image_width, height: image_height }}"
+                  srcset="
+                    {% if section.settings.fill_images %}
+                      {% render 'image-srcset', image: collection.featured_image, format: image_ratio, crop: 'center' %}
+                    {% else %}
+                      {% render 'image-srcset', image: collection.featured_image %}
+                    {% endif %}
+                  "
+                  sizes="
+                    {% if settings.width < 2000 %}
+                      (min-width: 1300px) {% if img_width == 100 %}calc({{ settings.width }}px * 0.2){% else %}calc({{ settings.width }}px * 0.{{ img_width }}){% endif %},
+                    {% endif %}
+                    (min-width: 760px) {% if img_width == 100 %}calc(100vw * 0.2){%-else -%}calc(100vw * 0.{{ img_width }}){% endif %},
+                    141px
+                  "
+                  width="{{ image_width }}"
+                  height="{{ image_height }}"
+                  alt="{% if collection.featured_image.alt == blank or collection.featured_image.alt == collection.title %}Collection image for: {% endif %}{{ collection.featured_image.alt | default: collection.title | escape }}"
                   {% if section.settings.fill_images %}
-                    {% render 'image-srcset', image: collection.featured_image, format: image_ratio, crop: 'center' %}
-                  {% else %}
-                    {% render 'image-srcset', image: collection.featured_image %}
+                    class="filled"
                   {% endif %}
-                "
-                sizes="
-                  {% if settings.width < 2000 %}
-                    (min-width: 1300px) {% if img_width == 100 %}calc({{ settings.width }}px * 0.2){% else %}calc({{ settings.width }}px * 0.{{ img_width }}){% endif %},
-                  {% endif %}
-                  (min-width: 760px) {% if img_width == 100 %}calc(100vw * 0.2){%-else -%}calc(100vw * 0.{{ img_width }}){% endif %},
-                  141px
-                "
+                  loading="{% if section.index > 1 or forloop.first == false %}lazy{% else %}eager{% endif %}"
+                >
+              {% else %}
+                {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </picture>
+          </figure>
+          <{{ section.settings.collection_title_size }}
+            ><a href="{{ collection.url }}" class="strong"
+              ><span>{{ collection.title }}</span> &nbsp;<i
+                aria-hidden="true"
+                class="icon-chevron-right mobile-hide"
+              ></i></a
+          ></{{ section.settings.collection_title_size }}>
+        {% endif %}
+        {% if section.settings.enable_custom == 'enable' %}
+          {% assign img = collection.featured_image %}
+          {% assign src = img | image_url: width: 2048 %}
+          <a href="{{ collection.url }}" class="strong collection-link">
+            <figure class="{% if settings.multiply_collection_images == 'multiply' %}img-multiply{% elsif settings.multiply_collection_images == 'multiply-bg' %}img-multiply-bg{% endif %}">
+              <img
+                src="{{ collection.featured_image | image_url }}"
+                sizes="(min-width: 760px) 33vw, 100vw"
                 width="{{ image_width }}"
                 height="{{ image_height }}"
                 alt="{% if collection.featured_image.alt == blank or collection.featured_image.alt == collection.title %}Collection image for: {% endif %}{{ collection.featured_image.alt | default: collection.title | escape }}"
@@ -165,18 +207,10 @@
                 {% endif %}
                 loading="{% if section.index > 1 or forloop.first == false %}lazy{% else %}eager{% endif %}"
               >
-            {% else %}
-              {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
-            {% endif %}
-          </picture>
-        </figure>
-        <{{ section.settings.collection_title_size }}
-          ><a href="{{ collection.url }}" class="strong"
-            ><span>{{ collection.title }}</span>&nbsp;<i
-              aria-hidden="true"
-              class="icon-chevron-right mobile-hide"
-            ></i></a
-        ></{{ section.settings.collection_title_size }}>
+            </figure>
+            <span>{{ collection.title }}</span>
+          </a>
+        {% endif %}
       </li>
     {%- endfor -%}
   {% endif -%}
@@ -188,7 +222,70 @@
 {%- endif -%}
 
 <style>
+  #shopify-section-{{ section.id }} {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    margin: auto;
+  }
+
+  #shopify-section-{{ section.id }} .l4cl li {
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .l4cl li figure {
+    margin-bottom: 0;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+  }
+  #shopify-section-{{ section.id }} .l4cl li figure::before{
+    content: '';
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .l4cl li figure img {
+    position: static;
+    width: auto !important;
+    max-width: 100% !important;
+    object-fit: scale-down;
+  }
+
+  #shopify-section-{{ section.id }} .l4cl li a {
+    text-align: center;
+    padding: 4.8rem 1.6rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    align-content: center;
+    border: 10px solid transparent;
+    transition: all ease-in 0.3s;
+    background-color: #fbf7f1;
+  }
+
+  #shopify-section-{{ section.id }} .l4cl li a::after {
+    content: '';
+    display: none;
+  }
   #shopify-section-{{ section.id }} { position: relative; z-index: {{ section.settings.fix_zindex }}!important; }
+
+  #shopify-section-{{ section.id }} .custom-collection + p > a {
+    border: 3px solid #020001
+  }
+  #shopify-section-{{ section.id }} .custom-collection + p > a::before {
+    --secondary_bg_btn: #000;
+  }
+  #shopify-section-{{ section.id }} .custom-collection + p > a:hover {
+    opacity: 0.5;
+    color: #020001
+  }
+  #shopify-section-{{ section.id }} .custom-collection + p > a:hover::before {
+      --secondary_bg_btn_dark: transparent;
+  }
+
   @media only screen and (min-width: 47.5em) {
     {% if link and section.settings.text_alignment == 'center' %}
       #shopify-section-{{ section.id }} { margin-bottom: {{ section.settings.spacing_desktop }}px; }
@@ -202,6 +299,9 @@
     {% else %}
       #shopify-section-{{ section.id }} .l4cl { margin-bottom: {{ section.settings.spacing_mobile | minus: 8 }}px; }
     {% endif %}
+  }
+  .custom-collection h5 {
+    text-align: center;
   }
 </style>
 
@@ -235,6 +335,10 @@
         {
           "value": "landscape",
           "label": "t:sections.collection_list.settings.image_ratio.options__3.label"
+        },
+        {
+          "value": "origin",
+          "label": "Original size"
         }
       ],
       "default": "square"
@@ -497,12 +601,28 @@
       "max": 25,
       "step": 1,
       "default": 0
+    },
+    {
+      "type": "select",
+      "id": "enable_custom",
+      "label": "Enable custom collection",
+      "options": [
+        {
+          "value": "disable",
+          "label": "Disable"
+        },
+        {
+          "value": "enable",
+          "label": "Enable"
+        }
+      ],
+      "default": "disable"
     }
   ],
   "presets": [
     {
       "name": "t:sections.collection_list.presets.name",
-     "category": "t:categories.collections",
+      "category": "t:categories.collections",
       "settings": {}
     }
   ]

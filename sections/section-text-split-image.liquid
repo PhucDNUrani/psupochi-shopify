@@ -1,0 +1,383 @@
+{% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+{%- liquid
+
+-%}
+<div
+  class="
+    split-content-image
+    text-{{ section.settings.text_position }}
+  "
+>
+  {%- if section.settings.heading != blank -%}
+    {{ section.settings.heading }}
+  {%- endif -%}
+  <div class="split-detail">
+    {%- if section.settings.small_title != empty -%}
+      {{ section.settings.small_title }}
+    {%- endif -%}
+    {%- if section.settings.main_title != empty -%}
+      {{ section.settings.main_title }}
+    {%- endif -%}
+    <ul>
+      <li>
+        {%- if section.settings.left_heading != empty -%}
+          {{ section.settings.left_heading }}
+        {%- endif -%}
+        {%- if section.settings.left_image != empty -%}
+          <figure>
+            <picture>
+              <img
+                src="{{ section.settings.left_image | image_url: width: 443 }}"
+                srcset="{% render 'image-srcset', image: section.settings.left_image %}"
+                sizes="
+                  (min-width: 1300px) calc({% if settings.width < 2000 %}{{ settings.width }}px{% else %}100vw{% endif %} / 2),
+                  100vw"
+                width="443"
+                height="287"
+                alt="Image list"
+                loading="{% if lazyload %}lazy{% else %}eager{% endif %}"
+              >
+            </picture>
+            <figcaption>{{ section.settings.left_figure_cap }}</figcaption>
+          </figure>
+        {%- endif -%}
+        <div class="info-list">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'left_info' -%}
+                <dl>
+                  <dt>{{ block.settings.left_info_title }}</dt>
+                  <dd>{{ block.settings.left_info_desc | replace: '</p><p>', '<br>' | remove: '<p>' | remove: '</p>' }}</dd>
+                </dl>
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      </li>
+      <li>
+        {%- if section.settings.right_heading != empty -%}
+          {{ section.settings.right_heading }}
+        {%- endif -%}
+        {%- if section.settings.right_image != empty -%}
+          <figure>
+            <picture>
+              <img
+                src="{{ section.settings.right_image | image_url: width: 443 }}"
+                srcset="{% render 'image-srcset', image: section.settings.right_image %}"
+                sizes="
+                  (min-width: 1300px) calc({% if settings.width < 2000 %}{{ settings.width }}px{% else %}100vw{% endif %} / 2),
+                  100vw
+                "
+                width="443"
+                height="287"
+                alt="Image list"
+                loading="{% if lazyload %}lazy{% else %}eager{% endif %}"
+              >
+            </picture>
+            <figcaption>{{ section.settings.right_figure_cap }}</figcaption>
+          </figure>
+        {%- endif -%}
+        <div class="info-list">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'right_info' -%}
+                <dl>
+                  <dt>{{ block.settings.right_info_title }}</dt>
+                  <dd>{{ block.settings.right_info_desc | replace: '</p><p>', '<br>' | remove: '<p>' | remove: '</p>'}}</dl>
+                </dl>
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  #shopify-section-{{ section.id }} { position: relative; z-index: {{ section.settings.fix_zindex }}!important; }
+  #shopify-section-{{ section.id }} .m6cu { margin-bottom: {{ section.settings.spacing_desktop }}px; }
+  #shopify-section-{{ section.id }} .m6cu .countdown { --bg: {{ section.settings.countdown_bg_color }}; --fg: {{ section.settings.countdown_text_color }}; }
+  @media only screen and (max-width: 47.5em) {
+    #shopify-section-{{ section.id }} .m6cu { margin-bottom: {{ section.settings.spacing_mobile }}px; }
+  }
+  {% if section.settings.custom_section_width %}
+    #shopify-section-{{ section.id }} {
+      max-width:{{ section.settings.section_width }}px;
+      margin: auto;
+    }
+  {% endif %}
+    #shopify-section-{{ section.id }} h2 {
+      background-color: #2568b9;
+      padding: 1.6rem;
+      margin-bottom: 3.2rem;
+      color: #fff;
+      font-size: 200%;
+    }
+    .split-content-image {
+
+    }
+    .split-content-image .split-detail h4 {
+      font-size: 120%;
+      margin-bottom: 0;
+    }
+    .split-content-image .split-detail ul h4 {
+      text-align: left;
+      max-width: 320px;
+      margin: auto;
+    }
+    .split-content-image .split-detail h3 {
+      font-size: 200%;
+      margin-bottom: 3.2rem;
+    }
+    .split-content-image .split-detail ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .split-content-image .split-detail ul li {
+      width: calc((100% - 3.2rem) / 2);
+      margin-right: 3.2rem;
+    }
+    .split-content-image .split-detail ul li:nth-child(2n+2) {
+      margin-right: 0;
+    }
+    .split-content-image .split-detail ul li figcaption {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .split-content-image .split-detail .info-list dt {
+      color: #047eb6;
+      font-size: 130%;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #d9d9d9;
+      line-height: 1;
+      text-align: left;
+      font-weight: 600;
+    }
+    .split-content-image .split-detail .info-list dd {
+      padding-left: 0;
+      font-weight: 600;
+      text-align: left;
+    }
+  /* .usage-content h3 {
+    font-size: 200%;
+    margin-bottom: 3.2rem;
+  }
+  .usage-wrapper > h3 {
+    font-size: 151%;
+    padding: 1.6rem;
+    background-color: #2568b9;
+    color: #fff;
+  }
+  .usage-wrapper .description > h4 {
+    font-size: 148%;
+  }
+  .usage-wrapper .description > ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1.6rem;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .usage-wrapper .description > ul li {
+    width: calc((100% - 1rem) / 2);
+    text-align: left;
+  } */
+</style>
+
+{% schema %}
+{
+  "name": "t:sections.countdown.name",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.countdown.settings.content.header"
+    },
+    {
+      "id": "text_position",
+      "type": "select",
+      "label": "t:sections.countdown.settings.content.text_position.label",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.countdown.settings.content.text_position.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.countdown.settings.content.text_position.options__2.label"
+        }
+      ],
+      "default": "start"
+    },
+    {
+      "type": "header",
+      "content": "t:global.typography.title.label"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "t:global.typography.title.label",
+      "info": "t:global.typography.title.info",
+      "default": "<h2>Header</h2>"
+    },
+    {
+      "type": "select",
+      "id": "title_underline_style",
+      "label": "t:global.typography.title_underline_style.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:global.typography.title_underline_style.none.label"
+        },
+        {
+          "value": "secondary_font",
+          "label": "t:global.typography.title_underline_style.secondary_font.label",
+          "group": "t:global.typography.title_underline_style.group.fonts"
+        },
+        {
+          "value": "secondary_font_accent",
+          "label": "t:global.typography.title_underline_style.secondary_font_accent.label",
+          "group": "t:global.typography.title_underline_style.group.fonts"
+        },
+        {
+          "value": "secondary_font_gradient",
+          "label": "t:global.typography.title_underline_style.secondary_font_gradient.label",
+          "group": "t:global.typography.title_underline_style.group.fonts"
+        },
+        {
+          "value": "accent",
+          "label": "t:global.typography.title_underline_style.accent.label",
+          "group": "t:global.typography.title_underline_style.group.colors"
+        },
+        {
+          "value": "gradient",
+          "label": "t:global.typography.title_underline_style.gradient.label",
+          "group": "t:global.typography.title_underline_style.group.colors"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "small_title",
+      "label": "Small title",
+      "default": "<h4>Small title</h4>"
+    },
+    {
+      "type": "richtext",
+      "id": "main_title",
+      "label": "Main title",
+      "default": "<h3>Main title</h3>"
+    },
+    {
+      "type": "header",
+      "content": "Left info"
+    },
+    {
+      "type": "richtext",
+      "id": "left_heading",
+      "label": "Left heading",
+      "default": "<h4>Left heading</h4>"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left image"
+    },
+    {
+      "type": "text",
+      "id": "left_figure_cap",
+      "label": "Left figure cap"
+    },
+    {
+      "type": "header",
+      "content": "Right info"
+    },
+    {
+      "type": "richtext",
+      "id": "right_heading",
+      "label": "Right heading",
+      "default": "<h4>Right heading</h4>"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "right image"
+    },
+    {
+      "type": "text",
+      "id": "right_figure_cap",
+      "label": "Right figure cap"
+    },
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_section_width",
+      "label": "Enable custom section width",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "t:static_sections.header.settings.width.label",
+      "min": 900,
+      "max": 1500,
+      "step": 10,
+      "unit": "px",
+      "default": 1000,
+      "visible_if": "{{ section.settings.custom_section_width }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "left_info",
+      "name": "Left content",
+      "settings": [
+        {
+          "type": "text",
+          "label": "Title",
+          "id": "left_info_title"
+        },
+        {
+          "type": "richtext",
+          "label": "Description",
+          "id": "left_info_desc"
+        }
+      ]
+    },
+    {
+      "type": "right_info",
+      "name": "Right content",
+      "settings": [
+        {
+          "type": "text",
+          "label": "Title",
+          "id": "right_info_title"
+        },
+        {
+          "type": "richtext",
+          "label": "Description",
+          "id": "right_info_desc"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text split with image",
+      "category": "t:categories.storytelling"
+    }
+  ]
+}
+{% endschema %}

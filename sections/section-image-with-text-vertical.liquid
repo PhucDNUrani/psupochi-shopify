@@ -1,0 +1,230 @@
+{%- liquid
+
+-%}
+<article
+  class="
+    image-with-text
+    text-{{ section.settings.text_position }}
+  "
+>
+  <div
+    class="
+      header-group
+      {% if section.settings.enable_border %}header-border{% endif %}
+    "
+  >
+    {%- if section.settings.title != blank -%}
+      {{ section.settings.title }}
+    {%- endif -%}
+    {%- if section.settings.sub_title != blank -%}
+      {{ section.settings.sub_title }}
+    {%- endif -%}
+  </div>
+  {% if section.settings.first_para %}
+    {{ section.settings.first_para }}
+  {% endif %}
+  <figure>
+    {%- if section.settings.image -%}
+      <picture>
+        <img
+          src="{{ section.settings.image | image_url: width: 900, height: 500, width: 640 }}"
+          srcset="{% render 'image-srcset', image: section.settings.image %}"
+          sizes="
+            (min-width: 1300px) calc({% if settings.width < 2000 %}{{ settings.width }}px{% else %}100vw{% endif %} / 2),
+            100vw
+          "
+          width="900"
+          height="500"
+          alt="{{ section.settings.image.alt | default: section.settings.title | escape }}"
+          loading="{% if section.index > 1 %}lazy{% else %}eager{% endif %}"
+        >
+      </picture>
+    {% else %}
+      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+    {% endif %}
+  </figure>
+  <div class="desc">
+    {%- if section.settings.desc != blank -%}
+      {{ section.settings.desc }}
+    {%- endif -%}
+    {%- if section.settings.note != blank -%}
+      <span>{{ section.settings.note }}</span>
+    {%- endif -%}
+  </div>
+</article>
+
+<style>
+  #shopify-section-{{ section.id }} { position: relative; z-index: {{ section.settings.fix_zindex }}!important; }
+  #shopify-section-{{ section.id }} .m6as { margin-bottom: {{ section.settings.spacing_desktop | minus: 26 }}px; }
+  @media only screen and (max-width: 47.5em) {
+    #shopify-section-{{ section.id }} .m6as { margin-bottom: {{ section.settings.spacing_mobile }}px; }
+  }
+  {% if section.settings.custom_section_width %}
+    #shopify-section-{{ section.id }} {
+      max-width:{{ section.settings.section_width }}px;
+      margin: auto;
+    }
+  {% endif %}
+  .image-with-text {
+      margin: 6.4rem 0;
+  }
+  .header-group {
+    text-align: center;
+  }
+  .header-group.header-border {
+    margin-bottom: 1.6rem;
+    padding-bottom: 1.6rem;
+    border-bottom: 1px solid #d9d9d9;
+    box-sizing: border-box;
+  }
+  .image-with-text .header-group.header-border h2 {
+    margin-bottom: 1.6rem;
+  }
+  .image-with-text .header-group > h2 {
+      text-align: center;
+      font-size: 200%;
+      margin-bottom: 3.2rem;
+  }
+  .image-with-text .header-group > h3 {
+    font-size: 150%;
+    margin-bottom: 1.6rem;
+  }
+  .image-with-text figure {
+      margin-bottom: 1.6rem;
+  }
+  .image-with-text .desc {
+      font-size: 1.6rem;
+  }
+  .image-with-text .desc p {
+      margin-bottom: 0;
+  }
+  .image-with-text .desc span {
+      color: #ff3129;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Image with text vertical",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "id": "image",
+      "type": "image_picker",
+      "label": "t:sections.image_with_text.settings.image.label"
+    },
+    {
+      "id": "text_position",
+      "type": "select",
+      "label": "t:sections.image_with_text.settings.text_position.label",
+      "options": [
+        {
+          "value": "align-top text-start",
+          "label": "t:sections.image_with_text.settings.text_position.options__1.label"
+        },
+        {
+          "value": "align-top text-center",
+          "label": "t:sections.image_with_text.settings.text_position.options__2.label"
+        },
+        {
+          "value": "align-top text-end",
+          "label": "t:sections.image_with_text.settings.text_position.options__3.label"
+        },
+        {
+          "value": "text-start",
+          "label": "t:sections.image_with_text.settings.text_position.options__4.label"
+        },
+        {
+          "value": "text-center",
+          "label": "t:sections.image_with_text.settings.text_position.options__5.label"
+        },
+        {
+          "value": "text-end",
+          "label": "t:sections.image_with_text.settings.text_position.options__6.label"
+        },
+        {
+          "value": "align-bottom text-start",
+          "label": "t:sections.image_with_text.settings.text_position.options__7.label"
+        },
+        {
+          "value": "align-bottom text-center",
+          "label": "t:sections.image_with_text.settings.text_position.options__8.label"
+        },
+        {
+          "value": "align-bottom text-end",
+          "label": "t:sections.image_with_text.settings.text_position.options__9.label"
+        }
+      ],
+      "default": "text-start"
+    },
+    {
+      "type": "header",
+      "content": "t:global.spacing.header"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "sub_title",
+      "label": "Sub title"
+    },
+    {
+      "type": "richtext",
+      "id": "first_para",
+      "label": "Paragraph"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.image_with_text.settings.paragraph"
+    },
+    {
+      "type": "richtext",
+      "label": "Description",
+      "id": "desc"
+    },
+    {
+      "type": "text",
+      "label": "Small note",
+      "id": "note"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_border",
+      "label": "Enable header border",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_section_width",
+      "label": "Enable custom section width",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "t:static_sections.header.settings.width.label",
+      "min": 900,
+      "max": 1500,
+      "step": 10,
+      "unit": "px",
+      "default": 1000,
+      "visible_if": "{{ section.settings.custom_section_width }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with text vertical",
+      "category": "t:categories.storytelling"
+    }
+  ]
+}
+{% endschema %}

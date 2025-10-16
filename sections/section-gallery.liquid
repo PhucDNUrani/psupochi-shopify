@@ -325,6 +325,12 @@
   #root #shopify-section-{{ section.id }} .l4ft figure picture img.object-fit-cover {
     object-fit: contain;
   }
+  {% if section.settings.custom_section-width %}
+    #shopify-section-{{ section.id }} {
+      max-width: {{ section.settings.section_width }}px;
+      margin: auto;
+    }
+  {% endif %}
 </style>
 
 {% schema %}
@@ -553,6 +559,26 @@
       "id": "custom_object_fit",
       "default": false,
       "label": "Image object-fit"
+    },
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_section-width",
+      "label": "Enable custom section width",
+      "default": false,
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "t:static_sections.header.settings.width.label",
+      "min": 900,
+      "max": 1500,
+      "step": 10,
+      "unit": "px",
+      "default": 1000
     }
   ],
   "blocks": [

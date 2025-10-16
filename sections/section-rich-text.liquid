@@ -9,6 +9,7 @@
     {{ section.settings.height }}
     {% if section.settings.width == 'wide' %}wide{% endif %}
     {% if section.settings.text_alignment == 'center' %}text-center{% endif %}
+    {% if section.settings.custom_section %}custom-section{% endif %}
   "
 >
   <article
@@ -125,6 +126,56 @@
               style="margin-bottom:{{ block.settings.height }}px;"
               {{ block.shopify_attributes }}
             ></div>
+          {%- when 'image01' -%}
+            <div class="image-list">
+              {% if block.settings.image_url != blank %}
+                <a href="{{ block.settings.image_url }}">
+              {% endif %}
+              <figure>
+                <picture>
+                  <img
+                    src="{{ block.settings.first_image | image_url: width: 576 }}"
+                    srcset="{% render 'image-srcset', image: block.settings.first_image %}"
+                    sizes="
+                      (min-width: 1300px) calc({% if settings.width < 2000 %}{{ settings.width }}px{% else %}100vw{% endif %} / 2),
+                      100vw
+                    "
+                    width="576"
+                    height="700"
+                    alt="Image list"
+                    loading="{% if lazyload %}lazy{% else %}eager{% endif %}"
+                  >
+                </picture>
+              </figure>
+              {% if block.settings.image_url != blank %}
+                </a>
+              {% endif %}
+            </div>
+          {%- when 'image02' -%}
+            <div class="image-list">
+              {% if block.settings.image_url != blank %}
+                <a href="{{ block.settings.image_url }}">
+              {% endif %}
+              <figure>
+                <picture>
+                  <img
+                    src="{{ block.settings.second_image | image_url: width: 576 }}"
+                    srcset="{% render 'image-srcset', image: block.settings.second_image %}"
+                    sizes="
+                      (min-width: 1300px) calc({% if settings.width < 2000 %}{{ settings.width }}px{% else %}100vw{% endif %} / 2),
+                      100vw
+                    "
+                    width="576"
+                    height="700"
+                    alt="Image list"
+                    loading="{% if lazyload %}lazy{% else %}eager{% endif %}"
+                  >
+                </picture>
+              </figure>
+              {% if block.settings.image_url != blank %}
+                </a>
+              {% endif %}
+            </div>
         {%- endcase -%}
       {%- endfor -%}
     </div>
@@ -137,6 +188,20 @@
   #shopify-section-{{ section.id }} .m6bx { margin-bottom: {{ section.settings.spacing_desktop }}px; }
   @media only screen and (max-width: 47.5em) {
     #shopify-section-{{ section.id }} .m6bx { margin-bottom: {{ section.settings.spacing_mobile }}px; }
+  }
+
+  .image-list a {
+    transition: all ease-in 0.3s;
+  }
+  .image-list a:hover {
+    opacity: 0.5;
+  }
+
+  #shopify-section-{{ section.id }} .custom-section h3 {
+    text-align: center;
+    font-size: 200%;
+    display: block;
+    margin: 0.9rem 0 3.2rem;
   }
 </style>
 
@@ -259,6 +324,16 @@
       "max": 25,
       "step": 1,
       "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Customm section"
+    },
+    {
+      "id": "custom_section",
+      "type": "checkbox",
+      "label": "Enable custom",
+      "default": false
     }
   ],
   "blocks": [
@@ -415,12 +490,48 @@
           "default": 35
         }
       ]
+    },
+    {
+      "type": "image01",
+      "name": "First image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "first_image",
+          "label": "Image"
+        },
+        {
+          "id": "image_url",
+          "type": "url",
+          "label": "t:global.button.link_url.label",
+          "default": "/"
+        }
+      ]
+    },
+    {
+      "type": "image02",
+      "name": "Second image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "second_image",
+          "label": "Image"
+        },
+        {
+          "id": "image_url",
+          "type": "url",
+          "label": "t:global.button.link_url.label",
+          "default": "/"
+        }
+      ]
     }
   ],
   "presets": [
     {
       "name": "t:sections.rich_text.presets.name",
-     "category": "t:categories.storytelling",
+      "category": "t:categories.storytelling",
       "blocks": [
         {
           "type": "title"

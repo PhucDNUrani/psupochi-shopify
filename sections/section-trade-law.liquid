@@ -6,7 +6,6 @@
     {% for block in section.blocks %}
       <div class="law-row" {{ block.shopify_attributes }}>
         <div class="left-content">
-          {% comment %} {{ block.settings.left_text }} {% endcomment %}
           <span>{{ block.settings.left_text | replace: '</p><span>', '<br>' | remove: '<p>' | remove: '</p>'}}</span>
         </div>
         <div class="right-content">

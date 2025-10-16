@@ -161,7 +161,7 @@
             "text_and_btn_position": "after_image",
             "show_link": true,
             "link_text": "法人の方",
-            "link_url": "shopify://collections/all",
+            "link_url": "shopify://pages/user_data-owner",
             "link_text_2": "一般の方",
             "link_url_2": "shopify://collections/all",
             "button_style": "primary plain",
@@ -191,6 +191,281 @@
         "fix_zindex": 0
       }
     },
+    "section_faq_load_more_mPmycW": {
+      "type": "section-faq-load-more",
+      "blocks": {
+        "text_fqLM7W": {
+          "type": "text",
+          "settings": {
+            "created_date": "2025/09/10",
+            "faq_question": "<strong>【ベクトロンSP価格表示についてのお知らせ】</strong>",
+            "icon": "none",
+            "header_image_svg": "",
+            "header_image_width": 25,
+            "faq_answer": "<p>いつもペスぽちをご利用いただき誠にありがとうございます。<br/><br/>この度、当店で販売しているベクトロンSPが<strong>2025年10月1日より会員登録後に価格が表示される仕様</strong>へ変更となります。<br/><br/>ご新規のお客様は、商品をカートに追加後、レジに進む際に会員登録情報をご入力いただき、新規会員登録をお願いいたします。<br/>登録完了後、本サイトにログインしていただくことでベクトロンSPの商品価格が画面に表示されるようになります。<br/><br/><a href=\"https://pesupochi.shop.gaichujusos-kujo.com/entry\">新規会員登録はこちら<br/></a>すでに会員登録をお済みのお客様は、そのままログインしていただくことで商品価格をご確認いただけます。<br/><br/>今後ともペスぽちをよろしくお願い申し上げます</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "text_x9h9wC": {
+          "type": "text",
+          "settings": {
+            "created_date": "2025/07/24",
+            "faq_question": "<strong>夏季休業のお知らせ</strong>",
+            "icon": "none",
+            "header_image_svg": "",
+            "header_image_width": 25,
+            "faq_answer": "<p>いつもペスぽちをご利用いただきありがとうございます。<br/>誠に勝手ながら、下記の期間を夏季休業とさせていただきます。<br/><br/>■休業期間<br/>2025年8月9日（土）～ 2025年8月17日（日）<br/>※休業期間中は商品の発送およびお問い合わせ対応を休止しております。<br/><br/>■休業前最終出荷<br/>2025年8月8日（金）正午受付分<br/><br/>休業期間中にいただきましたご注文およびお問い合わせにつきましては、<br/>2025年8月18日（月）以降、順次ご対応させていただきます。<br/><br/>お客様にはご不便をおかけいたしますが、何卒ご理解賜りますようお願い申し上げます。</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "text_VaiW94": {
+          "type": "text",
+          "settings": {
+            "created_date": "2025/06/18",
+            "faq_question": "<strong>即日発送についてのお知らせ</strong>",
+            "icon": "none",
+            "header_image_svg": "",
+            "header_image_width": 25,
+            "faq_answer": "<p>現在、ゴキブリ、トコジラミの活動が活発になるシーズンに入り、ベクトロンSPの需要が高まっております。<br/>当店では、豊富な在庫を確保しており大量注文にも即日対応が可能です。<br/><br/><br/>▼ 発送スケジュール<br/>平日（月～金）正午までのご注文<br/>　→【当日発送（19時頃までに発送）】<br/><br/>土・日・祝日のご注文<br/>　→【翌営業日に発送】<br/><br/>送料は沖縄県を除き、【全国どこでも無料】です。<br/>お急ぎの方も安心してご注文いただけます。<br/>この機会に、ぜひご活用ください！</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "text_pg6DTc": {
+          "type": "text",
+          "settings": {
+            "created_date": "2025/04/28",
+            "faq_question": "<strong>PayPay決済が使用できます</strong>",
+            "icon": "none",
+            "header_image_svg": "",
+            "header_image_width": 25,
+            "faq_answer": "<p>本日よりPayPayでの決済が利用可能となりました。</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "text_zjKmwP": {
+          "type": "text",
+          "settings": {
+            "created_date": "2025/04/22",
+            "faq_question": "<strong>ベクトロンSPのご購入者さまへ</strong>",
+            "icon": "none",
+            "header_image_svg": "",
+            "header_image_width": 25,
+            "faq_answer": "<p>いつも「ペスぽち」をご利用いただき、誠にありがとうございます。<br/><br/>3月末のローンチ以来、ベクトロンSPは当社の予想を上回る多くのご注文をいただいております。<br/>ご愛顧くださり、心より御礼申し上げます。<br/><br/>本製品は、ゴキブリ・トコジラミ対策における業務用駆除剤の中でもトップクラスの効果を誇り、<br/>駆除はもちろん、予防までを簡単かつ安全に行えることが特長です。<br/><br/>■ご購入者様へのお願い<br/>すでにご使用いただいたお客様へ、ぜひお願いがございます。<br/>ベクトロンSPの商品ページ下部に、レビューを投稿していただけますと大変嬉しく思います。<br/><br/>・使用後の感想<br/>・効果の実感<br/>・ご自宅や現場での使い方 など、<br/>どのような内容でも構いませんので、ぜひご意見をお聞かせください。<br/><br/>いただいたご感想は、今後の製品改良や、他のお客様の参考にもつながります。<br/><br/>今後とも「ペスぽち」をどうぞよろしくお願いいたします。<br/>皆さまの快適な環境づくりに貢献できるよう、スタッフ一同努めてまいります。<br/><br/><a href=\"https://pesupochi.shop.gaichujusos-kujo.com/product_review/3/review\">レビューの投稿はこちら</a></p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "text_fM4TeD": {
+          "type": "text",
+          "settings": {
+            "created_date": "2025/04/22",
+            "faq_question": "<strong>クレジットカードのお支払いが3Dセキュアに対応しました</strong>",
+            "icon": "none",
+            "header_image_svg": "",
+            "header_image_width": 25,
+            "faq_answer": "<p>より安全に決済いただくため、3Dセキュアに対応いたしました。</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "text_DJxGY6": {
+          "type": "text",
+          "settings": {
+            "created_date": "2025/04/22",
+            "faq_question": "<strong>ベリトランス後払い（コンビニ後払い）決済の利用開始</strong>",
+            "icon": "none",
+            "header_image_svg": "",
+            "header_image_width": 25,
+            "faq_answer": "<p>ご注文後、コンビニ払いの支払い用紙がご自宅に届き、14日以内にお支払いいただけます後払い決済の利用が本日から可能となりました。<br/>注文情報からリアルタイムで与信審査が行われ、通りましたら次のページで注文完了となります。<br/><br/>※審査NGとなった場合は、他の決済方法をご利用ください。</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "text_gFTM6R": {
+          "type": "text",
+          "settings": {
+            "created_date": "2025/04/21",
+            "faq_question": "<strong>コンビニ払い（セブンイレブン除く）の決済方法を追加</strong>",
+            "icon": "none",
+            "header_image_svg": "",
+            "header_image_width": 25,
+            "faq_answer": "<p>コンビニ払いの決済方法を追加いたしました。<br/><br/>ローソン・ファミリーマート・セイコーマート・ミニストップでお支払いが可能です。<br/>セブンイレブンに関しては、現在ご利用いただけませんが、今後使用できるようになりますのでしばらくお待ち下さい。<br/><br/>コンビニ払いに関しては、お支払後に発送手続きに入りますので、お支払い漏れがないようにお願いいたします。</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "text_9izLFD": {
+          "type": "text",
+          "settings": {
+            "created_date": "2025/04/04",
+            "faq_question": "<strong>初回割引クーポンの獲得方法👆️</strong>",
+            "icon": "none",
+            "header_image_svg": "",
+            "header_image_width": 25,
+            "faq_answer": "<p>ペスぽち公式LINEにお友達追加をしていただき、ナビメニュー【初回割引クーポン】のボタンを押していただきますと、割引クーポンコードが発行されますので、この機会に是非ご利用ください。</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "text_ryjzX6": {
+          "type": "text",
+          "settings": {
+            "created_date": "2025/04/04",
+            "faq_question": "<strong>適格領収書（インボイス対応）について</strong>",
+            "icon": "none",
+            "header_image_svg": "",
+            "header_image_width": 25,
+            "faq_answer": "<p>インボイス付き領収書の発行につきまして、商品発送後に会員登録ページに反映されダウンロードが可能です。<br/>ゲストで購入にされますと、今現在発行されませんので、必要なお客様は必ず会員登録をお済みになってから商品購入をお願いいたします。</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "text_jYD9fd": {
+          "type": "text",
+          "settings": {
+            "created_date": "2025/03/27",
+            "faq_question": "<strong>お支払い方法について</strong>",
+            "icon": "none",
+            "header_image_svg": "",
+            "header_image_width": 25,
+            "faq_answer": "<p>現在、決済システムを構築中のため使用可能な決済方法は以下になります。<br/>「クレジットカード」 「銀行振込」のみとなります。<br/><br/>今後、ベリトランス後払い（コンビニ後払い）・PayPay・コンビニ払いを順次追加いたします。</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "text_zczAhU": {
+          "type": "text",
+          "settings": {
+            "created_date": "2025/03/27",
+            "faq_question": "<strong>ベクトロンSPのみ販売開始!!</strong>",
+            "icon": "none",
+            "header_image_svg": "",
+            "header_image_width": 25,
+            "faq_answer": "<p>本日より、【ベクトロンSP】のみ販売を開始いたしました。<br/>他の商品については、今後順次販売していきますので、もうしばらくお待ち下さい。<br/>「ペスぽち」をよろしくお願いいたします。<br/><a href=\"https://pesupochi.shop.gaichujusos-kujo.com/products/detail/3\">詳しくはこちら</a></p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "text_MxXw8x": {
+          "type": "text",
+          "settings": {
+            "created_date": "",
+            "faq_question": "<strong>ベクトロンSPのみ販売開始!!</strong>",
+            "icon": "none",
+            "header_image_svg": "",
+            "header_image_width": 25,
+            "faq_answer": "",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "text_XHMzFp": {
+          "type": "text",
+          "settings": {
+            "created_date": "2025/03/18",
+            "faq_question": "<strong>3/27　オープン予定！オープンまでお待ちください</strong>",
+            "icon": "none",
+            "header_image_svg": "",
+            "header_image_width": 25,
+            "faq_answer": "<p> </p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "text_NxUcxC": {
+          "type": "text",
+          "settings": {
+            "created_date": "2025/01/21",
+            "faq_question": "<strong>ペスぽちの公式LINEを開設しました</strong>",
+            "icon": "none",
+            "header_image_svg": "",
+            "header_image_width": 25,
+            "faq_answer": "<p><a href=\"https://lin.ee/0d6rSec\">LINEで友達追加をする</a></p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        }
+      },
+      "block_order": [
+        "text_fqLM7W",
+        "text_x9h9wC",
+        "text_VaiW94",
+        "text_pg6DTc",
+        "text_zjKmwP",
+        "text_fM4TeD",
+        "text_DJxGY6",
+        "text_gFTM6R",
+        "text_9izLFD",
+        "text_ryjzX6",
+        "text_jYD9fd",
+        "text_zczAhU",
+        "text_MxXw8x",
+        "text_XHMzFp",
+        "text_NxUcxC"
+      ],
+      "name": "Collapsible content load more",
+      "settings": {
+        "alignment": "center",
+        "compact": false,
+        "title": "<h2>お知らせ</h2>",
+        "title_underline_style": "none",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0,
+        "custom-faq": true,
+        "loadmore-faq": true,
+        "link_text": "more"
+      }
+    },
     "section_collection_list_edApx7": {
       "type": "section-collection-list",
       "name": "t:sections.collection_list.presets.name",
@@ -206,8 +481,8 @@
           "クロアリ",
           "その他不快害虫"
         ],
-        "image_ratio": "square",
-        "fill_images": true,
+        "image_ratio": "origin",
+        "fill_images": false,
         "layout": "rows",
         "number_of_items": 3,
         "text_alignment": "center",
@@ -218,7 +493,27 @@
         "link_url": "shopify://collections/all",
         "button_style": "primary plain",
         "collection_title_size": "h5",
-        "mobile_layout": "slider",
+        "mobile_layout": "grid",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0,
+        "enable_custom": "enable"
+      }
+    },
+    "section_recently_viewed_products_UU8mia": {
+      "type": "section-recently-viewed-products",
+      "name": "t:sections.recently_viewed_products.presets.name",
+      "settings": {
+        "number_of_items": 6,
+        "text_alignment": "center",
+        "title": "<h2>最近チェックした商品</h2>",
+        "title_underline_style": "none",
+        "enable_quick_buy_desktop": true,
+        "enable_quick_buy_mobile": true,
+        "enable_quick_buy_drawer": false,
+        "enable_quick_buy_qty_selector": true,
+        "enable_color_picker": false,
+        "enable_quick_buy_compact": false,
         "spacing_desktop": 50,
         "spacing_mobile": 30,
         "fix_zindex": 0
@@ -287,7 +582,9 @@
     "section_gallery_FqcfXJ",
     "section_grid_CyJabx",
     "section_promo_gallery_Fine6R",
+    "section_faq_load_more_mPmycW",
     "section_collection_list_edApx7",
+    "section_recently_viewed_products_UU8mia",
     "section_image_with_banners_8w3i4q"
   ]
 }

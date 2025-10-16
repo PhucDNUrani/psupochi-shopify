@@ -37,7 +37,6 @@
             {% endif %}
 
             {{ block.settings.description }}
-            {% comment %} image_width {% endcomment %}
             {% if block.settings.image_position == 'after' and block.settings.image != blank %}
               {% assign img = block.settings.image %}
               {% assign src = img | image_url: width: 2048 %}

@@ -43,10 +43,18 @@
         "spacing_mobile": 30,
         "fix_zindex": 0
       }
+    },
+    "section_page_title_FeNCFC": {
+      "type": "section-page-title",
+      "name": "Page Title",
+      "settings": {
+        "title": "準備中"
+      }
     }
   },
   "order": [
     "breadcrumbs",
-    "main-page"
+    "main-page",
+    "section_page_title_FeNCFC"
   ]
 }

@@ -209,7 +209,8 @@
                     enable_quick_buy_drawer: section.settings.enable_quick_buy_drawer,
                     enable_color_picker: section.settings.enable_color_picker,
                     no_lazyload: no_lazyload,
-                    sizes: image_sizes
+                    sizes: image_sizes,
+                    enable_custom: section.settings.custom_product_item
                   -%}
                 {%- endfor -%}
               </ul>
@@ -328,6 +329,11 @@
       "type": "checkbox",
       "id": "show_collection_image",
       "label": "t:main.collection.settings.show_collection_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_product_item",
+      "label": "Enable custom product item"
     },
     {
       "type": "header",

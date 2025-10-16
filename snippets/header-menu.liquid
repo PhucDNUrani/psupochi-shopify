@@ -16,6 +16,7 @@
     assign promo_banner_blocks = blocks | where: 'type', 'promo_banners'
   endif
   assign sale_highlight_item = sale_highlight_item | strip | downcase
+  assign disable_show_all = disable_show_all | default: false
 -%}
 
 {%- for link in linklists[menu].links -%}
@@ -386,7 +387,10 @@
       {% comment %} END PROMO COLLECTION LIST {% endcomment %}
 
       {%- if promo_collection == false and link.links != blank or promo_banner %}
-        <a href="./" class="toggle">{{ 'header.navigation.view_all' | t }}</a>
+        {% comment %} Custom HERE {% endcomment %}
+        {% unless disable_show_all %}
+          <a href="./" class="toggle">{{ 'header.navigation.view_all' | t }}</a>
+        {% endunless %}
         <ul
           {% if layout %}
             class="wide"

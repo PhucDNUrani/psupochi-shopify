@@ -1,0 +1,142 @@
+<article
+  class="
+    simple-text
+    m6as
+    text-{{ section.settings.text_position }}
+  "
+>
+  {% if section.settings.simple_text_1 != empty
+    or section.settings.simple_text_2 != empty
+    or section.settings.simple_text_3 != empty
+  %}
+    <div>
+      <h2>
+        {{ section.settings.simple_text_1 | replace: '</p><p>', '<br>' | remove: '<p>' | remove: '</p>' }}
+        <span>{{ section.settings.simple_text_2 | replace: '</p><p>', '<br>' | remove: '<p>' | remove: '</p>' }}</span>
+        {{ section.settings.simple_text_3 | replace: '</p><p>', '<br>' | remove: '<p>' | remove: '</p>' }}
+      </h2>
+    </div>
+  {% endif %}
+</article>
+
+<style>
+  #shopify-section-{{ section.id }} { position: relative; z-index: {{ section.settings.fix_zindex }}!important; }
+  #shopify-section-{{ section.id }} .m6cu { margin-bottom: {{ section.settings.spacing_desktop }}px; }
+  #shopify-section-{{ section.id }} .m6cu .countdown { --bg: {{ section.settings.countdown_bg_color }}; --fg: {{ section.settings.countdown_text_color }}; }
+  @media only screen and (max-width: 47.5em) {
+    #shopify-section-{{ section.id }} .m6cu { margin-bottom: {{ section.settings.spacing_mobile }}px; }
+  }
+  {% if section.settings.custom_section_width %}
+    #shopify-section-{{ section.id }} {
+      max-width:{{ section.settings.section_width }}px;
+      margin: auto;
+    }
+  {% endif %}
+  .simple-text h2 {
+    text-align: left;
+    max-width: 780px;
+    margin: 0 auto 0;
+    font-size: 200%;;
+  }
+  .simple-text span {
+    color: #ff3129;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Simple text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "text",
+      "id": "simple_text_1",
+      "label": "Simple text 01"
+    },
+    {
+      "type": "text",
+      "id": "simple_text_2",
+      "label": "Simple text 02"
+    },
+    {
+      "type": "text",
+      "id": "simple_text_3",
+      "label": "Simple text 03"
+    },
+    {
+      "id": "text_position",
+      "type": "select",
+      "label": "t:sections.image_with_text.settings.text_position.label",
+      "options": [
+        {
+          "value": "align-top text-start",
+          "label": "t:sections.image_with_text.settings.text_position.options__1.label"
+        },
+        {
+          "value": "align-top text-center",
+          "label": "t:sections.image_with_text.settings.text_position.options__2.label"
+        },
+        {
+          "value": "align-top text-end",
+          "label": "t:sections.image_with_text.settings.text_position.options__3.label"
+        },
+        {
+          "value": "text-start",
+          "label": "t:sections.image_with_text.settings.text_position.options__4.label"
+        },
+        {
+          "value": "text-center",
+          "label": "t:sections.image_with_text.settings.text_position.options__5.label"
+        },
+        {
+          "value": "text-end",
+          "label": "t:sections.image_with_text.settings.text_position.options__6.label"
+        },
+        {
+          "value": "align-bottom text-start",
+          "label": "t:sections.image_with_text.settings.text_position.options__7.label"
+        },
+        {
+          "value": "align-bottom text-center",
+          "label": "t:sections.image_with_text.settings.text_position.options__8.label"
+        },
+        {
+          "value": "align-bottom text-end",
+          "label": "t:sections.image_with_text.settings.text_position.options__9.label"
+        }
+      ],
+      "default": "text-start"
+    },
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_section_width",
+      "label": "Enable custom section width",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "t:static_sections.header.settings.width.label",
+      "min": 900,
+      "max": 1500,
+      "step": 10,
+      "unit": "px",
+      "default": 1000,
+      "visible_if": "{{ section.settings.custom_section_width }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Simple Text",
+      "category": "t:categories.layout"
+    }
+  ]
+}
+{% endschema %}

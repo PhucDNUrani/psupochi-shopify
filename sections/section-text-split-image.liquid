@@ -4,6 +4,10 @@
 -%}
 <div
   class="
+    palette-{{ section.settings.color_palette }} module-color-palette
+    m6bx overlay
+    {{ section.settings.height }}
+    {% if section.settings.width == 'wide' %}wide{% endif %}
     split-content-image
     text-{{ section.settings.text_position }}
   "
@@ -82,7 +86,7 @@
               {%- when 'right_info' -%}
                 <dl>
                   <dt>{{ block.settings.right_info_title }}</dt>
-                  <dd>{{ block.settings.right_info_desc | replace: '</p><p>', '<br>' | remove: '<p>' | remove: '</p>'}}</dl>
+                  <dd>{{ block.settings.right_info_desc | replace: '</p><p>', '<br>' | remove: '<p>' | remove: '</p>'}}</dd>
                 </dl>
             {%- endcase -%}
           {%- endfor -%}
@@ -90,6 +94,11 @@
       </li>
     </ul>
   </div>
+  {% if section.settings.enable_paragraph and section.settings.sub_paragraph != empty %}
+    <div class="sub-paragraph">
+      {{ section.settings.sub_paragraph }}
+    </div>
+  {% endif %}
 </div>
 
 <style>
@@ -112,9 +121,6 @@
       color: #fff;
       font-size: 200%;
     }
-    .split-content-image {
-
-    }
     .split-content-image .split-detail h4 {
       font-size: 120%;
       margin-bottom: 0;
@@ -124,6 +130,9 @@
       max-width: 320px;
       margin: auto;
     }
+    .split-content-image .split-detail figure {
+      margin-bottom: 0;
+    }
     .split-content-image .split-detail h3 {
       font-size: 200%;
       margin-bottom: 3.2rem;
@@ -132,6 +141,7 @@
       list-style: none;
       display: flex;
       flex-wrap: wrap;
+      margin: 0
     }
     .split-content-image .split-detail ul li {
       width: calc((100% - 3.2rem) / 2);
@@ -159,32 +169,9 @@
       font-weight: 600;
       text-align: left;
     }
-  /* .usage-content h3 {
-    font-size: 200%;
-    margin-bottom: 3.2rem;
-  }
-  .usage-wrapper > h3 {
-    font-size: 151%;
-    padding: 1.6rem;
-    background-color: #2568b9;
-    color: #fff;
-  }
-  .usage-wrapper .description > h4 {
-    font-size: 148%;
-  }
-  .usage-wrapper .description > ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 1.6rem;
-    max-width: 850px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .usage-wrapper .description > ul li {
-    width: calc((100% - 1rem) / 2);
-    text-align: left;
-  } */
+    .split-content-image .sub-paragraph {
+      text-align: left;
+    }
 </style>
 
 {% schema %}
@@ -213,6 +200,38 @@
         }
       ],
       "default": "start"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_palette",
+      "label": "t:global.color_palette.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "t:sections.rich_text.settings.overlay_opacity.label",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "t:sections.rich_text.settings.width.label",
+      "options": [
+        {
+          "value": "boxed",
+          "label": "t:sections.rich_text.settings.width.options__1.label"
+        },
+        {
+          "value": "wide",
+          "label": "t:sections.rich_text.settings.width.options__2.label"
+        }
+      ],
+      "default": "wide"
     },
     {
       "type": "header",
@@ -316,6 +335,22 @@
       "type": "text",
       "id": "right_figure_cap",
       "label": "Right figure cap"
+    },
+    {
+      "type": "header",
+      "content": "Sub paragraph"
+    },
+    {
+      "type": "checkbox",
+      "label": "Enable paragraph",
+      "id": "enable_paragraph",
+      "default": false
+    },
+    {
+      "type": "richtext",
+      "label": "Paragraph",
+      "id": "sub_paragraph",
+      "visible_if": "{{ section.settings.enable_paragraph }}"
     },
     {
       "type": "header",

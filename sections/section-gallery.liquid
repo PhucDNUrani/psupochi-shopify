@@ -325,7 +325,7 @@
   #root #shopify-section-{{ section.id }} .l4ft figure picture img.object-fit-cover {
     object-fit: contain;
   }
-  {% if section.settings.custom_section-width %}
+  {% if section.settings.custom_section_width %}
     #shopify-section-{{ section.id }} {
       max-width: {{ section.settings.section_width }}px;
       margin: auto;
@@ -566,9 +566,9 @@
     },
     {
       "type": "checkbox",
-      "id": "custom_section-width",
+      "id": "custom_section_width",
       "label": "Enable custom section width",
-      "default": false,
+      "default": false
     },
     {
       "type": "range",
@@ -578,7 +578,8 @@
       "max": 1500,
       "step": 10,
       "unit": "px",
-      "default": 1000
+      "default": 1000,
+      "visible_if": "{{ section.settings.custom_section_width }}"
     }
   ],
   "blocks": [

@@ -1,0 +1,272 @@
+{%- liquid
+
+-%}
+
+<div
+  class="
+    feature-text-block
+    text-{{ section.settings.text_position }}
+    {% if section.settings.layout_type == "methods-instruction" %}methods-layout{% endif %}
+  "
+>
+  <div class="header-wrap">
+    {% if section.settings.heading != empty %}
+      {{ section.settings.heading }}
+    {% endif %}
+    {% if section.settings.sub_heading != empty %}
+      <span>{{ section.settings.sub_heading }}</span>
+    {% endif %}
+  </div>
+  <div class="feature-wrap">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'feature_block' %}
+          <div class="feature-list">
+            {% if block.settings.tag != empty %}
+              <span>{{ block.settings.tag }}</span>
+            {% endif %}
+            {% if block.settings.feature_title != empty %}
+              {{ block.settings.feature_title }}
+            {% endif %}
+            {% if block.settings.feature_image != empty and section.settings.layout_type == "product-feature" %}
+              <figure>
+                <picture>
+                  <img
+                    src="{{ block.settings.feature_image | image_url: width: 638 }}"
+                    srcset="{% render 'image-srcset', image: block.settings.feature_image %}"
+                    sizes="
+                      (min-width: 1300px) calc({% if settings.width < 2000 %}{{ settings.width }}px{% else %}100vw{% endif %} / 2),
+                      100vw
+                    "
+                    width="638"
+                    height="344"
+                    alt="Image list"
+                    loading="{% if lazyload %}lazy{% else %}eager{% endif %}"
+                  >
+                </picture>
+              </figure>
+            {% endif %}
+            {% if block.settings.feature_desc != empty %}
+              {{ block.settings.feature_desc }}
+            {% endif %}
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  #shopify-section-{{ section.id }} { position: relative; z-index: {{ section.settings.fix_zindex }}!important; }
+  #shopify-section-{{ section.id }} .m6cu { margin-bottom: {{ section.settings.spacing_desktop }}px; }
+  #shopify-section-{{ section.id }} .m6cu .countdown { --bg: {{ section.settings.countdown_bg_color }}; --fg: {{ section.settings.countdown_text_color }}; }
+  @media only screen and (max-width: 47.5em) {
+    #shopify-section-{{ section.id }} .m6cu { margin-bottom: {{ section.settings.spacing_mobile }}px; }
+  }
+  {% if section.settings.custom_section_width %}
+    #shopify-section-{{ section.id }} {
+      max-width:{{ section.settings.section_width }}px;
+      margin: auto;
+    }
+  {% endif %}
+    .feature-text-block {
+      line-height: 1.5;
+    }
+    .header-wrap > h2,
+    .header-wrap > span {
+      display: block;
+      font-size: 200%;
+      margin-bottom: 0;
+      font-weight: bold;
+    }
+    .header-wrap > span {
+      color: #fdb912;
+      margin-bottom: 3.2rem;
+    }
+    .methods-layout .header-wrap > span {
+      font-size: 120%;
+      color: #333;
+      text-align: left;
+    }
+    .feature-list {
+      background-color: #e8e2d5;
+      padding: 6.4rem 6.4rem 3.2rem;
+      box-sizing: border-box;
+      position: relative;
+      margin-top: 4.8rem;
+    }
+    .methods-layout .feature-list {
+      padding: 6.4rem 3.2rem;
+      background-color: #f6f6f6;
+    }
+    .feature-list:last-child {
+      margin-bottom: 6.4rem;
+    }
+    .feature-list > span {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -27px;
+      margin: auto;
+      background-color: #445c88;
+      display: inline-block;
+      color: #fdb912;
+      text-align: center;
+      font-size: 150%;
+      padding: 10px 10px;
+      box-sizing: border-box;
+      max-width: 100%;
+      width: 100px;
+    }
+    .methods-layout .feature-list > span {
+      background-color: #080607;
+      max-width: 200px;
+      padding: 10px 20px;
+      color: #fff;
+      top: -30px;
+      width: 100%;
+      font-weight: bold;
+    }
+    .feature-list > h3 {
+      color: #b7283c;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 1.6rem;
+      font-size: 150%;
+    }
+    .methods-layout .feature-list > h3 {
+      margin-bottom: 1.6rem;
+      padding-bottom: 1.6rem;
+      box-sizing: border-box;
+      border-bottom: 1px solid #d9d9d9;
+      color: #333;
+    }
+    .feature-list > p {
+      text-align: left;
+      margin-bottom: 0;
+    }
+</style>
+
+{% schema %}
+{
+  "name": "t:sections.countdown.name",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.countdown.settings.content.header"
+    },
+    {
+      "id": "text_position",
+      "type": "select",
+      "label": "t:sections.countdown.settings.content.text_position.label",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.countdown.settings.content.text_position.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.countdown.settings.content.text_position.options__2.label"
+        }
+      ],
+      "default": "start"
+    },
+    {
+      "type": "header",
+      "content": "t:global.typography.title.label"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "t:global.typography.title.label",
+      "info": "t:global.typography.title.info",
+      "default": "<h2>Header</h2>"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Sub heading",
+      "default": "Sub heading"
+    },
+    {
+      "type": "header",
+      "content": "Use for"
+    },
+    {
+      "type": "select",
+      "id": "layout_type",
+      "label": "Use this for layout",
+      "options": [
+        {
+          "value": "product-feature",
+          "label": "Product feature"
+        },
+        {
+          "value": "methods-instruction",
+          "label": "Method instruction"
+        }
+      ],
+      "default": "product-feature"
+    },
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_section_width",
+      "label": "Enable custom section width",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "t:static_sections.header.settings.width.label",
+      "min": 900,
+      "max": 1500,
+      "step": 10,
+      "unit": "px",
+      "default": 1000,
+      "visible_if": "{{ section.settings.custom_section_width }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_block",
+      "name": "Feature block",
+      "settings": [
+        {
+          "type": "text",
+          "label": "Tag",
+          "id": "tag",
+          "default": "特徴１"
+        },
+        {
+          "type": "richtext",
+          "label": "Title",
+          "id": "feature_title"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_image",
+          "label": "Feature image",
+          "visible_if": "{{ section.settings.layout_type == 'product-feature' }}"
+        },
+        {
+          "type": "richtext",
+          "id": "feature_desc",
+          "label": "Feature description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product feature block",
+      "category": "t:categories.storytelling"
+    }
+  ]
+}
+{% endschema %}

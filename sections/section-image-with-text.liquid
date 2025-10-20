@@ -6,6 +6,12 @@
   endif
 -%}
 
+{% if section.settings.custom_section_title != empty%}
+  <div class="section-title">
+    {{ section.settings.custom_section_title }}
+  </div>
+{% endif %}
+
 <article
   class="
     palette-{{ section.settings.color_palette }}
@@ -17,6 +23,7 @@
     m6as
     {{ section.settings.text_position }}
     {% if section.settings.layout == 'image-right' %}inv{% endif %}
+    {% if section.settings.custom_section %}custom-section{% endif %}
   "
 >
   <figure
@@ -28,7 +35,7 @@
     {%- if section.settings.image -%}
       <picture>
         <img
-          src="{{ section.settings.image | image_url: width: 100, height: 100, width: 640 }}"
+          src="{{ section.settings.image | image_url: width: 640, scale: 4 }}"
           srcset="{% render 'image-srcset', image: section.settings.image %}"
           sizes="
             (min-width: 1300px) calc({% if settings.width < 2000 %}{{ settings.width }}px{% else %}100vw{% endif %} / 2),
@@ -158,6 +165,35 @@
   @media only screen and (max-width: 47.5em) {
     #shopify-section-{{ section.id }} .m6as { margin-bottom: {{ section.settings.spacing_mobile }}px; }
   }
+  {% if section.settings.custom_section_width %}
+    #shopify-section-{{ section.id }} {
+      max-width:{{ section.settings.section_width }}px;
+      margin: auto;
+    }
+  {% endif %}
+  {% if section.settings.enable_border %}
+    #shopify-section-{{ section.id }} {
+      padding-top: 3.2rem;
+      border-top: 1px solid #2568b9;
+    }
+  {% endif %}
+  .m6as.inv.custom-section {
+    --d: 10px;
+    line-height: 1.5;
+  }
+  .custom-section h4 {
+    font-size: 150%;
+  }
+  .section-title {
+    text-align: center;
+  }
+  .section-title > h2 {
+    background-color: #2568b9;
+    padding: 1.6rem 1.6rem;
+    color: #fff;
+    font-weight: bold;
+    font-size: 200%;
+  }
 </style>
 
 {% schema %}
@@ -285,6 +321,48 @@
       "max": 25,
       "step": 1,
       "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section custom"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_section",
+      "label": "Enable custom section",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_border",
+      "label": "Enable border top",
+      "default": false
+    },
+    {
+      "type": "richtext",
+      "id": "custom_section_title",
+      "label": "Section title"
+    },
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_section_width",
+      "label": "Enable custom section width",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "t:static_sections.header.settings.width.label",
+      "min": 900,
+      "max": 1500,
+      "step": 10,
+      "unit": "px",
+      "default": 1000,
+      "visible_if": "{{ section.settings.custom_section_width }}"
     }
   ],
   "blocks": [

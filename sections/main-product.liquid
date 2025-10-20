@@ -714,6 +714,7 @@
                             {%- endif -%}
                     </div>
                 {%- when 'price' -%}
+                  {%  unless product.metafields.custom.customer_hide_price_guest and customer == nil %}
                     <p class="f8pr-price s1pr price" {{ block.shopify_attributes }}>
                         {%- if current_variant.compare_at_price > current_variant.price -%}
                             <span class="old-price">{{ current_variant.compare_at_price | money }}</span>&nbsp;
@@ -728,7 +729,8 @@
                         <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
                         <div class="shopify-installments-container">{{ form | payment_terms }}</div>
                     {%- endform -%}
-                {%- when 'buy_button' -%}
+                  {% endunless %}
+                  {%- when 'buy_button' -%}
                     {%- liquid
                         assign gift_card_recipient_feature_active = false
                         if block.settings.show_gift_card_recipient and product.gift_card?
@@ -753,51 +755,56 @@
                           assign show_dynamic_buybutton = false
                         endif
                     -%}
-                    {%- form 'product', product, id: form_id, class: form_class, autocomplete: "off" -%}
-                        <input type="hidden" name="id" value="{{ current_variant.id }}" class="product-variant-id">
-                        {%- if gift_card_recipient_feature_active -%}
-                            {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
-                        {%- endif -%}
-                        <div class="submit m10 {% unless current_variant.available %}unavailable{% endunless %}" {{ block.shopify_attributes }}>
-                          <span class="input-amount f8pr-amount" {% unless block.settings.show_amount_selection -%}style="display:none;"{% endunless %}>
-                              <label for="quantity" class="hidden">{{ 'product.form.quantity' | t }}</label>
-                              <input type="number" id="quantity" name="quantity" data-link="#product_qty_sticky" value="{{ current_variant.quantity_rule.min | default: 1 }}"
-                                min="{{ current_variant.quantity_rule.min | default: 1 }}"
-                                {% if current_variant.inventory_management == 'shopify' and current_variant.inventory_policy == 'deny' -%}
-                                    max="{{ current_variant.inventory_quantity }}"
-                                {% elsif current_variant.quantity_rule.max %}
-                                    max="{{ current_variant.quantity_rule.max }}"
-                                {% endif %}
-                                {% if current_variant.quantity_rule.increment %}step="{{ current_variant.quantity_rule.increment }}"{% endif %}
-                                required>
-                          </span>
-                          <div class="f8pr-button wide">
-                          {%- if current_variant == null -%}
-                              <button type="submit" disabled class="disabled visible overlay-unavailable_buy_button{% if block.settings.button_style == 'inv' %} inv{% endif %}">{{ 'product.form.unavailable' | t }}</button>
-                          {%- elsif preorder -%}
-                              <button type="submit" class="overlay-preorder{% if block.settings.button_style == 'inv' %} inv{% endif %}">{{ block.settings.preorder_button_text }}</button>
-                          {%- elsif current_variant.available -%}
-                              <button type="submit" class="overlay-buy_button{% if block.settings.button_style == 'inv' %} inv{% endif %}">{{ 'product.form.add_to_cart' | t }}</button>
-                          {%- else -%}
-                              <button type="submit" class="disabled visible overlay-unavailable_buy_button{% if block.settings.button_style == 'inv' %} inv{% endif %}">{{ 'product.form.not_in_stock' | t }}</button>
+                    {% if product.metafields.custom.customer_hide_price_guest and customer == nil %}
+                        <a href="{{ routes.account_login_url }}" class="login-btn">会員ログイン</a>
+                    {% else %}
+                      {%- form 'product', product, id: form_id, class: form_class, autocomplete: "off" -%}
+                          <input type="hidden" name="id" value="{{ current_variant.id }}" class="product-variant-id">
+                          {%- if gift_card_recipient_feature_active -%}
+                              {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
                           {%- endif -%}
-                          </div>
-                          <span class="wishlist-productpage hidden"><a href="#wishlist" aria-label="Wishlist" data-product-id="{{ product.id }}" data-variant-id="{{ current_variant.id }}"><i class="icon-heart-outline"></i></a></span>
-                        </div>
-                        {%- if show_dynamic_buybutton -%}
-                            <div class="overlay-dynamic_buy_button {{ block.settings.button_style_dynamic_buybutton }}-btn">
-                                {{ form | payment_button }}
-                            </div>
-                        {%- endif -%}
-                        <ul class="f8pr-preorder l4al inline{% unless preorder and preorder_label %} m0{% endunless %}">
-                            {%- if preorder and preorder_label -%}
-                                <li class="overlay-{{ block.settings.preorder_label_color_palette }} text-center">
-                                    <span><i aria-hidden="true" class="icon-check"></i>&nbsp;{{ preorder_label }}</span>
-                                </li>
-                                <input class="hidden" id="{{ input_label | handleize }}" type="text" name="properties[{{ input_label }}]" value="{{ preorder_label | strip_html }}">
+                          <div class="submit m10 {% unless current_variant.available %}unavailable{% endunless %}" {{ block.shopify_attributes }}>
+                            <span class="input-amount f8pr-amount" {% unless block.settings.show_amount_selection -%}style="display:none;"{% endunless %}>
+                                <label for="quantity" class="hidden">{{ 'product.form.quantity' | t }}</label>
+                                <input type="number" id="quantity" name="quantity" data-link="#product_qty_sticky" value="{{ current_variant.quantity_rule.min | default: 1 }}"
+                                  min="{{ current_variant.quantity_rule.min | default: 1 }}"
+                                  {% if current_variant.inventory_management == 'shopify' and current_variant.inventory_policy == 'deny' -%}
+                                      max="{{ current_variant.inventory_quantity }}"
+                                  {% elsif current_variant.quantity_rule.max %}
+                                      max="{{ current_variant.quantity_rule.max }}"
+                                  {% endif %}
+                                  {% if current_variant.quantity_rule.increment %}step="{{ current_variant.quantity_rule.increment }}"{% endif %}
+                                  required>
+                            </span>
+                            <div class="f8pr-button wide">
+                            {%- if current_variant == null -%}
+                                <button type="submit" disabled class="disabled visible overlay-unavailable_buy_button{% if block.settings.button_style == 'inv' %} inv{% endif %}">{{ 'product.form.unavailable' | t }}</button>
+                            {%- elsif preorder -%}
+                                <button type="submit" class="overlay-preorder{% if block.settings.button_style == 'inv' %} inv{% endif %}">{{ block.settings.preorder_button_text }}</button>
+                            {%- elsif current_variant.available -%}
+                                <button type="submit" class="overlay-buy_button{% if block.settings.button_style == 'inv' %} inv{% endif %}">{{ 'product.form.add_to_cart' | t }}</button>
+                            {%- else -%}
+                                <button type="submit" class="disabled visible overlay-unavailable_buy_button{% if block.settings.button_style == 'inv' %} inv{% endif %}">{{ 'product.form.not_in_stock' | t }}</button>
                             {%- endif -%}
-                        </ul>
-                {%- endform -%}
+                            </div>
+                            <span class="wishlist-productpage hidden"><a href="#wishlist" aria-label="Wishlist" data-product-id="{{ product.id }}" data-variant-id="{{ current_variant.id }}"><i class="icon-heart-outline"></i></a></span>
+                          </div>
+                          {%- if show_dynamic_buybutton -%}
+                              <div class="overlay-dynamic_buy_button {{ block.settings.button_style_dynamic_buybutton }}-btn">
+                                  {{ form | payment_button }}
+                              </div>
+                          {%- endif -%}
+                          <ul class="f8pr-preorder l4al inline{% unless preorder and preorder_label %} m0{% endunless %}">
+                              {%- if preorder and preorder_label -%}
+                                  <li class="overlay-{{ block.settings.preorder_label_color_palette }} text-center">
+                                      <span><i aria-hidden="true" class="icon-check"></i>&nbsp;{{ preorder_label }}</span>
+                                  </li>
+                                  <input class="hidden" id="{{ input_label | handleize }}" type="text" name="properties[{{ input_label }}]" value="{{ preorder_label | strip_html }}">
+                              {%- endif -%}
+                          </ul>
+                      {%- endform -%}
+                    {% endif %}
+                    
                 {%- when 'usp' -%}
                     <ul class="l4us" {{ block.shopify_attributes }}>
                         {%- if block.settings.usp != empty -%}<li>{{ block.settings.usp | remove: '<p>' | remove: '</p>' }}</li>{%- endif -%}
@@ -1322,6 +1329,32 @@
       --main_h5: var(--mob_{{ section.settings.mobile_tabs_title_size }});
       --main_h6: var(--mob_{{ section.settings.mobile_tabs_title_size }});
     }
+  }
+
+  .login-btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #DE5D50;
+    border-color: #DE5D50;
+    color: #333333;
+    transition: all ease-in 0.3s;
+  }
+  .login-btn:hover {
+    color: #fff;
+    opacity: 0.5;
   }
 {% endstyle %}
 

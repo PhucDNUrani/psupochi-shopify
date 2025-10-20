@@ -68,7 +68,7 @@
         "image_rdyh9b": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/general_img02.png",
+            "image": "shopify://shop_images/general_img02_ede67c57-bce5-4db7-8c11-fc232ca6771d.png",
             "overlay_opacity": 0,
             "color_palette": "",
             "text_position": "center",
@@ -86,7 +86,7 @@
         "image_X8aLq6": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/general_img03.png",
+            "image": "shopify://shop_images/general_img03_57daa5a2-7f51-4811-b1c2-a6dcc5100f35.png",
             "overlay_opacity": 0,
             "color_palette": "",
             "text_position": "center",
@@ -104,7 +104,7 @@
         "image_BhTzPN": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/general_img04.png",
+            "image": "shopify://shop_images/general_img04_019482f3-a7b4-4239-b65b-325e827e067b.png",
             "overlay_opacity": 0,
             "color_palette": "scheme-1",
             "text_position": "center",
@@ -160,13 +160,6 @@
             "image_url": "https://lin.ee/v2NDCqP"
           }
         },
-        "title_MRj9Pa": {
-          "type": "title",
-          "settings": {
-            "title": "<h3>1本売りの個人さま向け販売～ロット売りの法人・事業主さま迄<br/>1度の注文個数に応じて割引価格に！！</h3>",
-            "title_underline_style": "none"
-          }
-        },
         "image02_QpLXNb": {
           "type": "image02",
           "settings": {
@@ -177,7 +170,6 @@
       },
       "block_order": [
         "image01_JtLYAp",
-        "title_MRj9Pa",
         "image02_QpLXNb"
       ],
       "name": "t:sections.rich_text.presets.name",
@@ -194,43 +186,127 @@
         "custom_section": true
       }
     },
-    "section_text_usage_NkKnwA": {
-      "type": "section-text-usage",
+    "section_image_with_text_KxgQKm": {
+      "type": "section-image-with-text",
       "blocks": {
-        "usage_info_MUcDQq": {
-          "type": "usage_info",
+        "title_q7ecFR": {
+          "type": "title",
           "settings": {
-            "header_usage": "<h3>店舗(飲食店・接待飲食店・テイクアウト店・横丁など)の場合</h3>",
-            "image_usage": "shopify://shop_images/general_img07.png",
-            "title_use_for": "<h4>ゴキブリ・チャバネゴキブリ</h4>",
-            "desc01": "<p><strong>・市販品で対策しているが被害が出続けている<br/>・業者の費用が高く、年間の駆除費用を抑えたい<br/>・お客様の目につく前に全て駆除し安心したい<br/>・地方でプロ業者が少なく自分達で対策したい<br/>・客席まで被害は出てないがスタッフが嫌がる<br/>・食材保管エリアでの発生をどうにかしたい</strong></p>",
-            "desc02": "<p><strong>・定期でプロ業者依頼してるが一向に解決しない<br/>・プロ依頼中だが自分達で追加策を講じたい<br/>・厨房にしか出なかった個体がフロアにも出る<br/>・商品の個体混入リスクを事前に予防したい<br/>・オープンキッチンで客席に出るのを予防したい<br/>・ゴミ置き場付近の発生をどうにかしたい</strong></p>"
+            "title": "<h4>【ゴキブリ・チャバネゴキブリ】</h4>",
+            "title_underline_style": "none"
           }
         },
-        "usage_info_bxFaAL": {
-          "type": "usage_info",
+        "text_A7zLab": {
+          "type": "text",
           "settings": {
-            "header_usage": "<h3>施設(保育園・宿泊施設・介護施設・民泊・銭湯など)の場合</h3>",
-            "image_usage": "shopify://shop_images/general_img08.png",
-            "title_use_for": "<h4>トコジラミ</h4>",
-            "desc01": "<p><strong>・トコジラミが出ないように予防したい<br/>・トコジラミ駆除を業者に依頼したいが費用が高い<br/>・トコジラミが発生し、市販品を試しても解決不可<br/>・以前にトコジラミが発生し、再発を繰り返してる<br/>・トコジラミ業者に依頼したが、再発を繰り返す</strong></p>",
-            "desc02": "<p><strong>・観光客増加に伴うトコジラミが持ち込みリスク<br/>・介護施設の利用者によるトコジラミのリスク<br/>・ヘルパー先にトコジラミが発生<br/>・送迎車にトコジラミを発見した<br/>・ロッカーでトコジラミを発見した</strong></p>",
-            "img_product": "shopify://shop_images/general_img09.png"
+            "text": "<p><strong>・ゴキブリの赤ちゃんが出てくる<br/>・1匹出たので今後の繁殖が不安<br/>・ゴキブリが出ないように予防したい<br/>・市販品を色々試してもゴキブリ被害が止まらない<br/>・ゴキブリ業者に頼んでも一向に解決しない<br/>・玄関やバルコニーでゴキブリをよく見かける<br/>・チャバネゴキブリが何をしても増え続けている<br/>・共用部やゴミ置き場でゴキブリをよく見かける<br/>・引越し先のゴキブリや害虫を予防をしたい<br/>・業者に頼みたいが費用が高い<br/>・家の周りでゴキブリをよく見かける</strong></p>"
           }
         }
       },
       "block_order": [
-        "usage_info_MUcDQq",
-        "usage_info_bxFaAL"
+        "title_q7ecFR",
+        "text_A7zLab"
       ],
-      "name": "Usage content",
+      "name": "t:sections.image_with_text.presets.name",
       "settings": {
-        "countdown_text_color": "#ffffff",
+        "image": "shopify://shop_images/general_img07_ed046eb3-2083-4cc4-9bb9-cd8cbf14a262.png",
+        "overlay_opacity": 0,
         "color_palette": "",
-        "text_position": "center",
-        "title": "<h3>一般住宅の方はこちらをクリック👆️<br/>戸建て・マンション・アパートなど</h3>",
-        "title_underline_style": "none",
-        "sub_title": "<h3>こんなゴキブリ・トコジラミ被害を簡単に解決!!</h3>",
+        "layout": "image-right",
+        "text_position": "text-start",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0,
+        "custom_section": true,
+        "enable_border": false,
+        "custom_section_title": "<h2>こんなゴキブリ・トコジラミ被害を簡単に解決!!</h2>",
+        "custom_section_width": true,
+        "section_width": 920
+      }
+    },
+    "section_image_with_text_AYV4Xr": {
+      "type": "section-image-with-text",
+      "blocks": {
+        "title_Wt9egK": {
+          "type": "title",
+          "settings": {
+            "title": "<h4>【トコジラミ・ダニ】</h4>",
+            "title_underline_style": "none"
+          }
+        },
+        "text_aHRrMj": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>・トコジラミが出ないように予防したい<br/>・トコジラミ駆除を業者に依頼したいが費用が高い<br/>・トコジラミが発生し、市販品を試しても解決不可<br/>・以前にトコジラミが発生し、再発を繰り返してる<br/>・海外出張が多くトコジラミの持込リスクがある<br/>・宿泊施設によく泊まる為、持込リスクがある<br/>・海外通販を利用してトコジラミ持込リスクがある<br/>・トコジラミ業者に依頼したが、再発を繰り返す<br/>・ダニかトコジラミか不明だが虫刺されを繰り返す</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "title_Wt9egK",
+        "text_aHRrMj"
+      ],
+      "name": "t:sections.image_with_text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/general_img08_dd538dc9-2004-47de-95b0-9d65741515ae.png",
+        "overlay_opacity": 0,
+        "color_palette": "",
+        "layout": "image-right",
+        "text_position": "align-top text-start",
+        "spacing_desktop": 35,
+        "spacing_mobile": 30,
+        "fix_zindex": 0,
+        "custom_section": true,
+        "enable_border": true,
+        "custom_section_title": "",
+        "custom_section_width": true,
+        "section_width": 920
+      }
+    },
+    "section_gallery_e9fXtp": {
+      "type": "section-gallery",
+      "blocks": {
+        "image_HWjyfY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/general_img09.png",
+            "overlay_opacity": 0,
+            "color_palette": "",
+            "text_position": "center",
+            "title": "",
+            "title_underline_style": "none",
+            "text": "",
+            "show_link": true,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain",
+            "show_overlay_link": true,
+            "overlay_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_HWjyfY"
+      ],
+      "name": "t:sections.gallery.presets.name",
+      "settings": {
+        "items_layout": "static-grid",
+        "items_width": 2,
+        "height": "adapt",
+        "enable_custom_height": false,
+        "custom_height": 300,
+        "width": "boxed",
+        "space_between": 16,
+        "image_zoom": false,
+        "image_move": false,
+        "show_content_on_hover": false,
+        "show_content_below": false,
+        "content_on_hover_color_palette": "",
+        "layout_mobile": "rows",
+        "mobile_height": "16/9",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0,
+        "custom_object_fit": false,
         "custom_section_width": true,
         "section_width": 920
       }
@@ -245,13 +321,6 @@
             "image_url": "https://lin.ee/v2NDCqP"
           }
         },
-        "title_wcfc3N": {
-          "type": "title",
-          "settings": {
-            "title": "<h3>1本売りの個人さま向け販売～ロット売りの法人・事業主さま迄<br/>1度の注文個数に応じて割引価格に！！</h3>",
-            "title_underline_style": "none"
-          }
-        },
         "image02_7GVPm9": {
           "type": "image02",
           "settings": {
@@ -262,7 +331,6 @@
       },
       "block_order": [
         "image01_wKiBRN",
-        "title_wcfc3N",
         "image02_7GVPm9"
       ],
       "name": "t:sections.rich_text.presets.name",
@@ -293,49 +361,49 @@
           "type": "left_info",
           "settings": {
             "left_info_title": "広さ・使用本数",
-            "left_info_desc": "<p><strong>20坪・2本</strong></p>"
+            "left_info_desc": "<p><strong>マンション　1LDK・1本</strong></p>"
           }
         },
         "left_info_9eUtwT": {
           "type": "left_info",
           "settings": {
             "left_info_title": "発生状況",
-            "left_info_desc": "<p><strong>危険水域（大量発生）の状況で別業者に依頼 も一旦は多少落ち着いたがその後増える一方 で少々フロアに出るまで被害が拡大。</strong></p>"
+            "left_info_desc": "<p><strong>危険水域（大量発生）の状況で別業者に依頼も一旦は多少落ち着いたがその後増える一方で少々フロアに出るまで被害が拡大。</strong></p>"
           }
         },
         "left_info_kGaTXD": {
           "type": "left_info",
           "settings": {
             "left_info_title": "散布箇所",
-            "left_info_desc": "<p><strong>発生源の厨房を多めに散布（1本）し、電化 製品付近や隙間・フロア全体に空間散布 （1本）</strong></p>"
+            "left_info_desc": "<p><strong>キッチンの周辺・洗面台の周辺・電化製品周り（炊飯器・冷蔵庫・Wi-Fiルーター・電子レンジ・ブレーカー・ドアフォン・テレビ）・各部屋の空間噴霧、隙間</strong></p>"
           }
         },
         "left_info_Bn3KKH": {
           "type": "left_info",
           "settings": {
             "left_info_title": "施工後の改善",
-            "left_info_desc": "<p><strong>施行から1周間が程で死骸をよく見かけるよ うになり、2周間目には、以前により断然減 っていると実感。3週間目には、ほとんど見 なくなり、たまに弱った個体を見かける程度 。1ヶ月を立つ頃には、個体を見なくなった。</strong></p>"
+            "left_info_desc": "<p><strong>施行から1周間ほどで死骸をよく見かけるようになり、2周間目には、以前により断然減っていると実感。3週間目には、ほとんど見なくなり、たまに弱った個体を見かける程度。1ヶ月を立つ頃には、個体を見なくなった。</strong></p>"
           }
         },
         "left_info_QJ3UGk": {
           "type": "left_info",
           "settings": {
             "left_info_title": "今後の予防と維持",
-            "left_info_desc": "<p><strong>飲食店さまは、日頃の食材搬入時の持ち込み や同じビルの別テナントさまからの被害を受 けやすいので、3ヶ月に一度、駆除時に使っ た半分の量（1本程度）を全体的に散布する ことで新たにチャバネゴキブリを持ち込んで も駆除・予防が行える。</strong></p>"
+            "left_info_desc": "<p><strong>チャバネゴキブリは屋内生物で発生原因が持込・近隣の入居者からの二次被害ほとんどです。今後は、もし発生した場合のスポット散布と3ヶ月に一度、駆除時に使った半分の量（0.5～1本程度）を以前のローチスポットをメインに全体的に散布することで新たにチャバネゴキブリを持ち込んでも駆除・予防が行える。</strong></p>"
           }
         },
         "left_info_fJtAjC": {
           "type": "left_info",
           "settings": {
             "left_info_title": "今後の予防をしたい場合の推奨本数",
-            "left_info_desc": "<p><strong>約3ヶ月毎に0.66本　1年（4回）で2.64本 推定コスト　月/1,144円～　年間/13,728 円～※発生状況や環境に応じて推奨本数より多く 使用するケースもございます。</strong></p>"
+            "left_info_desc": "<p><strong>約3ヶ月毎に0.4本　1年（4回）で1.6本推定コスト　月/693円～　年間/8,320円～</strong></p>"
           }
         },
         "left_info_fL74F6": {
           "type": "left_info",
           "settings": {
             "left_info_title": "業者に依頼との費用比較",
-            "left_info_desc": "<p><strong>同一成分のプロ用薬剤（ベクトロンFL）を使 用した施行相場は、20坪で約5万円で3ヶ月 に一度で年4回。5万円×4回＝約20万円 （月々16,600円）ベクトロンSPセルフ施行 に切り替えた場合、初回の駆除時に多く使用 するため、初年度年間5本の使用と考え1本単 価5,200円～　合計26,000円～ （月々2,166円～）とコストが年間約1/7（8 5.7％削減）に。</strong></p>"
+            "left_info_desc": "<p><strong>業者や使用する薬剤によって、異なりますが仮にプロが使う同一成分のベクトロンFLで施行を依頼した場合は、1回の施行で6万円前後が相場となります。こちらで計算すると約1/5の費用でほとんど同等の施行ができております。</strong></p>"
           }
         },
         "right_info_7pAbk4": {
@@ -349,49 +417,49 @@
           "type": "right_info",
           "settings": {
             "right_info_title": "広さ・使用本数",
-            "right_info_desc": "<p><strong>10坪・2本（定期予防も含め）</strong></p>"
+            "right_info_desc": "<p><strong>戸建て　4LDK（2階建て）・2本</strong></p>"
           }
         },
         "right_info_fnyULy": {
           "type": "right_info",
           "settings": {
             "right_info_title": "発生状況",
-            "right_info_desc": "<p><strong>横丁タイプの飲食店で、フロアが吹き抜けで 他店舗とつながっているので、定期的にずっ と業者を入れて、維持している状況。</strong></p>"
+            "right_info_desc": "<p><strong>市販の置き餌剤・くん煙剤を定期的に試すが 、被害が収まらず、特に3月～11月は幼虫～ 成虫まで頻繁に出てくる。</strong></p>"
           }
         },
         "right_info_H3mAAX": {
           "type": "right_info",
           "settings": {
             "right_info_title": "散布箇所",
-            "right_info_desc": "<p><strong>発生源の厨房を多めに散布（1本）し、電化 製品付近や隙間・フロア全体・他店舗との仕 切りに空間散布を定期的に実地。</strong></p>"
+            "right_info_desc": "<p><strong>屋外基礎上の水切り・天井裏・クローゼット、押入れ・キッチン下・キッチン裏・洗面台下・洗面台裏・換気扇のダクト周り・床下収納・汚水桝・各部屋に空間散布・部屋の壁と床の取り合い部分</strong></p>"
           }
         },
         "right_info_N9dFJ7": {
           "type": "right_info",
           "settings": {
             "right_info_title": "施工後の改善",
-            "right_info_desc": "<p><strong>施行から1周間が程で死骸をよく見かけるよ うになり、2周間目には、以前により断然減 っていると実感。3週間目に入ってもたまに 元気な個体を見かけるが、おそらく近隣店舗 からの入ってきた影響だったが、継続的にフ ロアへの空間噴霧を行い、1ヶ月後には個体 を見なくなった。</strong></p>"
+            "right_info_desc": "<p><strong>施行から2周間ほどで死骸や弱った個体を発見するようになり、3週間目には減少していると実感。1ヶ月が立つと幼虫は死滅している個体しか見かけず、成虫の出現頻度は弱った個体をあわせても半分以下に。1.5ヶ月が立つ頃にはほとんど見かけなくなった。</strong></p>"
           }
         },
         "right_info_HXBbt3": {
           "type": "right_info",
           "settings": {
             "right_info_title": "今後の予防と維持",
-            "right_info_desc": "<p><strong>施行から1周間が程で死骸をよく見かけるよ うになり、2周間目には、以前により断然減 っていると実感。3週間目に入ってもたまに 元気な個体を見かけるが、おそらく近隣店舗 からの入ってきた影響だったが、継続的にフ ロアへの空間噴霧を行い、1ヶ月後には個体 を見なくなった。</strong></p>"
+            "right_info_desc": "<p><strong>施行から2周間ほどで死骸や弱った個体を発見するようになり、3週間目には減少していると実感。1ヶ月が立つと幼虫は死滅している個体しか見かけず、成虫の出現頻度は弱った個体をあわせても半分以下に。1.5ヶ月が立つ頃にはほとんど見かけなくなった。</strong></p>"
           }
         },
         "right_info_bjYbwW": {
           "type": "right_info",
           "settings": {
             "right_info_title": "今後の予防をしたい場合の推奨本数",
-            "right_info_desc": "<p><strong>約3ヶ月毎に0.33本　1年（4回）で1.32本 推定コスト　月/572円～　年間/6,864円～ ※発生状況や環境に応じて推奨本数より多く 使用するケースもございます。</strong></p>"
+            "right_info_desc": "<p><strong>約3ヶ月毎に0.9本　1年（4回）で3.6本<br/>推定コスト<br/>月/1,560円～<br/>年間/18,720円～</strong></p>"
           }
         },
         "right_info_rBVm3p": {
           "type": "right_info",
           "settings": {
             "right_info_title": "業者に依頼との費用比較",
-            "right_info_desc": "<p><strong>同一成分のプロ用薬剤（ベクトロンFL）を使 用した施行相場は、10坪で約4万円で3ヶ月 に一度で年4回。4万円×4回＝約16万円（ 月々13,333円）ベクトロンSPセルフ施行に 切り替えた場合、初回の駆除時に多く使用す るため、初年度年間3本の使用と考え1本単 価5,200円～　合計15,600円～（月々1,3 00円～）とコストが年間約1/10（90.25％ 削減）に。</strong></p>"
+            "right_info_desc": "<p><strong>業者や使用する薬剤によって、異なりますが仮にプロが使う同一成分のベクトロンFLで施行を依頼した場合は、1回の施行で10万円前後が相場となります。こちらで計算すると約1/5の費用でほとんど同等の施行ができております。</strong></p>"
           }
         }
       },
@@ -421,13 +489,13 @@
         "width": "wide",
         "heading": "<h2>実際にベクトロンSPを使った抜群効果と施行例ゴキブリ（チャバネゴキブリ含む）・トコジラミ</h2>",
         "title_underline_style": "none",
-        "small_title": "<h4>※実際に弊社がベクトロンSPのみで施工した事例です。</h4>",
-        "main_title": "<h3>チャバネゴキブリ駆除・対策の2つの事例</h3>",
-        "left_heading": "<h4>飲食店さま（20坪）<br/>チャバネゴキブリ駆除、対策<br/>施工前の状況：毎日見かける大量発生</h4>",
-        "left_image": "shopify://shop_images/general_img12_c86f1ea4-f220-44f1-aa78-06ffec707450.png",
+        "small_title": "",
+        "main_title": "<h3>一般住宅のゴキブリ駆除・対策の一例</h3>",
+        "left_heading": "<h4>集合住宅（マンション）1LDKチャバネゴキブリ駆除、対策毎日見かける大量発生</h4>",
+        "left_image": "shopify://shop_images/general_img12_0ed68252-6198-4819-ae4a-84458945c325.png",
         "left_figure_cap": "詳細を見る👆️",
-        "right_heading": "<h4>横丁テナントさま<br/>チャバネゴキブリ駆除、対策<br/>施工前の状況：毎日見かけるがテナントの 仕切りが無いため、定期的に隣からも入っ て来る状況</h4>",
-        "right_image": "shopify://shop_images/general_img13.png",
+        "right_heading": "<h4>木造戸建て（2階建て）4LDKクロゴキブリ駆除、対策2日に一度は見かける大量発生</h4>",
+        "right_image": "shopify://shop_images/general_img13_88aaf852-a649-4f7c-9ddc-090bee5cef7b.png",
         "right_figure_cap": "詳細を見る👆️",
         "enable_paragraph": false,
         "sub_paragraph": "",
@@ -439,14 +507,166 @@
       "type": "section-image-with-text-vertical",
       "name": "Image with text vertical",
       "settings": {
-        "image": "shopify://shop_images/general_img066.png",
+        "image": "shopify://shop_images/general_img14.png",
         "text_position": "text-start",
-        "title": "<h2>チャバネゴキブリの主なローチスポット（厨房）と施行方法</h2>",
+        "title": "<h2>主なローチスポット・侵入経路イメージ</h2>",
         "sub_title": "",
         "first_para": "",
-        "desc": "<p>チャバネゴキブリは、冷蔵庫や食洗機などの暖かい電化製品周り・水分が摂取できる水回り に住み着くことが多いが大量繁殖すると壁や床全体に移動する為、ベクトロンSPを使った施 行では、隙間を含む壁・床・電化製品周辺など全体に散布すると、1周間～2周間ほどで効果 を実感します。<br/></p>",
-        "note": "※ベクトロンSP散布後は、殺虫剤の使用をお控えください。殺虫剤の忌避効果の影響で連鎖駆除のパフォーマンスが大幅に低下します。",
+        "desc": "",
+        "note": "",
         "enable_border": false,
+        "custom_section_width": true,
+        "section_width": 920
+      }
+    },
+    "section_image_with_text_vertical_kVxTNA": {
+      "type": "section-image-with-text-vertical",
+      "name": "Image with text vertical",
+      "settings": {
+        "image": "shopify://shop_images/general_img15.png",
+        "text_position": "text-start",
+        "title": "<h2>クロゴキブリ・ワモンゴキブリ・ヤマトゴキブリの施工方法</h2>",
+        "sub_title": "",
+        "first_para": "",
+        "desc": "<p><strong>一般家庭に出るチャバネゴキブリ以外の種類は、屋外・屋内の両方に生息しますが、家の中で出てくる場合は、窓や扉の開けしめ以外に建物内部（床下・壁裏・天井裏）の空洞部分に住み着き（繁殖）、部屋への経路を通って室内に侵入することも多いです。またゴキブリにとって室内の環境が整っていると部屋の中でも住み着き、繁殖します。その為、ベクトロンSPを使った施工方法は、ベランダ・玄関・窓周りの屋外散布・侵入経路付近・冷蔵庫下などの暖かく住み着きやすい家電製品周辺に噴霧することで、パフォーマンスの高い効果的な防除を実現します。</strong></p>",
+        "note": "",
+        "enable_border": false,
+        "custom_section_width": true,
+        "section_width": 920
+      }
+    },
+    "section_simple_text_UPE8LR": {
+      "type": "section-simple-text",
+      "name": "Simple Text",
+      "settings": {
+        "simple_text_1": "推奨の散布箇所を",
+        "simple_text_2": "『屋外』『室内』『侵入経路付近』",
+        "simple_text_3": "と3つのカテゴリーを分けて紹介",
+        "text_position": "text-start",
+        "custom_section_width": true,
+        "section_width": 920
+      }
+    },
+    "section_image_with_text_vertical_CNmKHW": {
+      "type": "section-image-with-text-vertical",
+      "name": "Image with text vertical",
+      "settings": {
+        "image": "shopify://shop_images/general_img16.png",
+        "text_position": "text-start",
+        "title": "<h2>【ベクトロンSP】<br/>屋外の散布場所と施工方法</h2>",
+        "sub_title": "",
+        "first_para": "<p><strong>ベランダ・玄関周り・窓周り・屋上・エアコンの室外機ドレンホース及び壁につながっている配管周辺などを中心に散布してください。また、戸建ての場合、基礎上の水切りを1周全体に散布（木造・鉄骨造は、基礎上の水切りの隙間から床下・壁裏に侵入され、部屋への経路を通って室内に侵入するため）</strong></p><p><strong>※ベクトロンSPに限らず、残留薬剤は紫外線に弱く、雨風の環境によっても効果期間が変わります。屋外での効果期間のイメージは、90日→30～45日と考えて施行を行ってください。</strong></p>",
+        "desc": "",
+        "note": "",
+        "enable_border": false,
+        "custom_section_width": true,
+        "section_width": 920
+      }
+    },
+    "section_image_with_text_vertical_KTrFr3": {
+      "type": "section-image-with-text-vertical",
+      "name": "Image with text vertical",
+      "settings": {
+        "image": "shopify://shop_images/general_img17.png",
+        "text_position": "text-start",
+        "title": "<h2>【ベクトロンSP】<br/>屋内の散布場所と施工方法</h2>",
+        "sub_title": "",
+        "first_para": "<p><strong>部屋全体に空間噴霧・冷蔵庫下や隙間・換気扇の周り・キッチン周り・家具の下や裏・家電の周辺・部屋の四隅など</strong></p><p><strong>※赤ちゃんゴキブリが出ている場合は、部屋の壁と床の取り合い（巾木部分）にも全体散布してください。</strong></p>",
+        "desc": "",
+        "note": "",
+        "enable_border": false,
+        "custom_section_width": true,
+        "section_width": 920
+      }
+    },
+    "section_feature_text_block_3kqQr8": {
+      "type": "section-feature-text-block",
+      "blocks": {
+        "feature_block_kzTfCP": {
+          "type": "feature_block",
+          "settings": {
+            "tag": "1つ目の原因",
+            "feature_title": "<h3>持ち込みによるチャバネゴキブリの発生</h3>",
+            "feature_desc": "<p><strong>持ち込みの原因は、『飲食品の配達物』『出先からの持ち込み』『職場からの持ち込み』『来客による持ち込み』のどれかにほとんど当てはまります。この場合、発生源が自宅なのでローチスポット（巣）・よく見かける、歩いてる場所にベクトロンSPを噴霧することによって解決できます。</strong></p>"
+          }
+        },
+        "feature_block_qj7xcw": {
+          "type": "feature_block",
+          "settings": {
+            "tag": "2つ目の原因",
+            "feature_title": "<h3>以前の入居者が発生させた</h3>",
+            "feature_desc": "<p><strong>こちらも1つ目の原因と同様、発生源が自宅ですので、同じように施行をすることで解決可能です。</strong></p><p><strong><br/>※放置期間や大量発生の場合は、近隣の入居者にまで生息を拡大していることがあり、近隣とつながっている建物内部からの侵入経路にも直接噴霧しなけばなりません。</strong></p>"
+          }
+        },
+        "feature_block_pFf8X6": {
+          "type": "feature_block",
+          "settings": {
+            "tag": "3つ目の原因",
+            "feature_title": "<h3>近隣が発生源によるチャバネゴキブリの二次被害</h3>",
+            "feature_desc": "<p><strong>このパターンが一番解決が難しく、一番有効な解決方法は、発生源の家を駆除することなのですが、管理会社を通して伝えたり・直接伝えてもやってくれるかはその入居者次第になります。仮にマンションでお隣さんが発生源の場合、建物内部を通って自分の自宅にひっきりなしに侵入され続けますので、ポイントはチャバネゴキブリが出入りするスポットを定期的にベクトロンSPを噴霧して防除するしか方法はございません。<br/><br/>※集合住宅に限らず、戸建て住宅でもお隣さんが発生源でチャバネゴキブリに悩ませ続けている方も降ります。この場合は、基礎上の水切り部分から建物に侵入され続けますので、定期的に水切り部分・よく見かけるスポットの屋外にも噴霧することで被を抑えられます。</strong></p><p></p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_block_kzTfCP",
+        "feature_block_qj7xcw",
+        "feature_block_pFf8X6"
+      ],
+      "name": "Product feature block",
+      "settings": {
+        "text_position": "center",
+        "heading": "<h2>チャバネゴキブリの散布箇所と施工方法</h2>",
+        "sub_heading": "チャバネゴキブリは、屋内生物で個人宅での発生原因は、主に3つのパターンにわかれます。※屋外からの侵入はほとんどないと考えてもよい。",
+        "layout_type": "methods-instruction",
+        "custom_section_width": true,
+        "section_width": 920
+      }
+    },
+    "section_gallery_BatFX4": {
+      "type": "section-gallery",
+      "blocks": {
+        "image_npMWHq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/general_img19.png",
+            "overlay_opacity": 0,
+            "color_palette": "",
+            "text_position": "center",
+            "title": "",
+            "title_underline_style": "none",
+            "text": "",
+            "show_link": true,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain",
+            "show_overlay_link": true,
+            "overlay_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_npMWHq"
+      ],
+      "name": "t:sections.gallery.presets.name",
+      "settings": {
+        "items_layout": "static-grid",
+        "items_width": 1,
+        "height": "adapt",
+        "enable_custom_height": false,
+        "custom_height": 300,
+        "width": "boxed",
+        "space_between": 16,
+        "image_zoom": false,
+        "image_move": false,
+        "show_content_on_hover": false,
+        "show_content_below": false,
+        "content_on_hover_color_palette": "",
+        "layout_mobile": "rows",
+        "mobile_height": "16/9",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0,
+        "custom_object_fit": false,
         "custom_section_width": true,
         "section_width": 920
       }
@@ -455,11 +675,11 @@
       "type": "section-image-with-text-vertical",
       "name": "Image with text vertical",
       "settings": {
-        "image": "shopify://shop_images/general_img20.png",
+        "image": "shopify://shop_images/general_img20_d8beffe6-3862-434e-b4c4-a1dc030f8a02.png",
         "text_position": "text-start",
         "title": "<h2>ゴキブリ（チャバネゴキブリ含む）駆除・予防広さ別の早見表</h2>",
         "sub_title": "<h3>ベクトロンSP　使用本数　早見表<br/>（1本100プッシュ）</h3>",
-        "first_para": "<p><strong>3ヶ月毎に散布<br/>予防の場合㎡／0.5〜1プッシュ<br/>駆除の場合、㎡／2プッシュ〜<br/>（大量発生時は多めに）<br/><br/>チャバネゴキブリの場合、よく見かける厨房周りは駆除量を散布し、フロア全体には予防量を散布してもいい<br/><br/>※屋外の使用は、赤外線・雨天の影響で効果時間が推定1ヶ月〜1.5ヶ月に下がります。</strong></p>",
+        "first_para": "<p><strong>3ヶ月毎に散布<br/>予防の場合㎡／0.5〜1プッシュ<br/>駆除の場合、㎡／2プッシュ〜<br/>（大量発生時は多めに）<br/><br/>戸建て（木造・鉄骨造のみ）、外周水切り散布推奨<br/>1m／0.5プッシュ<br/><br/>※屋外の使用は、紫外線・雨天の影響で効果期間が推定1ヶ月〜1.5ヶ月に下がります</strong></p>",
         "desc": "",
         "note": "",
         "enable_border": true,
@@ -477,13 +697,6 @@
             "image_url": "https://lin.ee/v2NDCqP"
           }
         },
-        "title_YCfekK": {
-          "type": "title",
-          "settings": {
-            "title": "<h3>1本売りの個人さま向け販売～ロット売りの法人・事業主さま迄<br/>1度の注文個数に応じて割引価格に！！</h3>",
-            "title_underline_style": "none"
-          }
-        },
         "image02_Tt37dD": {
           "type": "image02",
           "settings": {
@@ -494,7 +707,6 @@
       },
       "block_order": [
         "image01_ChpUVV",
-        "title_YCfekK",
         "image02_Tt37dD"
       ],
       "name": "t:sections.rich_text.presets.name",
@@ -518,28 +730,28 @@
           "type": "left_info",
           "settings": {
             "left_info_title": "使用用途",
-            "left_info_desc": "<p>既存の個体駆除・予防</p>"
+            "left_info_desc": "<p><strong>既存の個体駆除・予防</strong></p>"
           }
         },
         "left_info_LHkUad": {
           "type": "left_info",
           "settings": {
             "left_info_title": "広さ・使用本数",
-            "left_info_desc": "<p><strong>60坪・8本使用</strong></p>"
+            "left_info_desc": "<p><strong>戸建て　4LDK・4本<br/>※和室への散布は量が多くなります</strong></p>"
           }
         },
         "left_info_MzjMEU": {
           "type": "left_info",
           "settings": {
             "left_info_title": "発生状況",
-            "left_info_desc": "<p>4ヶ月ほど前ぐらいから、トコジラミによる 虫刺されの症状が利用者に現れ、業者に頼も うとしたが、建物全体の駆除費用が40万円 ～50万円と高額で頼めず、市販薬を試した が、改善が見られない状況。特に1部屋のみ 和室があり、個体を見かけるほど繁殖。送迎 車にも個体の抜け殻を発見。</p>"
+            "left_info_desc": "<p><strong>6ヶ月前ぐらいから、トコジラミによる虫刺 されの症状があり、業者に頼もうとしたが、 どこに問い合わせても費用が20万円～30万 円と高額で頼めず、自分で市販薬を試したが 、改善が見られない状況。特に和室は、個体 を見かけるほど繁殖。</strong></p>"
           }
         },
         "left_info_T39bfM": {
           "type": "left_info",
           "settings": {
             "left_info_title": "散布箇所",
-            "left_info_desc": "<p><strong>建物全体に噴霧。各部屋（和室の畳下含む） ・脱衣所・トイレ・廊下など。集中的に家具 周り・衣類にも散布。（ベット・ソファー・ カーテン・衣類・布団）送迎車にも全体的に 噴霧。<br/>※ゴキブリへの使用時より散布量は多めに</strong></p>"
+            "left_info_desc": "<p><strong>家全体に散布。 各部屋（和室の畳下含む）・脱衣所・トイレ ・廊下など。集中的に家具周り・衣類にも散 布。（ベット・ソファー・カーテン・衣類・ 布団） ※ゴキブリへの使用時より散布量は多めに</strong></p>"
           }
         },
         "left_info_LrCQjW": {
@@ -553,77 +765,77 @@
           "type": "left_info",
           "settings": {
             "left_info_title": "今後の予防と維持",
-            "left_info_desc": "<p><strong>飲食店さまは、日頃の食材搬入時の持ち込み や同じビルの別テナントさまからの被害を受 けやすいので、3ヶ月に一度、駆除時に使っ た半分の量（1本程度）を全体的に散布する ことで新たにチャバネゴキブリを持ち込んで も駆除・予防が行える。</strong></p>"
+            "left_info_desc": "<p><strong>トコジラミの主な発生原因は、持ち込みによ るものです。持ち込み経路は、職場の介護施 設からと予想されるため、今後も安心できる タイミングまで、3ヶ月に1度は駆除時の約1 /4の使用量で家全体の予防散布を行うと持ち 込まれても繁殖を阻止できます。</strong></p>"
           }
         },
         "left_info_Rx9RzV": {
           "type": "left_info",
           "settings": {
             "left_info_title": "今後の予防をしたい場合の推奨本数",
-            "left_info_desc": "<p><strong>約3ヶ月毎に2本　1年（4回）で8本推定コスト　月/3,466円～年間/41,600円～</strong></p>"
+            "left_info_desc": "<p><strong>約3ヶ月毎に1本 1年（4回）で4本 推定コスト　月/1,733円～ 年間/20,800円～</strong></p>"
           }
         },
         "left_info_TJ6XyJ": {
           "type": "left_info",
           "settings": {
             "left_info_title": "業者に依頼との費用比較",
-            "left_info_desc": "<p><strong>業者や使用する薬剤によって、異なりますが 仮にプロが使う同一成分のベクトロンFLで施 行を依頼した場合は、60坪で1回の施行で3 0万～40万円が相場となります。こちらで計 算すると約1/7～1/10の費用でほとんど同等 の施行ができております。1回の施行のみで 約86％～89％削減されます。</strong></p>"
+            "left_info_desc": "<p><strong>業者や使用する薬剤によって、異なりますが 仮にプロが使う同一成分のベクトロンFLで 施行を依頼した場合は、1回の施行で20万 ～25万円が相場となります。（4LDK+和室） こちらで計算すると約1/8～1/11の費用でほ とんど同等の施行ができております。</strong></p>"
           }
         },
         "right_info_g6yAfj": {
           "type": "right_info",
           "settings": {
             "right_info_title": "使用用途",
-            "right_info_desc": "<p><strong>既存の個体駆除・予防</strong></p>"
+            "right_info_desc": "<p><strong>トコジラミ駆除、対策（和室なし）個体を見かけたのは1度だけ</strong></p>"
           }
         },
         "right_info_M3MrCJ": {
           "type": "right_info",
           "settings": {
             "right_info_title": "広さ・使用本数",
-            "right_info_desc": "<p><strong>1部屋（22㎡）、8階廊下（60㎡）、 厨房（15坪）トコジラミ3本・厨房1本の計 3本使用</strong></p>"
+            "right_info_desc": "<p><strong>マンション　2LDK・2.4本</strong></p>"
           }
         },
         "right_info_UA3KTD": {
           "type": "right_info",
           "settings": {
             "right_info_title": "発生状況",
-            "right_info_desc": "<p><strong>1つの客室から血粉と1匹の個体を確認し、繁 殖する前にトコジラミ防除を行うことに。業 者の見積りは、1室全体と8階の廊下1フロア を提案され、費用は20万円と高額だったの で、ベクトロンSPの施行に切り替えることに 。ついでに厨房でチャバネゴキブリの発生があ ったのでそちらも同時に施行。</strong></p>"
+            "right_info_desc": "<p><strong>家族3人で住んでおり、寝室は妻と子ども・ 夫は別室にて生活していたが、最初に子ども がトコジラミによる虫刺されが出始め、数日 後に妻も症状が出た。くん煙剤や市販薬を試 し、日数が経過すると夫にまで症状が出るよ うに。個体は目視でたまに見かける程度。</strong></p>"
           }
         },
         "right_info_eQBLVh": {
           "type": "right_info",
           "settings": {
             "right_info_title": "散布箇所",
-            "right_info_desc": "<p>1部屋全体に噴霧。集中的に家具周り・衣類 にも散布。（ベット・ソファー・カーテン・ 布団・フロアマット）8階の廊下にも全体噴 霧（壁・床含む）発生源の厨房を多めに噴霧） し、電化製品付近や隙間にも噴霧。</p>"
+            "right_info_desc": "<p><strong>家族3人で住んでおり、寝室は妻と子ども・ 夫は別室にて生活していたが、最初に子ども がトコジラミによる虫刺されが出始め、数日 後に妻も症状が出た。くん煙剤や市販薬を試 し、日数が経過すると夫にまで症状が出るよ うに。個体は目視でたまに見かける程度。</strong></p>"
           }
         },
         "right_info_xmiDcA": {
           "type": "right_info",
           "settings": {
             "right_info_title": "施工後の改善",
-            "right_info_desc": "<p>トコジラミに関しては、施工前に血粉は見ら れたが、個体確認は1匹のみで発生から比較 的早く施行したことで施工後は個体の確認が 見られず1ヶ月後にトラップシートにドライ アイスを乗せて捕獲するテストを行い、個体 の確認は0で解決。<br/>チャバネゴキブリに関しては、施行から1ヶ 月後には個体の確認がなくなり解決した。</p>"
+            "right_info_desc": "<p><strong>施工後2周間ほどは特に変化を感じられず、 3週間が経過する頃に死骸の発見や刺される 頻度が低下。4週間が経過する頃には虫ささ れの被害がほぼゼロになった。6周目でトラ ップシートにドライアイスを乗せて捕獲する テストを行い、個体の確認は0で解決。</strong></p>"
           }
         },
         "right_info_BC3xfh": {
           "type": "right_info",
           "settings": {
             "right_info_title": "今後の予防と維持",
-            "right_info_desc": "<p><strong>ホテルなどの宿泊施設は、宿泊利用者からの 定期的な持ち込みリスクがあるため、ベット メイキング時の血粉・個体の確認はしっかり 行い、予算的に可能なら3ヶ月に1度に少量 を空間噴霧やベットに散布することで、発 生を事前に予防することが可能。また、厨房 のチャバネゴキブリに関しても、飲食物の搬 入時に混入することがほとんどなので、3ヶ 月に1度は、予防の散布量で施行を行うと維 持されます。</strong></p>"
+            "right_info_desc": "<p><strong>トコジラミの主な発生原因は、持ち込みによ るものですが、特にこれといった心当たり （宿泊施設の利用など）がなく持ち込み経路 が不明です。また持ち込んでしまう可能性が ありますので、今後も安心できるタイミング まで、駆除時の約1/4の使用量で家全体の予 防散布を行うと持ち込まれても繁殖を阻止 できます。</strong></p>"
           }
         },
         "right_info_3n4XXw": {
           "type": "right_info",
           "settings": {
             "right_info_title": "今後の予防をしたい場合の推奨本数",
-            "right_info_desc": "<p><strong>●厨房のチャバネゴキブリの場合 約3ヶ月毎に0.6本　1年（4回）で2.4本 推定コスト　月/1,040円～　年間/12,480 円～<br/>●トコジラミの場合（1部屋22㎡辺り） 約3ヶ月毎に0.1本　1年（4回）で0.4本 推定コスト　月/173円～　年間/2,080円～</strong></p>"
+            "right_info_desc": "<p><strong>約3ヶ月毎に0.6本 1年（4回）で2.4本 推定コスト月/1,040円～ 年間/12,480円～</strong></p>"
           }
         },
         "right_info_LXGBfW": {
           "type": "right_info",
           "settings": {
             "right_info_title": "業者に依頼との費用比較",
-            "right_info_desc": "<p><strong>このケースは、業者お見積りが20万円でし たのでこちらと比較しますと、トコジラミ （3本使用）だけで約1/12（92％削減）の 費用でほとんど同等の施行ができております 。厨房のチャバネゴキブリ駆除は、同一成分の ベクトロンFLで施行を依頼した場合は、15坪 ／1回の施行で相場が約45,000円なので、1 本の使用と比較すると、1/8（88％削減）に 削減されます。</strong></p>"
+            "right_info_desc": "<p><strong>業者や使用する薬剤によって、異なりますが 仮にプロが使う同一成分のベクトロンFLで施 行を依頼した場合は、1回の施行で13万～18 万円が相場となります。（2LDK）こちらで 計算すると約1/8～1/12の費用でほとんど 同等の施行ができております。</strong></p>"
           }
         }
       },
@@ -651,15 +863,15 @@
         "color_palette": "",
         "overlay_opacity": 100,
         "width": "wide",
-        "heading": "",
+        "heading": "<h2>実際にベクトロンSPを使った抜群効果と施行例ゴキブリ（チャバネゴキブリ含む）・トコジラミ</h2>",
         "title_underline_style": "none",
         "small_title": "",
-        "main_title": "<h3>トコジラミ駆除・対策の2つの事例</h3>",
-        "left_heading": "<h4>介護施設さま（2階建て）<br/>トコジラミ駆除、対策<br/>施工前の状況：職員・利用者がトコジラミ<br/>刺されがあるほどの大量繁殖</h4>",
-        "left_image": "shopify://shop_images/general_img23.png",
+        "main_title": "<h3>トコジラミ駆除・対策の一例</h3>",
+        "left_heading": "<h4>トコジラミ駆除、対策（和室あり）2日に1度は個体を見かける大量発生</h4>",
+        "left_image": "shopify://shop_images/general_img23_fdc54fc8-4a54-47ff-813b-a46b363ddaee.png",
         "left_figure_cap": "詳細を見る👆️",
-        "right_heading": "<h4>ホテルさま（9階建て）<br/>トコジラミ・チャバネゴキブリ駆除、対策 施工前の状況：厨房にチャバネゴキブリの 発生と8階の客室（1部屋）にトコジラミの 個体を確認</h4>",
-        "right_image": "shopify://shop_images/general_img24.png",
+        "right_heading": "<h4>トコジラミ駆除、対策（和室なし）個体を見かけたのは1度だけ</h4>",
+        "right_image": "shopify://shop_images/general_img24_156b553a-4947-4361-b44f-5b771db39f23.png",
         "right_figure_cap": "詳細を見る👆️",
         "enable_paragraph": false,
         "sub_paragraph": "",
@@ -672,7 +884,7 @@
       "name": "Text split with image",
       "settings": {
         "text_position": "center",
-        "color_palette": "",
+        "color_palette": "scheme-7",
         "overlay_opacity": 100,
         "width": "wide",
         "heading": "",
@@ -686,7 +898,7 @@
         "right_image": "shopify://shop_images/general_img26.png",
         "right_figure_cap": "",
         "enable_paragraph": true,
-        "sub_paragraph": "<p><strong>トコジラミは、毎日卵を2～6個産み落とし、卵に薬剤を吹きかけても生まれて来ますので、 ベクトロンSPを建物全体（壁・床・家具も含む）に散布することによって90日の長期残留 効果で新たに生まれた個体も薬剤に触れて死滅します。トコジラミ駆除のポイントは、薬剤 が効きづらい生物で、散布量は多めにどれだけ薬剤を触れ続けさせるかが最重要ですので、 上記図の場所以外にも廊下や壁・隙間など全体に噴霧してください。施設関係は、人の移動 やベットメイキングなどのフロアをまたぐも移動が業務上あるかと思うので、最低でも同一 フロアは全体散布を行い、余裕があれば建物全体に散布してください。また、送迎車両にも トコジラミの発生がある場合もございますので、車内にも全体散布を行うと安心です。</strong></p>",
+        "sub_paragraph": "<p><strong>トコジラミは、毎日卵を2～6個産み落とし、卵に薬剤を吹きかけても生まれて来ますので、 ベクトロンSPを家全体（壁・床・家具も含む）に散布することによって90日の長期残留効 果で新たに生まれた個体も薬剤に触れて死滅します。トコジラミ駆除のポイントは、薬剤が 効きづらい生物で、散布量は多めにどれだけ薬剤を触れ続けさせるかが最重要ですので、上 記図の場所以外にも廊下や壁・隙間など全体に噴霧してください。</strong></p>",
         "custom_section_width": true,
         "section_width": 920
       }
@@ -695,11 +907,11 @@
       "type": "section-image-with-text-vertical",
       "name": "Image with text vertical",
       "settings": {
-        "image": "shopify://shop_images/general_img27.png",
+        "image": "shopify://shop_images/general_img27_ece95d28-2964-4cba-83c2-d668d1c01515.png",
         "text_position": "text-start",
         "title": "<h2>トコジラミ駆除・予防　広さ別の早見表</h2>",
         "sub_title": "<h3>ベクトロンSP　使用本数　早見表<br/>（1本100プッシュ）</h3>",
-        "first_para": "<p><strong>予防の場合、㎡／0.5〜1プッシュ<br/>駆除の場合、㎡／4プッシュ<br/>（家具など込みで計算）</strong></p><p><strong>トコジラミの場合、壁・衣類・ベッド・ソファー・カーテン・カーペット等にも散布が必須</strong></p><p><strong>※和室で床が畳の場合は、表のみではなく、畳を剥がした裏側も散布することを推奨</strong></p>",
+        "first_para": "<p><strong>3ヶ月毎に<br/>予防の場合、㎡／0.5〜1プッシュ<br/>駆除の場合、㎡／4プッシュ<br/>（家具など込みで計算）</strong></p><p><strong>トコジラミの場合、壁・衣類・ベッド・ソファー・カーテン・カーペット等にも散布が必須</strong></p><p><strong>※和室で床が畳の場合は、表のみではなく、畳を剥がした裏側も散布することを推奨</strong></p>",
         "desc": "",
         "note": "",
         "enable_border": true,
@@ -717,13 +929,6 @@
             "image_url": "https://lin.ee/v2NDCqP"
           }
         },
-        "title_jzCaPQ": {
-          "type": "title",
-          "settings": {
-            "title": "<h3>1本売りの個人さま向け販売～ロット売りの法人・事業主さま迄<br/>1度の注文個数に応じて割引価格に！！</h3>",
-            "title_underline_style": "none"
-          }
-        },
         "image02_JG9abD": {
           "type": "image02",
           "settings": {
@@ -734,7 +939,6 @@
       },
       "block_order": [
         "image01_4ipixL",
-        "title_jzCaPQ",
         "image02_JG9abD"
       ],
       "name": "t:sections.rich_text.presets.name",
@@ -901,10 +1105,18 @@
     "main-page",
     "section_gallery_ihkwzw",
     "section_rich_text_NG4aLr",
-    "section_text_usage_NkKnwA",
+    "section_image_with_text_KxgQKm",
+    "section_image_with_text_AYV4Xr",
+    "section_gallery_e9fXtp",
     "section_rich_text_ggpUFy",
     "section_text_split_image_An8XKN",
     "section_image_with_text_vertical_JNRwaY",
+    "section_image_with_text_vertical_kVxTNA",
+    "section_simple_text_UPE8LR",
+    "section_image_with_text_vertical_CNmKHW",
+    "section_image_with_text_vertical_KTrFr3",
+    "section_feature_text_block_3kqQr8",
+    "section_gallery_BatFX4",
     "section_image_with_text_vertical_hjHQXH",
     "section_rich_text_WjegWV",
     "section_text_split_image_qcjzxq",

@@ -93,7 +93,9 @@
         "spacing_desktop": 50,
         "spacing_mobile": 30,
         "fix_zindex": 0,
-        "custom_object_fit": false
+        "custom_object_fit": false,
+        "custom_section-width": false,
+        "section_width": 1000
       }
     },
     "section_grid_CyJabx": {
@@ -163,7 +165,7 @@
             "link_text": "法人の方",
             "link_url": "shopify://pages/user_data-owner",
             "link_text_2": "一般の方",
-            "link_url_2": "shopify://collections/all",
+            "link_url_2": "shopify://pages/user_data-general",
             "button_style": "primary plain",
             "show_overlay_link": true,
             "overlay_url": ""

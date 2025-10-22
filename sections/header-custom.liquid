@@ -7,7 +7,7 @@
     assign menu_layout = false
   endif
 -%}
-{%- style -%}
+<style>
   .header-top {
     display: flex;
     align-items: center;
@@ -64,8 +64,8 @@
   }
   #nav-bar-custom {
     display: flex;
-    align-items:center;
-    justify-content:space-between;
+    align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     position: relative;
     z-index: 4;
@@ -78,6 +78,9 @@
     line-height: var(--btn_lh);
     text-align: inherit;
     align-self: flex-end;
+  }
+  .custom-header {
+    position: relative;
   }
   .custom-header #nav-bar-custom:before {
     border-top: 1px solid #dadada;
@@ -99,12 +102,15 @@
     display: flex;
     justify-content: normal;
   }
+  .custom-header #nav-sp a ,
   .custom-header #nav-bar-custom a {
     transition: all ease-in 0.3s;
   }
+  .custom-header #nav-sp a:hover,
   .custom-header #nav-bar-custom a:hover {
     opacity: 0.5;
   }
+  .custom-header #nav-sp ul,
   .custom-header #nav-bar-custom ul {
     list-style: none;
     width: calc(100% - 56px);
@@ -113,6 +119,7 @@
     display: flex;
     align-items: center;
   }
+
   .custom-header #nav-bar-custom ul li {
     display: flex;
     width: calc(100% / 4);
@@ -122,6 +129,7 @@
   .custom-header #nav-bar-custom ul li:nth-child(4) {
     border-right: none;
   }
+  .custom-header #nav-sp ul li a,
   .custom-header #nav-bar-custom ul li a {
     position: relative;
     padding-left: 50px;
@@ -130,6 +138,7 @@
     font-size: 120%;
     text-decoration: none;
   }
+  .custom-header #nav-sp ul li a::before,
   .custom-header #nav-bar-custom ul li a::before {
     content: "";
     position: absolute;
@@ -141,19 +150,160 @@
     background-position: center;
     background-repeat: no-repeat;
   }
+  .custom-header #nav-sp ul li:nth-child(1) a::before,
   .custom-header #nav-bar-custom ul li:nth-child(1) a::before {
     background-image: url('{{ "menu_icon01.png" | asset_url }}')
   }
+  .custom-header #nav-sp ul li:nth-child(2) a::before,
   .custom-header #nav-bar-custom ul li:nth-child(2) a::before {
     background-image: url('{{ "menu_icon02.png" | asset_url }}')
   }
+  .custom-header #nav-sp ul li:nth-child(3) a::before,
   .custom-header #nav-bar-custom ul li:nth-child(3) a::before {
     background-image: url('{{ "menu_icon03.png" | asset_url }}')
   }
+  .custom-header #nav-sp ul li:nth-child(4) a::before,
   .custom-header #nav-bar-custom ul li:nth-child(4) a::before {
     background-image: url('{{ "menu_icon04.png" | asset_url }}')
   }
-{%- endstyle -%}
+  .hamburger {
+    display: none;
+    position: fixed;
+    top: 5px;
+    right: 0px;
+    cursor: pointer;
+    z-index: 99;
+  }
+
+  .bar {
+    width: 35px;
+    height: 2px;
+    background-color: #e60012;
+    margin: 6px 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    display: block;
+  }
+
+  /* Active state: Transform to X */
+  .hamburger.active .bar:nth-child(1) {
+    transform: translate(0, 8px) rotate(-45deg);
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translate(0, -8px) rotate(45deg);
+  }
+
+  .has-nav #nav-sp {
+    transition-property: all;
+    transition-duration: .4s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transition-delay: 0s;
+  }
+
+  #nav-sp {
+    display: none;
+  }
+  @media only screen and (max-width: 1000px) {
+    .custom-header:before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 50%;
+      right: auto;
+      top: 0;
+      bottom: 0;
+      z-index: 10;
+      width: var(--100vw);
+      margin: 0 0 0 calc(0px - var(--100vw) * 0.5);
+      border-bottom: 1px solid #dadada;
+      pointer-events: none;
+    }
+    .hamburger {
+      display: inline-block;
+      cursor: pointer;
+      padding: 10px;
+    }
+    .header-top-right {
+      display: none;
+    }
+    .header-top-left {
+      width: 100%;
+      padding-right: 30px;
+    }
+    .header-top-left figure img {
+      max-width: 170px !important;
+    }
+    .custom-header #nav-bar-custom {
+      display: none;
+    }
+    #root .shopify-section-header-custom #nav-sp {
+      display: block;
+      overflow-x: hidden;
+      overflow-y: auto;
+      visibility: hidden;
+      position: fixed;
+      left: auto;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 90;
+      width: 100%;
+      max-width: 360px;
+      height: 100%;
+      margin: 0;
+      padding: 48px 0 0;
+      box-shadow: none;
+      border-radius: 0;
+      background: var(--custom_drop_nav_head_bg);
+      opacity: 0;
+      align-self: stretch;
+      padding: 1rem;
+    }
+    .m2a #root .shopify-section-header-custom #nav-sp {
+        visibility: visible;
+        opacity: 1;
+    }
+    .small-text {
+      font-size: 70%;
+    }
+    #nav-sp figure {
+      margin-bottom: 0;
+    }
+    #nav-sp .logo-wrap figure img {
+      width: 270px ;
+    }
+    .custom-header #nav-sp ul  {
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 1.6rem;
+    }
+    .custom-header #nav-sp ul li {
+      padding: 1rem;
+      width: 100%;
+      border-bottom: 1px solid #dadada;
+    }
+    .custom-header #nav-sp ul li a {
+      display: block;
+      padding-left: 45px;
+    }
+    .custom-header #nav-sp ul li a::before {
+      top: 3px;
+    }
+    #nav-sp .img-blc {
+      margin-top: 3.2rem;
+    }
+    .m2a #root > .overlay-close,
+    .m2a .shopify-section-header-custom > .overlay-close {
+        visibility: visible;
+        opacity: 1;
+    }
+  }
+</style>
 
 <header class="custom-header" role="banner">
   <div class="header-top">
@@ -163,116 +313,193 @@
       <figure>
         <a href="{{ section.settings.link_url }}">
           <img
-            src="{{ section.settings.logo_image |  image_url }}"
+            src="{{ section.settings.logo_image | image_url }}"
             alt="Logo Image"
             class="header-image"
             width="auto"
-            height="auto"
-          >
+            height="auto">
         </a>
       </figure>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
     </div>
     <div class="header-top-right">
       <figure>
         <img
-          src="{{ section.settings.banner_image |  image_url}}"
+          src="{{ section.settings.banner_image | image_url}}"
           alt="Banner Image"
           class="header-image"
           width="auto"
-          height="auto"
-        >
+          height="auto">
       </figure>
 
       <figure>
         <img
-          src="{{ section.settings.payments_image |  image_url}}"
+          src="{{ section.settings.payments_image | image_url}}"
           alt="Payment Image"
           class="header-image"
           width="auto"
-          height="auto"
-        >
+          height="auto">
       </figure>
     </div>
   </div>
   <nav
     id="nav-bar-custom"
     aria-label="{{ 'general.accessibility.menu' | t }}"
-    class="hr {% if section.settings.menu_scroll and section.settings.menubar_alignment == 'left' %}nav-scroll-wrapper{% endif %} text-{{ section.settings.menubar_alignment }}{% if section.settings.header_border_opacity != 0 %} plain{% if section.settings.header_border_width == 'boxed' and section.settings.header_shadow == false %} no-wide{% endif %}{% else %} no-bd{% endif %}{% if section.settings.sticky == 'sticky-menu' and section.settings.enable_sticky_header %} sticky-menu{% endif %} ff-{{ section.settings.menu_font }} {{ section.settings.menu_layout }}"
-  >
+    class="hr {% if section.settings.menu_scroll and section.settings.menubar_alignment == 'left' %}nav-scroll-wrapper{% endif %} text-{{ section.settings.menubar_alignment }}{% if section.settings.header_border_opacity != 0 %} plain{% if section.settings.header_border_width == 'boxed' and section.settings.header_shadow == false %} no-wide{% endif %}{% else %} no-bd{% endif %}{% if section.settings.sticky == 'sticky-menu' and section.settings.enable_sticky_header %} sticky-menu{% endif %} ff-{{ section.settings.menu_font }} {{ section.settings.menu_layout }}">
     <a href="/" class="item-home">
       <img
         src="{{ 'menu_icon_home.png' | asset_url }}"
         alt="Home"
         loading="lazy"
         width="34"
-        height="29"
-      >
+        height="29">
     </a>
     <ul data-type="horizontal-nav">
       {%- render 'header-menu', menu: menu, layout: menu_layout, header_width: section.settings.width -%}
     </ul>
   </nav>
+  {% comment %} Nav SP {% endcomment %}
+  <nav
+    id="nav-sp"
+    aria-label="{{ 'general.accessibility.menu' | t }}"
+    class="hr {% unless has_menu_bar %}desktop-hide {% endunless %}text-left plain tr_bd ff-secondary mega"
+  >
+    <div class="logo-wrap">
+      <p class="small-text">{{ section.settings.small_text }}</p>
+      <figure>
+        <a href="{{ section.settings.link_url }}">
+          <img
+            src="{{ section.settings.logo_image | image_url }}"
+            alt="Logo Image"
+            class="header-image"
+            width="auto"
+            height="auto">
+        </a>
+      </figure>
+    </div>
+    <ul
+      data-type="main-nav"
+      {% if section.settings.menu_scroll and section.settings.menubar_alignment == 'left' and button_menu == false %}
+        class="nav-scroll"
+      {% endif %}
+    >
+      {%- render 'header-menu',
+        menu: menu,
+        layout: menu_layout,
+        header_width: section.settings.width,
+      -%}
+    </ul>
+    <div class="img-blc">
+      <figure>
+        <img
+          src="{{ section.settings.banner_image | image_url}}"
+          alt="Banner Image"
+          class="header-image"
+          width="auto"
+          height="auto">
+      </figure>
+
+      <figure>
+        <img
+          src="{{ section.settings.payments_image | image_url}}"
+          alt="Payment Image"
+          class="header-image"
+          width="auto"
+          height="auto">
+      </figure>
+    </div>
+  </nav>
 </header>
 
+<script>
+  // function append_url(el, content, className, href, access) {
+  //   const link = createElementWithClass('a', className);
+  //   link.href = href || './';
+  //   if (access === true) {
+  //     link.setAttribute('tabindex', -1);
+  //     link.setAttribute('aria-hidden', true);
+  //     link.setAttribute('focusable', false);
+  //   }
+  //   link.innerHTML += content;
+  //   if (el) {
+  //     el.appendChild(link);
+  //   }
+  // }
+  // append_url("#root", 'Close', 'overlay-close');
+  const hamburger = document.getElementById('hamburger');
+  hamburger.addEventListener('click', (e) => {
+      html_tag.classList.add('has-nav');
+      hamburger.classList.toggle('active');
+      html_tag.classList.toggle('m2a');
+  });
+  document.addEventListener('click', function (event) {
+    if (event.target.matches('a.overlay-close')) {
+      hamburger.classList.remove('active');
+      html_tag.classList.remove('m2a');
+      event.preventDefault();
+    }
+  });
+</script>
+
 {% schema %}
-{
-  "name": "Header",
-  "class": "shopify-section-header-custom",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "logo_image",
-      "label": "Logo Image (First Image)"
-    },
-    {
-      "type": "image_picker",
-      "id": "banner_image",
-      "label": "Banner Image (Second Image)"
-    },
-    {
-      "type": "image_picker",
-      "id": "payments_image",
-      "label": "Payments Image (Third Image)"
-    },
-    {
-      "type": "text",
-      "id": "small_text",
-      "label": "Small Text Above Logo",
-      "default": "Your small text here"
-    },
-    {
-      "id": "link_url",
-      "type": "url",
-      "label": "t:global.button.link_url.label",
-      "default": "/"
-    },
-    {
-      "type": "range",
-      "id": "width",
-      "label": "t:static_sections.header.settings.width.label",
-      "info": "t:static_sections.header.settings.width.info",
-      "min": 1000,
-      "max": 2000,
-      "step": 10,
-      "unit": "px",
-      "default": 1280
-    },
-    {
-      "type": "header",
-      "content": "t:static_sections.header.settings.navigation_menu.header"
-    },
-    {
-      "id": "menubar_menu",
-      "type": "link_list",
-      "label": "t:static_sections.header.settings.navigation_menu.menubar_menu.label",
-      "default": "main-menu"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Custom Header",
-      "category": "t:categories.layout"
-    }
-  ]
-}
+  {
+    "name": "Header",
+    "class": "shopify-section-header-custom",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo_image",
+        "label": "Logo Image (First Image)"
+      },
+      {
+        "type": "image_picker",
+        "id": "banner_image",
+        "label": "Banner Image (Second Image)"
+      },
+      {
+        "type": "image_picker",
+        "id": "payments_image",
+        "label": "Payments Image (Third Image)"
+      },
+      {
+        "type": "text",
+        "id": "small_text",
+        "label": "Small Text Above Logo",
+        "default": "Your small text here"
+      }, {
+        "id": "link_url",
+        "type": "url",
+        "label": "t:global.button.link_url.label",
+        "default": "/"
+      }, {
+        "type": "range",
+        "id": "width",
+        "label": "t:static_sections.header.settings.width.label",
+        "info": "t:static_sections.header.settings.width.info",
+        "min": 1000,
+        "max": 2000,
+        "step": 10,
+        "unit": "px",
+        "default": 1280
+      }, {
+        "type": "header",
+        "content": "t:static_sections.header.settings.navigation_menu.header"
+      }, {
+        "id": "menubar_menu",
+        "type": "link_list",
+        "label": "t:static_sections.header.settings.navigation_menu.menubar_menu.label",
+        "default": "main-menu"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom Header",
+        "category": "t:categories.layout"
+      }
+    ]
+  }
 {% endschema %}

@@ -203,6 +203,18 @@
     display: block;
     margin: 0.9rem 0 3.2rem;
   }
+  @media only screen and (max-width: 767px) {
+    #shopify-section-{{ section.id }} .custom-section h3 {
+      font-size: 180%;
+    }
+  }
+  @media only screen and (max-width: 640px) {
+    #shopify-section-{{ section.id }} .custom-section h3 {
+      font-size: 130%;
+      margin-bottom: 1.6rem;
+    }
+  }
+
 </style>
 
 {% schema %}

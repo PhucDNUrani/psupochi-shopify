@@ -205,7 +205,7 @@
     #shopify-section-{{ section.id }} .accordion-a { margin-bottom: {{ section.settings.spacing_desktop }}px; }
     #shopify-section-{{ section.id }} {
       margin-top: 1rem;
-      width: 83.3333%;
+      width: 81%;
       margin-right: auto;
       margin-left: auto;
     }
@@ -244,6 +244,11 @@
     .accordion-a.custom-faq:not(.compact) details[open] {
       background: none;
     }
+     @media only screen and (max-width: 767px) {
+      #shopify-section-{{ section.id }} {
+        width: 90%;
+      }
+     }
 
   </style>
 {% endif %}

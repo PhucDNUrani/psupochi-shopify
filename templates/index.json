@@ -69,47 +69,14 @@
             "show_overlay_link": true,
             "overlay_url": ""
           }
-        }
-      },
-      "block_order": [
-        "image_JyHiVP"
-      ],
-      "name": "t:sections.gallery.presets.name",
-      "settings": {
-        "items_layout": "playful-grid",
-        "items_width": 1,
-        "height": "16/9",
-        "enable_custom_height": false,
-        "custom_height": 300,
-        "width": "boxed",
-        "space_between": 16,
-        "image_zoom": false,
-        "image_move": false,
-        "show_content_on_hover": false,
-        "show_content_below": false,
-        "content_on_hover_color_palette": "",
-        "layout_mobile": "rows",
-        "mobile_height": "16/9",
-        "spacing_desktop": 50,
-        "spacing_mobile": 30,
-        "fix_zindex": 0,
-        "custom_object_fit": false,
-        "custom_section-width": false,
-        "section_width": 1000
-      }
-    },
-    "section_grid_CyJabx": {
-      "type": "section-grid",
-      "blocks": {
-        "image_UzJXz9": {
+        },
+        "image_qEe8xN": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/intro_img01.png",
             "overlay_opacity": 0,
-            "color_palette": "",
-            "text_position": "text-center",
-            "cols": 6,
-            "rows": 1,
+            "color_palette": "scheme-1",
+            "text_position": "center",
             "title": "",
             "title_underline_style": "none",
             "text": "",
@@ -118,32 +85,36 @@
             "link_url": "",
             "button_style": "primary plain",
             "show_overlay_link": false,
-            "overlay_url": "",
-            "show_look": false,
-            "product_list": [],
-            "look_btn_style": "buy_button plain",
-            "look_position": "end",
-            "show_look_label": false,
-            "look_label_text": "Label"
+            "overlay_url": ""
           }
         }
       },
       "block_order": [
-        "image_UzJXz9"
+        "image_JyHiVP",
+        "image_qEe8xN"
       ],
-      "name": "t:sections.grid.presets.name",
+      "name": "t:sections.gallery.presets.name",
       "settings": {
-        "number_of_columns": "4",
-        "height": "size-l",
+        "items_layout": "static-grid",
+        "items_width": 1,
+        "height": "adapt",
+        "enable_custom_height": false,
+        "custom_height": 300,
         "width": "boxed",
-        "space_between": 16,
+        "space_between": 20,
         "image_zoom": false,
         "image_move": false,
+        "show_content_on_hover": false,
+        "show_content_below": false,
+        "content_on_hover_color_palette": "",
         "layout_mobile": "rows",
-        "mobile_height": "size-s",
+        "mobile_height": "adapt",
         "spacing_desktop": 50,
         "spacing_mobile": 30,
-        "fix_zindex": 0
+        "fix_zindex": 0,
+        "custom_object_fit": false,
+        "custom_section_width": false,
+        "section_width": 1000
       }
     },
     "section_promo_gallery_Fine6R": {
@@ -582,7 +553,6 @@
   "order": [
     "165346832322a4db6f",
     "section_gallery_FqcfXJ",
-    "section_grid_CyJabx",
     "section_promo_gallery_Fine6R",
     "section_faq_load_more_mPmycW",
     "section_collection_list_edApx7",

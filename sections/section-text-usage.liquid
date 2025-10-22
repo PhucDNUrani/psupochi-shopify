@@ -14,22 +14,13 @@
 >
   <header
     class="
-      countdown-ended-hide {% if now > end_time %} hidden{% endif %} title-styling
-      {% if section.settings.title_underline_style != 'none' %}
-        title-underline-none
-        {% if section.settings.title_underline_style contains 'accent' %}
-          title-underline-accent
-        {% elsif section.settings.title_underline_style contains 'gradient' %}
-          title-underline-gradient
-        {% endif %}
-        {% if section.settings.title_underline_style contains 'secondary_font' %}
-          title-underline-secondary-font
-        {% endif %}
-      {% endif %}
+      usage-header
     "
   >
-    {%- if section.settings.title != blank -%}
-      {{ section.settings.title }}
+    {%- if section.settings.title != blank or section.settings.color_text != blank -%}
+      <h3>
+        <span>{{ section.settings.color_text }}</span>{{ section.settings.title | replace: '</h3><h3>', '<br>' | remove: '<h3>' | remove: '</h3>' }}
+      </h3>
     {%- endif -%}
     {%- if section.settings.text != empty -%}{{ section.settings.text }}{%- endif -%}
   </header>
@@ -158,7 +149,21 @@
     width: calc((100% - 1rem) / 2);
     text-align: left;
   }
-</style>
+  .usage-header span {
+    color: #fff100;
+  }
+  @media only screen and (max-width: 767px) {
+    #shopify-section-{{ section.id }} .usage-header h3,
+    .usage-content > h3 {
+      font-size: 180%;
+    }
+  }
+  @media only screen and (max-width: 640px) {
+    .usage-wrapper .description > ul li {
+      width: 100%;
+    }
+  }
+  </style>
 
 {% schema %}
 {
@@ -206,6 +211,11 @@
     {
       "type": "header",
       "content": "t:global.typography.title.label"
+    },
+    {
+      "type": "text",
+      "label": "Color text",
+      "id": "color_text"
     },
     {
       "type": "richtext",

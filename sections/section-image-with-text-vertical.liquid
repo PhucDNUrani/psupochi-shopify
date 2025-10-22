@@ -101,6 +101,24 @@
   .image-with-text .desc span {
       color: #ff3129;
   }
+  @media only screen and (max-width: 767px) {
+    .image-with-text .header-group > h2 {
+      font-size: 180%;
+      margin-bottom: 1.6rem;
+    }
+    .image-with-text {
+      margin: 3.2rem 0;
+    }
+  }
+  @media only screen and (max-width: 640px) {
+    .image-with-text .header-group > h2 {
+      font-size: 150%;
+    }
+    .desc p,
+    .desc span {
+      font-size: 90%;
+    }
+  }
 </style>
 
 {% schema %}

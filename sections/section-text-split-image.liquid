@@ -172,6 +172,41 @@
     .split-content-image .sub-paragraph {
       text-align: left;
     }
+    @media only screen and (max-width: 767px) {
+      #shopify-section-{{ section.id }} h2,
+      .split-content-image .split-detail h3 {
+        font-size: 180%;
+      }
+      .split-content-image .split-detail h4 {
+        font-size: 106%;
+      }
+    }
+    @media only screen and (max-width: 640px) {
+      #shopify-section-{{ section.id }} h2,
+      .split-content-image .split-detail h3 {
+        font-size: 135%;
+      }
+      .split-content-image .split-detail h3 {
+        margin-bottom: 1.6rem;
+      }
+      .split-content-image .split-detail ul li {
+        width: 100%;
+        margin-right: 0;
+      }
+      .split-content-image .split-detail ul h4 {
+        max-width: 500px;
+        margin-bottom: 1.6rem;
+      }
+      .split-detail ul img {
+        width: 100%;
+      }
+      .split-content-image .split-detail .info-list dt {
+        font-size: 115%;
+      }
+      .split-content-image .split-detail .info-list dd {
+        font-size: 90%;
+      }
+  }
 </style>
 
 {% schema %}

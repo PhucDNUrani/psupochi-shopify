@@ -3748,6 +3748,10 @@ window.addEventListener("stickyNav", function(evt) {
   }
   // addOverlayClose(top_bar);
 
+  if (top_id === null) {
+    top_id = document.querySelector('.shopify-section-header-custom');
+  }
+
   if (top_id) {
     let overlaysAppended = false;
     function appendOverlays() {

@@ -144,6 +144,27 @@
       text-align: left;
       margin-bottom: 0;
     }
+    @media only screen and (max-width: 767px) {
+      .header-wrap h2,
+      .header-wrap span {
+        font-size: 180%;
+      }
+    }
+    @media only screen and (max-width: 640px) {
+      .feature-list {
+        padding: 4.8rem 3.2rem 3.2rem;
+      }
+      .feature-list > span {
+        font-size: 120%;
+      }
+      .methods-layout .feature-list {
+        padding: 4.8rem 1.6rem;
+      }
+      .methods-layout .feature-list > span {
+        font-size: 120%;
+        top: -20px;
+      }
+    }
 </style>
 
 {% schema %}

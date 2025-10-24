@@ -20,6 +20,11 @@
   endcapture
 
   assign has_message = false
+
+  assign type_name = section.blocks | where: 'type', 'jp_name' | first
+  assign type_email = section.blocks | where: 'type', 'email' | first
+  assign type_text_area = section.blocks | where: 'type', 'textarea' | first
+
 -%}
 
 {%- form 'contact', id: page.id, class: contactform_classes -%}
@@ -81,7 +86,7 @@
             {%- endif -%}
             {%- if block.type == 'text' or block.type == 'email' or block.type == 'tel' -%}
               <p class="w100 form-row" {{ block.shopify_attributes }}>
-                <label for="{{ block.settings.title | handleize }}">
+                <label for="{% if block.type == 'email' %}{{ block.settings.email_id | handleize }}{% else %}{{ block.settings.title | handleize }}{% endif %}">
                   {{- block.settings.title }}
                   {%- if block.settings.required or block.type == 'email' -%}
                     <span class="overlay-theme">必須</span>
@@ -89,9 +94,9 @@
                 </label>
                 <input
                   type="{{ block.type }}"
-                  id="{{ block.settings.title | handleize }}"
+                  id="{% if block.type == 'email' %}{{ block.settings.email_id | handleize }}{% else %}{{ block.settings.title | handleize }}{% endif %}"
                   class="{% if block.type == 'tel' %}half-input tel-input{% else %}full-input{% endif %}"
-                  name="contact[{% if block.type == 'email' %}email{% else %}{{ block.settings.title | strip_html | escape }}{% endif %}]"
+                  name="contact[{% if block.type == 'email' %}email{% elsif block.type == 'tel' %}tel{% else %}{{ block.settings.title | strip_html | escape }}{% endif %}]"
                   {% if section.settings.show_placeholder %}
                     placeholder="{%- if block.settings.placeholder != empty -%}{{ block.settings.placeholder }}{%- else -%}{%- endif -%}"
                   {% endif %}
@@ -102,14 +107,14 @@
               </p>
             {%- elsif block.type == 'textarea' -%}
               <p class="w100 m20 form-row" {{ block.shopify_attributes }}>
-                <label for="{{ block.settings.title | handleize }}">
+                <label for="{{ block.settings.textarea_id | handleize }}">
                   {{- block.settings.title }}
                   {%- if block.settings.required -%}
                     <span class="overlay-theme">必須</span>
                   {%- endif -%}
                 </label>
                 <textarea
-                  id="{{ block.settings.title | handleize }}"
+                  id="{{ block.settings.textarea_id | handleize }}"
                   name="contact[{% if has_message %}{{ block.settings.title | strip_html | escape }}{% else %}body{% endif %}]"
                   {% if section.settings.show_placeholder %}
                     placeholder="{%- if block.settings.placeholder != empty -%}{{ block.settings.placeholder }}{%- endif -%}"
@@ -183,7 +188,7 @@
               </p>
             {%- elsif block.type == 'jp_name' -%}
               <p class="w100 form-row" {{ block.shopify_attributes }}>
-                <label for="{{ block.settings.title | handleize }}01">
+                <label for="{{ block.settings.input_name_1 | handleize }}">
                   {{- block.settings.title }}
                   {%- if block.settings.required -%}
                     <span class="overlay-theme">必須</span>
@@ -192,9 +197,9 @@
                 <span>
                   <input
                     type="{{ block.type }}"
-                    id="{{ block.settings.title | handleize }}01"
+                    id="{{ block.settings.input_name_1 | handleize }}"
                     class="half-input"
-                    name="contact[{{ block.settings.title | handleize }}01]"
+                    name="contact[{{ block.settings.input_name_1 | handleize }}]"
                     {% if section.settings.show_placeholder %}
                       placeholder="{%- if block.settings.placeholder_1 != empty -%}{{ block.settings.placeholder_1 }}{%- else -%}{{ block.settings.title }}{%- endif -%}"
                     {% endif %}
@@ -204,9 +209,9 @@
                   >
                   <input
                     type="{{ block.type }}"
-                    id="{{ block.settings.title | handleize }}02"
+                    id="{{ block.settings.input_name_2 | handleize }}"
                     class="half-input"
-                    name="contact[{{ block.settings.title | handleize }}02]"
+                    name="contact[{{ block.settings.input_name_2 | handleize }}]"
                     {% if section.settings.show_placeholder %}
                       placeholder="{%- if block.settings.placeholder_2 != empty -%}{{ block.settings.placeholder_2 }}{%- else -%}{{ block.settings.title }}{%- endif -%}"
                     {% endif %}
@@ -255,7 +260,7 @@
                     type="{{ block.type }}"
                     id="contact_address_addr01"
                     class="full-input"
-                    name="contact[addr01]]"
+                    name="contact[addr01]"
                     {% if section.settings.show_placeholder %}
                       placeholder="{%- if block.settings.placeholder_addr01 != empty -%}{{ block.settings.placeholder_addr01 }}{%- else -%}{{ block.settings.title }}{%- endif -%}"
                     {% endif %}
@@ -305,7 +310,7 @@
   }
   .form-row {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
     border-top: 1px dotted #ccc;
     padding: 15px 0 4px;
@@ -334,13 +339,17 @@
     border-radius: 0;
   }
   .form-row label {
-    width: 30%;
+    flex: 0 0 30%;
     padding-top: 14px;
   }
-  .form-row > span,
+  .form-row > span.last-child,
   .form-row > textarea,
   .form-row > input {
-    width: 70%;
+    flex: 0 0 70%;
+  }
+  .form-row > span.invalid-feedback {
+    flex: 0 0 70%;
+    margin-left: 30%;
   }
   .form-row > textarea {
     height: 15px;
@@ -395,7 +404,62 @@
     left: 3px;
     top: -4px;
   }
+  .overlay-theme {
+    font-size: 12px;
+    color: #DE5D50;
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const inputKanji01 = document.getElementById('{{ type_name.settings.input_name_1 }}');
+    const inputKanji02 = document.getElementById('{{ type_name.settings.input_name_2 }}');
+    const emailId = document.getElementById('{{ type_email.settings.email_id }}');
+    const textAreaId = document.getElementById('{{ type_text_area.settings.textarea_id }}');
+
+    inputKanji01.addEventListener('input', function() {
+      inputKanji01.setCustomValidity('');
+    });
+
+    inputKanji02.addEventListener('input', function() {
+      inputKanji02.setCustomValidity('');
+    });
+
+    emailId.addEventListener('input', function() {
+      emailId.setCustomValidity('');
+    });
+
+    textAreaId.addEventListener('input', function() {
+      textAreaId.setCustomValidity('');
+    });
+
+    inputKanji01.addEventListener('invalid', function(event) {
+      if (inputKanji01.validity.valueMissing) {
+        inputKanji01.setCustomValidity('姓を入力してください。');
+      }
+    });
+
+    inputKanji02.addEventListener('invalid', function(event) {
+      if (inputKanji02.validity.valueMissing) {
+        inputKanji02.setCustomValidity('姓を入力してください。');
+      }
+    });
+
+    emailId.addEventListener('invalid', function(event) {
+      if (emailId.validity.valueMissing) {
+        emailId.setCustomValidity('メールアドレスを入力してください。');
+      } else if (emailId.validity.typeMismatch) {
+        emailId.setCustomValidity(`メールアドレスには「@」を含めふくめてください。 「${emailId.value}」には「@」がありません。`);
+      }
+    });
+
+    textAreaId.addEventListener('invalid', function(event) {
+      if (textAreaId.validity.valueMissing) {
+        textAreaId.setCustomValidity('姓を入力してください。');
+      }
+    });
+  });
+</script>
 
 {% schema %}
 {
@@ -636,6 +700,18 @@
           "default": "Text"
         },
         {
+          "id": "input_name_1",
+          "type": "text",
+          "label": "Input name",
+          "default": "name"
+        },
+        {
+          "id": "input_name_2",
+          "type": "text",
+          "label": "Input name",
+          "default": "name"
+        },
+        {
           "id": "required",
           "type": "checkbox",
           "label": "t:sections.contact_form.blocks.text.settings.required.label"
@@ -693,6 +769,11 @@
           "label": "t:sections.contact_form.blocks.textarea.settings.placeholder.label"
         },
         {
+          "id": "textarea_id",
+          "type": "text",
+          "label": "Text area id"
+        },
+        {
           "id": "required",
           "type": "checkbox",
           "label": "t:sections.contact_form.blocks.textarea.settings.required.label"
@@ -714,6 +795,12 @@
           "id": "placeholder",
           "type": "text",
           "label": "t:sections.contact_form.blocks.email.settings.placeholder.label"
+        },
+        {
+          "id": "email_id",
+          "type": "text",
+          "label": "Email id",
+          "default": "email"
         }
       ]
     },

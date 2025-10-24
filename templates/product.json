@@ -39,7 +39,6 @@
         },
         "short_description": {
           "type": "short_description",
-          "disabled": true,
           "settings": {
             "show_read_more": true
           }
@@ -65,6 +64,12 @@
             "show_tax": true
           }
         },
+        "category_list_U6Rimk": {
+          "type": "category_list",
+          "settings": {
+            "enable_category": true
+          }
+        },
         "buy_button": {
           "type": "buy_button",
           "settings": {
@@ -72,7 +77,7 @@
             "show_amount_selection": true,
             "show_dynamic_buybutton": true,
             "button_style_dynamic_buybutton": "plain",
-            "preorder": true,
+            "preorder": false,
             "preorder_button_text": "Pre-order",
             "preorder_label": "<p>The estimated delivery time is 2-4 weeks</p>",
             "preorder_label_color_palette": "light_2",
@@ -101,20 +106,6 @@
           "type": "shipping_timer",
           "disabled": true,
           "settings": {}
-        },
-        "usp_1": {
-          "type": "usp",
-          "disabled": true,
-          "settings": {
-            "usp": "<p><strong>Free shipping </strong>on all orders above 50,00</p>"
-          }
-        },
-        "usp_2": {
-          "type": "usp",
-          "disabled": true,
-          "settings": {
-            "usp": "<p>No <strong>hassle returns, </strong>30 days return</p>"
-          }
         },
         "2e2d451c-7968-4d6b-a516-6f6e842c92ee": {
           "type": "content",
@@ -156,7 +147,6 @@
         },
         "f2290434-741b-4731-a534-ad679331e164": {
           "type": "complementary_products",
-          "disabled": true,
           "settings": {
             "enable_tab": true,
             "collapse": true,
@@ -173,10 +163,10 @@
             "enable_color_picker": false,
             "enable_quick_buy_compact": false,
             "products_show_image": true,
-            "products_show_labels": false,
+            "products_show_labels": true,
             "products_show_vendor": false,
             "products_show_title": true,
-            "products_show_rating": false,
+            "products_show_rating": true,
             "products_show_price": true,
             "products_show_stock": false
           }
@@ -188,13 +178,12 @@
         "variant_selection",
         "inventory",
         "price",
+        "category_list_U6Rimk",
         "buy_button",
         "beafbaf1-a0af-4326-b4de-6e78c472249c",
         "e55f9825-3e08-4f90-bd42-9d336323be89",
         "e9431daf-3b99-40f6-89ff-dab164cda2ff",
         "shipping_timer",
-        "usp_1",
-        "usp_2",
         "2e2d451c-7968-4d6b-a516-6f6e842c92ee",
         "eeef3269-90c3-44f1-91c4-65f04ff8b23e",
         "f2290434-741b-4731-a534-ad679331e164"
@@ -203,8 +192,10 @@
         "show_thumbs_desktop": true,
         "show_thumbs_mobile": false,
         "images_layout": "bottom",
+        "show_border_bottom": true,
         "show_product_description": true,
-        "description_title_size": "h2",
+        "hide_description_title": true,
+        "description_title_size": "h5",
         "product_description_enable_read_more": false,
         "pros_cons_title_size": "h2",
         "pros": "",
@@ -217,12 +208,11 @@
     },
     "recommendations": {
       "type": "product-recommendations",
-      "disabled": true,
       "settings": {
-        "recommended_products_qty": 6,
-        "number_of_items": 5,
+        "recommended_products_qty": 5,
+        "number_of_items": 6,
         "text_alignment": "start",
-        "title": "<h2>You may also like</h2>",
+        "title": "<h3><strong>最近チェックした商品</strong></h3>",
         "title_underline_style": "none",
         "enable_quick_buy_desktop": true,
         "enable_quick_buy_mobile": true,
@@ -279,7 +269,12 @@
         "text_position": "text-start",
         "spacing_desktop": 50,
         "spacing_mobile": 30,
-        "fix_zindex": 0
+        "fix_zindex": 0,
+        "custom_section": false,
+        "enable_border": false,
+        "custom_section_title": "",
+        "custom_section_width": false,
+        "section_width": 1000
       }
     },
     "1655736197e3f3d938": {
@@ -390,6 +385,39 @@
         "spacing_mobile": 30,
         "fix_zindex": 0
       }
+    },
+    "17611914468193e7da": {
+      "type": "_blocks",
+      "blocks": {
+        "judge_me_reviews_review_widget_R6fMYx": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget",
+            "max_width": 1150
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_R6fMYx"
+      ],
+      "settings": {
+        "color_palette": "",
+        "overlay_opacity": 100,
+        "width": "wide",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_left": 0,
+        "padding_right": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
     }
   },
   "order": [
@@ -399,6 +427,7 @@
     "16551999062a9697ac",
     "1655736197e3f3d938",
     "1655199380bd7f8fd3",
-    "recently-viewed"
+    "recently-viewed",
+    "17611914468193e7da"
   ]
 }

@@ -255,7 +255,9 @@
                     </nav>
                     <div>
                         <div id="section-info">
+                          {%- unless section.settings.hide_description_title-%}
                             <{{ section.settings.description_title_size }} class="mobile-hide">{{ 'product.description' | t }}</{{ section.settings.description_title_size }}>
+                          {%- endunless -%}
                             {%- if section.settings.product_description_enable_read_more -%}
                                 <div class="m6lm">
                                     {{ product.description }}
@@ -763,19 +765,22 @@
                           {%- if gift_card_recipient_feature_active -%}
                               {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
                           {%- endif -%}
+                          {% comment %} HERE {% endcomment %}
                           <div class="submit m10 {% unless current_variant.available %}unavailable{% endunless %}" {{ block.shopify_attributes }}>
-                            <span class="input-amount f8pr-amount" {% unless block.settings.show_amount_selection -%}style="display:none;"{% endunless %}>
-                                <label for="quantity" class="hidden">{{ 'product.form.quantity' | t }}</label>
-                                <input type="number" id="quantity" name="quantity" data-link="#product_qty_sticky" value="{{ current_variant.quantity_rule.min | default: 1 }}"
-                                  min="{{ current_variant.quantity_rule.min | default: 1 }}"
-                                  {% if current_variant.inventory_management == 'shopify' and current_variant.inventory_policy == 'deny' -%}
-                                      max="{{ current_variant.inventory_quantity }}"
-                                  {% elsif current_variant.quantity_rule.max %}
-                                      max="{{ current_variant.quantity_rule.max }}"
-                                  {% endif %}
-                                  {% if current_variant.quantity_rule.increment %}step="{{ current_variant.quantity_rule.increment }}"{% endif %}
-                                  required>
-                            </span>
+                            {% if product.available %}
+                              <span class="input-amount f8pr-amount" {% unless block.settings.show_amount_selection -%}style="display:none;"{% endunless %}>
+                                  <label for="quantity" class="hidden">{{ 'product.form.quantity' | t }}</label>
+                                  <input type="number" id="quantity" name="quantity" data-link="#product_qty_sticky" value="{{ current_variant.quantity_rule.min | default: 1 }}"
+                                    min="{{ current_variant.quantity_rule.min | default: 1 }}"
+                                    {% if current_variant.inventory_management == 'shopify' and current_variant.inventory_policy == 'deny' -%}
+                                        max="{{ current_variant.inventory_quantity }}"
+                                    {% elsif current_variant.quantity_rule.max %}
+                                        max="{{ current_variant.quantity_rule.max }}"
+                                    {% endif %}
+                                    {% if current_variant.quantity_rule.increment %}step="{{ current_variant.quantity_rule.increment }}"{% endif %}
+                                    required>
+                              </span>
+                            {% endif %}
                             <div class="f8pr-button wide">
                             {%- if current_variant == null -%}
                                 <button type="submit" disabled class="disabled visible overlay-unavailable_buy_button{% if block.settings.button_style == 'inv' %} inv{% endif %}">{{ 'product.form.unavailable' | t }}</button>
@@ -1224,6 +1229,22 @@
                             </div>
                         {%- endif -%}
                     {%- endif -%}
+                    {%- when  'category_list'-%}
+                      {% if block.settings.enable_category %}
+                        {% assign sorted_collections = product.collections | reverse %}
+                        <div class="collections-wrap">
+                          <span>関連カテゴリ</span>
+                          <ul class="collection-list">
+                            {% for collection in sorted_collections %}
+                              <li>
+                                <a href="{{ collection.url }}">
+                                  {{ collection.title }}
+                                </a>
+                              </li>
+                             {% endfor %}
+                          </ul>
+                        </div>
+                      {% endif %}
                 {%- endcase -%}
             {%- endfor -%}
             {%- if custom_short_description and short_description != empty -%}
@@ -1356,6 +1377,73 @@
     color: #fff;
     opacity: 0.5;
   }
+  .collection-list {
+    list-style: none;
+    padding-left: 0
+  }
+  .collections-wrap {
+    padding: 14px 0;
+  }
+  .collection-list {
+    margin: 0;
+  }
+  .collection-list li {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  .collection-list li a {
+    text-decoration: none;
+    color: #33A8D0;
+    transition: all ease-in 0.3s
+  }
+  .collection-list li a:hover {
+    opacity: 0.5;
+  }
+  #main-product .stock {
+    padding-top: 14px;
+  }
+  #root button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .f8pr div.submit{
+    flex-direction: column;
+    padding-top: 14px;
+  }
+  .f8pr div.submit #swym-atw-pdp-button svg {
+    display: none;
+  }
+  .f8pr div.submit button#swym-atw-pdp-button {
+    --secondary_bg: #525263;
+    --secondary_bg_btn: #525263;
+    --secondary_bg_btn_dark: #464654;
+  }
+  {% if section.settings.show_border_bottom %}
+    #main-product header, #main-product .price, .collections-wrap {
+      border-bottom: 1px dotted #ccc
+    }
+    #main-product .price {
+      margin: 0;
+      font-size: 28px;
+      padding-bottom: 14px;
+    }
+  {% endif %}
+  /* Review popup */
+  .jdgm-write-review-modal .jdgm-write-review-modal__nav-btn {
+    background-color: #DE5D50;
+  }
+  .jdgm-write-review-modal__checkbox-input:checked+.jdgm-write-review-modal__checkbox-custom {
+    border-color: #D1D5DB;
+    background-color: #DE5D50;
+  }
+  .swym-storefront-layout-layout .swym-storefront-layout-close-button {
+    width: 50px;
+  }
+  @media only screen and (min-width: 768px) {
+    .jdgm-write-review-modal .jdgm-write-review-modal__content {
+      max-height: 700px !important;
+    }
+  }
 {% endstyle %}
 
 {% schema %}
@@ -1397,6 +1485,12 @@
       "visible_if": "{{ section.settings.show_thumbs_desktop }}"
     },
     {
+      "type": "checkbox",
+      "id": "show_border_bottom",
+      "label": "Show border bottom",
+      "default": false
+    },
+    {
       "type": "header",
       "content": "t:main.product.settings.product_description.header"
     },
@@ -1405,6 +1499,12 @@
       "type": "checkbox",
       "label": "t:main.product.settings.product_description.show_product_description.label",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_description_title",
+      "label": "Hide description title",
+      "default": false
     },
     {
       "type": "select",
@@ -2865,6 +2965,18 @@
           "id": "color_palette",
           "label": "t:global.color_palette.label",
           "default": "scheme-3"
+        }
+      ]
+    },
+    {
+      "type": "category_list",
+      "name": "Category List",
+      "settings": [
+        {
+          "type": "checkbox",
+          "label": "Enable product's categories list",
+          "id": "enable_category",
+          "default": false
         }
       ]
     }

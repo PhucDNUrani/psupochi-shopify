@@ -7,6 +7,11 @@
   class="no-js {% if settings.enable_accessibility_default %}t1ac{% endif %}{% if request.design_mode %} theme-editor{% endif %}{% unless settings.enable_hyphens %} no-hyph{% endunless %}"
 >
   <head>
+    <style>
+      h1, h2, h3, h4, h5, h6, p, span, div, ul, ol, li, a, button, input, select, option, label, legend, textarea, small {
+        font-family: "Noto Sans JP", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, sans-serif !important;
+      }
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>
@@ -45,6 +50,8 @@
     {{ 'screen.css' | asset_url | stylesheet_tag: media: 'screen' }}
     {{ 'theme-xtra.css' | asset_url | stylesheet_tag: media: 'screen' }}
     {{ 'screen-settings.css' | asset_url | stylesheet_tag: media: 'screen' }}
+    {{ 'review-style.css' | asset_url | stylesheet_tag: media: 'screen' }}
+    {{ 'custom-theme-style.css' | asset_url | stylesheet_tag: media: 'screen' }}
     <noscript><link rel="stylesheet" href="{{ 'async-menu.css' | asset_url }}"></noscript>
     {%- if template.name == 'blog' or template.name == 'article' -%}
       <link media="screen" rel="stylesheet" href="{{ 'page-blog.css' | asset_url }}" id="blog-css">

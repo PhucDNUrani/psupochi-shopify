@@ -439,7 +439,7 @@
       "choose": "選択してください...",
       "choose_option": "選択してください",
       "in_stock": "{{ amount }} 在庫あり",
-      "not_in_stock": "在庫切れ",
+      "not_in_stock": "ただいま品切れ中です。",
       "one_time_purchase": "1回購入",
       "purchase_options_subtitle": "サブスクリプションは毎月キャンセル可能",
       "purchase_options_title": "毎に配送",

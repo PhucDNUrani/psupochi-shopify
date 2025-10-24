@@ -60,6 +60,8 @@
             "title": "お名前",
             "placeholder_1": "姓",
             "placeholder_2": "名",
+            "input_name_1": "name01",
+            "input_name_2": "name02",
             "required": true
           }
         },
@@ -69,6 +71,8 @@
             "title": "お名前(カナ)",
             "placeholder_1": "セイ",
             "placeholder_2": "メイ",
+            "input_name_1": "kana01",
+            "input_name_2": "kana02",
             "required": false
           }
         },
@@ -94,7 +98,8 @@
           "type": "email",
           "settings": {
             "title": "メールアドレス",
-            "placeholder": ""
+            "placeholder": "",
+            "email_id": "email"
           }
         },
         "textarea_na6RK8": {
@@ -102,6 +107,7 @@
           "settings": {
             "title": "お問い合わせ内容",
             "placeholder": "",
+            "textarea_id": "textarea",
             "required": true
           }
         }

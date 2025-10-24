@@ -1,0 +1,22 @@
+:root {
+    --jdgm-write-review-bg-color: #DE5D50;
+}
+
+#judgeme_product_reviews select,
+#judgeme_product_reviews [class*="palette-scheme-1"] select {
+    background: none;
+}
+
+#judgeme_product_reviews .jdgm-histogram__bar-content {
+     background-color: #DE5D50;
+}
+
+#judgeme_product_reviews  .jdgm-sort-dropdown-wrapper .jdgm-sort-dropdown,
+#judgeme_product_reviews .jdgm-write-rev-link.jdgm-write-rev-link,
+#judgeme_product_reviews .jdgm-sort-dropdown-wrapper .jdgm-sort-dropdown-arrow,
+#judgeme_product_reviews .jdgm-row-profile .jdgm-rev__author,
+#judgeme_product_reviews .jdgm-row-profile .jdgm-rev__icon:before {
+    --jdgm-write-review-bg-color: #DE5D50;
+    --jdgm-primary-color: #333;
+    --jdgm-reviewer-name-color: #333;
+}

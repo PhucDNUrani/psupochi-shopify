@@ -155,6 +155,7 @@
                     title-underline-secondary-font
                   {% endif %}
                 {% endif %}
+                {% if section.settings.custom_banner %} custom-banner{% endif %}
               "
             >
               {%- if section.settings.title != blank -%}
@@ -518,6 +519,16 @@
   #shopify-section-{{ section.id }} .l4ft[style*="--aspect_m"] {
     --mih: 0;
   }
+  .l4ft li > .main > div.custom-banner {
+    --pt: 9.6rem;
+    --pr: 12.8rem;
+    --pd: 16rem;
+    --pl: 12.8rem;
+  }
+  .l4ft li > .main > div.custom-banner > h4 {
+    font-size: 120%;
+    line-height: 1.4;
+  }
   @media only screen and (min-width: 47.5em) {
     #root .m6as > ul {
       width: var(--w_f);
@@ -563,6 +574,22 @@
     }
     #shopify-section-{{ section.id }} .l4ft.fullwidth-m[style*="--aspect_m"] .main:after {
       padding-bottom: calc(var(--aspect)* 1vw - var(--scrollbar_width));
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .l4ft li > .main > div.custom-banner {
+      --pt: 6.4rem;
+      --pr: 3.2rem;
+      --pd: 6.4rem;
+      --pl: 3.2rem;
+    }
+  }
+  @media only screen and (max-width: 640px) {
+    .l4ft li > .main > div.custom-banner {
+      --pt: 3.2rem;
+      --pr: 1.6rem;
+      --pd: 3.2rem;
+      --pl: 1.6rem;
     }
   }
 </style>
@@ -1002,6 +1029,12 @@
       "max": 25,
       "step": 1,
       "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_banner",
+      "label": "Custom banner",
+      "default": false
     }
   ],
   "blocks": [

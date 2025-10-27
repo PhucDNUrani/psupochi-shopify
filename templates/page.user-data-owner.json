@@ -171,7 +171,7 @@
           "type": "image02",
           "settings": {
             "second_image": "shopify://shop_images/general_img11.png",
-            "image_url": "https://pesupochi.shop.gaichujusos-kujo.com/products/detail/3"
+            "image_url": "shopify://products/ベクトロンsp-115ml-送料無料-ゴキブリ-トコジラミ防除"
           }
         }
       },
@@ -257,7 +257,7 @@
           "type": "image02",
           "settings": {
             "second_image": "shopify://shop_images/general_img11.png",
-            "image_url": "https://pesupochi.shop.gaichujusos-kujo.com/products/detail/3"
+            "image_url": "shopify://products/ベクトロンsp-115ml-送料無料-ゴキブリ-トコジラミ防除"
           }
         }
       },
@@ -433,7 +433,8 @@
         "enable_paragraph": false,
         "sub_paragraph": "",
         "custom_section_width": true,
-        "section_width": 920
+        "section_width": 920,
+        "wrap_image": false
       }
     },
     "section_image_with_text_vertical_JNRwaY": {
@@ -489,7 +490,7 @@
           "type": "image02",
           "settings": {
             "second_image": "shopify://shop_images/general_img11.png",
-            "image_url": "https://pesupochi.shop.gaichujusos-kujo.com/products/detail/3"
+            "image_url": "shopify://products/ベクトロンsp-115ml-送料無料-ゴキブリ-トコジラミ防除"
           }
         }
       },
@@ -665,7 +666,8 @@
         "enable_paragraph": false,
         "sub_paragraph": "",
         "custom_section_width": true,
-        "section_width": 920
+        "section_width": 920,
+        "wrap_image": false
       }
     },
     "section_text_split_image_VgwjM8": {
@@ -689,7 +691,8 @@
         "enable_paragraph": true,
         "sub_paragraph": "<p><strong>トコジラミは、毎日卵を2～6個産み落とし、卵に薬剤を吹きかけても生まれて来ますので、 ベクトロンSPを建物全体（壁・床・家具も含む）に散布することによって90日の長期残留 効果で新たに生まれた個体も薬剤に触れて死滅します。トコジラミ駆除のポイントは、薬剤 が効きづらい生物で、散布量は多めにどれだけ薬剤を触れ続けさせるかが最重要ですので、 上記図の場所以外にも廊下や壁・隙間など全体に噴霧してください。施設関係は、人の移動 やベットメイキングなどのフロアをまたぐも移動が業務上あるかと思うので、最低でも同一 フロアは全体散布を行い、余裕があれば建物全体に散布してください。また、送迎車両にも トコジラミの発生がある場合もございますので、車内にも全体散布を行うと安心です。</strong></p>",
         "custom_section_width": true,
-        "section_width": 920
+        "section_width": 920,
+        "wrap_image": true
       }
     },
     "section_image_with_text_vertical_AdNLL9": {
@@ -729,7 +732,7 @@
           "type": "image02",
           "settings": {
             "second_image": "shopify://shop_images/general_img11.png",
-            "image_url": "https://pesupochi.shop.gaichujusos-kujo.com/products/detail/3"
+            "image_url": "shopify://products/ベクトロンsp-115ml-送料無料-ゴキブリ-トコジラミ防除"
           }
         }
       },

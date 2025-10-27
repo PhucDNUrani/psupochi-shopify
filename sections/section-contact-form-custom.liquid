@@ -3,7 +3,7 @@
     assign contactform_classes = 'f8cm f8vl m30 wide'
   else
     if section.settings.alignment == 'center'
-      assign contactform_classes = 'f8cm f8vl m30 w940 align-center'
+      assign contactform_classes = 'f8cm f8vl m30 w940 align-center h-adr'
       assign center = true
     else
       assign contactform_classes = 'f8cm f8vl m30 w940'
@@ -28,6 +28,7 @@
 -%}
 
 {%- form 'contact', id: page.id, class: contactform_classes -%}
+  <span class="p-country-name" style="display: none;">Japan</span>
   {%- if form.errors -%}
     <script>
       document.addEventListener('DOMContentLoaded', function () {
@@ -46,7 +47,7 @@
         var alertAttributes = {
             message: "{{ 'service.contact_form.posted_successfully' | t }}",
             type: 'success',
-            origin: 'contact',
+            origin: 'contact',href="./"
           },
           showAlertEvent = new CustomEvent('showAlert', { detail: alertAttributes });
         window.dispatchEvent(showAlertEvent);
@@ -123,6 +124,9 @@
                     required
                   {% endif %}
                 ></textarea>
+                {% if block.settings.notes != blank%}
+                  <span class="notes">{{ block.settings.notes }}</span>
+                {% endif %}
               </p>
               {%- assign has_message = true -%}
             {%- elsif block.type == 'checkbox' or block.type == 'radio' %}
@@ -190,7 +194,7 @@
               <p class="w100 form-row" {{ block.shopify_attributes }}>
                 <label for="{{ block.settings.input_name_1 | handleize }}">
                   {{- block.settings.title }}
-                  {%- if block.settings.required -%}
+                  {%- if block.settings.required and block.settings.check_katakana == false -%}
                     <span class="overlay-theme">必須</span>
                   {%- endif -%}
                 </label>
@@ -198,7 +202,7 @@
                   <input
                     type="{{ block.type }}"
                     id="{{ block.settings.input_name_1 | handleize }}"
-                    class="half-input"
+                    class="half-input {% if block.settings.check_katakana %}kana-check{% endif %}"
                     name="contact[{{ block.settings.input_name_1 | handleize }}]"
                     {% if section.settings.show_placeholder %}
                       placeholder="{%- if block.settings.placeholder_1 != empty -%}{{ block.settings.placeholder_1 }}{%- else -%}{{ block.settings.title }}{%- endif -%}"
@@ -210,7 +214,7 @@
                   <input
                     type="{{ block.type }}"
                     id="{{ block.settings.input_name_2 | handleize }}"
-                    class="half-input"
+                    class="half-input {% if block.settings.check_katakana %}kana-check{% endif %}"
                     name="contact[{{ block.settings.input_name_2 | handleize }}]"
                     {% if section.settings.show_placeholder %}
                       placeholder="{%- if block.settings.placeholder_2 != empty -%}{{ block.settings.placeholder_2 }}{%- else -%}{{ block.settings.title }}{%- endif -%}"
@@ -235,8 +239,9 @@
                     <input
                       type="{{ block.type }}"
                       id="contact_postal_code"
-                      class="half-input"
+                      class="half-input p-postal-code"
                       name="contact[postal_code]"
+                      maxlength="8"
                       {% if section.settings.show_placeholder %}
                         placeholder="{%- if block.settings.placeholder_postcode != empty -%}{{ block.settings.placeholder_postcode }}{%- else -%}{{ block.settings.title }}{%- endif -%}"
                       {% endif %}
@@ -259,7 +264,7 @@
                   <input
                     type="{{ block.type }}"
                     id="contact_address_addr01"
-                    class="full-input"
+                    class="full-input p-locality p-street-address p-extended-address"
                     name="contact[addr01]"
                     {% if section.settings.show_placeholder %}
                       placeholder="{%- if block.settings.placeholder_addr01 != empty -%}{{ block.settings.placeholder_addr01 }}{%- else -%}{{ block.settings.title }}{%- endif -%}"
@@ -292,7 +297,7 @@
       -%}
       <p class="submit m0 {% if center %}text-center{% else %}text-end{% endif %}">
         <button type="submit" class="overlay-{{ button_color }}{% if button_style == 'inv' %} inv{% endif %}{% if section.settings.custom_button %} custom-button{% endif %}">
-          確認ページへ
+          送信する
         </button>
       </p>
     {%- endif -%}
@@ -344,8 +349,12 @@
   }
   .form-row > span.last-child,
   .form-row > textarea,
-  .form-row > input {
+  .form-row > input,
+  .form-row > .notes {
     flex: 0 0 70%;
+  }
+  .form-row > .notes {
+    margin-left: auto;
   }
   .form-row > span.invalid-feedback {
     flex: 0 0 70%;
@@ -357,7 +366,7 @@
   }
   .form-row input.half-input {
     display: inline-block;
-    width: 45%;
+    width: 47%;
   }
   .form-row input.tel-input {
     width: 168px;
@@ -408,6 +417,35 @@
     font-size: 12px;
     color: #DE5D50;
   }
+  .form-row a {
+    color: #0092C4;
+    text-decoration: none;
+  }
+  @media only screen and (max-width: 767px) {
+    /* #shopify-section-{{ section.id }} .f8cm { margin-bottom: {{ section.settings.spacing_mobile }}px; } */
+    #root .cols:not(.cols-mobile) > *, #root .cols:not(.cols-mobile, .link-btn) > * {
+      margin-bottom: 10px;
+      padding-top: 0;
+    }
+    .form-row label {
+      padding-top: 8px;
+      margin-bottom: 0;
+     flex: 0 0 100%;
+    }
+    .form-row > .notes,
+    .form-row > span.last-child, .form-row > textarea, .form-row > input[type="email"] {
+      flex: 0 0 100%;
+    }
+    .form-row > .notes {
+      margin-left: 0;
+    }
+    .postcode-input select {
+      width: 50%;
+    }
+    .submit > .custom-button {
+      width: 100%;
+    }
+  }
 </style>
 
 <script>
@@ -416,6 +454,9 @@
     const inputKanji02 = document.getElementById('{{ type_name.settings.input_name_2 }}');
     const emailId = document.getElementById('{{ type_email.settings.email_id }}');
     const textAreaId = document.getElementById('{{ type_text_area.settings.textarea_id }}');
+    const postCode = document.getElementById('contact_postal_code');
+    const prefectureSelect = document.getElementById('contact_prefecture');
+    const katakanaInputs = document.querySelectorAll('.kana-check');
 
     inputKanji01.addEventListener('input', function() {
       inputKanji01.setCustomValidity('');
@@ -435,19 +476,19 @@
 
     inputKanji01.addEventListener('invalid', function(event) {
       if (inputKanji01.validity.valueMissing) {
-        inputKanji01.setCustomValidity('姓を入力してください。');
+        inputKanji01.setCustomValidity('入力されていません。');
       }
     });
 
     inputKanji02.addEventListener('invalid', function(event) {
       if (inputKanji02.validity.valueMissing) {
-        inputKanji02.setCustomValidity('姓を入力してください。');
+        inputKanji02.setCustomValidity('入力されていません。');
       }
     });
 
     emailId.addEventListener('invalid', function(event) {
       if (emailId.validity.valueMissing) {
-        emailId.setCustomValidity('メールアドレスを入力してください。');
+        emailId.setCustomValidity('入力されていません。');
       } else if (emailId.validity.typeMismatch) {
         emailId.setCustomValidity(`メールアドレスには「@」を含めふくめてください。 「${emailId.value}」には「@」がありません。`);
       }
@@ -455,9 +496,45 @@
 
     textAreaId.addEventListener('invalid', function(event) {
       if (textAreaId.validity.valueMissing) {
-        textAreaId.setCustomValidity('姓を入力してください。');
+        textAreaId.setCustomValidity('入力されていません。');
       }
     });
+
+    katakanaInputs.forEach((input) => {
+      input.addEventListener("input", function () {
+        const value = this.value.trim();
+        const katakanaRegex = /^[ァ-ヺー]*$/;
+        if (value && !katakanaRegex.test(value)) {
+          this.setCustomValidity('カタカナで入力してください');
+        }
+      });
+
+      input.addEventListener('invalid', function(event) {
+        if (input.validity.valueMissing) {
+          this.setCustomValidity('カタカナで入力してください');
+        }
+      });
+
+    });
+
+    if (postCode && prefectureSelect) {
+      postCode.addEventListener('input', function() {
+        setTimeout(function() {
+          if (prefectureSelect.value) {
+            prefectureSelect.dispatchEvent(new Event('change'));
+          }
+          const customSpan = prefectureSelect.nextElementSibling;
+            console.log(customSpan);
+
+          if (customSpan && customSpan.tagName === 'SPAN') {
+            const innerSpan = customSpan.querySelector('span.sl_inner');
+            if (innerSpan) {
+              innerSpan.textContent = prefectureSelect.options[prefectureSelect.selectedIndex].text;
+            }
+          }
+        }, 500);
+      });
+    }
   });
 </script>
 
@@ -715,6 +792,11 @@
           "id": "required",
           "type": "checkbox",
           "label": "t:sections.contact_form.blocks.text.settings.required.label"
+        },
+        {
+          "id": "check_katakana",
+          "type": "checkbox",
+          "label": "Katakana name check"
         }
       ]
     },
@@ -777,6 +859,11 @@
           "id": "required",
           "type": "checkbox",
           "label": "t:sections.contact_form.blocks.textarea.settings.required.label"
+        },
+        {
+          "id": "notes",
+          "type": "text",
+          "label": "Notes"
         }
       ]
     },

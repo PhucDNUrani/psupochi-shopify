@@ -58,6 +58,16 @@
   @media only screen and (max-width: 47.5em) {
     #shopify-section-{{ section.id }} .l4cl { margin-bottom: {{ section.settings.spacing_mobile | minus: 8 }}px; }
   }
+  /* Stabilize Swiper arrow spans in Recently Viewed slider */
+.swiper-button-next,
+.swiper-button-prev {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  transition: none;
+  height: auto !important;
+}
+
 </style>
 
 {% schema %}

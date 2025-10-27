@@ -20,7 +20,7 @@
             "footer_img": "shopify://shop_images/footer_img01.png",
             "image_width": 90,
             "title": "<h3>ご注文完了</h3>",
-            "image_desc": "ご注文は24時間受付ております。",
+            "image_desc": "<p>ご注文は24時間受付ております。</p>",
             "title_font": "primary",
             "title_size_blocks": "h2"
           }
@@ -31,7 +31,7 @@
             "footer_img": "shopify://shop_images/footer_img02.png",
             "image_width": 90,
             "title": "<h3>確認メール</h3>",
-            "image_desc": "ご注文後に自動返信メールと、通常営業日翌日までに注文確認メールが届きます。※ メールアドレスが間違っていると確認メールが届きませんのでご注意ください。",
+            "image_desc": "<p>ご注文後に自動返信メールと、通常営業日翌日までに注文確認メールが届きます。<br/>※ メールアドレスが間違っていると確認メールが届きませんのでご注意ください。</p>",
             "title_font": "primary",
             "title_size_blocks": "h4"
           }
@@ -42,7 +42,7 @@
             "footer_img": "shopify://shop_images/footer_img03.png",
             "image_width": 90,
             "title": "<h3>ご入金</h3>",
-            "image_desc": "お支払い方法が、振込みの場合は、入金確認後の出荷となります。",
+            "image_desc": "<p>お支払い方法が、振込みの場合は、入金確認後の出荷となります。</p>",
             "title_font": "primary",
             "title_size_blocks": "h4"
           }
@@ -53,7 +53,7 @@
             "footer_img": "shopify://shop_images/footer_img04.png",
             "image_width": 90,
             "title": "<h3>出荷準備</h3>",
-            "image_desc": "在庫がない場合はお取り寄せとなります。",
+            "image_desc": "<p>在庫がない場合はお取り寄せとなります。</p>",
             "title_font": "primary",
             "title_size_blocks": "h4"
           }
@@ -64,7 +64,7 @@
             "footer_img": "shopify://shop_images/footer_img05.png",
             "image_width": 90,
             "title": "<h3>発送メール</h3>",
-            "image_desc": "商品発送が完了次第、発送通知書がお送り致します。",
+            "image_desc": "<p>商品発送が完了次第、発送通知書がお送り致します。</p>",
             "title_font": "primary",
             "title_size_blocks": "h4"
           }
@@ -75,7 +75,7 @@
             "footer_img": "shopify://shop_images/footer_img06.png",
             "image_width": 90,
             "title": "<h3>商品お届け</h3>",
-            "image_desc": "ヤマト運輸にて出荷いたします。",
+            "image_desc": "<p>ヤマト運輸にて出荷いたします。</p>",
             "title_font": "primary",
             "title_size_blocks": "h4"
           }

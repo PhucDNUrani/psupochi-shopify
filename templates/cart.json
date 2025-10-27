@@ -11,6 +11,7 @@
   "sections": {
     "breadcrumbs": {
       "type": "breadcrumbs",
+      "disabled": true,
       "settings": {
         "hide_mobile": false
       }
@@ -21,24 +22,17 @@
         "22fe4f0a-fb8b-4a4b-8b48-63686beda103": {
           "type": "usp",
           "settings": {
-            "usp": "<p><strong>Free shipping</strong> above 50,00 </p>"
+            "usp": "<p>5.500¥以上送料無料</p>"
           }
         },
         "f10988bd-7b8f-4420-9e2e-d6c8e29c2c7f": {
           "type": "shipping_timer",
           "settings": {}
-        },
-        "b425d9f9-59f6-4925-978a-e491a14ab7ee": {
-          "type": "usp",
-          "settings": {
-            "usp": "<p>We accept <strong>all payments</strong> from US and EU</p>"
-          }
         }
       },
       "block_order": [
         "22fe4f0a-fb8b-4a4b-8b48-63686beda103",
-        "f10988bd-7b8f-4420-9e2e-d6c8e29c2c7f",
-        "b425d9f9-59f6-4925-978a-e491a14ab7ee"
+        "f10988bd-7b8f-4420-9e2e-d6c8e29c2c7f"
       ],
       "settings": {
         "title_size": "h1",
@@ -50,29 +44,10 @@
         "enable_terms_checkbox": false,
         "terms_text": "<p>I accept the <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">privacy policy</a></p>"
       }
-    },
-    "53ba9a68-c99f-44db-9749-5863f9de4d8f": {
-      "type": "section-recently-viewed-products",
-      "settings": {
-        "number_of_items": 6,
-        "text_alignment": "start",
-        "title": "<h4><strong>最近チェックした商品</strong></h4>",
-        "title_underline_style": "none",
-        "enable_quick_buy_desktop": true,
-        "enable_quick_buy_mobile": true,
-        "enable_quick_buy_drawer": false,
-        "enable_quick_buy_qty_selector": true,
-        "enable_color_picker": false,
-        "enable_quick_buy_compact": true,
-        "spacing_desktop": 50,
-        "spacing_mobile": 30,
-        "fix_zindex": 0
-      }
     }
   },
   "order": [
     "breadcrumbs",
-    "main-cart",
-    "53ba9a68-c99f-44db-9749-5863f9de4d8f"
+    "main-cart"
   ]
 }

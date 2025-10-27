@@ -101,7 +101,7 @@
         "enable_custom_height": false,
         "custom_height": 300,
         "width": "boxed",
-        "space_between": 20,
+        "space_between": 64,
         "image_zoom": false,
         "image_move": false,
         "show_content_on_hover": false,
@@ -138,6 +138,7 @@
             "link_text_2": "一般の方",
             "link_url_2": "shopify://pages/user_data-general",
             "button_style": "primary plain",
+            "reduce_spacing": true,
             "show_overlay_link": true,
             "overlay_url": ""
           }
@@ -175,7 +176,7 @@
             "icon": "none",
             "header_image_svg": "",
             "header_image_width": 25,
-            "faq_answer": "<p>いつもペスぽちをご利用いただき誠にありがとうございます。<br/><br/>この度、当店で販売しているベクトロンSPが<strong>2025年10月1日より会員登録後に価格が表示される仕様</strong>へ変更となります。<br/><br/>ご新規のお客様は、商品をカートに追加後、レジに進む際に会員登録情報をご入力いただき、新規会員登録をお願いいたします。<br/>登録完了後、本サイトにログインしていただくことでベクトロンSPの商品価格が画面に表示されるようになります。<br/><br/><a href=\"https://shopify.com/71606403246/account/profile?locale=ja&region_country=JP\" title=\"https://shopify.com/71606403246/account/profile?locale=ja&region_country=JP\">新規会員登録はこちら<br/></a>すでに会員登録をお済みのお客様は、そのままログインしていただくことで商品価格をご確認いただけます。<br/><br/>今後ともペスぽちをよろしくお願い申し上げます</p>",
+            "faq_answer": "<p>いつもペスぽちをご利用いただき誠にありがとうございます。<br/><br/>この度、当店で販売しているベクトロンSPが<strong>2025年10月1日より会員登録後に価格が表示される仕様</strong>へ変更となります。<br/><br/>ご新規のお客様は、商品をカートに追加後、レジに進む際に会員登録情報をご入力いただき、新規会員登録をお願いいたします。<br/>登録完了後、本サイトにログインしていただくことでベクトロンSPの商品価格が画面に表示されるようになります。<br/><br/><a href=\"https://shopify.com/71606403246/account/profile?locale=ja&region_country=JP\" title=\"https://shopify.com/71606403246/account/profile?locale=ja&region_country=JP\">新規会員登録はこちら</a><br/><br/><br/>すでに会員登録をお済みのお客様は、そのままログインしていただくことで商品価格をご確認いただけます。<br/><br/>今後ともペスぽちをよろしくお願い申し上げます</p>",
             "page": "",
             "image_width": 465,
             "liquid": "",
@@ -436,7 +437,8 @@
         "fix_zindex": 0,
         "custom-faq": true,
         "loadmore-faq": true,
-        "link_text": "more"
+        "link_text": "more",
+        "reduce_spacing": true
       }
     },
     "section_collection_list_edApx7": {
@@ -459,7 +461,7 @@
         "layout": "rows",
         "number_of_items": 3,
         "text_alignment": "center",
-        "title": "<h1>害虫から探す</h1>",
+        "title": "<h2>害虫から探す</h2>",
         "title_underline_style": "none",
         "show_link": true,
         "link_text": "商品一覧",
@@ -530,7 +532,7 @@
         "text_position": "center start",
         "title": "",
         "title_underline_style": "none",
-        "text": "<h4><strong>「ペスぽち」は、害虫駆除のプロが厳選した業務用の薬剤・アイテムを日本全国へお届けするオンラインショップです。<br/></strong></h4><h4><strong><br/>運営会社は、累計25,000件以上の害虫駆除実績を持つ、ペストコントロール1級技術者が在籍し、「効果と安全性」を基準に選んだ商品だけを取り扱っています。<br/></strong></h4><h4><strong><br/>また、プロの施工方法を動画でわかりやすく解説しているため、誰でも簡単にセルフ施工が可能。<br/></strong></h4><h4><strong><br/>一般家庭はもちろん、店舗や宿泊施設など、さまざまな環境で使え、害虫駆除費用を最大95％も削減できます。</strong></h4>",
+        "text": "<h4><strong>「ペスぽち」は、害虫駆除のプロが厳選した業務用の薬剤・アイテムを日本全国へお届けするオンラインショップです。<br/><br/>運営会社は、累計25,000件以上の害虫駆除実績を持つ、ペストコントロール1級技術者が在籍し、「効果と安全性」を基準に選んだ商品だけを取り扱っています。<br/><br/>また、プロの施工方法を動画でわかりやすく解説しているため、誰でも簡単にセルフ施工が可能。<br/><br/>一般家庭はもちろん、店舗や宿泊施設など、さまざまな環境で使え、害虫駆除費用を最大95％も削減できます。</strong></h4>",
         "show_link": false,
         "link_text": "Button",
         "link_url": "/",
@@ -546,7 +548,8 @@
         "mobile_height": "1/1",
         "spacing_desktop": 50,
         "spacing_mobile": 30,
-        "fix_zindex": 0
+        "fix_zindex": 0,
+        "custom_banner": true
       }
     }
   },

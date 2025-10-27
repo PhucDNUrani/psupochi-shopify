@@ -673,7 +673,7 @@
     justify-content: center;
   }
   #shopify-section-footer.is-full-width figure > figcaption h3 {
-    font-size: 24px !important;
+    font-size: 24px;
     font-weight: 600;
     color: #333333;
     text-align: center;
@@ -741,6 +741,9 @@
     flex-wrap: wrap;
     padding: 0;
   }
+  .menu-wrap ul > li.sub > ul {
+    padding-left: 30px;
+  }
   .menu-wrap ul.menu-top > li {
     width: calc((100% - 6.4rem) / 5);
     margin-right: 1.6rem;
@@ -764,7 +767,11 @@
     position: relative;
     cursor: pointer;
     color: #333;
+    display: block;
   }
+  /* .menu-wrap ul.menu-bottom > li > a {
+    line-height: 1.2;
+  } */
   .menu-wrap ul.menu-top > li > a:hover,
   .menu-wrap ul.menu-bottom > li > a:hover {
     --custom_footer_fg_bottom_hover: #333;
@@ -779,7 +786,7 @@
     background-position: center;
     position: absolute;
     left: 0;
-    top: 3px;
+    top: -1px;
     width: 22px;
     height: 22px;
   }
@@ -814,24 +821,22 @@
     display: none;
   }
   @media only screen and (max-width: 1200px) {
+    #shopify-section-footer.is-full-width figure > figcaption h3 {
+      font-size: 1.5vw;
+    }
     #shopify-section-footer.is-full-width figure > figcaption span:not(h3 > span) {
       font-size: 1vw;
     }
-  }
-
-  @media only screen and (max-width: 640px) {
-    .menu-wrap ul.menu-top > li {
-      width: calc((100% - 4rem) / 2);
+    #shopify-section-footer.is-full-width figure > figcaption h3 > span::before {
+      width: 2vw;
+      height: 2vw;
+      font-size: 1vw;
+      top: -1px;
     }
-    .shopify-section-footer > div {
-      text-align: left;
-    }
-    .menu-wrap ul.menu-top > li > ul > li.ff- > ul {
-      padding-left: 3vw;
-      flex-direction: column;
+    #shopify-section-footer.is-full-width figure > figcaption h3 > span {
+      padding-left: 2.5vw;
     }
   }
-
   @media only screen and (max-width: 767px) {
     .shopify-section-footer {
       padding-top: 2.4rem;
@@ -843,9 +848,9 @@
       width: calc(100% / 3);
     }
     #shopify-section-footer.is-full-width {
-      width: 100%;
+      /* width: 100%;
       max-width: 100% !important;
-      margin-left: 0;
+      margin-left: 0; */
     }
     .shopify-section-footer #shopify-section-footer.is-full-width {
       flex-direction: row;
@@ -853,6 +858,9 @@
     }
     #root .shopify-section-footer > nav#shopify-section-footer > * {
       --rpn: 0px;
+    }
+    #shopify-section-footer.is-full-width figure {
+      display: flex;
     }
     #shopify-section-footer.is-full-width figure > figcaption h3 > span {
       font-size: 154%;
@@ -874,27 +882,63 @@
       width: 70px;
     }
     #shopify-section-footer.is-full-width figure > figcaption h3 > span::before {
-      top: 1px;
+      top: -5px;
       width: 25px;
       height: 25px;
       font-size: 80%;
     }
+    .shopify-section-footer .custom-banner {
+      width: 100% !important;
+    }
     .shopify-section-footer .custom-banner figcaption p {
       font-size: 120% !important;
     }
+    .menu-wrap ul.menu-bottom > li > a {
+      /* font-size: 95%;
+      padding-left: 3vw; */
+    }
     .menu-wrap ul.menu-bottom > li > a,
     .menu-wrap ul.menu-top > li > a {
-      font-size: 95%;
-      padding-left: 3vw;
+      padding-left: 30px;
     }
     .menu-wrap ul.menu-top > li > ul > li.ff- > ul > li > a {
-      font-size: 80%;
+      font-size: 90%;
     }
-
-    .menu-wrap ul.menu-top > li > a:before,
-    .menu-wrap ul.menu-bottom > li > a:before {
+    /* .menu-wrap ul.menu-bottom > li > a:before {
       width: 2vw;
       height: 2vw;
+    } */
+    .menu-wrap ul.menu-bottom > li > a:before,
+    .menu-wrap ul.menu-top > li > a:before {
+      width: 20px;
+      height: 20px;
+      top: 6px;
+    }
+    .menu-wrap ul > li.sub > ul {
+      padding-left: 0;
+    }
+  }
+  @media only screen and (max-width: 760px) {
+    #shopify-section-footer.is-full-width figure > figcaption span:not(h3 > span) > p {
+      width: 100%;
+      text-align: center;
+      font-size: 80%;
+      line-height: 1.5;
+    }
+    #root .shopify-section-footer > nav > *:before {
+      border-bottom: none;
+    }
+  }
+  @media only screen and (max-width: 640px) {
+    .menu-wrap ul.menu-top > li {
+      width: calc((100% - 4rem) / 2);
+    }
+    .shopify-section-footer > div {
+      text-align: left;
+    }
+    .menu-wrap ul.menu-top > li > ul > li.ff- > ul {
+      padding-left: 3vw;
+      flex-direction: column;
     }
   }
   @media only screen and (max-width: 480px) {
@@ -1414,7 +1458,7 @@
         },
         {
           "id": "image_desc",
-          "type": "text",
+          "type": "richtext",
           "label": "Image description"
         },
         {

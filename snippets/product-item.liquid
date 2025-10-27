@@ -174,20 +174,10 @@
                 required>
             </span>
             {%- endif -%}
-            {% comment %} HERE {% endcomment %}
-            {% if customer == nil %}
-              <a class="direct-login" href="{{ routes.account_login_url }}">
-                <button class="{% if preorder %}overlay-preorder{% elsif current_variant.available %}overlay-buy_button{% else %}overlay-unavailable-buy-button{% endif %}{% if settings.button_style == 'inv' %} inv{% endif %}{% if quick_buy_compact %} compact{% if layout == 'list' %} w160{% endif %}{% endif %}" aria-label="{% if preorder and settings.preorder_button_text != '' %}{{ settings.preorder_button_text }}{% else %}{{ 'product.form.add_to_cart' | t }}{% endif %}">
-                  {%- unless quick_buy_compact -%}<span class="mobile-hide">{% if preorder and settings.preorder_button_text != '' %}{{ settings.preorder_button_text }}{% else %}{{ 'product.form.add_to_cart' | t }}{% endif %}</span>{%- endunless -%}
-                  <i aria-hidden="true" class="icon-cart{% unless quick_buy_compact %} mobile-only{% endunless %}"></i>
-                </button>
-              </a>
-            {% else %}
-              <button type="submit" class="{% if preorder %}overlay-preorder{% elsif current_variant.available %}overlay-buy_button{% else %}overlay-unavailable-buy-button{% endif %}{% if settings.button_style == 'inv' %} inv{% endif %}{% if quick_buy_compact %} compact{% if layout == 'list' %} w160{% endif %}{% endif %}" aria-label="{% if preorder and settings.preorder_button_text != '' %}{{ settings.preorder_button_text }}{% else %}{{ 'product.form.add_to_cart' | t }}{% endif %}">
-                {%- unless quick_buy_compact -%}<span class="mobile-hide">{% if preorder and settings.preorder_button_text != '' %}{{ settings.preorder_button_text }}{% else %}{{ 'product.form.add_to_cart' | t }}{% endif %}</span>{%- endunless -%}
-                <i aria-hidden="true" class="icon-cart{% unless quick_buy_compact %} mobile-only{% endunless %}"></i>
-              </button>
-            {% endif %}
+            <button type="submit" class="{% if preorder %}overlay-preorder{% elsif current_variant.available %}overlay-buy_button{% else %}overlay-unavailable-buy-button{% endif %}{% if settings.button_style == 'inv' %} inv{% endif %}{% if quick_buy_compact %} compact{% if layout == 'list' %} w160{% endif %}{% endif %}" aria-label="{% if preorder and settings.preorder_button_text != '' %}{{ settings.preorder_button_text }}{% else %}{{ 'product.form.add_to_cart' | t }}{% endif %}">
+              {%- unless quick_buy_compact -%}<span class="mobile-hide">{% if preorder and settings.preorder_button_text != '' %}{{ settings.preorder_button_text }}{% else %}{{ 'product.form.add_to_cart' | t }}{% endif %}</span>{%- endunless -%}
+              <i aria-hidden="true" class="icon-cart{% unless quick_buy_compact %} mobile-only{% endunless %}"></i>
+            </button>
           </p>
         </fieldset>
       {%- endform -%}

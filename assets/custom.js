@@ -2255,7 +2255,7 @@ window.addEventListener("showAlert", function(event) {
 			messageColor = 'lime';
 			if (!messageHeader) { messageHeader = ''; }
 	}
-	var message = '<li class="overlay-'+ messageColor +' '+ messageOrigin +'"><i aria-hidden="true" class="icon-'+ messageType +'"></i><p class="strong">'+ messageHeader +'</p><p>'+ messageText +'</p><a href="./" class="close">Close</a></li>';
+	var message = '<li class="overlay-'+ messageColor +' '+ messageOrigin +'"><i aria-hidden="true" class="icon-'+ messageType +'"></i><p class="strong">'+ messageHeader +'</p><p>'+ messageText +'</p><a href="/" class="close">Close</a></li>';
 	var list_alerts = document.querySelector('.l4al:not(.inline):not(.l4al-trustbadge)');
 
 	if (list_alerts === null) {

@@ -279,6 +279,7 @@
                   title-underline-secondary-font
                 {% endif %}
               {% endif %}
+              {% if block.settings.reduce_spacing %} reduce-spacing{% endif %}
             "
           >
             {%- if block.settings.text -%}{{ block.settings.text }}{%- endif -%}
@@ -457,6 +458,9 @@
     font-weight: 500;
     font-size: 24.5px;
     margin-bottom: 5px;
+  }
+  .l4ft li > .content.box.reduce-spacing {
+    --pt: 16px;
   }
 </style>
 
@@ -899,6 +903,12 @@
           ],
           "default": "primary plain",
           "visible_if": "{{ block.settings.show_link }}"
+        },
+        {
+          "type": "checkbox",
+          "id": "reduce_spacing",
+          "label": "Reduce space image and button",
+          "default": false
         },
         {
           "type": "header",

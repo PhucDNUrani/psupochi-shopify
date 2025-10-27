@@ -22,7 +22,7 @@
     {%- if section.settings.main_title != empty -%}
       {{ section.settings.main_title }}
     {%- endif -%}
-    <ul>
+    <ul class="{% if section.settings.wrap_image %} wrap-image{% endif %}">
       <li>
         {%- if section.settings.left_heading != empty -%}
           {{ section.settings.left_heading }}
@@ -143,6 +143,10 @@
       flex-wrap: wrap;
       margin: 0
     }
+    .split-content-image .split-detail ul.wrap-image {
+      flex-wrap: nowrap;
+      gap: 1.6rem;
+    }
     .split-content-image .split-detail ul li {
       width: calc((100% - 3.2rem) / 2);
       margin-right: 3.2rem;
@@ -179,6 +183,9 @@
       }
       .split-content-image .split-detail h4 {
         font-size: 106%;
+      }
+      .split-detail dl {
+        margin-bottom: 2.4rem;
       }
     }
     @media only screen and (max-width: 640px) {
@@ -407,6 +414,16 @@
       "unit": "px",
       "default": 1000,
       "visible_if": "{{ section.settings.custom_section_width }}"
+    },
+    {
+      "type": "header",
+      "content": "Disable flex wrap image on mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "wrap_image",
+      "label": "Wrap image",
+      "default": false
     }
   ],
   "blocks": [

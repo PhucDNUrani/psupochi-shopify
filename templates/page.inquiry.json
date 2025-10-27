@@ -62,7 +62,8 @@
             "placeholder_2": "名",
             "input_name_1": "name01",
             "input_name_2": "name02",
-            "required": true
+            "required": true,
+            "check_katakana": false
           }
         },
         "jp_name_NwmTT9": {
@@ -73,7 +74,8 @@
             "placeholder_2": "メイ",
             "input_name_1": "kana01",
             "input_name_2": "kana02",
-            "required": false
+            "required": true,
+            "check_katakana": true
           }
         },
         "jp_address_rVmfmC": {
@@ -108,7 +110,8 @@
             "title": "お問い合わせ内容",
             "placeholder": "",
             "textarea_id": "textarea",
-            "required": true
+            "required": true,
+            "notes": "ご注文に関するお問い合わせには、必ず「ご注文番号」をご記入くださいますようお願いいたします。"
           }
         }
       },

@@ -264,6 +264,8 @@
     border: 10px solid transparent;
     transition: all ease-in 0.3s;
     background-color: #fbf7f1;
+    border: 10px solid transparent;
+    text-decoration: none;
   }
 
   #shopify-section-{{ section.id }} .l4cl li a::after {
@@ -300,8 +302,27 @@
       #shopify-section-{{ section.id }} .l4cl { margin-bottom: {{ section.settings.spacing_mobile | minus: 8 }}px; }
     {% endif %}
   }
+  #collection-list.custom-collection {
+    margin-bottom: 0;
+  }
   .custom-collection h5 {
     text-align: center;
+  }
+  .custom-collection + .link-btn > a{
+    font-size: 120%;
+    --btn_pv: 10px;
+    --btn_ph: 40px;
+  }
+  [data-whatintent="mouse"] .l4cl.category.custom-collection:not(.s4wi, .dont-move) li:not(.dont-move):hover {
+    transform: none;
+    opacity: 0.5;
+  }
+  [data-whatintent="mouse"] .l4cl.category.custom-collection:not(.s4wi, .dont-move) li:not(.dont-move):hover > a {
+    border-color: #f4dd89 !important;
+  }
+  [data-whatintent="mouse"] .l4cl.custom-collection a:hover, [data-whatintent="mouse"] a.strong:hover,
+  [data-whatintent="mouse"] #root .l4cl.category.custom-collection a span:hover {
+    text-decoration: none !important;
   }
 </style>
 

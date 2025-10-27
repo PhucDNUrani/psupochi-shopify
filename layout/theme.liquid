@@ -80,6 +80,7 @@
       document.documentElement.classList.remove('no-js');
       document.documentElement.classList.add('js');
     </script>
+    <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8" defer></script>
     {% render 'social-meta-tags' %}
     {{ content_for_header }}
     {{ settings.custom_script_for_head }}
@@ -179,6 +180,14 @@
       		}
       	{% endif %}
       {% endfor %}
+      .foot-line {
+        display: block;
+        width: 200px;
+        position: fixed;
+        left: 10px;
+        bottom: 10px;
+        z-index: 20;
+      }
     {% endstyle %}
   </head>
   <body class="template-{{ template.name | handle }}">
@@ -224,5 +233,15 @@
     <script defer src="{{ 'custom.js' | asset_url }}"></script>
     {%- if request.design_mode -%}<script defer src="{{ 'backend-listeners.js' | asset_url }}"></script>{%- endif -%}
     {{ settings.custom_script_for_body }}
+    <div class="foot-line">
+      <a href="https://lin.ee/83ecgZF" target="_blank">
+        <img
+          src="{{ 'btn_line.png' | asset_url }}"
+          alt="LINEで友達になる"
+          width="200"
+          height="65"
+        >
+      </a>
+      </div>
   </body>
 </html>

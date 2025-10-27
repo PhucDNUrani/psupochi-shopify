@@ -52,7 +52,7 @@
           endif
         -%}
         {% if show %}
-          <details class="block-{{ block.id }} collapsible-row" {{ block.shopify_attributes }}>
+        <details class="block-{{ block.id }} collapsible-row {% if section.settings.reduce_spacing %}reduce-spacing{% endif %}" {{ block.shopify_attributes }}>
             <summary>
               {% if block.settings.created_date != empty %}
                 <span class="created-date">{{ block.settings.created_date }}</span>
@@ -235,7 +235,7 @@
       border: none;
     }
     .accordion-a.custom-faq details {
-      margin-bottom: 1.6rem;
+      /* margin-bottom: 1.6rem; */
       border-top: none;
       border-bottom: 1px solid #ccc;
     }
@@ -261,6 +261,14 @@
       top: 10px;
       padding: 1.6rem 0 3.2rem;
       margin-left: -25px;
+    }
+    .accordion-a.custom-faq details.reduce-spacing > div {
+      top: 0;
+      padding-top: 0;
+    }
+    .accordion-a.custom-faq details > div > a {
+      color: #0092C4;
+      text-decoration: none;
     }
     .accordion-a.custom-faq details[open] summary {
       color: #333;
@@ -432,6 +440,12 @@
       "label": "t:global.button.link_text.label",
       "default": "Button",
       "visible_if": "{{ section.settings.loadmore-faq }}"
+    },
+    {
+      "type": "checkbox",
+      "label": "Reduce spacing",
+      "id": "reduce_spacing",
+      "default": false
     }
   ],
   "blocks": [

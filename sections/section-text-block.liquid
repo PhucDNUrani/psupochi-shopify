@@ -10,7 +10,7 @@
       {% case block.type %}
         {% when 'payment_method' %}
           <div
-            class="payment-method-block"
+            class="payment-method-block {% if block.settings.spacing_image %}spacing-img{% endif %}"
             style="text-align: {{ block.settings.text_align }}; background-color: {{ block.settings.bg_color }}; font-weight: {% if block.settings.bold_text %}bold{% else %}normal{% endif %};"
           >
             <div class="payment-method-header">
@@ -61,7 +61,7 @@
           </div>
 
         {% when 'note' %}
-          <div class="note-block" style="text-align: {{ block.settings.text_align }};">
+          <div class="note-block {% if block.settings.enable_border %} enable-border{% endif %}" style="text-align: {{ block.settings.text_align }};">
             {{ block.settings.content }}
           </div>
       {% endcase %}
@@ -107,9 +107,12 @@
     font-weight: bold;
   }
   .payment-method-block img {
-    max-width: 100%;
+    max-width: 100% !important;
     /* width: 100%; */
-    height: auto;
+    height: auto !important;
+  }
+  .payment-method-block.spacing-img img {
+    margin: 30px 0;
   }
   .company-info-block {
     padding: 15px;
@@ -118,6 +121,18 @@
   }
   .note-block {
     /* margin-top: 10px; */
+  }
+  .content-section a {
+    color: #333333;
+    text-decoration: none;
+    transition: all ease-in 0.3s;
+  }
+  .content-section a:hover {
+    opacity: 0.5;
+  }
+  .note-block.enable-border {
+    padding-bottom: 30px;
+    border-bottom: 1px dotted #ccc;
   }
   @media only screen and (max-width: 767px) {
     .payment-methods-section {
@@ -223,6 +238,12 @@
           "id": "bold_text",
           "label": "Bold Text",
           "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "spacing_image",
+          "label": "Spacing Image",
+          "default": false
         }
       ]
     },
@@ -275,6 +296,12 @@
             { "value": "right", "label": "Right" }
           ],
           "default": "left"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_border",
+          "label": "Border bottom",
+          "default": false
         }
       ]
     }

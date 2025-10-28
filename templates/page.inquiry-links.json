@@ -51,28 +51,36 @@
           "type": "row",
           "settings": {
             "left_text": "・商品の遅延に関するお問い合わせ",
-            "right_text": "<p>注文した商品が届かない場合は<a href=\"https://media.ivry.jp/pesupochi-construction/inquiry/3/new/\" target=\"_blank\" title=\"https://media.ivry.jp/pesupochi-construction/inquiry/3/new/\">こちら</a></p>"
+            "right_text": "<p>注文した商品が届かない場合は<a href=\"https://media.ivry.jp/pesupochi-construction/inquiry/3/new/\" target=\"_blank\" title=\"https://media.ivry.jp/pesupochi-construction/inquiry/3/new/\">こちら</a></p>",
+            "red_link": false,
+            "no_underline": false
           }
         },
         "row_FTFMRp": {
           "type": "row",
           "settings": {
             "left_text": "・別商品到着のお問い合わせ",
-            "right_text": "<p>別の商品が届いてしまった場合<a href=\"https://media.ivry.jp/pesupochi-construction/inquiry/2/new/\" title=\"https://media.ivry.jp/pesupochi-construction/inquiry/2/new/\">こちら</a> </p>"
+            "right_text": "<p>別の商品が届いてしまった場合<a href=\"https://media.ivry.jp/pesupochi-construction/inquiry/2/new/\" target=\"_blank\" title=\"https://media.ivry.jp/pesupochi-construction/inquiry/2/new/\">こちら</a> </p>",
+            "red_link": false,
+            "no_underline": false
           }
         },
         "row_w9khDh": {
           "type": "row",
           "settings": {
             "left_text": "・返品に関するお問い合わせ",
-            "right_text": "<p>不用品の商品トラブルは<a href=\"https://media.ivry.jp/pesupochi-construction/inquiry/1/new/\" title=\"https://media.ivry.jp/pesupochi-construction/inquiry/1/new/\">こちら</a></p>"
+            "right_text": "<p>不用品の商品トラブルは<a href=\"https://media.ivry.jp/pesupochi-construction/inquiry/1/new/\" target=\"_blank\" title=\"https://media.ivry.jp/pesupochi-construction/inquiry/1/new/\">こちら</a></p>",
+            "red_link": false,
+            "no_underline": false
           }
         },
         "row_437dVr": {
           "type": "row",
           "settings": {
             "left_text": "・その他お問い合わせ",
-            "right_text": "<p>その他のお問い合わせは<a href=\"/pages/contact\" title=\"お問い合わせ\">こちら</a></p>"
+            "right_text": "<p>その他のお問い合わせは<a href=\"/pages/contact\" target=\"_blank\" title=\"お問い合わせ\">こちら</a></p>",
+            "red_link": false,
+            "no_underline": false
           }
         }
       },
@@ -84,7 +92,8 @@
       ],
       "name": "Trade Law",
       "settings": {
-        "check_page": "custom"
+        "check_page": "custom",
+        "blue_link": false
       }
     }
   },

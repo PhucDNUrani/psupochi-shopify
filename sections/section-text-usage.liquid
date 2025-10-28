@@ -104,6 +104,7 @@
 <style>
   #shopify-section-{{ section.id }} { position: relative; z-index: {{ section.settings.fix_zindex }}!important; }
   #shopify-section-{{ section.id }} .m6cu { margin-bottom: {{ section.settings.spacing_desktop }}px; }
+  .usage-content { margin-bottom: {{ section.settings.spacing_desktop }}px; }
   #shopify-section-{{ section.id }} .m6cu .countdown { --bg: {{ section.settings.countdown_bg_color }}; --fg: {{ section.settings.countdown_text_color }}; }
   @media only screen and (max-width: 47.5em) {
     #shopify-section-{{ section.id }} .m6cu { margin-bottom: {{ section.settings.spacing_mobile }}px; }
@@ -303,6 +304,30 @@
       "unit": "px",
       "default": 1000,
       "visible_if": "{{ section.settings.custom_section_width }}"
+    },
+    {
+      "type": "header",
+      "content": "t:global.spacing.header"
+    },
+    {
+      "id": "spacing_desktop",
+      "type": "range",
+      "label": "t:global.spacing.spacing_desktop.label",
+      "min": -250,
+      "max": 250,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "id": "spacing_mobile",
+      "type": "range",
+      "label": "t:global.spacing.spacing_mobile.label",
+      "min": -250,
+      "max": 250,
+      "step": 5,
+      "unit": "px",
+      "default": 30
     }
   ],
   "blocks": [

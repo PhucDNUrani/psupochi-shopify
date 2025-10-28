@@ -68,6 +68,13 @@
   height: auto !important;
 }
 
+{% if section.settings.enable_width %}
+  #shopify-section-{{ section.id }} {
+    max-width: {{ section.settings.section_width }}px;
+    margin: auto;
+  }
+{% endif %}
+
 </style>
 
 {% schema %}
@@ -234,6 +241,26 @@
       "max": 25,
       "step": 1,
       "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section width",
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_width",
+      "label": "Enable custom section width",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "Max width",
+      "min": 900,
+      "max": 1280,
+      "step": 10,
+      "default": 1000,
+      "visible_if": "{{ section.settings.enable_width }}"
     }
   ],
   "presets": [

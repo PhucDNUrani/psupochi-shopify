@@ -4,7 +4,7 @@
   </div>
   <div class="law-section {% if section.settings.check_page == 'custom' %}custom-section{% endif %}">
     {% for block in section.blocks %}
-      <div class="law-row" {{ block.shopify_attributes }}>
+      <div class="law-row {% if section.settings.blue_link %} blue-link{% endif %}" {{ block.shopify_attributes }}>
         <div class="left-content">
           <span>{{ block.settings.left_text | replace: '</p><span>', '<br>' | remove: '<p>' | remove: '</p>'}}</span>
         </div>
@@ -16,7 +16,7 @@
               | image_tag: loading: 'lazy', alt: block.settings.left_text
             }}
           {% endif %}
-          <span>{{ block.settings.right_text | replace: '</p><span>', '<br>' | remove: '<p>' | remove: '</p>'}}</span>
+          <span class="{% if block.settings.red_link %} red-link{% endif %} {% if block.settings.no_underline %}no-underline{% endif %}">{{ block.settings.right_text | replace: '</p><span>', '<br>' | remove: '<p>' | remove: '</p>'}}</span>
         </div>
       </div>
     {% endfor %}
@@ -36,7 +36,8 @@
     font-weight: bold;
   }
   .law-section {
-    max-width: 908px;
+    /* max-width: 908px; */
+    width: 83.3333%;
     margin: 0 auto;
     border-top: 1px dotted #ccc;
   }
@@ -50,7 +51,18 @@
   .law-row a {
     color: #333333;
   }
+  .law-row.blue-link a {
+    color: #0000FF;
+  }
+  .law-row .red-link a {
+    color: #FF0000;
+  }
+  .law-row .no-underline a {
+    text-decoration: none;
+    font-weight: bold;
+  }
   .left-content {
+    display: block;
     font-weight: bold;
     width: 30%;
     padding-top: 14px;
@@ -72,8 +84,15 @@
   .custom-section .left-content {
     padding-top: 0;
   }
+  .left-content span {
+    line-height: 1.4;
+  }
+
+  .right-content span {
+    line-height: 2;
+  }
   .custom-section .left-content span,
-  .custom-section .right-content span {
+  .custom-section span.right-content {
     line-height: 22px;
   }
   .custom-section .right-content {
@@ -94,6 +113,15 @@
     .left-content,
     .right-content {
       width: 100%;
+    }
+    .law-section {
+      width: 100%;
+    }
+    .left-content {
+      padding-top: 0;
+    }
+    .law-row {
+      padding-top: 10px;
     }
   }
   @media only screen and (max-width: 640px) {
@@ -119,6 +147,12 @@
         }
       ],
       "default": "default"
+    },
+    {
+      "type": "checkbox",
+      "id": "blue_link",
+      "label": "Blue link",
+      "default": false
     }
   ],
   "blocks": [
@@ -142,6 +176,18 @@
           "type": "image_picker",
           "id": "right_image",
           "label": "Right Image",
+        },
+        {
+          "type": "checkbox",
+          "label": "Red link",
+          "id": "red_link",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "label": "No underline",
+          "id": "no_underline",
+          "default": false
         }
       ]
     }

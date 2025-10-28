@@ -74,8 +74,8 @@
             "placeholder_2": "メイ",
             "input_name_1": "kana01",
             "input_name_2": "kana02",
-            "required": true,
-            "check_katakana": true
+            "required": false,
+            "check_katakana": false
           }
         },
         "jp_address_rVmfmC": {

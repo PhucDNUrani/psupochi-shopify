@@ -81,7 +81,7 @@
 {%- endif -%}
 
 {%- if show_header -%}
-  <header class="cols{% if link and section.settings.show_link == false %} align-middle{% endif %}{% if section.settings.title == empty %} text-end{% endif %}">
+  <header id="collection-header" class="cols{% if link and section.settings.show_link == false %} align-middle{% endif %}{% if section.settings.title == empty %} text-end{% endif %}">
     {%- if container_div -%}<div class="{{ title_classes }}">{%- endif -%}
     {%- if section.settings.title != blank -%}
       <div
@@ -323,6 +323,9 @@
   [data-whatintent="mouse"] .l4cl.custom-collection a:hover, [data-whatintent="mouse"] a.strong:hover,
   [data-whatintent="mouse"] #root .l4cl.category.custom-collection a span:hover {
     text-decoration: none !important;
+  }
+  .l4cl.category.custom-collection a > span {
+    font-size: 120%;
   }
 </style>
 

@@ -5,6 +5,7 @@
   class="
     image-with-text
     text-{{ section.settings.text_position }}
+    {% if section.settings.desc == blank %}no-desc{% endif %}
   "
 >
   <div
@@ -100,6 +101,9 @@
   }
   .image-with-text .desc span {
       color: #ff3129;
+  }
+  .image-with-text.no-desc figure {
+    margin-bottom: 0;
   }
   @media only screen and (max-width: 767px) {
     .image-with-text .header-group > h2 {

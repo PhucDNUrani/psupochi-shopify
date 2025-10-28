@@ -580,6 +580,22 @@
         "section_width": 920
       }
     },
+    "section_image_with_text_vertical_7TLarg": {
+      "type": "section-image-with-text-vertical",
+      "name": "Image with text vertical",
+      "settings": {
+        "image": "shopify://shop_images/general_img18.png",
+        "text_position": "text-start",
+        "title": "<h2>【ベクトロンSP】<br/>侵入経路付近の散布場所と施工方法</h2>",
+        "sub_title": "",
+        "first_para": "<p><strong>キッチン、洗面台の配管周り及び周辺・換気扇のカバー内部・ブレーカー周辺・ドアフォン周辺・エアコン室内機配管周辺・トイレの下水管、給水管周り・ダウンライトの周辺などに散布することで侵入経路に出入りするゴキブリが残留するベクトロンSPの成分に触れて、連鎖駆除を行うことができる。</strong></p>",
+        "desc": "",
+        "note": "",
+        "enable_border": false,
+        "custom_section_width": true,
+        "section_width": 920
+      }
+    },
     "section_feature_text_block_3kqQr8": {
       "type": "section-feature-text-block",
       "blocks": {
@@ -617,7 +633,7 @@
       "settings": {
         "text_position": "center",
         "heading": "<h2>チャバネゴキブリの散布箇所と施工方法</h2>",
-        "sub_heading": "チャバネゴキブリは、屋内生物で個人宅での発生原因は、主に3つのパターンにわかれます。※屋外からの侵入はほとんどないと考えてもよい。",
+        "sub_heading": "<h4>チャバネゴキブリは、屋内生物で個人宅での発生原因は、主に3つのパターンにわかれます。<br/>※屋外からの侵入はほとんどないと考えてもよい。</h4>",
         "layout_type": "methods-instruction",
         "custom_section_width": true,
         "section_width": 920
@@ -998,7 +1014,7 @@
       "settings": {
         "text_position": "center",
         "heading": "<h2>ベクトロンSPのここが凄い！</h2>",
-        "sub_heading": "3つの特徴",
+        "sub_heading": "<p>3つの特徴</p>",
         "layout_type": "product-feature",
         "custom_section_width": true,
         "section_width": 920
@@ -1118,6 +1134,7 @@
     "section_simple_text_UPE8LR",
     "section_image_with_text_vertical_CNmKHW",
     "section_image_with_text_vertical_KTrFr3",
+    "section_image_with_text_vertical_7TLarg",
     "section_feature_text_block_3kqQr8",
     "section_gallery_BatFX4",
     "section_image_with_text_vertical_hjHQXH",

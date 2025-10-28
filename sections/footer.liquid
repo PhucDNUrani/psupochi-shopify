@@ -358,7 +358,7 @@
         {%- endif -%}
       {%- when 'footer_images' -%}
         {%- if block.settings.footer_img != blank -%}
-          <div class="" {{ block.shopify_attributes }}>
+          <div class="image-wrap" {{ block.shopify_attributes }}>
             {%- assign default_alt = 'footer.footer_image_default_alt' | t %}
             {%- assign image = block.settings.footer_img -%}
             <figure>
@@ -692,7 +692,7 @@
     border-radius: 999px;
     position: absolute;
     left: 0;
-    top: 4px;
+    top: -1px;
     counter-increment: section;
     content: " " counter(section) " ";
     color: #fff;
@@ -786,7 +786,7 @@
     background-position: center;
     position: absolute;
     left: 0;
-    top: -1px;
+    top: 8px;
     width: 22px;
     height: 22px;
   }
@@ -820,6 +820,10 @@
   .shopify-section-footer.shopify-section-footer-custom > h2 .header-toggle {
     display: none;
   }
+  #shopify-section-footer.is-full-width figure > figcaption span:not(h3 > span) > p {
+    line-height: 1.5;
+    text-align: left;
+  }
   @media only screen and (max-width: 1200px) {
     #shopify-section-footer.is-full-width figure > figcaption h3 {
       font-size: 1.5vw;
@@ -835,6 +839,12 @@
     }
     #shopify-section-footer.is-full-width figure > figcaption h3 > span {
       padding-left: 2.5vw;
+    }
+    #shopify-section-footer.is-full-width figure > picture {
+      min-height: 7vw;
+    }
+    .is-full-width .image-wrap figure img {
+      width: 6vw;
     }
   }
   @media only screen and (max-width: 767px) {
@@ -918,12 +928,15 @@
       padding-left: 0;
     }
   }
+  @media only screen and (max-width: 1200px) {
+    #shopify-section-footer.is-full-width div {
+      padding: 2vw 1.6rem;
+    }
+  }
   @media only screen and (max-width: 760px) {
     #shopify-section-footer.is-full-width figure > figcaption span:not(h3 > span) > p {
       width: 100%;
-      text-align: center;
       font-size: 80%;
-      line-height: 1.5;
     }
     #root .shopify-section-footer > nav > *:before {
       border-bottom: none;

@@ -463,7 +463,7 @@
                     </picture>
                   </span>
                 {%- endif -%}
-                {{ sub.title }}
+                {{- sub.title -}}
               </a>
               {%- if sub.links != blank %}
                 <a href="{{ sub.url }}" class="toggle">{{ 'header.navigation.toggle_submenu' | t: item: sub.title }}</a>

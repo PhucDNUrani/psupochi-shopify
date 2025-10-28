@@ -233,7 +233,9 @@
         "title_underline_style": "none",
         "sub_title": "<h3>こんなゴキブリ・トコジラミ被害を簡単に解決!!</h3>",
         "custom_section_width": true,
-        "section_width": 920
+        "section_width": 920,
+        "spacing_desktop": 45,
+        "spacing_mobile": 30
       }
     },
     "section_rich_text_ggpUFy": {
@@ -274,7 +276,7 @@
         "content_width": 1280,
         "height": "size-s",
         "width": "wide",
-        "spacing_desktop": 50,
+        "spacing_desktop": 30,
         "spacing_mobile": 30,
         "fix_zindex": 0,
         "custom_section": true
@@ -329,7 +331,7 @@
           "type": "left_info",
           "settings": {
             "left_info_title": "今後の予防をしたい場合の推奨本数",
-            "left_info_desc": "<p><strong>約3ヶ月毎に0.66本　1年（4回）で2.64本 推定コスト　月/1,144円～　年間/13,728 円～※発生状況や環境に応じて推奨本数より多く 使用するケースもございます。</strong></p>"
+            "left_info_desc": "<p><strong>約3ヶ月毎に0.66本　1年（4回）で2.64本 推定コスト　月/1,144円～　年間/13,728 円～<br/>※発生状況や環境に応じて推奨本数より多く 使用するケースもございます。</strong></p>"
           }
         },
         "left_info_fL74F6": {
@@ -507,7 +509,7 @@
         "content_width": 1280,
         "height": "size-s",
         "width": "wide",
-        "spacing_desktop": 50,
+        "spacing_desktop": 30,
         "spacing_mobile": 30,
         "fix_zindex": 0,
         "custom_section": true
@@ -562,7 +564,7 @@
           "type": "left_info",
           "settings": {
             "left_info_title": "今後の予防をしたい場合の推奨本数",
-            "left_info_desc": "<p><strong>約3ヶ月毎に2本　1年（4回）で8本推定コスト　月/3,466円～年間/41,600円～</strong></p>"
+            "left_info_desc": "<p><strong>約3ヶ月毎に2本　1年（4回）で8本<br/>推定コスト　月/3,466円～<br/>年間/41,600円～</strong></p>"
           }
         },
         "left_info_TJ6XyJ": {
@@ -590,7 +592,7 @@
           "type": "right_info",
           "settings": {
             "right_info_title": "発生状況",
-            "right_info_desc": "<p><strong>1つの客室から血粉と1匹の個体を確認し、繁 殖する前にトコジラミ防除を行うことに。業 者の見積りは、1室全体と8階の廊下1フロア を提案され、費用は20万円と高額だったの で、ベクトロンSPの施行に切り替えることに 。ついでに厨房でチャバネゴキブリの発生があ ったのでそちらも同時に施行。</strong></p>"
+            "right_info_desc": "<p><strong>1つの客室から血粉と1匹の個体を確認し、繁 殖する前にトコジラミ防除を行うことに。業 者の見積りは、1室全体と8階の廊下1フロア を提案され、費用は20万円と高額だったの で、ベクトロンSPの施行に切り替えることに 。<br/>ついでに厨房でチャバネゴキブリの発生があ ったのでそちらも同時に施行。</strong></p>"
           }
         },
         "right_info_eQBLVh": {
@@ -625,7 +627,7 @@
           "type": "right_info",
           "settings": {
             "right_info_title": "業者に依頼との費用比較",
-            "right_info_desc": "<p><strong>このケースは、業者お見積りが20万円でし たのでこちらと比較しますと、トコジラミ （3本使用）だけで約1/12（92％削減）の 費用でほとんど同等の施行ができております 。厨房のチャバネゴキブリ駆除は、同一成分の ベクトロンFLで施行を依頼した場合は、15坪 ／1回の施行で相場が約45,000円なので、1 本の使用と比較すると、1/8（88％削減）に 削減されます。</strong></p>"
+            "right_info_desc": "<p><strong>このケースは、業者お見積りが20万円でし たのでこちらと比較しますと、トコジラミ （3本使用）だけで約1/12（92％削減）の 費用でほとんど同等の施行ができております 。<br/><br/>厨房のチャバネゴキブリ駆除は、同一成分の ベクトロンFLで施行を依頼した場合は、15坪 ／1回の施行で相場が約45,000円なので、1 本の使用と比較すると、1/8（88％削減）に 削減されます。</strong></p>"
           }
         }
       },
@@ -749,7 +751,7 @@
         "content_width": 1280,
         "height": "size-s",
         "width": "wide",
-        "spacing_desktop": 50,
+        "spacing_desktop": 30,
         "spacing_mobile": 30,
         "fix_zindex": 0,
         "custom_section": true
@@ -795,7 +797,7 @@
       "settings": {
         "text_position": "center",
         "heading": "<h2>ベクトロンSPのここが凄い！</h2>",
-        "sub_heading": "3つの特徴",
+        "sub_heading": "<p>3つの特徴</p>",
         "layout_type": "product-feature",
         "custom_section_width": true,
         "section_width": 920

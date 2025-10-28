@@ -71,12 +71,22 @@
     .feature-text-block {
       line-height: 1.5;
     }
+    .header-wrap {
+      margin-bottom: 6.4rem;
+    }
     .header-wrap > h2,
     .header-wrap > span {
       display: block;
       font-size: 200%;
       margin-bottom: 0;
       font-weight: bold;
+    }
+    .header-wrap > h4 {
+      font-size: 120%;
+      font-weight: bold;
+      text-align: left;
+      margin-top: 3.2rem;
+      margin-bottom: 0;
     }
     .header-wrap > span {
       color: #fdb912;
@@ -206,10 +216,9 @@
       "default": "<h2>Header</h2>"
     },
     {
-      "type": "text",
+      "type": "richtext",
       "id": "sub_heading",
-      "label": "Sub heading",
-      "default": "Sub heading"
+      "label": "Sub heading"
     },
     {
       "type": "header",
